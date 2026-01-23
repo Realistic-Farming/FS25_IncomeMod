@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modDesc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         descVersion="104"
+         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/NMC-TBone/xml-schema/main/modDesc.xsd">
+
+    <author>Original: TisonK | Converted from FS22_IncomeMod</author>
+    <version>1.0.1.0</version>
+
+    <title>
+        <en>Income Mod</en>
+        <de>Einkommens-Mod</de>
+        <fr>Mod De Revenu</fr>
+        <es>Mod De Ingresos</es>
+        <it>Mod Di Reddito</it>
+        <pl>Mod Dochodu</pl>
+    </title>
+
+    <description>
+        <en><![CDATA[
+Receive income every in-game hour or day.
+Choose from difficulty presets or set your own custom amount.
+Fully configurable via console commands, with optional notifications.
+Works in singleplayer and multiplayer.
+
+Features:
+- Hourly or daily income payments
+- Three difficulty presets: Easy ($5,000), Normal ($2,400), Hard ($1,100)
+- Custom amount option
+- Configurable notifications
+- Settings menu integration
+- Console command support
+        ]]></en>
+
+        <de><![CDATA[
+Erhalte stündlich oder täglich Einkommen.
+Wähle Schwierigkeitsstufen oder eigene Beträge.
+Vollständig über Konsolenbefehle konfigurierbar.
+Funktioniert im Einzel- und Mehrspielermodus.
+
+Funktionen:
+- Stündliche oder tägliche Einkommenszahlungen
+- Drei Schwierigkeitsstufen: Einfach (5.000$), Normal (2.400$), Schwer (1.100$)
+- Eigene Betragsoption
+- Konfigurierbare Benachrichtigungen
+- Einstellungsmenü-Integration
+- Konsolenbefehl-Unterstützung
+        ]]></de>
+
+        <fr><![CDATA[
+Recevez un revenu toutes les heures ou tous les jours.
+Choisissez une difficulté ou définissez un montant personnalisé.
+Entièrement configurable via des commandes console.
+Fonctionne en solo et en multijoueur.
+
+Fonctionnalités :
+- Paiements de revenu horaires ou quotidiens
+- Trois niveaux de difficulté : Facile (5 000$), Normal (2 400$), Difficile (1 100$)
+- Option de montant personnalisé
+- Notifications configurables
+- Intégration au menu des paramètres
+- Support des commandes console
+        ]]></fr>
+
+        <es><![CDATA[
+Recibe ingresos cada hora o día del juego.
+Elige una dificultad o establece una cantidad personalizada.
+Totalmente configurable mediante comandos de consola.
+Funciona en modo individual y multijugador.
+
+Características:
+- Pagos de ingresos por hora o diarios
+- Tres niveles de dificultad: Fácil (5.000$), Normal (2.400$), Difficil (1.100$)
+- Opción de cantidad personalizada
+- Notificaciones configurables
+- Integración en el menú de ajustes
+- Soporte de comandos de consola
+        ]]></es>
+
+        <it><![CDATA[
+Ricevi un reddito ogni ora o giorno di gioco.
+Scegli una difficoltà o imposta un importo personalizzato.
+Completamente configurabile tramite comandi console.
+Funziona in singleplayer e multiplayer.
+
+Caratteristiche:
+- Pagamenti di reddito orari o giornalieri
+- Tre livelli di difficoltà: Facile (5.000$), Normale (2.400$), Difficile (1.100$)
+- Opzione importo personalizzato
+- Notifiche configurabili
+- Integrazione menu impostazioni
+- Supporto comandi console
+        ]]></it>
+
+        <pl><![CDATA[
+Otrzymuj dochód co godzinę lub dzień w grze.
+Wybierz poziom trudności lub ustaw własną kwotę.
+W pełni konfigurowalne za pomocą komend konsoli.
+Działa w trybie jedno- i wieloosobowym.
+
+Funkcje:
+- Godzinowe lub dzienne wypłaty dochodu
+- Trzy poziomy trudności: Łatwy (5.000$), Normalny (2.400$), Trudny (1.100$)
+- Opcja własnej kwoty
+- Konfigurowalne powiadomienia
+- Integracja z menu ustawień
+- Obsługa komend konsolowych
+        ]]></pl>
+    </description>
+
+    <category>gameplay</category>
+
+    <iconFilename>icon_incomeMod.dds</iconFilename>
+
+    <multiplayer supported="true"/>
+
+    <extraSourceFiles>
+        <sourceFile filename="src/utils/UIHelper.lua"/>
+        <sourceFile filename="src/settings/IncomeSettings.lua"/>
+        <sourceFile filename="src/settings/IncomeSettingsUI.lua"/>
+        <sourceFile filename="src/Income.lua"/>
+    </extraSourceFiles>
+
+    <l10n>
+    <text name="FS25_IncomeMod">
+        <!-- English -->
+        <en>
+            <text name="INCOME_MOD_SETTINGS" text="Income Mod Settings" />
+            <text name="INCOME_MOD_DESCRIPTION" text="Configure your income settings" />
+            <text name="income_enabled" text="Enable Income Mod" />
+            <text name="income_enabled_short" text="Enabled" />
+            <text name="income_mode" text="Payment Mode" />
+            <text name="income_mode_short" text="Mode" />
+            <text name="income_mode_hourly" text="Hourly" />
+            <text name="income_mode_daily" text="Daily" />
+            <text name="income_difficulty" text="Difficulty Preset" />
+            <text name="income_difficulty_short" text="Difficulty" />
+            <text name="income_difficulty_easy" text="Easy ($5,000)" />
+            <text name="income_difficulty_normal" text="Normal ($2,400)" />
+            <text name="income_difficulty_hard" text="Hard ($1,100)" />
+            <text name="income_notifications" text="Show Notifications" />
+            <text name="income_notifications_short" text="Notifications" />
+        </en>
+    </text>
+</l10n>
+
+</modDesc>
