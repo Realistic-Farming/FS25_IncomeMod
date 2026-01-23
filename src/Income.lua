@@ -67,7 +67,6 @@ function getDynamicIncome()
         return FS25IncomeMod.settings:getIncomeAmount()
     end
     
-    -- Fallback for backward compatibility
     return DIFFICULTY_VALUES.normal or 2400
 end
 
