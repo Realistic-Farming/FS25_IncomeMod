@@ -69,11 +69,7 @@ function IncomeManager:onMissionLoaded()
     -- IncomeSystem:showNotification which guards getIsClient internally)
     if self.settings.enabled and self.settings.showNotifications then
         if g_currentMission and g_currentMission:getIsClient() then
-            if g_currentMission.hud and g_currentMission.hud.showBlinkingWarning then
-                g_currentMission.hud:showBlinkingWarning(
-                    "Income Mod Active - Type 'income' for commands", 4000
-                )
-            end
+            g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_OK, "Income Mod Active - Type 'income' for commands")
         end
     end
 end

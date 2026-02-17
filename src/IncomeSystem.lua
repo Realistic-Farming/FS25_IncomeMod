@@ -75,9 +75,7 @@ function IncomeSystem:showNotification(message)
     if not g_currentMission or not g_currentMission:getIsClient() then
         return
     end
-    if g_currentMission.hud and g_currentMission.hud.showBlinkingWarning then
-        g_currentMission.hud:showBlinkingWarning(message, 4000)
-    end
+    g_currentMission:addIngameNotification(FSBaseMission.INGAME_NOTIFICATION_OK, message)
 end
 
 -- =========================================================
