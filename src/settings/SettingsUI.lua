@@ -1,7 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 1.1.0.0)
--- =========================================================
--- Hourly or daily income for players
+-- FS25 Income Mod (version 2.0.0.0)
 -- =========================================================
 -- Author: TisonK
 -- =========================================================
@@ -10,6 +8,7 @@
 -- or claiming this code as your own is strictly prohibited.
 -- Original author: TisonK
 -- =========================================================
+
 ---@class SettingsUI
 SettingsUI = {}
 local SettingsUI_mt = Class(SettingsUI)
@@ -21,178 +20,180 @@ function SettingsUI.new(settings)
     return self
 end
 
+-- =========================================================
+-- Inject into In-Game Settings
+-- =========================================================
+
 function SettingsUI:inject()
-    if self.injected then 
-        return 
+    if self.injected then
+        return
     end
-    
+
     local page = g_gui.screenControllers[InGameMenu].pageSettings
     if not page then
         Logging.error("im: Settings page not found - cannot inject settings!")
-        return 
+        return
     end
-    
+
     local layout = page.generalSettingsLayout
     if not layout then
         Logging.error("im: Settings layout not found!")
-        return 
+        return
     end
-    
+
+    -- Section header
     local section = UIHelper.createSection(layout, "im_section")
     if not section then
         Logging.error("im: Failed to create settings section!")
         return
     end
-    
+
+    -- Enable toggle
     local enabledOpt = UIHelper.createBinaryOption(
-        layout,
-        "im_enabled",
-        "im_enabled",
+        layout, "im_enabled", "im_enabled",
         self.settings.enabled,
         function(val)
             self.settings.enabled = val
             self.settings:save()
-            print("Income Mod: " .. (val and "Enabled" or "Disabled"))
         end
     )
-    
+
+    -- Debug toggle
     local debugOpt = UIHelper.createBinaryOption(
-        layout,
-        "im_debug",
-        "im_debug",
+        layout, "im_debug", "im_debug",
         self.settings.debugMode,
         function(val)
             self.settings.debugMode = val
             self.settings:save()
-            print("Income Mod: Debug mode " .. (val and "enabled" or "disabled"))
-            -- Force update the UI state
-            if self.debugOption and self.debugOption.setState then
-                self.debugOption:setState(val and 2 or 1)
-            end
         end
     )
-    
-    local payModeOptions = {
-        getTextSafe("im_paymode_1"),
-        getTextSafe("im_paymode_2")
-    }
-    
+
+    -- Pay Mode: Hourly / Daily
     local payModeOpt = UIHelper.createMultiOption(
-        layout,
-        "im_paymode",
-        "im_paymode",
-        payModeOptions,
+        layout, "im_paymode", "im_paymode",
+        { UIHelper.getText("im_paymode_1"), UIHelper.getText("im_paymode_2") },
         self.settings.payMode,
         function(val)
             self.settings.payMode = val
             self.settings:save()
-            local modeName = val == 1 and "Hourly" or "Daily"
-            print("Income Mod: Pay mode set to " .. modeName)
         end
     )
-    
-    local diffOptions = {
-        getTextSafe("im_diff_1"),
-        getTextSafe("im_diff_2"),
-        getTextSafe("im_diff_3")
-    }
-    
+
+    -- Difficulty: Easy / Normal / Hard
     local diffOpt = UIHelper.createMultiOption(
-        layout,
-        "im_diff",
-        "im_difficulty",
-        diffOptions,
+        layout, "im_diff", "im_difficulty",
+        {
+            UIHelper.getText("im_diff_1"),
+            UIHelper.getText("im_diff_2"),
+            UIHelper.getText("im_diff_3"),
+        },
         self.settings.difficulty,
         function(val)
             self.settings.difficulty = val
             self.settings:save()
-            print("Income Mod: Difficulty set to " .. self.settings:getDifficultyName())
         end
     )
-    
+
+    -- Income Multiplier: 1x / 2x / 5x / 10x
+    local multOpt = UIHelper.createMultiOption(
+        layout, "im_multiplier", "im_multiplier",
+        {
+            UIHelper.getText("im_mult_1"),
+            UIHelper.getText("im_mult_2"),
+            UIHelper.getText("im_mult_3"),
+            UIHelper.getText("im_mult_4"),
+        },
+        self.settings.incomeMultiplier,
+        function(val)
+            self.settings.incomeMultiplier = val
+            self.settings:save()
+        end
+    )
+
+    -- Notifications toggle
     local notificationsOpt = UIHelper.createBinaryOption(
-        layout,
-        "im_notifications",
-        "im_notifications",
+        layout, "im_notifications", "im_notifications",
         self.settings.showNotifications,
         function(val)
             self.settings.showNotifications = val
             self.settings:save()
-            print("Income Mod: Notifications " .. (val and "enabled" or "disabled"))
-            -- Force update the UI state
-            if self.notificationsOption and self.notificationsOption.setState then
-                self.notificationsOption:setState(val and 2 or 1)
-            end
         end
     )
-    
-    self.enabledOption = enabledOpt
-    self.debugOption = debugOpt
-    self.payModeOption = payModeOpt
-    self.difficultyOption = diffOpt
+
+    -- Seasonal Effects toggle
+    local seasonalOpt = UIHelper.createBinaryOption(
+        layout, "im_seasonal", "im_seasonal",
+        self.settings.seasonalEffects,
+        function(val)
+            self.settings.seasonalEffects = val
+            self.settings:save()
+        end
+    )
+
+    self.enabledOption       = enabledOpt
+    self.debugOption         = debugOpt
+    self.payModeOption       = payModeOpt
+    self.difficultyOption    = diffOpt
+    self.multiplierOption    = multOpt
     self.notificationsOption = notificationsOpt
-    
+    self.seasonalOption      = seasonalOpt
+
     self.injected = true
     layout:invalidateLayout()
-    
-    print("Income Mod: Settings UI injected successfully")
+
+    Logging.info("Income Mod: Settings UI injected successfully")
 end
 
-
-function getTextSafe(key)
-    local text = g_i18n:getText(key)
-    if text == nil or text == "" then
-        return key
-    end
-    return text
-end
+-- =========================================================
+-- Refresh (called after reset or external settings change)
+-- =========================================================
 
 function SettingsUI:refreshUI()
     if not self.injected then
         return
     end
-    
-    if self.enabledOption and self.enabledOption.setIsChecked then
-        self.enabledOption:setIsChecked(self.settings.enabled)
-    elseif self.enabledOption and self.enabledOption.setState then
-        self.enabledOption:setState(self.settings.enabled and 2 or 1)
+
+    local function setCheck(opt, val)
+        if opt then
+            if opt.setIsChecked then
+                opt:setIsChecked(val)
+            elseif opt.setState then
+                opt:setState(val and 2 or 1)
+            end
+        end
     end
-    
-    if self.debugOption and self.debugOption.setIsChecked then
-        self.debugOption:setIsChecked(self.settings.debugMode)
-    elseif self.debugOption and self.debugOption.setState then
-        self.debugOption:setState(self.settings.debugMode and 2 or 1)
+
+    local function setMulti(opt, val)
+        if opt and opt.setState then
+            opt:setState(val)
+        end
     end
-    
-    if self.payModeOption and self.payModeOption.setState then
-        self.payModeOption:setState(self.settings.payMode)
-    end
-    
-    if self.difficultyOption and self.difficultyOption.setState then
-        self.difficultyOption:setState(self.settings.difficulty)
-    end
-    
-    if self.notificationsOption and self.notificationsOption.setIsChecked then
-        self.notificationsOption:setIsChecked(self.settings.showNotifications)
-    elseif self.notificationsOption and self.notificationsOption.setState then
-        self.notificationsOption:setState(self.settings.showNotifications and 2 or 1)
-    end
-    
-    print("Income Mod: UI refreshed")
+
+    setCheck(self.enabledOption,       self.settings.enabled)
+    setCheck(self.debugOption,         self.settings.debugMode)
+    setMulti(self.payModeOption,       self.settings.payMode)
+    setMulti(self.difficultyOption,    self.settings.difficulty)
+    setMulti(self.multiplierOption,    self.settings.incomeMultiplier)
+    setCheck(self.notificationsOption, self.settings.showNotifications)
+    setCheck(self.seasonalOption,      self.settings.seasonalEffects)
+
+    Logging.info("Income Mod: UI refreshed")
 end
+
+-- =========================================================
+-- Reset Button in Footer (X key)
+-- =========================================================
 
 function SettingsUI:ensureResetButton(settingsFrame)
     if not settingsFrame or not settingsFrame.menuButtonInfo then
-        print("im: ensureResetButton - settingsFrame invalid")
         return
     end
-    
+
     if not self._resetButton then
         self._resetButton = {
-            inputAction = InputAction.MENU_EXTRA_1, -- X
-            text = g_i18n:getText("im_reset") or "Reset Settings",
-            callback = function()
-                print("im: Reset button clicked!")
+            inputAction   = InputAction.MENU_EXTRA_1,
+            text          = g_i18n:getText("im_reset") or "Reset Settings",
+            callback      = function()
                 if g_IncomeManager and g_IncomeManager.settings then
                     g_IncomeManager.settings:resetToDefaults()
                     if g_IncomeManager.settingsUI then
@@ -200,18 +201,16 @@ function SettingsUI:ensureResetButton(settingsFrame)
                     end
                 end
             end,
-            showWhenPaused = true
+            showWhenPaused = true,
         }
     end
-    
+
     for _, btn in ipairs(settingsFrame.menuButtonInfo) do
         if btn == self._resetButton then
-            print("im: Reset button already in menuButtonInfo")
             return
         end
     end
-    
+
     table.insert(settingsFrame.menuButtonInfo, self._resetButton)
     settingsFrame:setMenuButtonInfoDirty()
-    print("im: Reset button added to footer! (X key)")
 end

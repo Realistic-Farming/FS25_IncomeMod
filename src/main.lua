@@ -1,7 +1,8 @@
 -- =========================================================
--- FS25 Income Mod (version 1.1.0.0)
+-- FS25 Income Mod (version 2.0.0.0)
 -- =========================================================
--- Hourly or daily income for players
+-- Passive hourly/daily income with difficulty tiers,
+-- seasonal modifiers, multiplier, and per-farm MP support.
 -- =========================================================
 -- Author: TisonK
 -- =========================================================
@@ -10,42 +11,38 @@
 -- or claiming this code as your own is strictly prohibited.
 -- Original author: TisonK
 -- =========================================================
-local modDirectory = g_currentModDirectory
-local modName = g_currentModName
 
+local modDirectory = g_currentModDirectory
+local modName      = g_currentModName
+
+-- Load order matters: Settings before UI, UI before Core
 source(modDirectory .. "src/settings/SettingsManager.lua")
 source(modDirectory .. "src/settings/Settings.lua")
-source(modDirectory .. "src/settings/SettingsGUI.lua") 
+source(modDirectory .. "src/settings/SettingsGUI.lua")
 source(modDirectory .. "src/utils/UIHelper.lua")
 source(modDirectory .. "src/settings/SettingsUI.lua")
 source(modDirectory .. "src/IncomeSystem.lua")
 source(modDirectory .. "src/IncomeManager.lua")
 
-local im
+local im  -- local handle, also exposed as g_IncomeManager
 
-local function isEnabled()
-    return im ~= nil
-end
-
-local function loadedMission(mission, node)
-    if not isEnabled() then
-        return
-    end
-    
-    if mission.cancelLoading then
-        return
-    end
-    
-    im:onMissionLoaded()
-end
+-- =========================================================
+-- Lifecycle
+-- =========================================================
 
 local function load(mission)
     if im == nil then
-        print("Income Mod: Initializing...")
+        Logging.info("Income Mod v2.0.0.0: Initializing...")
         im = IncomeManager.new(mission, modDirectory, modName)
         getfenv(0)["g_IncomeManager"] = im
-        print("Income Mod: Initialized successfully")
+        Logging.info("Income Mod v2.0.0.0: Initialized successfully")
     end
+end
+
+local function loadedMission(mission, node)
+    if im == nil then return end
+    if mission.cancelLoading then return end
+    im:onMissionLoaded()
 end
 
 local function unload()
@@ -56,75 +53,86 @@ local function unload()
     end
 end
 
-Mission00.load = Utils.prependedFunction(Mission00.load, load)
+Mission00.load              = Utils.prependedFunction(Mission00.load, load)
 Mission00.loadMission00Finished = Utils.appendedFunction(Mission00.loadMission00Finished, loadedMission)
-FSBaseMission.delete = Utils.appendedFunction(FSBaseMission.delete, unload)
+FSBaseMission.delete        = Utils.appendedFunction(FSBaseMission.delete, unload)
 
+-- Per-frame update
 FSBaseMission.update = Utils.appendedFunction(FSBaseMission.update, function(mission, dt)
     if im then
         im:update(dt)
     end
 end)
 
-function income()
-    if g_IncomeManager and g_IncomeManager.settingsGUI then
-        return g_IncomeManager.settingsGUI:consoleCommandHelp()
-    else
-        print("=== Income Mod Commands ===")
-        print("Type these commands in console (~):")
-        print("IncomeShowSettings - Show current settings")
-        print("IncomeEnable/Disable - Enable/disable mod")
-        print("IncomeSetDifficulty 1|2|3 - Set difficulty")
-        print("IncomeSetPayMode 1|2 - Set pay mode")
-        print("IncomeSetNotifications true|false - Toggle notifications")
-        print("IncomeTestPayment - Test payment")
-        print("IncomeResetSettings - Reset to defaults")
-        print("============================")
-        return "Income Mod commands listed above"
+-- Auto-save timer state on every game save (prevents missed/double payments on reload)
+Mission00.saveToXMLFile = Utils.appendedFunction(Mission00.saveToXMLFile, function(mission, xmlFilename)
+    if im then
+        im:save()
     end
+end)
+
+-- =========================================================
+-- Console Helper Functions
+-- =========================================================
+
+local function getGUI()
+    return g_IncomeManager and g_IncomeManager.settingsGUI
+end
+
+local function getSettings()
+    return g_IncomeManager and g_IncomeManager.settings
+end
+
+function income()
+    local gui = getGUI()
+    if gui then
+        return gui:consoleCommandHelp()
+    end
+    print("=== Income Mod v2.0 Commands ===")
+    print("Type 'income' for full command list after the mod loads.")
+    return "Income Mod commands"
 end
 
 function incomeStatus()
-    if g_IncomeManager and g_IncomeManager.settings then
-        local settings = g_IncomeManager.settings
+    local s = getSettings()
+    if s then
         print(string.format(
-            "Enabled: %s\nMode: %s\nDifficulty: %s\nAmount: $%d\nNotifications: %s",
-            tostring(settings.enabled),
-            settings:getPayModeName(),
-            settings:getDifficultyName(),
-            settings:getPaymentAmount(),
-            tostring(settings.showNotifications)
+            "Enabled: %s | Mode: %s | Difficulty: %s | Amount: $%d | Notifications: %s",
+            tostring(s.enabled),
+            s:getPayModeName(),
+            s:getDifficultyName(),
+            s:getPaymentAmount(),
+            tostring(s.showNotifications)
         ))
     else
         print("Income Mod not initialized")
     end
 end
 
-getfenv(0)["income"] = income
-getfenv(0)["incomeStatus"] = incomeStatus
-getfenv(0)["incomeEnable"] = function() 
-    if g_IncomeManager and g_IncomeManager.settingsGUI then
-        return g_IncomeManager.settingsGUI:consoleCommandIncomeEnable()
-    end
-    return "Income Mod not initialized"
+getfenv(0)["income"]        = income
+getfenv(0)["incomeStatus"]  = incomeStatus
+
+getfenv(0)["incomeEnable"]  = function()
+    local gui = getGUI()
+    return gui and gui:consoleCommandIncomeEnable() or "Income Mod not initialized"
 end
 
-getfenv(0)["incomeDisable"] = function() 
-    if g_IncomeManager and g_IncomeManager.settingsGUI then
-        return g_IncomeManager.settingsGUI:consoleCommandIncomeDisable()
-    end
-    return "Income Mod not initialized"
+getfenv(0)["incomeDisable"] = function()
+    local gui = getGUI()
+    return gui and gui:consoleCommandIncomeDisable() or "Income Mod not initialized"
 end
 
-getfenv(0)["incomeTest"] = function() 
-    if g_IncomeManager and g_IncomeManager.settingsGUI then
-        return g_IncomeManager.settingsGUI:consoleCommandTestPayment()
-    end
-    return "Income Mod not initialized"
+getfenv(0)["incomeTest"]    = function()
+    local gui = getGUI()
+    return gui and gui:consoleCommandTestPayment() or "Income Mod not initialized"
 end
 
-print("========================================")
-print("     FS25 Income Mod v1.1.0.0 LOADED    ")
-print("     Integrated into settings system    ")
-print("     Type 'income' in console for help  ")
-print("========================================")
+-- =========================================================
+-- Load Banner
+-- =========================================================
+
+print("============================================")
+print("    FS25 Income Mod v2.0.0.0 LOADED        ")
+print("    Hourly/Daily income | Seasonal mods    ")
+print("    Per-farm MP support | Type 'income'    ")
+print("============================================")
