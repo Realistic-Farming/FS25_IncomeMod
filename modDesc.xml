@@ -1,146 +1,400 @@
-<?xml version="1.0" encoding="utf-8"?>
-<modDesc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         descVersion="104"
-         xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/NMC-TBone/xml-schema/main/modDesc.xsd">
-
-    <author>Original: TisonK | Converted from FS22_IncomeMod</author>
-    <version>1.0.1.0</version>
-
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="92">
+    <author>TisonK</author>
+    <version>2.0.0.0</version>
+    <modName>FS25_IncomeMod</modName>
     <title>
         <en>Income Mod</en>
-        <de>Einkommens-Mod</de>
-        <fr>Mod De Revenu</fr>
-        <es>Mod De Ingresos</es>
-        <it>Mod Di Reddito</it>
-        <pl>Mod Dochodu</pl>
+        <de>Realistisches Ernten</de>
+        <fr>Récolte Réaliste</fr>
+        <pl>Realistyczne Żniwa</pl>
+        <es>Cosecha Realista</es>
+        <it>Raccolta Realistica</it>
+        <cz>Realistická Sklizeň</cz>
+        <br>Colheita Realista</br>
+        <uk>Реалістичний збір врожаю</uk>
+        <ru>Реалистичный сбор урожая</ru>
     </title>
-
     <description>
-        <en><![CDATA[
-Receive income every in-game hour or day.
-Choose from difficulty presets or set your own custom amount.
-Fully configurable via console commands, with optional notifications.
-Works in singleplayer and multiplayer.
-
-Features:
-- Hourly or daily income payments
-- Three difficulty presets: Easy ($5,000), Normal ($2,400), Hard ($1,100)
-- Custom amount option
-- Configurable notifications
-- Settings menu integration
-- Console command support
-        ]]></en>
-
-        <de><![CDATA[
-Erhalte stündlich oder täglich Einkommen.
-Wähle Schwierigkeitsstufen oder eigene Beträge.
-Vollständig über Konsolenbefehle konfigurierbar.
-Funktioniert im Einzel- und Mehrspielermodus.
-
-Funktionen:
-- Stündliche oder tägliche Einkommenszahlungen
-- Drei Schwierigkeitsstufen: Einfach (5.000$), Normal (2.400$), Schwer (1.100$)
-- Eigene Betragsoption
-- Konfigurierbare Benachrichtigungen
-- Einstellungsmenü-Integration
-- Konsolenbefehl-Unterstützung
-        ]]></de>
-
-        <fr><![CDATA[
-Recevez un revenu toutes les heures ou tous les jours.
-Choisissez une difficulté ou définissez un montant personnalisé.
-Entièrement configurable via des commandes console.
-Fonctionne en solo et en multijoueur.
-
-Fonctionnalités :
-- Paiements de revenu horaires ou quotidiens
-- Trois niveaux de difficulté : Facile (5 000$), Normal (2 400$), Difficile (1 100$)
-- Option de montant personnalisé
-- Notifications configurables
-- Intégration au menu des paramètres
-- Support des commandes console
-        ]]></fr>
-
-        <es><![CDATA[
-Recibe ingresos cada hora o día del juego.
-Elige una dificultad o establece una cantidad personalizada.
-Totalmente configurable mediante comandos de consola.
-Funciona en modo individual y multijugador.
-
-Características:
-- Pagos de ingresos por hora o diarios
-- Tres niveles de dificultad: Fácil (5.000$), Normal (2.400$), Difficil (1.100$)
-- Opción de cantidad personalizada
-- Notificaciones configurables
-- Integración en el menú de ajustes
-- Soporte de comandos de consola
-        ]]></es>
-
-        <it><![CDATA[
-Ricevi un reddito ogni ora o giorno di gioco.
-Scegli una difficoltà o imposta un importo personalizzato.
-Completamente configurabile tramite comandi console.
-Funziona in singleplayer e multiplayer.
-
-Caratteristiche:
-- Pagamenti di reddito orari o giornalieri
-- Tre livelli di difficoltà: Facile (5.000$), Normale (2.400$), Difficile (1.100$)
-- Opzione importo personalizzato
-- Notifiche configurabili
-- Integrazione menu impostazioni
-- Supporto comandi console
-        ]]></it>
-
-        <pl><![CDATA[
-Otrzymuj dochód co godzinę lub dzień w grze.
-Wybierz poziom trudności lub ustaw własną kwotę.
-W pełni konfigurowalne za pomocą komend konsoli.
-Działa w trybie jedno- i wieloosobowym.
-
-Funkcje:
-- Godzinowe lub dzienne wypłaty dochodu
-- Trzy poziomy trudności: Łatwy (5.000$), Normalny (2.400$), Trudny (1.100$)
-- Opcja własnej kwoty
-- Konfigurowalne powiadomienia
-- Integracja z menu ustawień
-- Obsługa komend konsolowych
-        ]]></pl>
+        <en>Adds hourly/daily income system with difficulty tiers, seasonal modifiers, and multiplayer per-farm support.</en>
+        <de>Fügt ein stündliches/tägliches Einkommenssystem mit Schwierigkeitsstufen, saisonalen Modifikatoren und Mehrspielersupport hinzu.</de>
+        <fr>Ajoute un système de revenus horaires/quotidiens avec niveaux de difficulté, modificateurs saisonniers et support multijoueur.</fr>
+        <pl>Dodaje system dochodów godzinowych/dziennych z poziomami trudności, modyfikatorami sezonowymi i wsparciem wieloosobowym.</pl>
+        <es>Añade sistema de ingresos horarios/diarios con niveles de dificultad, modificadores estacionales y soporte multijugador.</es>
+        <it>Aggiunge un sistema di reddito orario/giornaliero con livelli di difficoltà, modificatori stagionali e supporto multigiocatore.</it>
+        <cz>Přidává hodinový/denní příjmový systém s obtížností, sezónními modifikátory a podporou více hráčů.</cz>
+        <br>Adiciona sistema de renda horária/diária com níveis de dificuldade, modificadores sazonais e suporte multiplayer.</br>
+        <uk>Додає систему погодинного/щоденного доходу з рівнями складності, сезонними модифікаторами та підтримкою мультиплеєра.</uk>
+        <ru>Добавляет систему почасового/ежедневного дохода с уровнями сложности, сезонными модификаторами и поддержкой мультиплеера.</ru>
     </description>
-
-    <category>gameplay</category>
-
-    <iconFilename>icon_incomeMod.dds</iconFilename>
+    <iconFilename>icon.dds</iconFilename>
 
     <multiplayer supported="true"/>
 
     <extraSourceFiles>
-        <sourceFile filename="src/utils/UIHelper.lua"/>
-        <sourceFile filename="src/settings/IncomeSettings.lua"/>
-        <sourceFile filename="src/settings/IncomeSettingsUI.lua"/>
-        <sourceFile filename="src/Income.lua"/>
+        <sourceFile filename="src/main.lua" />
     </extraSourceFiles>
 
     <l10n>
-    <text name="FS25_IncomeMod">
-        <!-- English -->
-        <en>
-            <text name="INCOME_MOD_SETTINGS" text="Income Mod Settings" />
-            <text name="INCOME_MOD_DESCRIPTION" text="Configure your income settings" />
-            <text name="income_enabled" text="Enable Income Mod" />
-            <text name="income_enabled_short" text="Enabled" />
-            <text name="income_mode" text="Payment Mode" />
-            <text name="income_mode_short" text="Mode" />
-            <text name="income_mode_hourly" text="Hourly" />
-            <text name="income_mode_daily" text="Daily" />
-            <text name="income_difficulty" text="Difficulty Preset" />
-            <text name="income_difficulty_short" text="Difficulty" />
-            <text name="income_difficulty_easy" text="Easy ($5,000)" />
-            <text name="income_difficulty_normal" text="Normal ($2,400)" />
-            <text name="income_difficulty_hard" text="Hard ($1,100)" />
-            <text name="income_notifications" text="Show Notifications" />
-            <text name="income_notifications_short" text="Notifications" />
-        </en>
-    </text>
-</l10n>
+        <!-- Section Header -->
+        <text name="im_section">
+            <en>Income Mod</en>
+            <de>Einkommens-Mod</de>
+            <fr>Module de Revenu</fr>
+            <pl>Mod Dochodu</pl>
+            <es>Mod de Ingresos</es>
+            <it>Mod Reddito</it>
+            <cz>Příjmový Mod</cz>
+            <br>Mod de Renda</br>
+            <uk>Мод доходу</uk>
+            <ru>Мод дохода</ru>
+        </text>
 
+        <!-- Enable/Disable -->
+        <text name="im_enabled_short">
+            <en>Enable Mod</en>
+            <de>Mod aktivieren</de>
+            <fr>Activer le mod</fr>
+            <pl>Włącz mod</pl>
+            <es>Activar mod</es>
+            <it>Attiva mod</it>
+            <cz>Povolit mod</cz>
+            <br>Ativar mod</br>
+            <uk>Увімкнути мод</uk>
+            <ru>Включить мод</ru>
+        </text>
+
+        <text name="im_enabled_long">
+            <en>Enable or disable the income mod</en>
+            <de>Einkommens-Mod aktivieren oder deaktivieren</de>
+            <fr>Activer ou désactiver le module de revenu</fr>
+            <pl>Włącz lub wyłącz mod dochodów</pl>
+            <es>Activar o desactivar el módulo de ingresos</es>
+            <it>Attiva o disattiva il modulo di reddito</it>
+            <cz>Povolit nebo zakázat příjmový mod</cz>
+            <br>Ativar ou desativar o mod de renda</br>
+            <uk>Увімкнути або вимкнути мод доходу</uk>
+            <ru>Включить или выключить мод дохода</ru>
+        </text>
+
+        <!-- Debug -->
+        <text name="im_debug_short">
+            <en>DEBUG Mode</en>
+            <de>DEBUG-Modus</de>
+            <fr>Mode DEBUG</fr>
+            <pl>Tryb DEBUG</pl>
+            <es>Modo DEBUG</es>
+            <it>Modalità DEBUG</it>
+            <cz>DEBUG režim</cz>
+            <br>Modo DEBUG</br>
+            <uk>Режим DEBUG</uk>
+            <ru>Режим DEBUG</ru>
+        </text>
+
+        <text name="im_debug_long">
+            <en>Enable/disable debug mode (extra logging)</en>
+            <de>DEBUG-Modus ein-/ausschalten (zusätzliche Protokollierung)</de>
+            <fr>Activer/désactiver le mode DEBUG (journalisation supplémentaire)</fr>
+            <pl>Włącz/wyłącz tryb DEBUG (dodatkowe logowanie)</pl>
+            <es>Activar/desactivar modo DEBUG (registro adicional)</es>
+            <it>Attiva/disattiva modalità DEBUG (registrazione aggiuntiva)</it>
+            <cz>Povolit/zakázat DEBUG režim (dodatečné logování)</cz>
+            <br>Ativar/desativar modo DEBUG (registro adicional)</br>
+            <uk>Увімкнути/вимкнути режим DEBUG (додаткове логування)</uk>
+            <ru>Включить/выключить режим DEBUG (дополнительное логирование)</ru>
+        </text>
+
+        <!-- Pay Mode -->
+        <text name="im_paymode_short">
+            <en>Pay Mode</en>
+            <de>Zahlungsmodus</de>
+            <fr>Mode de paiement</fr>
+            <pl>Tryb płatności</pl>
+            <es>Modo de pago</es>
+            <it>Modalità pagamento</it>
+            <cz>Platební režim</cz>
+            <br>Modo de pagamento</br>
+            <uk>Режим виплат</uk>
+            <ru>Режим выплат</ru>
+        </text>
+
+        <text name="im_paymode_long">
+            <en>Choose payment frequency: hourly or daily</en>
+            <de>Wählen Sie die Zahlungshäufigkeit: stündlich oder täglich</de>
+            <fr>Choisissez la fréquence de paiement : horaire ou quotidienne</fr>
+            <pl>Wybierz częstotliwość płatności: godzinowa lub dzienna</pl>
+            <es>Elegir frecuencia de pago: horaria o diaria</es>
+            <it>Scegli frequenza pagamento: oraria o giornaliera</it>
+            <cz>Vyberte frekvenci plateb: hodinovou nebo denní</cz>
+            <br>Escolher frequência de pagamento: horária ou diária</br>
+            <uk>Виберіть частоту виплат: погодинно або щоденно</uk>
+            <ru>Выбрать частоту выплат: почасовую или ежедневную</ru>
+        </text>
+
+        <text name="im_paymode_1">
+            <en>Hourly</en>
+            <de>Stündlich</de>
+            <fr>Horaire</fr>
+            <pl>Godzinowa</pl>
+            <es>Horaria</es>
+            <it>Oraria</it>
+            <cz>Hodinová</cz>
+            <br>Horária</br>
+            <uk>Погодинно</uk>
+            <ru>Почасово</ru>
+        </text>
+
+        <text name="im_paymode_2">
+            <en>Daily</en>
+            <de>Täglich</de>
+            <fr>Quotidienne</fr>
+            <pl>Dzienna</pl>
+            <es>Diaria</es>
+            <it>Giornaliera</it>
+            <cz>Denní</cz>
+            <br>Diária</br>
+            <uk>Щоденно</uk>
+            <ru>Ежедневно</ru>
+        </text>
+
+        <!-- Difficulty -->
+        <text name="im_difficulty_short">
+            <en>Difficulty</en>
+            <de>Schwierigkeit</de>
+            <fr>Difficulté</fr>
+            <pl>Trudność</pl>
+            <es>Dificultad</es>
+            <it>Difficoltà</it>
+            <cz>Obtížnost</cz>
+            <br>Dificuldade</br>
+            <uk>Складність</uk>
+            <ru>Сложность</ru>
+        </text>
+
+        <text name="im_difficulty_long">
+            <en>Set income amount: Easy=$5000, Normal=$2400, Hard=$1100</en>
+            <de>Einkommensbetrag festlegen: Einfach=5000$, Normal=2400$, Schwer=1100$</de>
+            <fr>Définir le montant du revenu : Facile=5000$, Normal=2400$, Difficile=1100$</fr>
+            <pl>Ustaw kwotę dochodu: Łatwy=5000$, Normalny=2400$, Trudny=1100$</pl>
+            <es>Establecer monto de ingreso: Fácil=5000$, Normal=2400$, Difícil=1100$</es>
+            <it>Imposta importo reddito: Facile=5000$, Normale=2400$, Difficile=1100$</it>
+            <cz>Nastavit výši příjmu: Snadné=5000$, Normální=2400$, Těžké=1100$</cz>
+            <br>Definir valor da renda: Fácil=5000$, Normal=2400$, Difícil=1100$</br>
+            <uk>Встановити суму доходу: Легко=5000$, Нормально=2400$, Важко=1100$</uk>
+            <ru>Установить сумму дохода: Легко=5000$, Обычно=2400$, Сложно=1100$</ru>
+        </text>
+
+        <text name="im_diff_1">
+            <en>Easy ($5000)</en>
+            <de>Einfach (5000$)</de>
+            <fr>Facile (5000$)</fr>
+            <pl>Łatwy (5000$)</pl>
+            <es>Fácil (5000$)</es>
+            <it>Facile (5000$)</it>
+            <cz>Snadné (5000$)</cz>
+            <br>Fácil (5000$)</br>
+            <uk>Легко (5000$)</uk>
+            <ru>Легко (5000$)</ru>
+        </text>
+
+        <text name="im_diff_2">
+            <en>Normal ($2400)</en>
+            <de>Normal (2400$)</de>
+            <fr>Normal (2400$)</fr>
+            <pl>Normalny (2400$)</pl>
+            <es>Normal (2400$)</es>
+            <it>Normale (2400$)</it>
+            <cz>Normální (2400$)</cz>
+            <br>Normal (2400$)</br>
+            <uk>Нормально (2400$)</uk>
+            <ru>Обычно (2400$)</ru>
+        </text>
+
+        <text name="im_diff_3">
+            <en>Hard ($1100)</en>
+            <de>Schwer (1100$)</de>
+            <fr>Difficile (1100$)</fr>
+            <pl>Trudny (1100$)</pl>
+            <es>Difícil (1100$)</es>
+            <it>Difficile (1100$)</it>
+            <cz>Těžké (1100$)</cz>
+            <br>Difícil (1100$)</br>
+            <uk>Важко (1100$)</uk>
+            <ru>Сложно (1100$)</ru>
+        </text>
+
+        <!-- Notifications -->
+        <text name="im_notifications_short">
+            <en>Notifications</en>
+            <de>Benachrichtigungen</de>
+            <fr>Notifications</fr>
+            <pl>Powiadomienia</pl>
+            <es>Notificaciones</es>
+            <it>Notifiche</it>
+            <cz>Upozornění</cz>
+            <br>Notificações</br>
+            <uk>Сповіщення</uk>
+            <ru>Уведомления</ru>
+        </text>
+
+        <text name="im_notifications_long">
+            <en>Enable/disable payment notifications</en>
+            <de>Zahlungsbenachrichtigungen ein-/ausschalten</de>
+            <fr>Activer/désactiver les notifications de paiement</fr>
+            <pl>Włącz/wyłącz powiadomienia o płatnościach</pl>
+            <es>Activar/desactivar notificaciones de pago</es>
+            <it>Attiva/disattiva notifiche pagamento</it>
+            <cz>Povolit/zakázat upozornění na platby</cz>
+            <br>Ativar/desativar notificações de pagamento</br>
+            <uk>Увімкнути/вимкнути сповіщення про виплати</uk>
+            <ru>Включить/выключить уведомления о выплатах</ru>
+        </text>
+
+        <!-- Custom Amount -->
+        <text name="im_customamount_short">
+            <en>Custom Amount</en>
+            <de>Benutzerdefinierter Betrag</de>
+            <fr>Montant personnalisé</fr>
+            <pl>Niestandardowa kwota</pl>
+            <es>Cantidad personalizada</es>
+            <it>Importo personalizzato</it>
+            <cz>Vlastní částka</cz>
+            <br>Valor personalizado</br>
+            <uk>Власна сума</uk>
+            <ru>Пользовательская сумма</ru>
+        </text>
+
+        <text name="im_customamount_long">
+            <en>Set custom payment amount (0 = use difficulty setting)</en>
+            <de>Benutzerdefinierten Zahlungsbetrag festlegen (0 = Schwierigkeitsstufe verwenden)</de>
+            <fr>Définir le montant de paiement personnalisé (0 = utiliser le réglage de difficulté)</fr>
+            <pl>Ustaw niestandardową kwotę płatności (0 = użyj ustawienia trudności)</pl>
+            <es>Establecer monto de pago personalizado (0 = usar configuración de dificultad)</es>
+            <it>Imposta importo pagamento personalizzato (0 = usa impostazione difficoltà)</it>
+            <cz>Nastavit vlastní částku platby (0 = použít nastavení obtížnosti)</cz>
+            <br>Definir valor de pagamento personalizado (0 = usar configuração de dificuldade)</br>
+            <uk>Встановити власну суму виплати (0 = використовувати налаштування складності)</uk>
+            <ru>Установить пользовательскую сумму выплаты (0 = использовать настройку сложности)</ru>
+        </text>
+
+        <!-- Income Multiplier (NEW in 2.0) -->
+        <text name="im_multiplier_short">
+            <en>Income Multiplier</en>
+            <de>Einkommensmultiplikator</de>
+            <fr>Multiplicateur de revenu</fr>
+            <pl>Mnożnik dochodu</pl>
+            <es>Multiplicador de ingresos</es>
+            <it>Moltiplicatore reddito</it>
+            <cz>Příjmový multiplikátor</cz>
+            <br>Multiplicador de renda</br>
+            <uk>Множник доходу</uk>
+            <ru>Множитель дохода</ru>
+        </text>
+
+        <text name="im_multiplier_long">
+            <en>Multiply the base payment: 1x, 2x, 5x, or 10x</en>
+            <de>Basisbetrag multiplizieren: 1x, 2x, 5x oder 10x</de>
+            <fr>Multiplier le paiement de base : 1x, 2x, 5x ou 10x</fr>
+            <pl>Pomnóż podstawową płatność: 1x, 2x, 5x lub 10x</pl>
+            <es>Multiplicar el pago base: 1x, 2x, 5x o 10x</es>
+            <it>Moltiplica il pagamento base: 1x, 2x, 5x o 10x</it>
+            <cz>Znásobit základní platbu: 1x, 2x, 5x nebo 10x</cz>
+            <br>Multiplicar o pagamento base: 1x, 2x, 5x ou 10x</br>
+            <uk>Помножити базову виплату: 1x, 2x, 5x або 10x</uk>
+            <ru>Умножить базовую выплату: 1x, 2x, 5x или 10x</ru>
+        </text>
+
+        <text name="im_mult_1">
+            <en>1x (Normal)</en>
+            <de>1x (Normal)</de>
+            <fr>1x (Normal)</fr>
+            <pl>1x (Normalny)</pl>
+            <es>1x (Normal)</es>
+            <it>1x (Normale)</it>
+            <cz>1x (Normální)</cz>
+            <br>1x (Normal)</br>
+            <uk>1x (Нормально)</uk>
+            <ru>1x (Обычно)</ru>
+        </text>
+
+        <text name="im_mult_2">
+            <en>2x</en>
+            <de>2x</de>
+            <fr>2x</fr>
+            <pl>2x</pl>
+            <es>2x</es>
+            <it>2x</it>
+            <cz>2x</cz>
+            <br>2x</br>
+            <uk>2x</uk>
+            <ru>2x</ru>
+        </text>
+
+        <text name="im_mult_3">
+            <en>5x</en>
+            <de>5x</de>
+            <fr>5x</fr>
+            <pl>5x</pl>
+            <es>5x</es>
+            <it>5x</it>
+            <cz>5x</cz>
+            <br>5x</br>
+            <uk>5x</uk>
+            <ru>5x</ru>
+        </text>
+
+        <text name="im_mult_4">
+            <en>10x</en>
+            <de>10x</de>
+            <fr>10x</fr>
+            <pl>10x</pl>
+            <es>10x</es>
+            <it>10x</it>
+            <cz>10x</cz>
+            <br>10x</br>
+            <uk>10x</uk>
+            <ru>10x</ru>
+        </text>
+
+        <!-- Seasonal Effects (NEW in 2.0) -->
+        <text name="im_seasonal_short">
+            <en>Seasonal Effects</en>
+            <de>Saisonale Effekte</de>
+            <fr>Effets saisonniers</fr>
+            <pl>Efekty sezonowe</pl>
+            <es>Efectos estacionales</es>
+            <it>Effetti stagionali</it>
+            <cz>Sezónní efekty</cz>
+            <br>Efeitos sazonais</br>
+            <uk>Сезонні ефекти</uk>
+            <ru>Сезонные эффекты</ru>
+        </text>
+
+        <text name="im_seasonal_long">
+            <en>Income varies by season: Spring 0.8x, Summer 1.0x, Autumn 1.2x, Winter 0.7x</en>
+            <de>Einkommen variiert je nach Jahreszeit: Frühling 0,8x, Sommer 1,0x, Herbst 1,2x, Winter 0,7x</de>
+            <fr>Le revenu varie selon la saison : Printemps 0,8x, Été 1,0x, Automne 1,2x, Hiver 0,7x</fr>
+            <pl>Dochód zmienia się w zależności od sezonu: Wiosna 0,8x, Lato 1,0x, Jesień 1,2x, Zima 0,7x</pl>
+            <es>Los ingresos varían por temporada: Primavera 0,8x, Verano 1,0x, Otoño 1,2x, Invierno 0,7x</es>
+            <it>Il reddito varia per stagione: Primavera 0,8x, Estate 1,0x, Autunno 1,2x, Inverno 0,7x</it>
+            <cz>Příjem se mění podle ročního období: Jaro 0,8x, Léto 1,0x, Podzim 1,2x, Zima 0,7x</cz>
+            <br>A renda varia por estação: Primavera 0,8x, Verão 1,0x, Outono 1,2x, Inverno 0,7x</br>
+            <uk>Дохід змінюється за сезоном: Весна 0,8x, Літо 1,0x, Осінь 1,2x, Зима 0,7x</uk>
+            <ru>Доход меняется по сезонам: Весна 0,8x, Лето 1,0x, Осень 1,2x, Зима 0,7x</ru>
+        </text>
+
+        <!-- Reset -->
+        <text name="im_reset">
+            <en>Reset Income Settings</en>
+            <de>Einkommenseinstellungen zurücksetzen</de>
+            <fr>Réinitialiser les paramètres de revenu</fr>
+            <pl>Resetuj ustawienia dochodu</pl>
+            <es>Restablecer config. ingresos</es>
+            <it>Ripristina impostazioni reddito</it>
+            <cz>Resetovat nastavení příjmu</cz>
+            <br>Restaurar configurações de renda</br>
+            <uk>Скинути налаштування доходу</uk>
+            <ru>Сбросить настройки дохода</ru>
+        </text>
+    </l10n>
 </modDesc>
