@@ -128,18 +128,25 @@ function UIHelper.createBinaryOption(layout, id, textId, state, callback)
     -- Assigning a raw function to onClickCallback while target=nil means
     -- the engine never fires it. Bridge table acts as the required target.
     -- FS25 safe bridge
-    local bridge = {}
-    bridge._callback = callback
+    local Bridge = {}
+    local Bridge_mt = Class(Bridge)
 
-    function bridge:handleChange(newState)
-        -- newState = 1 or 2
+    function Bridge.new(callback)
+        local self = setmetatable({}, Bridge_mt)
+        self._callback = callback
+        return self
+    end
+
+    function Bridge:handleChange(newState)
         if self._callback then
             self._callback(newState == 2)
         end
     end
 
+    local bridge = Bridge.new(callback)
     opt.target = bridge
     opt.onClickCallback = "handleChange"
+
 
 
     if lbl and lbl.setText then
@@ -219,9 +226,18 @@ function UIHelper.createMultiOption(layout, id, textId, options, state, callback
         opt:setState(state)
     end
 
-    opt.onClickCallback = function(newState, element)
-        callback(newState)
+    local bridge = {}
+    bridge._callback = callback
+
+    function bridge:handleChange(newState)
+        if self._callback then
+            self._callback(newState)
+        end
     end
+
+    opt.target = bridge
+    opt.onClickCallback = "handleChange"
+
 
     if lbl and lbl.setText then
         lbl:setText(getText(textId .. "_short"))
