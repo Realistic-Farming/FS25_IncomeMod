@@ -186,7 +186,7 @@ function IncomeReportDialog:updateHistoryRows()
         if row and row.row then
             -- history[1] is the most recent (inserted at front); show in that order
             local dataIndex = i + 1
-            if dataIndex >= 1 then
+            if dataIndex <= count then
                 local entry = history[dataIndex]
                 row.row:setVisible(true)
 
