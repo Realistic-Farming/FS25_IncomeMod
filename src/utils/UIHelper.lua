@@ -127,13 +127,20 @@ function UIHelper.createBinaryOption(layout, id, textId, state, callback)
     -- FS25 requires target+method-string for callback dispatch.
     -- Assigning a raw function to onClickCallback while target=nil means
     -- the engine never fires it. Bridge table acts as the required target.
-    local bridge = { _callback = callback }
-    function bridge.handleChange(self, newState)
-        -- FS25 passes numeric state: 1 = unchecked/NO, 2 = checked/YES
-        self._callback(newState == 2)
+    -- FS25 safe bridge
+    local bridge = {}
+    bridge._callback = callback
+
+    function bridge:handleChange(newState)
+        -- newState = 1 or 2
+        if self._callback then
+            self._callback(newState == 2)
+        end
     end
+
     opt.target = bridge
     opt.onClickCallback = "handleChange"
+
 
     if lbl and lbl.setText then
         lbl:setText(getText(textId .. "_short"))

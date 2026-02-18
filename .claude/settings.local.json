@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(gh issue view:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(gh api:*)",
+      "Bash(for id in I_kwDORACkSs7r_zVK I_kwDORACkSs7r_zwZ I_kwDORACkSs7r_0T6 I_kwDORACkSs7r_0nu I_kwDORACkSs7r_07R)",
+      "Bash(do)",
+      "Bash(echo:*)",
+      "Bash(done)"
     ]
   }
 }
