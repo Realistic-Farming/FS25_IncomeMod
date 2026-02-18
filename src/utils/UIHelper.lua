@@ -118,16 +118,22 @@ function UIHelper.createBinaryOption(layout, id, textId, state, callback)
     local opt = row.elements[1]
     local lbl = row.elements[2]
 
-    opt.id     = nil
-    opt.target = nil
+    opt.id = nil
     if lbl then lbl.id = nil end
 
     if opt.toolTipText then opt.toolTipText = "" end
     if lbl and lbl.toolTipText then lbl.toolTipText = "" end
 
-    opt.onClickCallback = function(newState, element)
-        callback(newState == 2)
+    -- FS25 requires target+method-string for callback dispatch.
+    -- Assigning a raw function to onClickCallback while target=nil means
+    -- the engine never fires it. Bridge table acts as the required target.
+    local bridge = { _callback = callback }
+    function bridge.handleChange(self, newState)
+        -- FS25 passes numeric state: 1 = unchecked/NO, 2 = checked/YES
+        self._callback(newState == 2)
     end
+    opt.target = bridge
+    opt.onClickCallback = "handleChange"
 
     if lbl and lbl.setText then
         lbl:setText(getText(textId .. "_short"))

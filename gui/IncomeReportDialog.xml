@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<GUI onOpen="onOpen" onClose="onClose" onCreate="onCreate">
+    <GuiElement profile="newLayer" />
+    <Bitmap profile="dialogFullscreenBg" id="dialogBg" />
+
+    <GuiElement profile="dialogBg" id="dialogElement" size="760px 520px">
+        <ThreePartBitmap profile="fs25_dialogBgMiddle" />
+        <ThreePartBitmap profile="fs25_dialogBgTop" />
+        <ThreePartBitmap profile="fs25_dialogBgBottom" />
+
+        <GuiElement profile="fs25_dialogContentContainer">
+
+            <!-- Title -->
+            <Text profile="fs25_dialogTitle" id="dialogTitleElement" position="0px -25px" text="$l10n_im_report_title"/>
+
+            <!-- ===== SUMMARY ROW 1: Status / Mode / Difficulty ===== -->
+            <GuiElement profile="irSectionContainer" position="0px -62px">
+                <Bitmap profile="irSectionBg" position="0px 0px"/>
+                <Text profile="irSummaryLabel" position="-310px -8px" text="$l10n_im_report_status_label"/>
+                <Text profile="irSummaryValue" id="statusText" position="-210px -8px" text=""/>
+                <Text profile="irSummaryLabel" position="-100px -8px" text="$l10n_im_report_mode_label"/>
+                <Text profile="irSummaryValue" id="modeText" position="10px -8px" text=""/>
+                <Text profile="irSummaryLabel" position="120px -8px" text="$l10n_im_report_difficulty_label"/>
+                <Text profile="irSummaryValue" id="difficultyText" position="215px -8px" text=""/>
+            </GuiElement>
+
+            <!-- ===== SUMMARY ROW 2: Amount / Multiplier / Seasonal ===== -->
+            <GuiElement profile="irSectionContainer" position="0px -97px">
+                <Bitmap profile="irSectionBgAlt" position="0px 0px"/>
+                <Text profile="irSummaryLabel" position="-310px -8px" text="$l10n_im_report_amount_label"/>
+                <Text profile="irSummaryValue" id="amountText" position="-210px -8px" text=""/>
+                <Text profile="irSummaryLabel" position="-100px -8px" text="$l10n_im_report_multiplier_label"/>
+                <Text profile="irSummaryValue" id="multiplierText" position="10px -8px" text=""/>
+                <Text profile="irSummaryLabel" position="120px -8px" text="$l10n_im_report_seasonal_label"/>
+                <Text profile="irSummaryValue" id="seasonalText" position="215px -8px" text=""/>
+            </GuiElement>
+
+            <!-- ===== STATS ROW: Total Earned / Avg / Next Payment ===== -->
+            <GuiElement profile="irSectionContainer" position="0px -132px">
+                <Bitmap profile="irStatsBg" position="0px 0px"/>
+                <Text profile="irSummaryLabel" position="-310px -8px" text="$l10n_im_report_total_label"/>
+                <Text profile="irStatValue" id="totalEarnedText" position="-210px -8px" text=""/>
+                <Text profile="irSummaryLabel" position="-100px -8px" text="$l10n_im_report_avg_label"/>
+                <Text profile="irStatValue" id="avgPaymentText" position="10px -8px" text=""/>
+                <Text profile="irSummaryLabel" position="120px -8px" text="$l10n_im_report_next_label"/>
+                <Text profile="irStatValue" id="nextPaymentText" position="215px -8px" text=""/>
+            </GuiElement>
+
+            <!-- ===== TABLE HEADER ===== -->
+            <GuiElement profile="irRowSection" position="0px -167px">
+                <Bitmap profile="irHeaderBg" position="0px 0px"/>
+                <Text profile="irHeaderText" position="-290px -4px" text="$l10n_im_report_col_day"/>
+                <Text profile="irHeaderText" position="-210px -4px" text="$l10n_im_report_col_time"/>
+                <Text profile="irHeaderText" position="-130px -4px" text="$l10n_im_report_col_type"/>
+                <Text profile="irHeaderText" position="-30px -4px" text="$l10n_im_report_col_amount"/>
+                <Text profile="irHeaderText" position="105px -4px" text="$l10n_im_report_col_seasonal"/>
+            </GuiElement>
+
+            <!-- Row 0 -->
+            <GuiElement id="histRow0" profile="irRowSection" position="0px -191px" visible="false">
+                <Bitmap profile="irRowBg" id="histRow0Bg" position="0px 0px"/>
+                <Text profile="irRowText" id="histRow0Day"    position="-290px -4px" text=""/>
+                <Text profile="irRowText" id="histRow0Time"   position="-210px -4px" text=""/>
+                <Text profile="irRowText" id="histRow0Type"   position="-130px -4px" text=""/>
+                <Text profile="irRowText" id="histRow0Amount" position="-30px -4px"  text=""/>
+                <Text profile="irRowText" id="histRow0Season" position="105px -4px"  text=""/>
+            </GuiElement>
+
+            <!-- Row 1 -->
+            <GuiElement id="histRow1" profile="irRowSection" position="0px -215px" visible="false">
+                <Bitmap profile="irRowBgAlt" id="histRow1Bg" position="0px 0px"/>
+                <Text profile="irRowText" id="histRow1Day"    position="-290px -4px" text=""/>
+                <Text profile="irRowText" id="histRow1Time"   position="-210px -4px" text=""/>
+                <Text profile="irRowText" id="histRow1Type"   position="-130px -4px" text=""/>
+                <Text profile="irRowText" id="histRow1Amount" position="-30px -4px"  text=""/>
+                <Text profile="irRowText" id="histRow1Season" position="105px -4px"  text=""/>
+            </GuiElement>
+
+            <!-- Row 2 -->
+            <GuiElement id="histRow2" profile="irRowSection" position="0px -239px" visible="false">
+                <Bitmap profile="irRowBg" id="histRow2Bg" position="0px 0px"/>
+                <Text profile="irRowText" id="histRow2Day"    position="-290px -4px" text=""/>
+                <Text profile="irRowText" id="histRow2Time"   position="-210px -4px" text=""/>
+                <Text profile="irRowText" id="histRow2Type"   position="-130px -4px" text=""/>
+                <Text profile="irRowText" id="histRow2Amount" position="-30px -4px"  text=""/>
+                <Text profile="irRowText" id="histRow2Season" position="105px -4px"  text=""/>
+            </GuiElement>
+
+            <!-- Row 3 -->
+            <GuiElement id="histRow3" profile="irRowSection" position="0px -263px" visible="false">
+                <Bitmap profile="irRowBgAlt" id="histRow3Bg" position="0px 0px"/>
+                <Text profile="irRowText" id="histRow3Day"    position="-290px -4px" text=""/>
+                <Text profile="irRowText" id="histRow3Time"   position="-210px -4px" text=""/>
+                <Text profile="irRowText" id="histRow3Type"   position="-130px -4px" text=""/>
+                <Text profile="irRowText" id="histRow3Amount" position="-30px -4px"  text=""/>
+                <Text profile="irRowText" id="histRow3Season" position="105px -4px"  text=""/>
+            </GuiElement>
+
+            <!-- Row 4 -->
+            <GuiElement id="histRow4" profile="irRowSection" position="0px -287px" visible="false">
+                <Bitmap profile="irRowBg" id="histRow4Bg" position="0px 0px"/>
+                <Text profile="irRowText" id="histRow4Day"    position="-290px -4px" text=""/>
+                <Text profile="irRowText" id="histRow4Time"   position="-210px -4px" text=""/>
+                <Text profile="irRowText" id="histRow4Type"   position="-130px -4px" text=""/>
+                <Text profile="irRowText" id="histRow4Amount" position="-30px -4px"  text=""/>
+                <Text profile="irRowText" id="histRow4Season" position="105px -4px"  text=""/>
+            </GuiElement>
+
+            <!-- Row 5 -->
+            <GuiElement id="histRow5" profile="irRowSection" position="0px -311px" visible="false">
+                <Bitmap profile="irRowBgAlt" id="histRow5Bg" position="0px 0px"/>
+                <Text profile="irRowText" id="histRow5Day"    position="-290px -4px" text=""/>
+                <Text profile="irRowText" id="histRow5Time"   position="-210px -4px" text=""/>
+                <Text profile="irRowText" id="histRow5Type"   position="-130px -4px" text=""/>
+                <Text profile="irRowText" id="histRow5Amount" position="-30px -4px"  text=""/>
+                <Text profile="irRowText" id="histRow5Season" position="105px -4px"  text=""/>
+            </GuiElement>
+
+            <!-- Row 6 -->
+            <GuiElement id="histRow6" profile="irRowSection" position="0px -335px" visible="false">
+                <Bitmap profile="irRowBg" id="histRow6Bg" position="0px 0px"/>
+                <Text profile="irRowText" id="histRow6Day"    position="-290px -4px" text=""/>
+                <Text profile="irRowText" id="histRow6Time"   position="-210px -4px" text=""/>
+                <Text profile="irRowText" id="histRow6Type"   position="-130px -4px" text=""/>
+                <Text profile="irRowText" id="histRow6Amount" position="-30px -4px"  text=""/>
+                <Text profile="irRowText" id="histRow6Season" position="105px -4px"  text=""/>
+            </GuiElement>
+
+            <!-- Row 7 -->
+            <GuiElement id="histRow7" profile="irRowSection" position="0px -359px" visible="false">
+                <Bitmap profile="irRowBgAlt" id="histRow7Bg" position="0px 0px"/>
+                <Text profile="irRowText" id="histRow7Day"    position="-290px -4px" text=""/>
+                <Text profile="irRowText" id="histRow7Time"   position="-210px -4px" text=""/>
+                <Text profile="irRowText" id="histRow7Type"   position="-130px -4px" text=""/>
+                <Text profile="irRowText" id="histRow7Amount" position="-30px -4px"  text=""/>
+                <Text profile="irRowText" id="histRow7Season" position="105px -4px"  text=""/>
+            </GuiElement>
+
+            <!-- Row 8 -->
+            <GuiElement id="histRow8" profile="irRowSection" position="0px -383px" visible="false">
+                <Bitmap profile="irRowBg" id="histRow8Bg" position="0px 0px"/>
+                <Text profile="irRowText" id="histRow8Day"    position="-290px -4px" text=""/>
+                <Text profile="irRowText" id="histRow8Time"   position="-210px -4px" text=""/>
+                <Text profile="irRowText" id="histRow8Type"   position="-130px -4px" text=""/>
+                <Text profile="irRowText" id="histRow8Amount" position="-30px -4px"  text=""/>
+                <Text profile="irRowText" id="histRow8Season" position="105px -4px"  text=""/>
+            </GuiElement>
+
+            <!-- Row 9 -->
+            <GuiElement id="histRow9" profile="irRowSection" position="0px -407px" visible="false">
+                <Bitmap profile="irRowBgAlt" id="histRow9Bg" position="0px 0px"/>
+                <Text profile="irRowText" id="histRow9Day"    position="-290px -4px" text=""/>
+                <Text profile="irRowText" id="histRow9Time"   position="-210px -4px" text=""/>
+                <Text profile="irRowText" id="histRow9Type"   position="-130px -4px" text=""/>
+                <Text profile="irRowText" id="histRow9Amount" position="-30px -4px"  text=""/>
+                <Text profile="irRowText" id="histRow9Season" position="105px -4px"  text=""/>
+            </GuiElement>
+
+            <!-- No History Message -->
+            <Text profile="irNoData" id="noHistoryText" position="0px -300px" visible="false" text="$l10n_im_report_no_history"/>
+
+        </GuiElement>
+
+        <BoxLayout profile="fs25_dialogButtonBox">
+            <Button profile="buttonBack" id="closeButton" text="$l10n_button_close" onClick="onCloseDialog"/>
+        </BoxLayout>
+
+    </GuiElement>
+
+    <GUIProfiles>
+        <!-- ========== CONTAINERS ========== -->
+        <Profile name="irSectionContainer" extends="emptyPanel" with="anchorTopCenter">
+            <size value="700px 30px"/>
+        </Profile>
+
+        <Profile name="irRowSection" extends="emptyPanel" with="anchorTopCenter">
+            <size value="700px 24px"/>
+        </Profile>
+
+        <!-- ========== BACKGROUNDS ========== -->
+        <Profile name="irSectionBg" extends="baseReference" with="anchorTopCenter">
+            <size value="700px 30px"/>
+            <imageColor value="0.08 0.08 0.12 0.9"/>
+        </Profile>
+
+        <Profile name="irSectionBgAlt" extends="baseReference" with="anchorTopCenter">
+            <size value="700px 30px"/>
+            <imageColor value="0.10 0.10 0.14 0.9"/>
+        </Profile>
+
+        <Profile name="irStatsBg" extends="baseReference" with="anchorTopCenter">
+            <size value="700px 30px"/>
+            <imageColor value="0.12 0.14 0.10 0.9"/>
+        </Profile>
+
+        <Profile name="irHeaderBg" extends="baseReference" with="anchorTopCenter">
+            <size value="700px 24px"/>
+            <imageColor value="0.15 0.15 0.2 1"/>
+        </Profile>
+
+        <Profile name="irRowBg" extends="baseReference" with="anchorTopCenter">
+            <size value="700px 24px"/>
+            <imageColor value="0.1 0.1 0.1 1"/>
+        </Profile>
+
+        <Profile name="irRowBgAlt" extends="baseReference" with="anchorTopCenter">
+            <size value="700px 24px"/>
+            <imageColor value="0.12 0.12 0.14 1"/>
+        </Profile>
+
+        <!-- ========== TEXT PROFILES ========== -->
+        <Profile name="irSummaryLabel" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="110px 18px"/>
+            <textSize value="12px"/>
+            <textColor value="0.6 0.6 0.6 1"/>
+        </Profile>
+
+        <Profile name="irSummaryValue" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="100px 18px"/>
+            <textSize value="13px"/>
+            <textBold value="true"/>
+            <textColor value="0.8 0.9 1 1"/>
+        </Profile>
+
+        <Profile name="irStatValue" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="100px 18px"/>
+            <textSize value="13px"/>
+            <textBold value="true"/>
+            <textColor value="0.4 1.0 0.5 1"/>
+        </Profile>
+
+        <Profile name="irHeaderText" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="90px 18px"/>
+            <textSize value="11px"/>
+            <textBold value="true"/>
+            <textColor value="0.8 0.8 0.8 1"/>
+        </Profile>
+
+        <Profile name="irRowText" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="90px 18px"/>
+            <textSize value="11px"/>
+            <textColor value="1 1 1 1"/>
+        </Profile>
+
+        <Profile name="irNoData" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="700px 30px"/>
+            <textSize value="14px"/>
+            <textColor value="0.6 0.6 0.6 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+    </GUIProfiles>
+</GUI>

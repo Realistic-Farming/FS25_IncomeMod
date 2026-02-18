@@ -21,7 +21,7 @@
         <fr><![CDATA[Ajoute un système de revenus horaires / quotidiens avec niveaux de difficulté, modificateurs saisonniers et support multijoueur.]]></fr>
         <pl><![CDATA[Dodaje system dochodów godzinowych / dziennych z poziomami trudności, modyfikatorami sezonowymi i wsparciem wieloosobowym.]]></pl>
         <es><![CDATA[Añade sistema de ingresos horarios / diarios con niveles de dificultad, modificadores estacionales y soporte multijugador.]]></es>
-        <it><![CDATA[Aggiunge un sistema di reddito orario / giornaliero con livelli di difficoltà, modificatori stagionali e supporto multigiocatore.]]</it>
+        <it><![CDATA[Aggiunge un sistema di reddito orario / giornaliero con livelli di difficoltà, modificatori stagionali e supporto multigiocatore.]]></it>
         <cz><![CDATA[Přidává hodinový / denní příjmový systém s obtížností, sezónními modifikátory a podporou více hráčů.]]></cz>
         <br><![CDATA[Adiciona sistema de renda horária / diária com níveis de dificuldade, modificadores sazonais e suporte multiplayer.]]></br>
         <uk><![CDATA[Додає систему погодинного / щоденного доходу з рівнями складності, сезонними модифікаторами та підтримкою мультиплеєра.]]></uk>
@@ -383,6 +383,301 @@
             <ru><![CDATA[Доход меняется по сезонам: Весна 0,8x, Лето 1,0x, Осень 1,2x, Зима 0,7x]]></ru>
         </text>
 
+        <!-- Show HUD -->
+        <text name="im_show_hud_short">
+            <en><![CDATA[Show Income HUD]]></en>
+            <de><![CDATA[Einkommens-HUD anzeigen]]></de>
+            <fr><![CDATA[Afficher l'HUD de revenu]]></fr>
+            <pl><![CDATA[Pokaż HUD dochodu]]></pl>
+            <es><![CDATA[Mostrar HUD de ingresos]]></es>
+            <it><![CDATA[Mostra HUD reddito]]></it>
+            <cz><![CDATA[Zobrazit HUD příjmů]]></cz>
+            <br><![CDATA[Mostrar HUD de renda]]></br>
+            <uk><![CDATA[Показати HUD доходу]]></uk>
+            <ru><![CDATA[Показать HUD дохода]]></ru>
+        </text>
+
+        <text name="im_show_hud_long">
+            <en><![CDATA[Show the income HUD overlay with current income, payment method, and history (toggle with I key)]]></en>
+            <de><![CDATA[Einkommens-HUD mit Einkommen, Zahlungsart und Verlauf anzeigen (mit Taste I umschalten)]]></de>
+            <fr><![CDATA[Afficher l'HUD avec les revenus actuels, le mode de paiement et l'historique (touche I)]]></fr>
+            <pl><![CDATA[Pokaż nakładkę HUD z bieżącym dochodem, trybem płatności i historią (klawisz I)]]></pl>
+            <es><![CDATA[Mostrar HUD con ingresos actuales, método de pago e historial (tecla I)]]></es>
+            <it><![CDATA[Mostra l'HUD con reddito corrente, metodo di pagamento e cronologia (tasto I)]]></it>
+            <cz><![CDATA[Zobrazit HUD s aktuálními příjmy, způsobem platby a historií (klávesa I)]]></cz>
+            <br><![CDATA[Mostrar HUD com renda atual, método de pagamento e histórico (tecla I)]]></br>
+            <uk><![CDATA[Показати HUD з поточним доходом, методом оплати та історією (клавіша I)]]></uk>
+            <ru><![CDATA[Показать HUD с текущим доходом, способом оплаты и историей (клавиша I)]]></ru>
+        </text>
+
+        <!-- HUD toggle key binding display name -->
+        <text name="input_IM_TOGGLE_HUD">
+            <en><![CDATA[Toggle Income HUD]]></en>
+            <de><![CDATA[Einkommens-HUD umschalten]]></de>
+            <fr><![CDATA[Basculer l'HUD de revenu]]></fr>
+            <pl><![CDATA[Przełącz HUD dochodu]]></pl>
+            <es><![CDATA[Alternar HUD de ingresos]]></es>
+            <it><![CDATA[Attiva/disattiva HUD reddito]]></it>
+            <cz><![CDATA[Přepnout HUD příjmů]]></cz>
+            <br><![CDATA[Alternar HUD de renda]]></br>
+            <uk><![CDATA[Перемкнути HUD доходу]]></uk>
+            <ru><![CDATA[Переключить HUD дохода]]></ru>
+        </text>
+
+        <!-- Income Report Dialog: key binding display name -->
+        <text name="input_IM_INCOME_REPORT">
+            <en><![CDATA[Open Income Report]]></en>
+            <de><![CDATA[Einkommensbericht öffnen]]></de>
+            <fr><![CDATA[Ouvrir le rapport de revenu]]></fr>
+            <pl><![CDATA[Otwórz raport dochodu]]></pl>
+            <es><![CDATA[Abrir informe de ingresos]]></es>
+            <it><![CDATA[Apri rapporto reddito]]></it>
+            <cz><![CDATA[Otevřít přehled příjmů]]></cz>
+            <br><![CDATA[Abrir relatório de renda]]></br>
+            <uk><![CDATA[Відкрити звіт про доходи]]></uk>
+            <ru><![CDATA[Открыть отчёт о доходах]]></ru>
+        </text>
+
+        <!-- Income Report Dialog: dialog title -->
+        <text name="im_report_title">
+            <en><![CDATA[Income Report]]></en>
+            <de><![CDATA[Einkommensbericht]]></de>
+            <fr><![CDATA[Rapport de revenu]]></fr>
+            <pl><![CDATA[Raport dochodu]]></pl>
+            <es><![CDATA[Informe de ingresos]]></es>
+            <it><![CDATA[Rapporto reddito]]></it>
+            <cz><![CDATA[Přehled příjmů]]></cz>
+            <br><![CDATA[Relatório de renda]]></br>
+            <uk><![CDATA[Звіт про доходи]]></uk>
+            <ru><![CDATA[Отчёт о доходах]]></ru>
+        </text>
+
+        <!-- Income Report Dialog: summary labels -->
+        <text name="im_report_status_label">
+            <en><![CDATA[Status]]></en>
+            <de><![CDATA[Status]]></de>
+            <fr><![CDATA[Statut]]></fr>
+            <pl><![CDATA[Status]]></pl>
+            <es><![CDATA[Estado]]></es>
+            <it><![CDATA[Stato]]></it>
+            <cz><![CDATA[Stav]]></cz>
+            <br><![CDATA[Status]]></br>
+            <uk><![CDATA[Стан]]></uk>
+            <ru><![CDATA[Статус]]></ru>
+        </text>
+
+        <text name="im_report_mode_label">
+            <en><![CDATA[Mode]]></en>
+            <de><![CDATA[Modus]]></de>
+            <fr><![CDATA[Mode]]></fr>
+            <pl><![CDATA[Tryb]]></pl>
+            <es><![CDATA[Modo]]></es>
+            <it><![CDATA[Modalità]]></it>
+            <cz><![CDATA[Režim]]></cz>
+            <br><![CDATA[Modo]]></br>
+            <uk><![CDATA[Режим]]></uk>
+            <ru><![CDATA[Режим]]></ru>
+        </text>
+
+        <text name="im_report_difficulty_label">
+            <en><![CDATA[Difficulty]]></en>
+            <de><![CDATA[Schwierigkeit]]></de>
+            <fr><![CDATA[Difficulté]]></fr>
+            <pl><![CDATA[Trudność]]></pl>
+            <es><![CDATA[Dificultad]]></es>
+            <it><![CDATA[Difficoltà]]></it>
+            <cz><![CDATA[Obtížnost]]></cz>
+            <br><![CDATA[Dificuldade]]></br>
+            <uk><![CDATA[Складність]]></uk>
+            <ru><![CDATA[Сложность]]></ru>
+        </text>
+
+        <text name="im_report_amount_label">
+            <en><![CDATA[Payment]]></en>
+            <de><![CDATA[Zahlung]]></de>
+            <fr><![CDATA[Paiement]]></fr>
+            <pl><![CDATA[Płatność]]></pl>
+            <es><![CDATA[Pago]]></es>
+            <it><![CDATA[Pagamento]]></it>
+            <cz><![CDATA[Platba]]></cz>
+            <br><![CDATA[Pagamento]]></br>
+            <uk><![CDATA[Виплата]]></uk>
+            <ru><![CDATA[Выплата]]></ru>
+        </text>
+
+        <text name="im_report_multiplier_label">
+            <en><![CDATA[Multiplier]]></en>
+            <de><![CDATA[Multiplikator]]></de>
+            <fr><![CDATA[Multiplicateur]]></fr>
+            <pl><![CDATA[Mnożnik]]></pl>
+            <es><![CDATA[Multiplicador]]></es>
+            <it><![CDATA[Moltiplicatore]]></it>
+            <cz><![CDATA[Multiplikátor]]></cz>
+            <br><![CDATA[Multiplicador]]></br>
+            <uk><![CDATA[Множник]]></uk>
+            <ru><![CDATA[Множитель]]></ru>
+        </text>
+
+        <text name="im_report_seasonal_label">
+            <en><![CDATA[Seasonal]]></en>
+            <de><![CDATA[Saisonal]]></de>
+            <fr><![CDATA[Saisonnier]]></fr>
+            <pl><![CDATA[Sezonowe]]></pl>
+            <es><![CDATA[Estacional]]></es>
+            <it><![CDATA[Stagionale]]></it>
+            <cz><![CDATA[Sezónní]]></cz>
+            <br><![CDATA[Sazonal]]></br>
+            <uk><![CDATA[Сезонне]]></uk>
+            <ru><![CDATA[Сезонное]]></ru>
+        </text>
+
+        <!-- Income Report Dialog: stats labels -->
+        <text name="im_report_total_label">
+            <en><![CDATA[Total Earned]]></en>
+            <de><![CDATA[Gesamtverdienst]]></de>
+            <fr><![CDATA[Total gagné]]></fr>
+            <pl><![CDATA[Łącznie zarobiono]]></pl>
+            <es><![CDATA[Total ganado]]></es>
+            <it><![CDATA[Totale guadagnato]]></it>
+            <cz><![CDATA[Celkem vyděláno]]></cz>
+            <br><![CDATA[Total ganho]]></br>
+            <uk><![CDATA[Всього зароблено]]></uk>
+            <ru><![CDATA[Всего заработано]]></ru>
+        </text>
+
+        <text name="im_report_avg_label">
+            <en><![CDATA[Avg/Payment]]></en>
+            <de><![CDATA[Ø/Zahlung]]></de>
+            <fr><![CDATA[Moy./Paiement]]></fr>
+            <pl><![CDATA[Śred./Płatność]]></pl>
+            <es><![CDATA[Prom./Pago]]></es>
+            <it><![CDATA[Media/Pag.]]></it>
+            <cz><![CDATA[Průměr/Platba]]></cz>
+            <br><![CDATA[Média/Pagto]]></br>
+            <uk><![CDATA[Серед./Виплата]]></uk>
+            <ru><![CDATA[Ср./Выплата]]></ru>
+        </text>
+
+        <text name="im_report_next_label">
+            <en><![CDATA[Next Payment]]></en>
+            <de><![CDATA[Nächste Zahlung]]></de>
+            <fr><![CDATA[Prochain paiement]]></fr>
+            <pl><![CDATA[Następna płatność]]></pl>
+            <es><![CDATA[Próximo pago]]></es>
+            <it><![CDATA[Prossimo pagamento]]></it>
+            <cz><![CDATA[Příští platba]]></cz>
+            <br><![CDATA[Próximo pagamento]]></br>
+            <uk><![CDATA[Наступна виплата]]></uk>
+            <ru><![CDATA[Следующая выплата]]></ru>
+        </text>
+
+        <!-- Income Report Dialog: table column headers -->
+        <text name="im_report_col_day">
+            <en><![CDATA[Day]]></en>
+            <de><![CDATA[Tag]]></de>
+            <fr><![CDATA[Jour]]></fr>
+            <pl><![CDATA[Dzień]]></pl>
+            <es><![CDATA[Día]]></es>
+            <it><![CDATA[Giorno]]></it>
+            <cz><![CDATA[Den]]></cz>
+            <br><![CDATA[Dia]]></br>
+            <uk><![CDATA[День]]></uk>
+            <ru><![CDATA[День]]></ru>
+        </text>
+
+        <text name="im_report_col_time">
+            <en><![CDATA[Time]]></en>
+            <de><![CDATA[Zeit]]></de>
+            <fr><![CDATA[Heure]]></fr>
+            <pl><![CDATA[Godzina]]></pl>
+            <es><![CDATA[Hora]]></es>
+            <it><![CDATA[Ora]]></it>
+            <cz><![CDATA[Čas]]></cz>
+            <br><![CDATA[Hora]]></br>
+            <uk><![CDATA[Час]]></uk>
+            <ru><![CDATA[Время]]></ru>
+        </text>
+
+        <text name="im_report_col_type">
+            <en><![CDATA[Type]]></en>
+            <de><![CDATA[Typ]]></de>
+            <fr><![CDATA[Type]]></fr>
+            <pl><![CDATA[Typ]]></pl>
+            <es><![CDATA[Tipo]]></es>
+            <it><![CDATA[Tipo]]></it>
+            <cz><![CDATA[Typ]]></cz>
+            <br><![CDATA[Tipo]]></br>
+            <uk><![CDATA[Тип]]></uk>
+            <ru><![CDATA[Тип]]></ru>
+        </text>
+
+        <text name="im_report_col_amount">
+            <en><![CDATA[Amount]]></en>
+            <de><![CDATA[Betrag]]></de>
+            <fr><![CDATA[Montant]]></fr>
+            <pl><![CDATA[Kwota]]></pl>
+            <es><![CDATA[Monto]]></es>
+            <it><![CDATA[Importo]]></it>
+            <cz><![CDATA[Částka]]></cz>
+            <br><![CDATA[Valor]]></br>
+            <uk><![CDATA[Сума]]></uk>
+            <ru><![CDATA[Сумма]]></ru>
+        </text>
+
+        <text name="im_report_col_seasonal">
+            <en><![CDATA[Seasonal]]></en>
+            <de><![CDATA[Saisonal]]></de>
+            <fr><![CDATA[Saisonnier]]></fr>
+            <pl><![CDATA[Sezonowe]]></pl>
+            <es><![CDATA[Estacional]]></es>
+            <it><![CDATA[Stagionale]]></it>
+            <cz><![CDATA[Sezónní]]></cz>
+            <br><![CDATA[Sazonal]]></br>
+            <uk><![CDATA[Сезонне]]></uk>
+            <ru><![CDATA[Сезонное]]></ru>
+        </text>
+
+        <!-- Income Report Dialog: no history message -->
+        <text name="im_report_no_history">
+            <en><![CDATA[No payment history yet. Income will be recorded after the first payment.]]></en>
+            <de><![CDATA[Noch kein Zahlungsverlauf. Einkommen wird nach der ersten Zahlung aufgezeichnet.]]></de>
+            <fr><![CDATA[Pas encore d'historique de paiement. Les revenus seront enregistrés après le premier paiement.]]></fr>
+            <pl><![CDATA[Brak historii płatności. Dochód zostanie zarejestrowany po pierwszej płatności.]]></pl>
+            <es><![CDATA[Aún no hay historial de pagos. Los ingresos se registrarán después del primer pago.]]></es>
+            <it><![CDATA[Nessuna cronologia pagamenti. I ricavi verranno registrati dopo il primo pagamento.]]></it>
+            <cz><![CDATA[Zatím žádná historie plateb. Příjem bude zaznamenán po první platbě.]]></cz>
+            <br><![CDATA[Sem histórico de pagamentos. A renda será registrada após o primeiro pagamento.]]></br>
+            <uk><![CDATA[Ще немає історії виплат. Дохід буде записано після першої виплати.]]></uk>
+            <ru><![CDATA[Истории выплат пока нет. Доход будет записан после первой выплаты.]]></ru>
+        </text>
+
+        <!-- Income Report Dialog: enabled/disabled status values -->
+        <text name="im_report_enabled">
+            <en><![CDATA[Enabled]]></en>
+            <de><![CDATA[Aktiviert]]></de>
+            <fr><![CDATA[Activé]]></fr>
+            <pl><![CDATA[Włączone]]></pl>
+            <es><![CDATA[Activado]]></es>
+            <it><![CDATA[Attivato]]></it>
+            <cz><![CDATA[Povoleno]]></cz>
+            <br><![CDATA[Ativado]]></br>
+            <uk><![CDATA[Увімкнено]]></uk>
+            <ru><![CDATA[Включено]]></ru>
+        </text>
+
+        <text name="im_report_disabled">
+            <en><![CDATA[Disabled]]></en>
+            <de><![CDATA[Deaktiviert]]></de>
+            <fr><![CDATA[Désactivé]]></fr>
+            <pl><![CDATA[Wyłączone]]></pl>
+            <es><![CDATA[Desactivado]]></es>
+            <it><![CDATA[Disattivato]]></it>
+            <cz><![CDATA[Zakázáno]]></cz>
+            <br><![CDATA[Desativado]]></br>
+            <uk><![CDATA[Вимкнено]]></uk>
+            <ru><![CDATA[Выключено]]></ru>
+        </text>
+
         <!-- Reset -->
         <text name="im_reset">
             <en><![CDATA[Reset Income Settings]]></en>
@@ -397,4 +692,18 @@
             <ru><![CDATA[Сбросить настройки дохода]]></ru>
         </text>
     </l10n>
+
+    <actions>
+        <action name="IM_TOGGLE_HUD"    category="ONFOOT" />
+        <action name="IM_INCOME_REPORT" category="ONFOOT" />
+    </actions>
+
+    <inputBinding>
+        <actionBinding action="IM_TOGGLE_HUD">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_I" />
+        </actionBinding>
+        <actionBinding action="IM_INCOME_REPORT">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_U" />
+        </actionBinding>
+    </inputBinding>
 </modDesc>

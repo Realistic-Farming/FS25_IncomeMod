@@ -21,6 +21,8 @@ source(modDirectory .. "src/settings/Settings.lua")
 source(modDirectory .. "src/settings/SettingsGUI.lua")
 source(modDirectory .. "src/utils/UIHelper.lua")
 source(modDirectory .. "src/settings/SettingsUI.lua")
+source(modDirectory .. "src/ui/IncomeHUD.lua")
+source(modDirectory .. "src/ui/IncomeReportDialog.lua")
 source(modDirectory .. "src/IncomeSystem.lua")
 source(modDirectory .. "src/IncomeManager.lua")
 
@@ -61,6 +63,13 @@ FSBaseMission.delete        = Utils.appendedFunction(FSBaseMission.delete, unloa
 FSBaseMission.update = Utils.appendedFunction(FSBaseMission.update, function(mission, dt)
     if im then
         im:update(dt)
+    end
+end)
+
+-- Per-frame draw: Income HUD overlay (client-side only)
+FSBaseMission.draw = Utils.appendedFunction(FSBaseMission.draw, function(mission)
+    if im and im.incomeHUD then
+        im.incomeHUD:draw()
     end
 end)
 

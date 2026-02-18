@@ -163,6 +163,7 @@ function Settings:validateSettings()
     self.debugMode          = not not self.debugMode
     self.showNotifications  = not not self.showNotifications
     self.seasonalEffects    = not not self.seasonalEffects
+    self.showHUD            = not not self.showHUD
 
     self.customAmount = tonumber(self.customAmount) or 0
     if self.customAmount < 0 then
@@ -192,6 +193,7 @@ function Settings:resetToDefaults(saveImmediately)
     self.customAmount      = 0
     self.seasonalEffects   = false
     self.incomeMultiplier  = 1
+    self.showHUD           = true
 
     if saveImmediately then
         self:save()
