@@ -118,16 +118,36 @@ function UIHelper.createBinaryOption(layout, id, textId, state, callback)
     local opt = row.elements[1]
     local lbl = row.elements[2]
 
-    opt.id     = nil
-    opt.target = nil
+    opt.id = nil
     if lbl then lbl.id = nil end
 
     if opt.toolTipText then opt.toolTipText = "" end
     if lbl and lbl.toolTipText then lbl.toolTipText = "" end
 
-    opt.onClickCallback = function(newState, element)
-        callback(newState == 2)
+    -- FS25 requires target+method-string for callback dispatch.
+    -- Assigning a raw function to onClickCallback while target=nil means
+    -- the engine never fires it. Bridge table acts as the required target.
+    -- FS25 safe bridge
+    local Bridge = {}
+    local Bridge_mt = Class(Bridge)
+
+    function Bridge.new(callback)
+        local self = setmetatable({}, Bridge_mt)
+        self._callback = callback
+        return self
     end
+
+    function Bridge:handleChange(newState)
+        if self._callback then
+            self._callback(newState == 2)
+        end
+    end
+
+    local bridge = Bridge.new(callback)
+    opt.target = bridge
+    opt.onClickCallback = "handleChange"
+
+
 
     if lbl and lbl.setText then
         lbl:setText(getText(textId .. "_short"))
@@ -206,9 +226,18 @@ function UIHelper.createMultiOption(layout, id, textId, options, state, callback
         opt:setState(state)
     end
 
-    opt.onClickCallback = function(newState, element)
-        callback(newState)
+    local bridge = {}
+    bridge._callback = callback
+
+    function bridge:handleChange(newState)
+        if self._callback then
+            self._callback(newState)
+        end
     end
+
+    opt.target = bridge
+    opt.onClickCallback = "handleChange"
+
 
     if lbl and lbl.setText then
         lbl:setText(getText(textId .. "_short"))

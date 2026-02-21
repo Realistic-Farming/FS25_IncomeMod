@@ -17,14 +17,15 @@ SettingsManager.MOD_NAME = g_currentModName
 SettingsManager.XMLTAG   = "IncomeManager"
 
 SettingsManager.defaultConfig = {
-    difficulty       = 2,
-    enabled          = true,
-    debugMode        = false,
-    payMode          = 1,
+    difficulty        = 2,
+    enabled           = true,
+    debugMode         = false,
+    payMode           = 1,
     showNotifications = true,
-    customAmount     = 0,
-    seasonalEffects  = false,
-    incomeMultiplier = 1,
+    customAmount      = 0,
+    seasonalEffects   = false,
+    incomeMultiplier  = 1,
+    showHUD           = true,
 }
 
 function SettingsManager.new()
@@ -73,6 +74,7 @@ function SettingsManager:loadSettings(settingsObject)
             settingsObject.customAmount      = xml:getInt (t .. ".customAmount",       self.defaultConfig.customAmount)
             settingsObject.seasonalEffects   = xml:getBool(t .. ".seasonalEffects",   self.defaultConfig.seasonalEffects)
             settingsObject.incomeMultiplier  = xml:getInt (t .. ".incomeMultiplier",  self.defaultConfig.incomeMultiplier)
+            settingsObject.showHUD           = xml:getBool(t .. ".showHUD",           self.defaultConfig.showHUD)
             xml:delete()
             return
         end
@@ -87,6 +89,7 @@ function SettingsManager:loadSettings(settingsObject)
     settingsObject.customAmount      = d.customAmount
     settingsObject.seasonalEffects   = d.seasonalEffects
     settingsObject.incomeMultiplier  = d.incomeMultiplier
+    settingsObject.showHUD           = d.showHUD
 end
 
 function SettingsManager:saveSettings(settingsObject)
@@ -104,6 +107,7 @@ function SettingsManager:saveSettings(settingsObject)
         xml:setInt (t .. ".customAmount",      settingsObject.customAmount)
         xml:setBool(t .. ".seasonalEffects",   settingsObject.seasonalEffects)
         xml:setInt (t .. ".incomeMultiplier",  settingsObject.incomeMultiplier)
+        xml:setBool(t .. ".showHUD",           settingsObject.showHUD)
         xml:save()
         xml:delete()
     end

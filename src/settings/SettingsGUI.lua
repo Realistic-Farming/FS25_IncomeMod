@@ -30,6 +30,7 @@ function SettingsGUI:registerConsoleCommands()
     addConsoleCommand("IncomeResetSettings",     "Reset all settings to defaults",                      "consoleCommandResetSettings",    self)
     addConsoleCommand("IncomeHistory",           "Show last 10 payment records",                        "consoleCommandHistory",          self)
     addConsoleCommand("IncomeNext",              "Show when the next payment fires",                    "consoleCommandNext",             self)
+    addConsoleCommand("IncomeToggleHUD",         "Show/hide the income HUD overlay (true/false)",       "consoleCommandToggleHUD",        self)
     addConsoleCommand("income",                  "Show all income commands",                            "consoleCommandHelp",             self)
 
     Logging.info("Income Mod console commands registered")
@@ -42,6 +43,7 @@ end
 function SettingsGUI:consoleCommandHelp()
     print("=== Income Mod v2.0 Console Commands ===")
     print("income                        - Show this help")
+    print("IncomeToggleHUD true|false    - Show/hide the income HUD")
     print("IncomeEnable / IncomeDisable  - Toggle mod on/off")
     print("IncomeSetDifficulty 1|2|3     - Easy / Normal / Hard")
     print("IncomeSetPayMode 1|2          - Hourly / Daily")
@@ -176,6 +178,26 @@ function SettingsGUI:consoleCommandSetDebug(value)
         g_IncomeManager.settings.debugMode = (v == "true")
         g_IncomeManager.settings:save()
         return string.format("Debug mode %s", g_IncomeManager.settings.debugMode and "enabled" or "disabled")
+    end
+    return "Error: Income Mod not initialized"
+end
+
+-- =========================================================
+-- HUD Toggle
+-- =========================================================
+
+function SettingsGUI:consoleCommandToggleHUD(value)
+    if value == nil then
+        return "Usage: IncomeToggleHUD true|false"
+    end
+    local v = value:lower()
+    if v ~= "true" and v ~= "false" then
+        return "Invalid value. Use 'true' or 'false'"
+    end
+    if g_IncomeManager and g_IncomeManager.settings then
+        g_IncomeManager.settings.showHUD = (v == "true")
+        g_IncomeManager.settings:save()
+        return string.format("Income HUD %s", g_IncomeManager.settings.showHUD and "shown" or "hidden")
     end
     return "Error: Income Mod not initialized"
 end

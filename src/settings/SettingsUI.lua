@@ -130,6 +130,16 @@ function SettingsUI:inject()
         end
     )
 
+    -- Show HUD toggle
+    local showHUDOpt = UIHelper.createBinaryOption(
+        layout, "im_show_hud", "im_show_hud",
+        self.settings.showHUD,
+        function(val)
+            self.settings.showHUD = val
+            self.settings:save()
+        end
+    )
+
     self.enabledOption       = enabledOpt
     self.debugOption         = debugOpt
     self.payModeOption       = payModeOpt
@@ -137,6 +147,7 @@ function SettingsUI:inject()
     self.multiplierOption    = multOpt
     self.notificationsOption = notificationsOpt
     self.seasonalOption      = seasonalOpt
+    self.showHUDOption       = showHUDOpt
 
     self.injected = true
     layout:invalidateLayout()
@@ -176,6 +187,7 @@ function SettingsUI:refreshUI()
     setMulti(self.multiplierOption,    self.settings.incomeMultiplier)
     setCheck(self.notificationsOption, self.settings.showNotifications)
     setCheck(self.seasonalOption,      self.settings.seasonalEffects)
+    setCheck(self.showHUDOption,       self.settings.showHUD)
 
     Logging.info("Income Mod: UI refreshed")
 end
