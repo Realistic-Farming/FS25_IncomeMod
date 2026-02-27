@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.0.0.1)
+-- FS25 Income Mod (version 2.0.0.2)
 -- =========================================================
 -- Author: TisonK
 -- =========================================================
@@ -217,6 +217,10 @@ function IncomeManager:delete()
         self.incomeHUD:delete()
         self.incomeHUD = nil
     end
+
+    -- Release singleton dialog reference (the FS25 GUI system owns the element tree;
+    -- we just drop our handle so it can be GC'd if the session ends)
+    self.incomeReportDialog = nil
 
     self:save()
     Logging.info("Income Mod: Shut down cleanly")

@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.0.0.1)
+-- FS25 Income Mod (version 2.0.0.2)
 -- =========================================================
 -- Author: TisonK
 -- =========================================================
@@ -147,8 +147,6 @@ function UIHelper.createBinaryOption(layout, id, textId, state, callback)
     opt.target = bridge
     opt.onClickCallback = "handleChange"
 
-
-
     if lbl and lbl.setText then
         lbl:setText(getText(textId .. "_short"))
     end
@@ -237,7 +235,6 @@ function UIHelper.createMultiOption(layout, id, textId, options, state, callback
 
     opt.target = bridge
     opt.onClickCallback = "handleChange"
-
 
     if lbl and lbl.setText then
         lbl:setText(getText(textId .. "_short"))
