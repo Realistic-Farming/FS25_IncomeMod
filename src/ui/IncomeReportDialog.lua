@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.0.0.1)
+-- FS25 Income Mod (version 2.0.0.2)
 -- =========================================================
 -- Author: TisonK
 -- =========================================================
@@ -75,6 +75,16 @@ function IncomeReportDialog:show()
     g_gui:showDialog("IncomeReportDialog")
 end
 
+--- Called by the FS25 GUI system when the dialog becomes visible (maps to XML onOpen="onOpen").
+--- Refreshes data so the report is always current, even if the dialog is opened by means
+--- other than the show() helper (e.g., direct g_gui:showDialog calls from other mods).
+function IncomeReportDialog:onOpen()
+    IncomeReportDialog:superClass().onOpen(self)
+    if g_IncomeManager and g_IncomeManager.incomeSystem then
+        self:updateDisplay()
+    end
+end
+
 -- =========================================================
 -- Display Update
 -- =========================================================
@@ -136,6 +146,8 @@ function IncomeReportDialog:updateSummary()
 end
 
 --- Fill the stats row: total earned, average, and next payment time.
+--- Note: history is a ring buffer capped at MAX_HISTORY (10) entries, so total
+--- and average reflect only the most recent payments, not all-time earnings.
 function IncomeReportDialog:updateStats()
     local sys = g_IncomeManager and g_IncomeManager.incomeSystem
     if not sys then return end

@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.0.0.1)
+-- FS25 Income Mod (version 2.0.0.2)
 -- =========================================================
 -- Author: TisonK
 -- =========================================================
@@ -195,9 +195,16 @@ function SettingsGUI:consoleCommandToggleHUD(value)
         return "Invalid value. Use 'true' or 'false'"
     end
     if g_IncomeManager and g_IncomeManager.settings then
-        g_IncomeManager.settings.showHUD = (v == "true")
+        local show = (v == "true")
+        g_IncomeManager.settings.showHUD = show
         g_IncomeManager.settings:save()
-        return string.format("Income HUD %s", g_IncomeManager.settings.showHUD and "shown" or "hidden")
+        -- Sync the runtime I-key visibility flag so both gates agree with the
+        -- console command's intent. Without this, pressing I to hide then calling
+        -- IncomeToggleHUD true would leave the HUD stuck hidden.
+        if g_IncomeManager.incomeHUD then
+            g_IncomeManager.incomeHUD.visible = show
+        end
+        return string.format("Income HUD %s", show and "shown" or "hidden")
     end
     return "Error: Income Mod not initialized"
 end
@@ -237,6 +244,7 @@ function SettingsGUI:consoleCommandShowSettings()
             .. "Custom Amount:    $%d\n"
             .. "Notifications:    %s\n"
             .. "Seasonal Effects: %s\n"
+            .. "Show HUD:         %s\n"
             .. "=================================",
             tostring(s.enabled),
             tostring(s.debugMode),
@@ -246,7 +254,8 @@ function SettingsGUI:consoleCommandShowSettings()
             s:getPaymentAmount(), seasonNote,
             s.customAmount,
             tostring(s.showNotifications),
-            tostring(s.seasonalEffects)
+            tostring(s.seasonalEffects),
+            tostring(s.showHUD)
         )
         print(info)
         return info
