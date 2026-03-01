@@ -189,12 +189,11 @@ end
 -- =========================================================
 -- Multi-value Option (MultiTextOption style)
 -- =========================================================
--- MultiTextOptionElement dispatches callbacks as:
---   onClickCallback(target, state)
--- so onClickCallback must be a function, NOT a string method name.
--- Using a string here causes "attempt to call a string value" every
--- frame in GuiElement.lua update(), which also prevents the callback
--- from ever saving the selected state.
+-- MultiTextOptionElement dispatches via GuiElement:raiseCallback, which calls:
+--   onClickCallback(self.target, element)
+-- where element is the MultiTextOptionElement table (NOT the integer index).
+-- The selected index lives at element.state. onClickCallback must be a
+-- function — using a string caused "attempt to call a string value" every frame.
 
 function UIHelper.createMultiOption(layout, id, textId, options, state, callback)
     local template = nil
@@ -234,11 +233,15 @@ function UIHelper.createMultiOption(layout, id, textId, options, state, callback
     -- differs from the number of options we just provided via setTexts.
     opt.numTexts = #options
 
-    -- GIANTS calls this as onClickCallback(target, state). The first arg is
-    -- opt.target (nil here), the second is the newly selected state index.
-    opt.onClickCallback = function(_, newState)
-        if callback and newState ~= nil then
-            callback(newState)
+    -- GIANTS calls onClickCallback(target, element) where element is the
+    -- MultiTextOptionElement itself (not the integer state). Read element.state
+    -- to get the 1-based selected index.
+    opt.onClickCallback = function(_, element)
+        if not callback then return end
+        local idx = type(element) == "number" and element
+                 or (type(element) == "table" and element.state)
+        if idx ~= nil then
+            callback(idx)
         end
     end
 
