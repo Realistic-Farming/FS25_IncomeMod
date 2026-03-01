@@ -32,6 +32,23 @@ function UIHelper.getText(key)
 end
 
 -- =========================================================
+-- Shared tooltip applicator
+-- Both binary and multi options use identical tooltip logic.
+-- =========================================================
+
+local function applyTooltip(row, opt, lbl, tooltipText)
+    if opt.setToolTipText then opt:setToolTipText(tooltipText) end
+    if lbl and lbl.setToolTipText then lbl:setToolTipText(tooltipText) end
+    opt.toolTipText = tooltipText
+    if lbl then lbl.toolTipText = tooltipText end
+    if row.setToolTipText then row:setToolTipText(tooltipText) end
+    row.toolTipText = tooltipText
+    if opt.elements and opt.elements[1] and opt.elements[1].setText then
+        opt.elements[1]:setText(tooltipText)
+    end
+end
+
+-- =========================================================
 -- Section Header
 -- =========================================================
 
@@ -90,6 +107,9 @@ end
 -- =========================================================
 -- Binary Option (checkbox-style)
 -- =========================================================
+-- CheckedOptionElement dispatches callbacks as:
+--   target[onClickCallback](target, state)
+-- so onClickCallback must be a method-name string on a target object.
 
 function UIHelper.createBinaryOption(layout, id, textId, state, callback)
     local template = nil
@@ -124,10 +144,6 @@ function UIHelper.createBinaryOption(layout, id, textId, state, callback)
     if opt.toolTipText then opt.toolTipText = "" end
     if lbl and lbl.toolTipText then lbl.toolTipText = "" end
 
-    -- FS25 requires target+method-string for callback dispatch.
-    -- Assigning a raw function to onClickCallback while target=nil means
-    -- the engine never fires it. Bridge table acts as the required target.
-    -- FS25 safe bridge
     local Bridge = {}
     local Bridge_mt = Class(Bridge)
 
@@ -165,18 +181,7 @@ function UIHelper.createBinaryOption(layout, id, textId, state, callback)
         end
     end
 
-    local tooltipText = getText(textId .. "_long")
-
-    if opt.setToolTipText then opt:setToolTipText(tooltipText) end
-    if lbl and lbl.setToolTipText then lbl:setToolTipText(tooltipText) end
-    opt.toolTipText = tooltipText
-    if lbl then lbl.toolTipText = tooltipText end
-    if row.setToolTipText then row:setToolTipText(tooltipText) end
-    row.toolTipText = tooltipText
-
-    if opt.elements and opt.elements[1] and opt.elements[1].setText then
-        opt.elements[1]:setText(tooltipText)
-    end
+    applyTooltip(row, opt, lbl, getText(textId .. "_long"))
 
     return opt
 end
@@ -184,6 +189,12 @@ end
 -- =========================================================
 -- Multi-value Option (MultiTextOption style)
 -- =========================================================
+-- MultiTextOptionElement dispatches callbacks as:
+--   onClickCallback(target, state)
+-- so onClickCallback must be a function, NOT a string method name.
+-- Using a string here causes "attempt to call a string value" every
+-- frame in GuiElement.lua update(), which also prevents the callback
+-- from ever saving the selected state.
 
 function UIHelper.createMultiOption(layout, id, textId, options, state, callback)
     local template = nil
@@ -223,17 +234,13 @@ function UIHelper.createMultiOption(layout, id, textId, options, state, callback
     -- differs from the number of options we just provided via setTexts.
     opt.numTexts = #options
 
-    local bridge = {}
-    bridge._callback = callback
-
-    function bridge:handleChange(newState)
-        if self._callback then
-            self._callback(newState)
+    -- GIANTS calls this as onClickCallback(target, state). The first arg is
+    -- opt.target (nil here), the second is the newly selected state index.
+    opt.onClickCallback = function(_, newState)
+        if callback and newState ~= nil then
+            callback(newState)
         end
     end
-
-    opt.target = bridge
-    opt.onClickCallback = "handleChange"
 
     if lbl and lbl.setText then
         lbl:setText(getText(textId .. "_short"))
@@ -247,18 +254,7 @@ function UIHelper.createMultiOption(layout, id, textId, options, state, callback
         opt:setState(state)
     end
 
-    local tooltipText = getText(textId .. "_long")
-
-    if opt.setToolTipText then opt:setToolTipText(tooltipText) end
-    if lbl and lbl.setToolTipText then lbl:setToolTipText(tooltipText) end
-    opt.toolTipText = tooltipText
-    if lbl then lbl.toolTipText = tooltipText end
-    if row.setToolTipText then row:setToolTipText(tooltipText) end
-    row.toolTipText = tooltipText
-
-    if opt.elements and opt.elements[1] and opt.elements[1].setText then
-        opt.elements[1]:setText(tooltipText)
-    end
+    applyTooltip(row, opt, lbl, getText(textId .. "_long"))
 
     return opt
 end
