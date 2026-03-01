@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.0.0.4)
+-- FS25 Income Mod (version 2.0.0.5)
 -- =========================================================
 -- Author: TisonK
 -- =========================================================
@@ -29,6 +29,23 @@ end
 -- creating a separate global function that pollutes the namespace.
 function UIHelper.getText(key)
     return getText(key)
+end
+
+-- =========================================================
+-- Shared tooltip applicator
+-- Both binary and multi options use identical tooltip logic.
+-- =========================================================
+
+local function applyTooltip(row, opt, lbl, tooltipText)
+    if opt.setToolTipText then opt:setToolTipText(tooltipText) end
+    if lbl and lbl.setToolTipText then lbl:setToolTipText(tooltipText) end
+    opt.toolTipText = tooltipText
+    if lbl then lbl.toolTipText = tooltipText end
+    if row.setToolTipText then row:setToolTipText(tooltipText) end
+    row.toolTipText = tooltipText
+    if opt.elements and opt.elements[1] and opt.elements[1].setText then
+        opt.elements[1]:setText(tooltipText)
+    end
 end
 
 -- =========================================================
@@ -90,6 +107,9 @@ end
 -- =========================================================
 -- Binary Option (checkbox-style)
 -- =========================================================
+-- CheckedOptionElement dispatches callbacks as:
+--   target[onClickCallback](target, state)
+-- so onClickCallback must be a method-name string on a target object.
 
 function UIHelper.createBinaryOption(layout, id, textId, state, callback)
     local template = nil
@@ -124,10 +144,6 @@ function UIHelper.createBinaryOption(layout, id, textId, state, callback)
     if opt.toolTipText then opt.toolTipText = "" end
     if lbl and lbl.toolTipText then lbl.toolTipText = "" end
 
-    -- FS25 requires target+method-string for callback dispatch.
-    -- Assigning a raw function to onClickCallback while target=nil means
-    -- the engine never fires it. Bridge table acts as the required target.
-    -- FS25 safe bridge
     local Bridge = {}
     local Bridge_mt = Class(Bridge)
 
@@ -165,18 +181,7 @@ function UIHelper.createBinaryOption(layout, id, textId, state, callback)
         end
     end
 
-    local tooltipText = getText(textId .. "_long")
-
-    if opt.setToolTipText then opt:setToolTipText(tooltipText) end
-    if lbl and lbl.setToolTipText then lbl:setToolTipText(tooltipText) end
-    opt.toolTipText = tooltipText
-    if lbl then lbl.toolTipText = tooltipText end
-    if row.setToolTipText then row:setToolTipText(tooltipText) end
-    row.toolTipText = tooltipText
-
-    if opt.elements and opt.elements[1] and opt.elements[1].setText then
-        opt.elements[1]:setText(tooltipText)
-    end
+    applyTooltip(row, opt, lbl, getText(textId .. "_long"))
 
     return opt
 end
@@ -184,6 +189,11 @@ end
 -- =========================================================
 -- Multi-value Option (MultiTextOption style)
 -- =========================================================
+-- MultiTextOptionElement dispatches via GuiElement:raiseCallback, which calls:
+--   onClickCallback(self.target, element)
+-- where element is the MultiTextOptionElement table (NOT the integer index).
+-- The selected index lives at element.state. onClickCallback must be a
+-- function — using a string caused "attempt to call a string value" every frame.
 
 function UIHelper.createMultiOption(layout, id, textId, options, state, callback)
     local template = nil
@@ -219,22 +229,21 @@ function UIHelper.createMultiOption(layout, id, textId, options, state, callback
     if opt.setTexts then
         opt:setTexts(options)
     end
+    -- Explicitly set the cycle count in case the cloned template's numTexts
+    -- differs from the number of options we just provided via setTexts.
+    opt.numTexts = #options
 
-    if opt.setState then
-        opt:setState(state)
-    end
-
-    local bridge = {}
-    bridge._callback = callback
-
-    function bridge:handleChange(newState)
-        if self._callback then
-            self._callback(newState)
+    -- GIANTS calls onClickCallback(target, element) where element is the
+    -- MultiTextOptionElement itself (not the integer state). Read element.state
+    -- to get the 1-based selected index.
+    opt.onClickCallback = function(_, element)
+        if not callback then return end
+        local idx = type(element) == "number" and element
+                 or (type(element) == "table" and element.state)
+        if idx ~= nil then
+            callback(idx)
         end
     end
-
-    opt.target = bridge
-    opt.onClickCallback = "handleChange"
 
     if lbl and lbl.setText then
         lbl:setText(getText(textId .. "_short"))
@@ -242,18 +251,13 @@ function UIHelper.createMultiOption(layout, id, textId, options, state, callback
 
     layout:addElement(row)
 
-    local tooltipText = getText(textId .. "_long")
-
-    if opt.setToolTipText then opt:setToolTipText(tooltipText) end
-    if lbl and lbl.setToolTipText then lbl:setToolTipText(tooltipText) end
-    opt.toolTipText = tooltipText
-    if lbl then lbl.toolTipText = tooltipText end
-    if row.setToolTipText then row:setToolTipText(tooltipText) end
-    row.toolTipText = tooltipText
-
-    if opt.elements and opt.elements[1] and opt.elements[1].setText then
-        opt.elements[1]:setText(tooltipText)
+    -- Set state AFTER addElement so any internal FS25 layout-pass re-init
+    -- that might reset element state has already happened.
+    if opt.setState then
+        opt:setState(state)
     end
+
+    applyTooltip(row, opt, lbl, getText(textId .. "_long"))
 
     return opt
 end

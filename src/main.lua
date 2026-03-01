@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.0.0.4)
+-- FS25 Income Mod (version 2.0.0.5)
 -- =========================================================
 -- Passive hourly/daily income with difficulty tiers,
 -- seasonal modifiers, multiplier, and per-farm MP support.
@@ -34,10 +34,10 @@ local im  -- local handle, also exposed as g_IncomeManager
 
 local function load(mission)
     if im == nil then
-        Logging.info("Income Mod v2.0.0.4: Initializing...")
+        Logging.info("Income Mod v2.0.0.5: Initializing...")
         im = IncomeManager.new(mission, modDirectory, modName)
         getfenv(0)["g_IncomeManager"] = im
-        Logging.info("Income Mod v2.0.0.4: Initialized successfully")
+        Logging.info("Income Mod v2.0.0.5: Initialized successfully")
     end
 end
 
@@ -141,7 +141,7 @@ end
 -- =========================================================
 
 print("============================================")
-print("    FS25 Income Mod v2.0.0.4 LOADED        ")
+print("    FS25 Income Mod v2.0.0.5 LOADED        ")
 print("    Hourly/Daily income | Seasonal mods    ")
 print("    Per-farm MP support | Type 'income'    ")
 print("============================================")
