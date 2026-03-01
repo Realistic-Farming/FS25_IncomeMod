@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.0.0.2)
+-- FS25 Income Mod (version 2.0.0.4)
 -- =========================================================
 -- Author: TisonK
 -- =========================================================
@@ -159,7 +159,7 @@ function IncomeSystem:giveMoney(paymentType)
     if g_farmManager and g_farmManager.farms then
         for _, farm in pairs(g_farmManager.farms) do
             if farm and farm.farmId and farm.farmId ~= 0 then
-                g_currentMission:addMoney(amount, farm.farmId, MoneyType.INCOME, true)
+                g_currentMission:addMoney(amount, farm.farmId, MoneyType.OTHER, true)
                 paidCount = paidCount + 1
                 self:log("%s: $%d -> farm %d", typeText, amount, farm.farmId)
             end
@@ -170,7 +170,7 @@ function IncomeSystem:giveMoney(paymentType)
     if paidCount == 0 then
         local farmId = g_currentMission:getFarmId()
         if farmId then
-            g_currentMission:addMoney(amount, farmId, MoneyType.INCOME, true)
+            g_currentMission:addMoney(amount, farmId, MoneyType.OTHER, true)
             paidCount = 1
             self:log("%s: $%d -> farm %d (fallback)", typeText, amount, farmId)
         else
