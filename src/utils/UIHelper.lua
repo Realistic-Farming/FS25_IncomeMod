@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.0.0.4)
+-- FS25 Income Mod (version 2.0.0.5)
 -- =========================================================
 -- Author: TisonK
 -- =========================================================
@@ -219,10 +219,9 @@ function UIHelper.createMultiOption(layout, id, textId, options, state, callback
     if opt.setTexts then
         opt:setTexts(options)
     end
-
-    if opt.setState then
-        opt:setState(state)
-    end
+    -- Explicitly set the cycle count in case the cloned template's numTexts
+    -- differs from the number of options we just provided via setTexts.
+    opt.numTexts = #options
 
     local bridge = {}
     bridge._callback = callback
@@ -241,6 +240,12 @@ function UIHelper.createMultiOption(layout, id, textId, options, state, callback
     end
 
     layout:addElement(row)
+
+    -- Set state AFTER addElement so any internal FS25 layout-pass re-init
+    -- that might reset element state has already happened.
+    if opt.setState then
+        opt:setState(state)
+    end
 
     local tooltipText = getText(textId .. "_long")
 
