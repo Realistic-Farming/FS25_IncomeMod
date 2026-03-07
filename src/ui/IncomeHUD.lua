@@ -1,23 +1,22 @@
 -- =========================================================
--- FS25 Income Mod (version 2.0.0.5)
+-- FS25 Income Mod (version 2.1.1.0)
 -- =========================================================
 -- Income HUD Overlay
 -- Displays income status, payment method, and history.
 -- Toggle with the IM_TOGGLE_HUD action (default: I key).
+-- RMB on panel to drag/resize (NPCFavor pattern).
 -- =========================================================
 -- Author: TisonK
--- =========================================================
--- COPYRIGHT NOTICE:
--- All rights reserved. Unauthorized redistribution, copying,
--- or claiming this code as your own is strictly prohibited.
--- Original author: TisonK
 -- =========================================================
 
 ---@class IncomeHUD
 IncomeHUD = {}
 local IncomeHUD_mt = Class(IncomeHUD)
 
-IncomeHUD.MAX_HISTORY_ROWS = 5
+IncomeHUD.MAX_HISTORY_ROWS  = 5
+IncomeHUD.MIN_SCALE         = 0.60
+IncomeHUD.MAX_SCALE         = 1.80
+IncomeHUD.RESIZE_HANDLE_SIZE = 0.008
 
 function IncomeHUD.new(incomeSystem, settings)
     local self = setmetatable({}, IncomeHUD_mt)
@@ -26,28 +25,45 @@ function IncomeHUD.new(incomeSystem, settings)
     self.settings     = settings
 
     -- Runtime visibility (I key toggle — not persisted)
-    -- settings.showHUD is the persistent layer
     self.visible = true
 
-    -- Cached panel bounds (updated each drawPanel call, used by onMouseEvent)
-    self.lastBgX = 0
-    self.lastBgY = 0
-    self.lastBgW = 0
-    self.lastBgH = 0
-
     -- Panel anchor: top-left of content area (text starts here)
-    self.posX        = 0.77
-    self.posY        = 0.90
-    self.panelWidth  = 0.21
+    self.posX       = 0.77
+    self.posY       = 0.90
+    self.panelWidth = 0.21
 
-    -- Layout constants (normalized screen coords)
+    -- Base layout constants (at scale 1.0 — multiplied by self.scale at draw time)
     self.LINE_H      = 0.017
     self.PAD         = 0.007
     self.TEXT_TITLE  = 0.013
     self.TEXT_NORMAL = 0.011
     self.TEXT_SMALL  = 0.0095
 
-    -- 1x1 pixel overlay used for all colored rectangles (NPCFavorHUD pattern)
+    -- Scale & edit state (NPCFavor / SoilHUD pattern)
+    self.scale            = 1.0
+    self.editMode         = false
+    self.dragging         = false
+    self.resizing         = false
+    self.dragOffsetX      = 0
+    self.dragOffsetY      = 0
+    self.resizeStartX     = 0
+    self.resizeStartY     = 0
+    self.resizeStartScale = 1.0
+    self.hoverCorner      = nil
+    self.animTimer        = 0
+
+    -- Camera freeze (NPCFavor pattern)
+    self.savedCamRotX = nil
+    self.savedCamRotY = nil
+    self.savedCamRotZ = nil
+
+    -- Cached panel bounds (updated each drawPanel, used for hit-testing)
+    self.lastBgX = 0
+    self.lastBgY = 0
+    self.lastBgW = 0
+    self.lastBgH = 0
+
+    -- 1x1 pixel overlay for all rect draws
     self.bgOverlay = nil
     if createImageOverlay then
         self.bgOverlay = createImageOverlay("dataS/menu/base/graph_pixel.dds")
@@ -68,6 +84,8 @@ function IncomeHUD.new(incomeSystem, settings)
         AMOUNT       = {0.35, 0.90, 0.35, 1.00},
         SEASONAL     = {0.90, 0.78, 0.30, 1.00},
         HINT         = {0.55, 0.70, 1.00, 0.75},
+        EDIT_BORDER  = {0.35, 0.90, 0.35, 1.00},  -- green pulse (matches mod accent)
+        EDIT_HANDLE  = {0.20, 0.80, 0.40, 0.85},
     }
 
     return self
@@ -78,6 +96,7 @@ end
 -- =========================================================
 
 function IncomeHUD:delete()
+    if self.editMode then self:exitEditMode() end
     if self.bgOverlay then
         delete(self.bgOverlay)
         self.bgOverlay = nil
@@ -97,28 +116,199 @@ function IncomeHUD:toggleVisibility()
 end
 
 -- =========================================================
+-- Edit mode
+-- =========================================================
+
+function IncomeHUD:enterEditMode()
+    self.editMode = true
+    self.dragging = false
+    if g_inputBinding and g_inputBinding.setShowMouseCursor then
+        g_inputBinding:setShowMouseCursor(true)
+    end
+    if getCamera and getRotation then
+        local ok, cam = pcall(getCamera)
+        if ok and cam and cam ~= 0 then
+            local ok2, rx, ry, rz = pcall(getRotation, cam)
+            if ok2 then
+                self.savedCamRotX, self.savedCamRotY, self.savedCamRotZ = rx, ry, rz
+            end
+        end
+    end
+end
+
+function IncomeHUD:exitEditMode()
+    self.editMode    = false
+    self.dragging    = false
+    self.resizing    = false
+    self.hoverCorner = nil
+    self.savedCamRotX, self.savedCamRotY, self.savedCamRotZ = nil, nil, nil
+    if g_inputBinding and g_inputBinding.setShowMouseCursor then
+        g_inputBinding:setShowMouseCursor(false)
+    end
+end
+
+-- =========================================================
+-- Geometry helpers (use cached bounds — dynamic height)
+-- =========================================================
+
+function IncomeHUD:isPointerOverHUD(posX, posY)
+    return posX >= self.lastBgX and posX <= self.lastBgX + self.lastBgW
+       and posY >= self.lastBgY and posY <= self.lastBgY + self.lastBgH
+end
+
+function IncomeHUD:getResizeHandleRects()
+    local hs = IncomeHUD.RESIZE_HANDLE_SIZE
+    local bx, by, bw, bh = self.lastBgX, self.lastBgY, self.lastBgW, self.lastBgH
+    return {
+        bl = {x = bx,        y = by,        w = hs, h = hs},
+        br = {x = bx+bw-hs,  y = by,        w = hs, h = hs},
+        tl = {x = bx,        y = by+bh-hs,  w = hs, h = hs},
+        tr = {x = bx+bw-hs,  y = by+bh-hs,  w = hs, h = hs},
+    }
+end
+
+function IncomeHUD:hitTestCorner(posX, posY)
+    for key, r in pairs(self:getResizeHandleRects()) do
+        if posX >= r.x and posX <= r.x + r.w
+        and posY >= r.y and posY <= r.y + r.h then
+            return key
+        end
+    end
+    return nil
+end
+
+function IncomeHUD:clampPosition()
+    local bw = self.lastBgW
+    local bh = self.lastBgH
+    -- posX / posY are the text anchor inside the panel
+    local pad = self.PAD * self.scale
+    self.posX = math.max(pad + 0.01, math.min(1.0 - bw + pad - 0.01, self.posX))
+    self.posY = math.max(bh - pad + 0.01, math.min(0.98, self.posY))
+end
+
+-- =========================================================
+-- Mouse event (called from main.lua addModEventListener)
+-- FS25 button numbers: 1=LMB, 3=RMB.
+-- RMB over panel → enter edit mode (drag/resize).
+-- RMB anywhere while editing → exit edit mode.
+-- =========================================================
+
+function IncomeHUD:onMouseEvent(posX, posY, isDown, isUp, button)
+    if not self.settings.showHUD then return end
+    if not self.visible then return end
+
+    -- RMB: enter if over HUD, exit from anywhere
+    if isDown and button == 3 then
+        if self.editMode then
+            self:exitEditMode()
+        elseif self:isPointerOverHUD(posX, posY) then
+            self:enterEditMode()
+        end
+        return
+    end
+
+    if not self.editMode then return end
+
+    -- LMB down: corner resize or body drag
+    if isDown and button == 1 then
+        local corner = self:hitTestCorner(posX, posY)
+        if corner then
+            self.resizing         = true
+            self.dragging         = false
+            self.resizeStartX     = posX
+            self.resizeStartY     = posY
+            self.resizeStartScale = self.scale
+            return
+        end
+        if self:isPointerOverHUD(posX, posY) then
+            self.dragging    = true
+            self.resizing    = false
+            -- offset from panel text anchor
+            self.dragOffsetX = posX - self.posX
+            self.dragOffsetY = posY - self.posY
+        end
+        return
+    end
+
+    -- LMB up: end drag/resize
+    if isUp and button == 1 then
+        if self.dragging or self.resizing then
+            self.dragging = false
+            self.resizing = false
+            self:clampPosition()
+        end
+        return
+    end
+
+    -- Mouse movement: continuous drag / resize
+    if self.dragging then
+        local bw = self.lastBgW
+        self.posX = math.max(0.0, math.min(1.0 - bw, posX - self.dragOffsetX))
+        self.posY = math.max(0.05, math.min(0.98, posY - self.dragOffsetY))
+    end
+
+    if self.resizing then
+        local cx = self.lastBgX + self.lastBgW * 0.5
+        local cy = self.lastBgY + self.lastBgH * 0.5
+        local startDist = math.sqrt((self.resizeStartX-cx)^2 + (self.resizeStartY-cy)^2)
+        local currDist  = math.sqrt((posX-cx)^2 + (posY-cy)^2)
+        local delta     = (currDist - startDist) * 2.5
+        self.scale = math.max(IncomeHUD.MIN_SCALE,
+            math.min(IncomeHUD.MAX_SCALE, self.resizeStartScale + delta))
+        self:clampPosition()
+    end
+
+    -- Hover detection for corner handles
+    if not self.dragging and not self.resizing then
+        self.hoverCorner = self:hitTestCorner(posX, posY)
+    end
+end
+
+-- =========================================================
+-- Update (called every frame via IncomeManager:update)
+-- =========================================================
+
+function IncomeHUD:update(dt)
+    self.animTimer = self.animTimer + dt
+
+    if self.editMode then
+        if g_inputBinding and g_inputBinding.setShowMouseCursor then
+            g_inputBinding:setShowMouseCursor(true)
+        end
+        if self.savedCamRotX ~= nil and getCamera and setRotation then
+            local ok, cam = pcall(getCamera)
+            if ok and cam and cam ~= 0 then
+                pcall(setRotation, cam, self.savedCamRotX, self.savedCamRotY, self.savedCamRotZ)
+            end
+        end
+        if g_gui and (g_gui:getIsGuiVisible() or g_gui:getIsDialogVisible()) then
+            self:exitEditMode()
+        end
+        if not self.dragging and not self.resizing then
+            if g_inputBinding and g_inputBinding.mousePosXLast then
+                self.hoverCorner = self:hitTestCorner(
+                    g_inputBinding.mousePosXLast, g_inputBinding.mousePosYLast)
+            end
+        end
+    else
+        self.hoverCorner = nil
+    end
+end
+
+-- =========================================================
 -- Draw (called every frame from FSBaseMission.draw hook)
 -- =========================================================
 
 function IncomeHUD:draw()
-    -- Only draw on clients (not dedicated server console)
-    if not g_currentMission or not g_currentMission:getIsClient() then
-        return
-    end
+    if not g_currentMission or not g_currentMission:getIsClient() then return end
 
-    -- Hide behind any GUI overlay or dialog
-    if g_gui and (g_gui:getIsGuiVisible() or g_gui:getIsDialogVisible()) then
-        return
-    end
-
-    -- Hide behind the fullscreen map
-    if g_currentMission.hud and g_currentMission.hud.ingameMap then
-        if g_currentMission.hud.ingameMap.state == IngameMap.STATE_LARGE_MAP then
-            return
+    if not self.editMode then
+        if g_gui and (g_gui:getIsGuiVisible() or g_gui:getIsDialogVisible()) then return end
+        if g_currentMission.hud and g_currentMission.hud.ingameMap then
+            if g_currentMission.hud.ingameMap.state == IngameMap.STATE_LARGE_MAP then return end
         end
     end
 
-    -- Persistent and runtime visibility gates
     if not self.settings.showHUD then return end
     if not self.visible          then return end
     if not self.bgOverlay        then return end
@@ -131,141 +321,153 @@ end
 -- =========================================================
 
 function IncomeHUD:drawPanel()
+    local sc  = self.scale
     local s   = self.settings
     local sys = self.incomeSystem
-    local x   = self.posX
-    local w   = self.panelWidth
-    local pad = self.PAD
-    local lh  = self.LINE_H
 
-    -- Decide which optional rows are visible
+    -- Scaled layout values
+    local x   = self.posX
+    local w   = self.panelWidth * sc
+    local pad = self.PAD * sc
+    local lh  = self.LINE_H * sc
+
     local histCount  = math.min(#sys.paymentHistory, IncomeHUD.MAX_HISTORY_ROWS)
     local showMult   = s:getMultiplierValue() > 1
     local showSeason = s.seasonalEffects
 
-    -- Compute background height from row count
-    --   Fixed rows:   title (1) + mode/diff/amount (1) + next (1) + hist header (1) + hist min (1) + hint (1) = 6
-    --   Optional rows: multiplier, seasonal
-    --   History rows: override the "min 1" if history exists
     local nRows = 6
         + (showMult   and 1 or 0)
         + (showSeason and 1 or 0)
-        + math.max(histCount - 1, 0)  -- history rows beyond the guaranteed "min 1"
+        + math.max(histCount - 1, 0)
 
-    local nDividers = 3  -- after title row, after next row, after hist rows
-    local bgH = pad * 2 + nRows * lh + nDividers * 0.004
+    local nDividers = 3
+    local bgH = pad * 2 + nRows * lh + nDividers * (0.004 * sc)
     local bgX = x - pad
     local bgY = self.posY - bgH + pad
     local bgW = w + pad * 2
 
-    -- Cache bounds for hit-testing in onMouseEvent
+    -- Cache for hit-testing and resize handles
     self.lastBgX = bgX
     self.lastBgY = bgY
     self.lastBgW = bgW
     self.lastBgH = bgH
 
     -- Drop shadow
-    local so = 0.002
-    self:rect(bgX + so, bgY - so, bgW, bgH, self.COLORS.SHADOW)
+    self:rect(bgX + 0.002, bgY - 0.002, bgW, bgH, self.COLORS.SHADOW)
 
-    -- Background fill
+    -- Background
     self:rect(bgX, bgY, bgW, bgH, self.COLORS.BG)
 
-    -- Border lines
+    -- Permanent border
     local bw = 0.0012
-    self:rect(bgX,           bgY + bgH - bw, bgW, bw, self.COLORS.BORDER)  -- top
-    self:rect(bgX,           bgY,            bgW, bw, self.COLORS.BORDER)  -- bottom
-    self:rect(bgX,           bgY,            bw, bgH, self.COLORS.BORDER)  -- left
-    self:rect(bgX + bgW - bw, bgY,           bw, bgH, self.COLORS.BORDER)  -- right
+    self:rect(bgX,           bgY + bgH - bw, bgW, bw, self.COLORS.BORDER)
+    self:rect(bgX,           bgY,            bgW, bw, self.COLORS.BORDER)
+    self:rect(bgX,           bgY,            bw, bgH, self.COLORS.BORDER)
+    self:rect(bgX + bgW - bw, bgY,           bw, bgH, self.COLORS.BORDER)
 
-    -- Draw content rows, starting just inside the top of the panel
-    -- cy is the text BASELINE for each row (decrements downward each row)
+    -- Edit mode chrome
+    if self.editMode then
+        local pulse = 0.55 + 0.45 * math.sin(self.animTimer * 0.004)
+        local ebw   = 0.002
+        local ec    = self.COLORS.EDIT_BORDER
+        self:rectA(bgX,            bgY,             bgW, ebw, ec, pulse)
+        self:rectA(bgX,            bgY + bgH - ebw,  bgW, ebw, ec, pulse)
+        self:rectA(bgX,            bgY,             ebw, bgH, ec, pulse)
+        self:rectA(bgX + bgW - ebw, bgY,             ebw, bgH, ec, pulse)
+
+        for key, r in pairs(self:getResizeHandleRects()) do
+            local isHover = (self.hoverCorner == key)
+            self:rectA(r.x, r.y, r.w, r.h, self.COLORS.EDIT_HANDLE, isHover and 1.0 or 0.65)
+        end
+    end
+
+    -- ── Content rows ──────────────────────────────────────
+    local tsTitle  = self.TEXT_TITLE  * sc
+    local tsNormal = self.TEXT_NORMAL * sc
+    local tsSmall  = self.TEXT_SMALL  * sc
+
     local cy = self.posY - pad
 
-    -- ── Title row ─────────────────────────────────────────
+    -- Title row
     setTextBold(true)
     setTextAlignment(RenderText.ALIGN_LEFT)
     setTextColor(self.COLORS.HEADER[1], self.COLORS.HEADER[2], self.COLORS.HEADER[3], self.COLORS.HEADER[4])
-    renderText(x, cy - self.TEXT_TITLE, self.TEXT_TITLE, "INCOME MOD")
+    renderText(x, cy - tsTitle, tsTitle, "INCOME MOD")
 
-    -- ON / OFF status (right-aligned on same row)
     local statusColor = s.enabled and self.COLORS.ENABLED or self.COLORS.DISABLED
     setTextAlignment(RenderText.ALIGN_RIGHT)
     setTextColor(statusColor[1], statusColor[2], statusColor[3], statusColor[4])
-    renderText(x + w, cy - self.TEXT_TITLE, self.TEXT_TITLE, s.enabled and "[ON]" or "[OFF]")
+    renderText(x + w, cy - tsTitle, tsTitle, s.enabled and "[ON]" or "[OFF]")
     setTextBold(false)
     cy = cy - lh
 
     -- Divider
-    self:divider(bgX, cy + lh * 0.35, bgW)
-    cy = cy - 0.004
+    self:divider(bgX, cy + lh * 0.35, bgW, sc)
+    cy = cy - 0.004 * sc
 
-    -- ── Mode | Difficulty | Amount ────────────────────────
+    -- Mode | Difficulty | Amount
     setTextAlignment(RenderText.ALIGN_LEFT)
     setTextColor(self.COLORS.LABEL[1], self.COLORS.LABEL[2], self.COLORS.LABEL[3], self.COLORS.LABEL[4])
-    renderText(x, cy - self.TEXT_NORMAL, self.TEXT_NORMAL, s:getPayModeName())
+    renderText(x, cy - tsNormal, tsNormal, s:getPayModeName())
 
     setTextAlignment(RenderText.ALIGN_CENTER)
     setTextColor(self.COLORS.LABEL[1], self.COLORS.LABEL[2], self.COLORS.LABEL[3], self.COLORS.LABEL[4])
-    renderText(x + w * 0.5, cy - self.TEXT_NORMAL, self.TEXT_NORMAL, s:getDifficultyName())
+    renderText(x + w * 0.5, cy - tsNormal, tsNormal, s:getDifficultyName())
 
     local amtFmt = g_i18n:formatMoney(s:getPaymentAmount(), 0, true, true)
     setTextAlignment(RenderText.ALIGN_RIGHT)
     setTextColor(self.COLORS.AMOUNT[1], self.COLORS.AMOUNT[2], self.COLORS.AMOUNT[3], self.COLORS.AMOUNT[4])
-    renderText(x + w, cy - self.TEXT_NORMAL, self.TEXT_NORMAL, amtFmt)
+    renderText(x + w, cy - tsNormal, tsNormal, amtFmt)
     cy = cy - lh
 
-    -- ── Multiplier row (only when > 1x) ──────────────────
+    -- Multiplier row (optional)
     if showMult then
         setTextAlignment(RenderText.ALIGN_LEFT)
         setTextColor(self.COLORS.DIM[1], self.COLORS.DIM[2], self.COLORS.DIM[3], self.COLORS.DIM[4])
-        renderText(x, cy - self.TEXT_SMALL, self.TEXT_SMALL, "Multiplier: " .. s:getMultiplierName())
+        renderText(x, cy - tsSmall, tsSmall, "Multiplier: " .. s:getMultiplierName())
         cy = cy - lh
     end
 
-    -- ── Seasonal row (only when seasonal effects enabled) ─
+    -- Seasonal row (optional)
     if showSeason then
         local seasonMult  = sys:getSeasonalMultiplier()
         local seasonNames = { [0] = "Spring", [1] = "Summer", [2] = "Autumn", [3] = "Winter" }
         local seasonIdx   = 0
         if g_currentMission and g_currentMission.environment then
             local ok, sv = pcall(function() return g_currentMission.environment.currentSeason end)
-            if ok and sv ~= nil then
-                seasonIdx = sv % 4
-            end
+            if ok and sv ~= nil then seasonIdx = sv % 4 end
         end
-        local seasonName = seasonNames[seasonIdx] or "?"
         setTextAlignment(RenderText.ALIGN_LEFT)
         setTextColor(self.COLORS.SEASONAL[1], self.COLORS.SEASONAL[2], self.COLORS.SEASONAL[3], self.COLORS.SEASONAL[4])
-        renderText(x, cy - self.TEXT_SMALL, self.TEXT_SMALL,
-            string.format("Season: %s (%.1fx)", seasonName, seasonMult))
+        renderText(x, cy - tsSmall, tsSmall,
+            string.format("Season: %s (%.1fx)", seasonNames[seasonIdx] or "?", seasonMult))
         cy = cy - lh
     end
 
-    -- ── Next payment ──────────────────────────────────────
+    -- Next payment
     local nextText = self:buildNextPaymentText()
     setTextAlignment(RenderText.ALIGN_LEFT)
     setTextColor(self.COLORS.DIM[1], self.COLORS.DIM[2], self.COLORS.DIM[3], self.COLORS.DIM[4])
-    renderText(x, cy - self.TEXT_SMALL, self.TEXT_SMALL, "Next: " .. nextText)
+    renderText(x, cy - tsSmall, tsSmall, "Next: " .. nextText)
     cy = cy - lh
 
     -- Divider
-    self:divider(bgX, cy + lh * 0.35, bgW)
-    cy = cy - 0.004
+    self:divider(bgX, cy + lh * 0.35, bgW, sc)
+    cy = cy - 0.004 * sc
 
-    -- ── History header ────────────────────────────────────
+    -- History header
     setTextBold(true)
     setTextAlignment(RenderText.ALIGN_LEFT)
     setTextColor(self.COLORS.LABEL[1], self.COLORS.LABEL[2], self.COLORS.LABEL[3], self.COLORS.LABEL[4])
-    renderText(x, cy - self.TEXT_NORMAL, self.TEXT_NORMAL, "Recent Payments")
+    renderText(x, cy - tsNormal, tsNormal, "Recent Payments")
     setTextBold(false)
     cy = cy - lh
 
-    -- ── History rows ──────────────────────────────────────
+    -- History rows
     if #sys.paymentHistory == 0 then
         setTextAlignment(RenderText.ALIGN_LEFT)
         setTextColor(self.COLORS.DIM[1], self.COLORS.DIM[2], self.COLORS.DIM[3], self.COLORS.DIM[4])
-        renderText(x, cy - self.TEXT_SMALL, self.TEXT_SMALL, "No payments yet")
+        renderText(x, cy - tsSmall, tsSmall, "No payments yet")
         cy = cy - lh
     else
         for i = 1, histCount do
@@ -277,25 +479,28 @@ function IncomeHUD:drawPanel()
 
                 setTextAlignment(RenderText.ALIGN_LEFT)
                 setTextColor(self.COLORS.DIM[1], self.COLORS.DIM[2], self.COLORS.DIM[3], self.COLORS.DIM[4])
-                renderText(x, cy - self.TEXT_SMALL, self.TEXT_SMALL, timeStr .. " " .. typeStr)
+                renderText(x, cy - tsSmall, tsSmall, timeStr .. " " .. typeStr)
 
                 setTextAlignment(RenderText.ALIGN_RIGHT)
                 setTextColor(self.COLORS.AMOUNT[1], self.COLORS.AMOUNT[2], self.COLORS.AMOUNT[3], self.COLORS.AMOUNT[4])
-                renderText(x + w, cy - self.TEXT_SMALL, self.TEXT_SMALL, entAmt)
-
+                renderText(x + w, cy - tsSmall, tsSmall, entAmt)
                 cy = cy - lh
             end
         end
     end
 
     -- Divider
-    self:divider(bgX, cy + lh * 0.35, bgW)
-    cy = cy - 0.004
+    self:divider(bgX, cy + lh * 0.35, bgW, sc)
+    cy = cy - 0.004 * sc
 
-    -- ── Hint row ─────────────────────────────────────────
+    -- Hint row
     setTextAlignment(RenderText.ALIGN_CENTER)
     setTextColor(self.COLORS.HINT[1], self.COLORS.HINT[2], self.COLORS.HINT[3], self.COLORS.HINT[4])
-    renderText(x + w * 0.5, cy - self.TEXT_SMALL, self.TEXT_SMALL, "[I] / RMB: Toggle HUD")
+    if self.editMode then
+        renderText(x + w * 0.5, cy - tsSmall, tsSmall, "Drag: move   Corner: resize   RMB: done")
+    else
+        renderText(x + w * 0.5, cy - tsSmall, tsSmall, "[I]: toggle   RMB: move/resize")
+    end
 
     -- Reset text state
     setTextAlignment(RenderText.ALIGN_LEFT)
@@ -304,34 +509,11 @@ function IncomeHUD:drawPanel()
 end
 
 -- =========================================================
--- Mouse Event (called from main.lua addModEventListener)
--- FS25 button numbers: 1=LMB, 3=RMB.
--- This HUD has a fixed position (no drag/resize).
--- RMB over the panel toggles visibility — same as the I key.
--- Hit-test prevents cross-contamination with other mods' RMB handlers.
--- =========================================================
-
-function IncomeHUD:isPointerOverHUD(posX, posY)
-    return posX >= self.lastBgX and posX <= self.lastBgX + self.lastBgW
-       and posY >= self.lastBgY and posY <= self.lastBgY + self.lastBgH
-end
-
-function IncomeHUD:onMouseEvent(posX, posY, isDown, isUp, button)
-    if not self.settings.showHUD then return end
-    -- RMB down over this panel: toggle visibility (no edit mode — fixed HUD)
-    if isDown and button == 3 and self:isPointerOverHUD(posX, posY) then
-        self:toggleVisibility()
-    end
-end
-
--- =========================================================
--- Next Payment Text (compact, for HUD display)
+-- Next Payment Text
 -- =========================================================
 
 function IncomeHUD:buildNextPaymentText()
-    if not g_currentMission or not g_currentMission.environment then
-        return "?"
-    end
+    if not g_currentMission or not g_currentMission.environment then return "?" end
     local env = g_currentMission.environment
     local s   = self.settings
 
@@ -350,13 +532,16 @@ end
 -- Rendering Helpers
 -- =========================================================
 
--- Render a solid-color rectangle using the bgOverlay
 function IncomeHUD:rect(rx, ry, rw, rh, color)
     setOverlayColor(self.bgOverlay, color[1], color[2], color[3], color[4])
     renderOverlay(self.bgOverlay, rx, ry, rw, rh)
 end
 
--- Render a thin horizontal divider line
-function IncomeHUD:divider(dx, dy, dw)
-    self:rect(dx, dy, dw, 0.001, self.COLORS.DIVIDER)
+function IncomeHUD:rectA(rx, ry, rw, rh, color, alpha)
+    setOverlayColor(self.bgOverlay, color[1], color[2], color[3], alpha)
+    renderOverlay(self.bgOverlay, rx, ry, rw, rh)
+end
+
+function IncomeHUD:divider(dx, dy, dw, sc)
+    self:rect(dx, dy, dw, 0.001 * (sc or 1.0), self.COLORS.DIVIDER)
 end
