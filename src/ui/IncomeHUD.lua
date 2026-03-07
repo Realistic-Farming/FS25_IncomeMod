@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.1.1.0)
+-- FS25 Income Mod (version 2.1.2.0)
 -- =========================================================
 -- Income HUD Overlay
 -- Displays income status, payment method, and history.
@@ -71,21 +71,21 @@ function IncomeHUD.new(incomeSystem, settings)
 
     -- Color palette
     self.COLORS = {
-        BG           = {0.06, 0.06, 0.06, 0.78},
-        BORDER       = {0.35, 0.65, 0.35, 0.55},
+        BG           = {0.05, 0.05, 0.05, 0.82},   -- dark, matches native Field Info
+        BORDER       = {0.20, 0.20, 0.20, 0.40},   -- neutral subtle border
         DIVIDER      = {0.25, 0.25, 0.25, 0.85},
         SHADOW       = {0.00, 0.00, 0.00, 0.35},
         HEADER       = {1.00, 1.00, 1.00, 1.00},
-        ENABLED      = {0.30, 0.90, 0.30, 1.00},
-        DISABLED     = {0.90, 0.30, 0.30, 1.00},
-        LABEL        = {0.70, 0.85, 0.70, 1.00},
+        ENABLED      = {0.30, 0.90, 0.30, 1.00},   -- green ON status — keep
+        DISABLED     = {0.90, 0.30, 0.30, 1.00},   -- red OFF status — keep
+        LABEL        = {0.72, 0.72, 0.72, 1.00},   -- neutral gray, no green tint
         VALUE        = {1.00, 1.00, 1.00, 1.00},
         DIM          = {0.55, 0.55, 0.55, 1.00},
-        AMOUNT       = {0.35, 0.90, 0.35, 1.00},
-        SEASONAL     = {0.90, 0.78, 0.30, 1.00},
-        HINT         = {0.55, 0.70, 1.00, 0.75},
-        EDIT_BORDER  = {0.35, 0.90, 0.35, 1.00},  -- green pulse (matches mod accent)
-        EDIT_HANDLE  = {0.20, 0.80, 0.40, 0.85},
+        AMOUNT       = {0.35, 0.90, 0.35, 1.00},   -- green money — keep, semantic
+        SEASONAL     = {0.90, 0.78, 0.30, 1.00},   -- yellow seasonal — keep, semantic
+        HINT         = {0.52, 0.52, 0.52, 0.75},   -- neutral dim hint
+        EDIT_BORDER  = {1.00, 0.60, 0.10, 0.90},   -- orange edit mode — matches SeasonalCropStress
+        EDIT_HANDLE  = {1.00, 0.70, 0.20, 0.85},
     }
 
     return self
@@ -144,6 +144,42 @@ function IncomeHUD:exitEditMode()
     self.savedCamRotX, self.savedCamRotY, self.savedCamRotZ = nil, nil, nil
     if g_inputBinding and g_inputBinding.setShowMouseCursor then
         g_inputBinding:setShowMouseCursor(false)
+    end
+    self:saveLayout()
+end
+
+-- =========================================================
+-- HUD layout persistence
+-- =========================================================
+
+function IncomeHUD:getLayoutPath()
+    if g_currentMission and g_currentMission.missionInfo and g_currentMission.missionInfo.savegameDirectory then
+        return g_currentMission.missionInfo.savegameDirectory .. "/FS25_IncomeMod_hud.xml"
+    end
+end
+
+function IncomeHUD:saveLayout()
+    local path = self:getLayoutPath()
+    if not path then return end
+    local xml = XMLFile.create("im_hud", path, "hudLayout")
+    if xml then
+        xml:setFloat("hudLayout.posX",  self.posX)
+        xml:setFloat("hudLayout.posY",  self.posY)
+        xml:setFloat("hudLayout.scale", self.scale)
+        xml:save()
+        xml:delete()
+    end
+end
+
+function IncomeHUD:loadLayout()
+    local path = self:getLayoutPath()
+    if not path or not fileExists(path) then return end
+    local xml = XMLFile.load("im_hud", path)
+    if xml then
+        self.posX  = xml:getFloat("hudLayout.posX",  self.posX)
+        self.posY  = xml:getFloat("hudLayout.posY",  self.posY)
+        self.scale = xml:getFloat("hudLayout.scale", self.scale)
+        xml:delete()
     end
 end
 
