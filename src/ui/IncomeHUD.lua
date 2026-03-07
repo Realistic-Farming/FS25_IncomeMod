@@ -29,6 +29,12 @@ function IncomeHUD.new(incomeSystem, settings)
     -- settings.showHUD is the persistent layer
     self.visible = true
 
+    -- Cached panel bounds (updated each drawPanel call, used by onMouseEvent)
+    self.lastBgX = 0
+    self.lastBgY = 0
+    self.lastBgW = 0
+    self.lastBgH = 0
+
     -- Panel anchor: top-left of content area (text starts here)
     self.posX        = 0.77
     self.posY        = 0.90
@@ -151,6 +157,12 @@ function IncomeHUD:drawPanel()
     local bgX = x - pad
     local bgY = self.posY - bgH + pad
     local bgW = w + pad * 2
+
+    -- Cache bounds for hit-testing in onMouseEvent
+    self.lastBgX = bgX
+    self.lastBgY = bgY
+    self.lastBgW = bgW
+    self.lastBgH = bgH
 
     -- Drop shadow
     local so = 0.002
@@ -283,12 +295,33 @@ function IncomeHUD:drawPanel()
     -- ── Hint row ─────────────────────────────────────────
     setTextAlignment(RenderText.ALIGN_CENTER)
     setTextColor(self.COLORS.HINT[1], self.COLORS.HINT[2], self.COLORS.HINT[3], self.COLORS.HINT[4])
-    renderText(x + w * 0.5, cy - self.TEXT_SMALL, self.TEXT_SMALL, "[I] Toggle HUD")
+    renderText(x + w * 0.5, cy - self.TEXT_SMALL, self.TEXT_SMALL, "[I] / RMB: Toggle HUD")
 
     -- Reset text state
     setTextAlignment(RenderText.ALIGN_LEFT)
     setTextBold(false)
     setTextColor(1, 1, 1, 1)
+end
+
+-- =========================================================
+-- Mouse Event (called from main.lua addModEventListener)
+-- FS25 button numbers: 1=LMB, 3=RMB.
+-- This HUD has a fixed position (no drag/resize).
+-- RMB over the panel toggles visibility — same as the I key.
+-- Hit-test prevents cross-contamination with other mods' RMB handlers.
+-- =========================================================
+
+function IncomeHUD:isPointerOverHUD(posX, posY)
+    return posX >= self.lastBgX and posX <= self.lastBgX + self.lastBgW
+       and posY >= self.lastBgY and posY <= self.lastBgY + self.lastBgH
+end
+
+function IncomeHUD:onMouseEvent(posX, posY, isDown, isUp, button)
+    if not self.settings.showHUD then return end
+    -- RMB down over this panel: toggle visibility (no edit mode — fixed HUD)
+    if isDown and button == 3 and self:isPointerOverHUD(posX, posY) then
+        self:toggleVisibility()
+    end
 end
 
 -- =========================================================

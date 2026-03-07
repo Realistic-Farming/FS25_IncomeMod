@@ -73,6 +73,15 @@ FSBaseMission.draw = Utils.appendedFunction(FSBaseMission.draw, function(mission
     end
 end)
 
+-- Route mouse events to IncomeHUD (RMB over panel = toggle; fixed position, no drag)
+local incomeMouseHandler = {}
+function incomeMouseHandler:mouseEvent(posX, posY, isDown, isUp, button, eventUsed)
+    if im and im.incomeHUD then
+        im.incomeHUD:onMouseEvent(posX, posY, isDown, isUp, button)
+    end
+end
+addModEventListener(incomeMouseHandler)
+
 -- Auto-save timer state on every game save (prevents missed/double payments on reload)
 Mission00.saveToXMLFile = Utils.appendedFunction(Mission00.saveToXMLFile, function(mission, xmlFilename)
     if im then
