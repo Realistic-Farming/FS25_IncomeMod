@@ -37,6 +37,8 @@ local function load(mission)
         Logging.info("Income Mod v2.0.0.5: Initializing...")
         im = IncomeManager.new(mission, modDirectory, modName)
         getfenv(0)["g_IncomeManager"] = im
+        -- Attach to g_currentMission for cross-mod access (getfenv(0) is per-mod scoped)
+        mission.incomeManager = im
         Logging.info("Income Mod v2.0.0.5: Initialized successfully")
     end
 end
@@ -52,6 +54,7 @@ local function unload()
         im:delete()
         im = nil
         getfenv(0)["g_IncomeManager"] = nil
+        if g_currentMission then g_currentMission.incomeManager = nil end
     end
 end
 
