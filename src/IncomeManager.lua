@@ -121,6 +121,11 @@ function IncomeManager:onMissionLoaded()
         self.incomeSystem:initialize()
     end
 
+    -- Restore HUD layout (position/scale) saved by the player
+    if self.incomeHUD then
+        self.incomeHUD:loadLayout()
+    end
+
     -- Restore timer state from previous save (prevents double-payment on reload)
     self:loadState()
 
