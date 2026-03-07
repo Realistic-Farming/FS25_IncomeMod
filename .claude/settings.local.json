@@ -7,7 +7,18 @@
       "Bash(for id in I_kwDORACkSs7r_zVK I_kwDORACkSs7r_zwZ I_kwDORACkSs7r_0T6 I_kwDORACkSs7r_0nu I_kwDORACkSs7r_07R)",
       "Bash(do)",
       "Bash(echo:*)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(sed:*)",
+      "Bash(git:*)",
+      "Bash(gh pr:*)",
+      "Bash(bash:*)",
+      "Bash(unzip:*)",
+      "Bash(command:*)",
+      "Bash(gh release:*)",
+      "Bash(find \"/c/Program Files \\(x86\\)/Farming Simulator 2025/dataS/scripts\" -name \"*.lua\")",
+      "Bash(py:*)",
+      "Bash(find:*)",
+      "Bash(xargs grep:*)"
     ]
   }
 }
