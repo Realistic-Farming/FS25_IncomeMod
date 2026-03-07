@@ -157,6 +157,9 @@ function IncomeManager:update(dt)
     if self.incomeSystem then
         self.incomeSystem:update(dt)
     end
+    if self.incomeHUD then
+        self.incomeHUD:update(dt)
+    end
 end
 
 -- =========================================================
