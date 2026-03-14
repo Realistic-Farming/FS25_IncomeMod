@@ -163,9 +163,10 @@ function IncomeHUD:saveLayout()
     if not path then return end
     local xml = XMLFile.create("im_hud", path, "hudLayout")
     if xml then
-        xml:setFloat("hudLayout.posX",  self.posX)
-        xml:setFloat("hudLayout.posY",  self.posY)
-        xml:setFloat("hudLayout.scale", self.scale)
+        xml:setFloat("hudLayout.posX",   self.posX)
+        xml:setFloat("hudLayout.posY",   self.posY)
+        xml:setFloat("hudLayout.scale",  self.scale)
+        xml:setBool("hudLayout.visible", self.visible)
         xml:save()
         xml:delete()
     end
@@ -176,9 +177,10 @@ function IncomeHUD:loadLayout()
     if not path or not fileExists(path) then return end
     local xml = XMLFile.load("im_hud", path)
     if xml then
-        self.posX  = xml:getFloat("hudLayout.posX",  self.posX)
-        self.posY  = xml:getFloat("hudLayout.posY",  self.posY)
-        self.scale = xml:getFloat("hudLayout.scale", self.scale)
+        self.posX    = xml:getFloat("hudLayout.posX",   self.posX)
+        self.posY    = xml:getFloat("hudLayout.posY",   self.posY)
+        self.scale   = xml:getFloat("hudLayout.scale",  self.scale)
+        self.visible = xml:getBool("hudLayout.visible", self.visible)
         xml:delete()
     end
 end

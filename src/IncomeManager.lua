@@ -222,6 +222,7 @@ function IncomeManager:delete()
 
     -- Destroy HUD overlay
     if self.incomeHUD then
+        self.incomeHUD:saveLayout()
         self.incomeHUD:delete()
         self.incomeHUD = nil
     end
