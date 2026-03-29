@@ -1,0 +1,19 @@
+{
+  "2026-03-29": [
+    {
+      "referrer": "Google",
+      "count": 61,
+      "uniques": 38
+    },
+    {
+      "referrer": "github.com",
+      "count": 60,
+      "uniques": 26
+    },
+    {
+      "referrer": "kingmods.net",
+      "count": 7,
+      "uniques": 4
+    }
+  ]
+}
