@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-03-30T18:47:39Z
-**Days tracked:** 2 | **Download snapshots:** 6 (hourly)
+**Last updated:** 2026-03-31T06:09:21Z
+**Days tracked:** 3 | **Download snapshots:** 7 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 154 | 77 |
-| Git Clones | 63 | 42 |
+| Page Views | 147 | 70 |
+| Git Clones | 93 | 53 |
 
-> **Engagement:** 2.0 pages per visitor (14-day avg)
+> **Engagement:** 2.1 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 94 of 77 visitors cloned or downloaded (**122.0%**)
+> **14-day conversion:** 105 of 70 visitors cloned or downloaded (**150.0%**)
 >
-> Unique cloners: 42 | Release downloads: 52
+> Unique cloners: 53 | Release downloads: 52
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 52 |
-| Git Clones (14-day) | 63 |
-| **Total Acquisitions** | **115** |
+| Git Clones (14-day) | 93 |
+| **Total Acquisitions** | **145** |
 
 ---
 
@@ -54,9 +54,9 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| Google | 59 | 39 |
-| github.com | 47 | 22 |
-| kingmods.net | 5 | 3 |
+| Google | 58 | 36 |
+| github.com | 41 | 20 |
+| kingmods.net | 3 | 2 |
 
 ---
 
@@ -76,11 +76,10 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_IncomeMod` | 127 | 72 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.4.0` | 18 | 8 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod` | 122 | 66 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.4.0` | 17 | 7 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/releases` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/compare/v2.1.4.0...main` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/pull/18` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/pulls` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.3.0` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/tree/development` | 1 | 1 |
