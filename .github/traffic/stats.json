@@ -547,5 +547,184 @@
     "stars": 3,
     "forks": 1,
     "watchers": 0
+  },
+  {
+    "timestamp": "2026-04-01T06:20:02Z",
+    "date": "2026-04-01",
+    "views": {
+      "count": 150,
+      "uniques": 71
+    },
+    "clones": {
+      "count": 126,
+      "uniques": 63
+    },
+    "referrers": [
+      {
+        "referrer": "Google",
+        "count": 59,
+        "uniques": 36
+      },
+      {
+        "referrer": "github.com",
+        "count": 43,
+        "uniques": 21
+      },
+      {
+        "referrer": "kingmods.net",
+        "count": 3,
+        "uniques": 2
+      }
+    ],
+    "popular_paths": [
+      {
+        "path": "/TheCodingDad-TisonK/FS25_IncomeMod",
+        "title": "GitHub - TheCodingDad-TisonK/FS25_IncomeMod: Configurable passive income for ...",
+        "count": 125,
+        "uniques": 67
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.4.0",
+        "title": "Release v2.1.4.0 — HUD Persistence Fix · TheCodingDad-TisonK/FS25_IncomeMod",
+        "count": 17,
+        "uniques": 7
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases",
+        "title": "Releases · TheCodingDad-TisonK/FS25_IncomeMod",
+        "count": 2,
+        "uniques": 2
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/compare/v2.1.4.0...main",
+        "title": "Comparing v2.1.4.0...main · TheCodingDad-TisonK/FS25_IncomeMod · GitHub",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/pulls",
+        "title": "Pull requests · TheCodingDad-TisonK/FS25_IncomeMod · GitHub",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.3.0",
+        "title": "Release v2.1.3.0 · TheCodingDad-TisonK/FS25_IncomeMod · GitHub",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/tree/development",
+        "title": "GitHub - TheCodingDad-TisonK/FS25_IncomeMod at development · GitHub",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/tree/main",
+        "title": "GitHub - TheCodingDad-TisonK/FS25_IncomeMod: Configurable passive income for ...",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/tree/v2.1.4.0",
+        "title": "GitHub - TheCodingDad-TisonK/FS25_IncomeMod at v2.1.4.0 · GitHub",
+        "count": 1,
+        "uniques": 1
+      }
+    ],
+    "releases": [
+      {
+        "assets": [
+          {
+            "downloads": 7,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.4.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 4,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.3.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 10,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.2.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 1,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.1.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 11,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.0.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 5,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.0.0.4"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 3,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.0.0.3"
+      },
+      {
+        "assets": [],
+        "tag": "v2.0.0.2"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 7,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.0.0.1"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 4,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.0.0.0"
+      },
+      {
+        "assets": [],
+        "tag": "v1.1.0.0"
+      }
+    ],
+    "stars": 3,
+    "forks": 1,
+    "watchers": 0
   }
 ]
