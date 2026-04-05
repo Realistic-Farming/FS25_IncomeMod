@@ -1247,45 +1247,45 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-04-05T06:07:48Z",
+    "timestamp": "2026-04-05T12:29:39Z",
     "date": "2026-04-05",
     "views": {
-      "count": 139,
-      "uniques": 64
+      "count": 131,
+      "uniques": 63
     },
     "clones": {
-      "count": 203,
-      "uniques": 78
+      "count": 232,
+      "uniques": 84
     },
     "referrers": [
       {
         "referrer": "Google",
-        "count": 56,
+        "count": 55,
         "uniques": 35
       },
       {
         "referrer": "github.com",
-        "count": 33,
+        "count": 31,
         "uniques": 16
       },
       {
         "referrer": "kingmods.net",
-        "count": 3,
-        "uniques": 2
+        "count": 2,
+        "uniques": 1
       }
     ],
     "popular_paths": [
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod",
         "title": "Overview",
-        "count": 115,
-        "uniques": 61
+        "count": 109,
+        "uniques": 60
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.4.0",
         "title": "/releases/tag/v2.1.4.0",
-        "count": 16,
-        "uniques": 6
+        "count": 14,
+        "uniques": 4
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases",
