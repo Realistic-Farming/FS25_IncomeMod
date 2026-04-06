@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-04-05T18:26:05Z
-**Days tracked:** 8 | **Download snapshots:** 25 (hourly)
+**Last updated:** 2026-04-06T06:23:22Z
+**Days tracked:** 9 | **Download snapshots:** 26 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 131 | 63 |
-| Git Clones | 232 | 84 |
+| Page Views | 123 | 57 |
+| Git Clones | 265 | 93 |
 
-> **Engagement:** 2.0 pages per visitor (14-day avg)
+> **Engagement:** 2.1 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 138 of 63 visitors cloned or downloaded (**219.0%**)
+> **14-day conversion:** 147 of 57 visitors cloned or downloaded (**257.8%**)
 >
-> Unique cloners: 84 | Release downloads: 54
+> Unique cloners: 93 | Release downloads: 54
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 54 |
-| Git Clones (14-day) | 232 |
-| **Total Acquisitions** | **286** |
+| Git Clones (14-day) | 265 |
+| **Total Acquisitions** | **319** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| Google | 55 | 35 |
-| github.com | 31 | 16 |
+| Google | 52 | 33 |
+| github.com | 31 | 15 |
 | kingmods.net | 2 | 1 |
 
 ---
@@ -76,14 +76,13 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_IncomeMod` | 109 | 60 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.4.0` | 14 | 4 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod` | 103 | 56 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.4.0` | 13 | 4 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/releases` | 3 | 2 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/compare/v2.1.4.0...main` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/blob/main/FS25_IncomeMod.zip` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/pulls` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/tree/development` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/tree/main` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/tree/v2.1.4.0` | 1 | 1 |
 
 ---
 
