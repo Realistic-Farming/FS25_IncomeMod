@@ -2409,46 +2409,46 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-04-12T06:17:20Z",
+    "timestamp": "2026-04-12T12:33:08Z",
     "date": "2026-04-12",
     "views": {
-      "count": 125,
-      "uniques": 60
+      "count": 110,
+      "uniques": 55
     },
     "clones": {
-      "count": 424,
+      "count": 447,
       "uniques": 133
     },
     "referrers": [
       {
         "referrer": "Google",
-        "count": 54,
-        "uniques": 32
+        "count": 52,
+        "uniques": 29
       },
       {
         "referrer": "github.com",
-        "count": 41,
-        "uniques": 19
+        "count": 37,
+        "uniques": 18
       }
     ],
     "popular_paths": [
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod",
         "title": "Overview",
-        "count": 103,
-        "uniques": 57
+        "count": 93,
+        "uniques": 52
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.4.0",
         "title": "/releases/tag/v2.1.4.0",
-        "count": 12,
+        "count": 11,
         "uniques": 5
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases",
         "title": "/releases",
-        "count": 5,
-        "uniques": 4
+        "count": 3,
+        "uniques": 3
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/blob/main/FS25_IncomeMod.zip",
@@ -2465,18 +2465,6 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/pulls",
         "title": "/pulls",
-        "count": 1,
-        "uniques": 1
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/tree/development",
-        "title": "/tree/development",
-        "count": 1,
-        "uniques": 1
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/tree/main",
-        "title": "/tree/main",
         "count": 1,
         "uniques": 1
       }
