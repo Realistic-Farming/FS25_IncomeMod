@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.1.5.0)
+-- FS25 Income Mod (version 2.1.6.0)
 -- =========================================================
 -- Passive hourly/daily income with difficulty tiers,
 -- seasonal modifiers, multiplier, and per-farm MP support.
@@ -79,9 +79,11 @@ end)
 -- Route mouse events to IncomeHUD (RMB over panel = toggle; fixed position, no drag)
 local incomeMouseHandler = {}
 function incomeMouseHandler:mouseEvent(posX, posY, isDown, isUp, button, eventUsed)
+    if eventUsed then return eventUsed end
     if im and im.incomeHUD then
-        im.incomeHUD:onMouseEvent(posX, posY, isDown, isUp, button)
+        return im.incomeHUD:onMouseEvent(posX, posY, isDown, isUp, button, eventUsed)
     end
+    return false
 end
 addModEventListener(incomeMouseHandler)
 
