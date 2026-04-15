@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.0.0.5)
+-- FS25 Income Mod (version 2.1.5.0)
 -- =========================================================
 -- Author: TisonK
 -- =========================================================
@@ -205,9 +205,15 @@ function IncomeSystem:checkHourly()
     end
     local currentHour = g_currentMission.environment.currentHour
     if currentHour ~= self.lastHour then
+        local isSleeping = g_sleepManager and g_sleepManager:getIsSleeping()
         self.lastHour = currentHour
-        self:giveMoney("hourly")
-        return true
+        
+        if not isSleeping then
+            self:giveMoney("hourly")
+            return true
+        else
+            self:log("Skipped hourly payment due to sleeping (Hour %d)", currentHour)
+        end
     end
     return false
 end
@@ -218,9 +224,15 @@ function IncomeSystem:checkDaily()
     end
     local currentDay = g_currentMission.environment.currentDay
     if currentDay ~= self.lastDay then
+        local isSleeping = g_sleepManager and g_sleepManager:getIsSleeping()
         self.lastDay = currentDay
-        self:giveMoney("daily")
-        return true
+        
+        if not isSleeping then
+            self:giveMoney("daily")
+            return true
+        else
+            self:log("Skipped daily payment due to sleeping (Day %d)", currentDay)
+        end
     end
     return false
 end

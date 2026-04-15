@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.1.2.0)
+-- FS25 Income Mod (version 2.1.5.0)
 -- =========================================================
 -- Income HUD Overlay
 -- Displays income status, payment method, and history.
