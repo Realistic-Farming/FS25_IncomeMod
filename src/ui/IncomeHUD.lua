@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.1.2.0)
+-- FS25 Income Mod (version 2.1.5.0)
 -- =========================================================
 -- Income HUD Overlay
 -- Displays income status, payment method, and history.
@@ -537,7 +537,7 @@ function IncomeHUD:drawPanel()
     if self.editMode then
         renderText(x + w * 0.5, cy - tsSmall, tsSmall, "Drag: move   Corner: resize   RMB: done")
     else
-        renderText(x + w * 0.5, cy - tsSmall, tsSmall, "[I]: toggle   RMB: move/resize")
+        renderText(x + w * 0.5, cy - tsSmall, tsSmall, "RMB: move/resize")
     end
 
     -- Reset text state
