@@ -114,7 +114,7 @@ At these stages, Claude and Samantha MUST have explicit dialog:
 
 ## Project Overview
 
-**FS25_IncomeMod** is a Farming Simulator 25 mod that adds a configurable passive income system. Players receive hourly or daily payments with three difficulty tiers, an optional income multiplier (1x/2x/5x/10x), optional seasonal modifiers, and per-farm multiplayer support. Current version: **2.1.5.0**. Settings persist per-savegame and the income timer state is preserved across reloads to prevent double-payment.
+**FS25_IncomeMod** is a Farming Simulator 25 mod that adds a configurable passive income system. Players receive hourly or daily payments with three difficulty tiers, an optional income multiplier (1x/2x/5x/10x), optional seasonal modifiers, and per-farm multiplayer support. Current version: **2.1.6.0**. Settings persist per-savegame and the income timer state is preserved across reloads to prevent double-payment.
 
 ---
 
