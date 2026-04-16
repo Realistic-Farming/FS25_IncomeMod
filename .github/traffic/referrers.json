@@ -259,5 +259,17 @@
       "count": 43,
       "uniques": 18
     }
+  ],
+  "2026-04-16": [
+    {
+      "referrer": "Google",
+      "count": 45,
+      "uniques": 25
+    },
+    {
+      "referrer": "github.com",
+      "count": 43,
+      "uniques": 18
+    }
   ]
 }
