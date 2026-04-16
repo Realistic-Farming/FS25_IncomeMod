@@ -3039,34 +3039,34 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-04-16T06:26:34Z",
+    "timestamp": "2026-04-16T12:59:16Z",
     "date": "2026-04-16",
     "views": {
-      "count": 104,
-      "uniques": 49
+      "count": 123,
+      "uniques": 59
     },
     "clones": {
-      "count": 496,
-      "uniques": 144
+      "count": 537,
+      "uniques": 160
     },
     "referrers": [
       {
         "referrer": "Google",
-        "count": 45,
-        "uniques": 25
+        "count": 48,
+        "uniques": 28
       },
       {
         "referrer": "github.com",
-        "count": 43,
-        "uniques": 18
+        "count": 47,
+        "uniques": 22
       }
     ],
     "popular_paths": [
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod",
         "title": "Overview",
-        "count": 84,
-        "uniques": 46
+        "count": 96,
+        "uniques": 56
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.4.0",
@@ -3077,20 +3077,26 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases",
         "title": "/releases",
-        "count": 4,
-        "uniques": 4
+        "count": 5,
+        "uniques": 5
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/issues/25",
         "title": "/issues/25",
-        "count": 3,
-        "uniques": 2
+        "count": 5,
+        "uniques": 3
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/issues",
         "title": "/issues",
+        "count": 3,
+        "uniques": 2
+      },
+      {
+        "path": "/thecodingdad-tisonk/fs25_incomemod/actions",
+        "title": "/actions",
         "count": 2,
-        "uniques": 1
+        "uniques": 2
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/blob/main/FS25_IncomeMod.zip",
@@ -3099,8 +3105,14 @@
         "uniques": 1
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/pulls",
-        "title": "/pulls",
+        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.5.0",
+        "title": "/releases/tag/v2.1.5.0",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0",
+        "title": "/releases/tag/v2.1.6.0",
         "count": 1,
         "uniques": 1
       }
@@ -3109,7 +3121,7 @@
       {
         "assets": [
           {
-            "downloads": 2,
+            "downloads": 3,
             "name": "FS25_IncomeMod.zip"
           }
         ],
