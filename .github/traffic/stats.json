@@ -3231,7 +3231,7 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-04-17T12:51:08Z",
+    "timestamp": "2026-04-17T18:40:06Z",
     "date": "2026-04-17",
     "views": {
       "count": 133,
@@ -3318,7 +3318,7 @@
       {
         "assets": [
           {
-            "downloads": 5,
+            "downloads": 7,
             "name": "FS25_IncomeMod.zip"
           }
         ],
@@ -3423,7 +3423,7 @@
         "tag": "v1.1.0.0"
       }
     ],
-    "stars": 3,
+    "stars": 4,
     "forks": 1,
     "watchers": 0
   }
