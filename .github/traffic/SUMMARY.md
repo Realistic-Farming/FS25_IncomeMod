@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-04-23T18:52:12Z
-**Days tracked:** 26 | **Download snapshots:** 91 (hourly)
+**Last updated:** 2026-04-24T06:57:10Z
+**Days tracked:** 27 | **Download snapshots:** 92 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 161 | 71 |
-| Git Clones | 699 | 226 |
+| Page Views | 151 | 67 |
+| Git Clones | 742 | 247 |
 
 > **Engagement:** 2.2 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 305 of 71 visitors cloned or downloaded (**429.5%**)
+> **14-day conversion:** 326 of 67 visitors cloned or downloaded (**486.5%**)
 >
-> Unique cloners: 226 | Release downloads: 79
+> Unique cloners: 247 | Release downloads: 79
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 79 |
-| Git Clones (14-day) | 699 |
-| **Total Acquisitions** | **778** |
+| Git Clones (14-day) | 742 |
+| **Total Acquisitions** | **821** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 73 | 28 |
-| Google | 45 | 31 |
+| github.com | 68 | 26 |
+| Google | 41 | 30 |
 | kingmods.net | 2 | 2 |
 
 ---
@@ -76,11 +76,11 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_IncomeMod` | 119 | 68 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/releases` | 13 | 8 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod` | 111 | 64 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0` | 12 | 8 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/issues/25` | 5 | 3 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/releases` | 12 | 7 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/issues` | 4 | 3 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/issues/25` | 4 | 2 |
 | `/thecodingdad-tisonk/fs25_incomemod/actions` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/blob/main/FS25_IncomeMod.zip` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/blob/main/README.md` | 1 | 1 |
