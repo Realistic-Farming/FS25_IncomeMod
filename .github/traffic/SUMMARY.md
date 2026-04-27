@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-04-26T18:34:10Z
-**Days tracked:** 29 | **Download snapshots:** 102 (hourly)
+**Last updated:** 2026-04-27T12:14:29Z
+**Days tracked:** 30 | **Download snapshots:** 104 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 156 | 70 |
-| Git Clones | 818 | 285 |
+| Page Views | 198 | 78 |
+| Git Clones | 937 | 340 |
 
-> **Engagement:** 2.2 pages per visitor (14-day avg)
+> **Engagement:** 2.5 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 366 of 70 visitors cloned or downloaded (**522.8%**)
+> **14-day conversion:** 423 of 78 visitors cloned or downloaded (**542.3%**)
 >
-> Unique cloners: 285 | Release downloads: 81
+> Unique cloners: 340 | Release downloads: 83
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 81 |
-| Git Clones (14-day) | 818 |
-| **Total Acquisitions** | **899** |
+| Zip Downloads | 83 |
+| Git Clones (14-day) | 937 |
+| **Total Acquisitions** | **1020** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 71 | 28 |
-| Google | 39 | 30 |
+| github.com | 92 | 29 |
+| Google | 42 | 34 |
 | kingmods.net | 2 | 2 |
 
 ---
@@ -76,16 +76,16 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_IncomeMod` | 115 | 67 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod` | 129 | 74 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0` | 13 | 8 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/releases` | 12 | 6 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/issues` | 4 | 3 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/issues` | 7 | 4 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/pulls` | 6 | 2 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/actions` | 5 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/issues/25` | 4 | 2 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/tree/traffic-stats` | 2 | 2 |
 | `/thecodingdad-tisonk/fs25_incomemod/actions` | 2 | 2 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/blob/main/FS25_IncomeMod.zip` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/blob/main/README.md` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.3.0` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.4.0` | 1 | 1 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/compare` | 2 | 1 |
 
 ---
 
