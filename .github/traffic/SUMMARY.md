@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-04-28T12:18:44Z
-**Days tracked:** 31 | **Download snapshots:** 107 (hourly)
+**Last updated:** 2026-04-30T12:06:27Z
+**Days tracked:** 32 | **Download snapshots:** 108 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 198 | 76 |
-| Git Clones | 955 | 348 |
+| Page Views | 163 | 62 |
+| Git Clones | 864 | 306 |
 
 > **Engagement:** 2.6 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 431 of 76 visitors cloned or downloaded (**567.1%**)
+> **14-day conversion:** 389 of 62 visitors cloned or downloaded (**627.4%**)
 >
-> Unique cloners: 348 | Release downloads: 83
+> Unique cloners: 306 | Release downloads: 83
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 83 |
-| Git Clones (14-day) | 955 |
-| **Total Acquisitions** | **1038** |
+| Git Clones (14-day) | 864 |
+| **Total Acquisitions** | **947** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 93 | 29 |
-| Google | 40 | 32 |
+| github.com | 77 | 23 |
+| Google | 34 | 29 |
 | kingmods.net | 2 | 2 |
 
 ---
@@ -76,16 +76,16 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_IncomeMod` | 128 | 72 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0` | 13 | 8 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/releases` | 13 | 7 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/issues` | 7 | 4 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod` | 107 | 60 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0` | 12 | 7 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/releases` | 11 | 5 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/pulls` | 6 | 2 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/actions` | 5 | 1 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/issues/25` | 4 | 2 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/issues` | 4 | 2 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/tree/traffic-stats` | 2 | 2 |
-| `/thecodingdad-tisonk/fs25_incomemod/actions` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/compare` | 2 | 1 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/compare/cddb6a3bcf93...06558ba819b3` | 2 | 1 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/actions/runs/24951902336` | 1 | 1 |
 
 ---
 
