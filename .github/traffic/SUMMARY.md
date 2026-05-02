@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-05-01T18:53:52Z
-**Days tracked:** 33 | **Download snapshots:** 111 (hourly)
+**Last updated:** 2026-05-02T06:54:50Z
+**Days tracked:** 34 | **Download snapshots:** 112 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 149 | 56 |
-| Git Clones | 863 | 295 |
+| Page Views | 135 | 50 |
+| Git Clones | 849 | 283 |
 
-> **Engagement:** 2.6 pages per visitor (14-day avg)
+> **Engagement:** 2.7 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 379 of 56 visitors cloned or downloaded (**676.7%**)
+> **14-day conversion:** 367 of 50 visitors cloned or downloaded (**734.0%**)
 >
-> Unique cloners: 295 | Release downloads: 84
+> Unique cloners: 283 | Release downloads: 84
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 84 |
-| Git Clones (14-day) | 863 |
-| **Total Acquisitions** | **947** |
+| Git Clones (14-day) | 849 |
+| **Total Acquisitions** | **933** |
 
 ---
 
@@ -54,9 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 72 | 21 |
-| Google | 30 | 26 |
-| kingmods.net | 1 | 1 |
+| github.com | 65 | 20 |
+| Google | 25 | 22 |
 
 ---
 
@@ -76,9 +75,9 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_IncomeMod` | 96 | 54 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0` | 10 | 6 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/releases` | 10 | 4 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod` | 88 | 48 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0` | 8 | 4 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/releases` | 7 | 4 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/pulls` | 6 | 2 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/actions` | 5 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/issues` | 4 | 2 |
