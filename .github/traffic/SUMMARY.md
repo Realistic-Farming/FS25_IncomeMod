@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-05-06T12:21:48Z
-**Days tracked:** 37 | **Download snapshots:** 118 (hourly)
+**Last updated:** 2026-05-07T12:25:29Z
+**Days tracked:** 38 | **Download snapshots:** 119 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 103 | 39 |
-| Git Clones | 843 | 269 |
+| Page Views | 100 | 37 |
+| Git Clones | 777 | 251 |
 
-> **Engagement:** 2.6 pages per visitor (14-day avg)
+> **Engagement:** 2.7 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 353 of 39 visitors cloned or downloaded (**905.1%**)
+> **14-day conversion:** 335 of 37 visitors cloned or downloaded (**905.4%**)
 >
-> Unique cloners: 269 | Release downloads: 84
+> Unique cloners: 251 | Release downloads: 84
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 84 |
-| Git Clones (14-day) | 843 |
-| **Total Acquisitions** | **927** |
+| Git Clones (14-day) | 777 |
+| **Total Acquisitions** | **861** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 54 | 17 |
-| Google | 18 | 15 |
+| github.com | 55 | 18 |
+| Google | 14 | 12 |
 | Bing | 1 | 1 |
 
 ---
@@ -76,12 +76,12 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_IncomeMod` | 63 | 38 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod` | 59 | 36 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/pulls` | 6 | 2 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/actions` | 5 | 1 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/releases` | 3 | 3 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/issues` | 3 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/blob/main/modDesc.xml` | 2 | 2 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/releases` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/tree/traffic-stats` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/compare` | 2 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/compare/cddb6a3bcf93...06558ba819b3` | 2 | 1 |
