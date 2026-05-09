@@ -596,5 +596,22 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-05-09": [
+    {
+      "referrer": "github.com",
+      "count": 60,
+      "uniques": 20
+    },
+    {
+      "referrer": "Google",
+      "count": 9,
+      "uniques": 7
+    },
+    {
+      "referrer": "Bing",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
