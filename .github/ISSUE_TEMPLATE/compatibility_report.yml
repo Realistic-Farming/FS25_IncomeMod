@@ -30,7 +30,7 @@ body:
     attributes:
       label: Conflicting Mod Name
       description: Exact name as shown in the mod manager or modDesc.xml.
-      placeholder: "e.g. FS25_SomeOtherMod"
+      placeholder: "e.g. FS25_TaxMod"
     validations:
       required: true
 
@@ -55,8 +55,8 @@ body:
     id: description
     attributes:
       label: What is the conflict?
-      description: Describe exactly what goes wrong. Wrong values? Crash? Features from one mod disabling the other? Be specific.
-      placeholder: "When FS25_SomeOtherMod is loaded, the income display stops updating after selling goods."
+      description: Describe exactly what goes wrong. Wrong totals? Reports not updating? Income categories disappearing? Be specific.
+      placeholder: "When FS25_TaxMod is loaded, the income report double-counts tax deductions as negative income, making totals incorrect."
     validations:
       required: true
 
@@ -68,8 +68,8 @@ body:
       placeholder: |
         1. Load both mods
         2. Start a new game
-        3. Sell crops at a sell point
-        4. Income display does not update
+        3. Sell crops and check the income report
+        4. Tax deductions appear twice — once under expenses and once as negative income
     validations:
       required: true
 
@@ -78,7 +78,7 @@ body:
     attributes:
       label: Isolation Test
       description: Did you confirm the issue disappears when the conflicting mod is removed? This is important — without this step we cannot tell which mod is the source.
-      placeholder: "Yes — removing FS25_SomeOtherMod makes the income display work correctly."
+      placeholder: "Yes — removing FS25_TaxMod makes income totals correct."
     validations:
       required: true
 
@@ -86,7 +86,7 @@ body:
     id: log
     attributes:
       label: Log Snippet
-      description: Paste all `[Income Mod]` lines from your log.txt, plus any errors in the same session. Include the full stack trace if there is one.
+      description: Paste all `[IncomeMod]` lines from your log.txt, plus any errors in the same session. Include the full stack trace if there is one.
       render: text
     validations:
       required: true

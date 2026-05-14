@@ -8,14 +8,14 @@ body:
         **Before opening this request:**
         - Check the roadmap in the README — your idea may already be planned.
         - Check open issues to avoid duplicates.
-        - Keep requests scoped and specific. "Improve income tracking" will be closed. "Add a weekly income breakdown chart to the income HUD" is actionable.
+        - Keep requests scoped and specific. "Better income tracking" will be closed. "Add a weekly income breakdown chart showing each category as a percentage of total income" is actionable.
 
   - type: textarea
     id: problem
     attributes:
       label: What problem does this solve?
       description: Describe the situation or frustration this would address. Focus on the problem, not the solution.
-      placeholder: "When I have multiple income sources, it is hard to tell which ones are most profitable."
+      placeholder: "When I have crops, animals, and contracts all running simultaneously, I cannot tell which income source is performing best without doing the math myself."
     validations:
       required: true
 
@@ -24,7 +24,7 @@ body:
     attributes:
       label: Proposed Solution
       description: Describe what you want to happen. Be specific about the behavior, not just the concept.
-      placeholder: "Add a breakdown panel that shows income by category (crops, animals, contracts) for the current and previous week."
+      placeholder: "Add a breakdown panel that shows income by category (crops, animals, contracts, services) for the current week and previous week side by side, with percentage change indicators."
     validations:
       required: true
 
@@ -37,14 +37,14 @@ body:
       required: false
 
   - type: dropdown
-    id: phase
+    id: area
     attributes:
       label: Which part of the mod does this relate to?
       options:
         - Income Tracking
-        - Income Display / HUD
-        - Income Categories
-        - Settings / Difficulty
+        - Expense Categories
+        - Reports / Export
+        - HUD
         - Multiplayer
         - Mod Compatibility
         - Other
