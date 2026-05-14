@@ -79,9 +79,11 @@ end)
 -- Route mouse events to IncomeHUD (RMB over panel = toggle; fixed position, no drag)
 local incomeMouseHandler = {}
 function incomeMouseHandler:mouseEvent(posX, posY, isDown, isUp, button, eventUsed)
+    if eventUsed then return eventUsed end
     if im and im.incomeHUD then
-        im.incomeHUD:onMouseEvent(posX, posY, isDown, isUp, button)
+        return im.incomeHUD:onMouseEvent(posX, posY, isDown, isUp, button, eventUsed)
     end
+    return false
 end
 addModEventListener(incomeMouseHandler)
 

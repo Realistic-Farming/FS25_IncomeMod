@@ -231,24 +231,27 @@ end
 -- RMB anywhere while editing → exit edit mode.
 -- =========================================================
 
-function IncomeHUD:onMouseEvent(posX, posY, isDown, isUp, button)
-    if not self.settings.showHUD then return end
-    if not self.visible then return end
+function IncomeHUD:onMouseEvent(posX, posY, isDown, isUp, button, eventUsed)
+    if eventUsed then return true end
+    if not self.settings.showHUD then return false end
+    if not self.visible then return false end
 
     -- RMB: enter if over HUD, exit from anywhere
-    if isDown and button == 3 then
+    if isDown and button == Input.MOUSE_BUTTON_RIGHT then
         if self.editMode then
             self:exitEditMode()
+            return true
         elseif self:isPointerOverHUD(posX, posY) then
             self:enterEditMode()
+            return true
         end
-        return
+        return false
     end
 
-    if not self.editMode then return end
+    if not self.editMode then return false end
 
     -- LMB down: corner resize or body drag
-    if isDown and button == 1 then
+    if isDown and button == Input.MOUSE_BUTTON_LEFT then
         local corner = self:hitTestCorner(posX, posY)
         if corner then
             self.resizing         = true
@@ -256,7 +259,7 @@ function IncomeHUD:onMouseEvent(posX, posY, isDown, isUp, button)
             self.resizeStartX     = posX
             self.resizeStartY     = posY
             self.resizeStartScale = self.scale
-            return
+            return true
         end
         if self:isPointerOverHUD(posX, posY) then
             self.dragging    = true
@@ -264,25 +267,30 @@ function IncomeHUD:onMouseEvent(posX, posY, isDown, isUp, button)
             -- offset from panel text anchor
             self.dragOffsetX = posX - self.posX
             self.dragOffsetY = posY - self.posY
+            return true
         end
-        return
+        return false
     end
 
     -- LMB up: end drag/resize
-    if isUp and button == 1 then
+    if isUp and button == Input.MOUSE_BUTTON_LEFT then
         if self.dragging or self.resizing then
             self.dragging = false
             self.resizing = false
             self:clampPosition()
+            return true
         end
-        return
+        return false
     end
+
+    local handled = false
 
     -- Mouse movement: continuous drag / resize
     if self.dragging then
         local bw = self.lastBgW
         self.posX = math.max(0.0, math.min(1.0 - bw, posX - self.dragOffsetX))
         self.posY = math.max(0.05, math.min(0.98, posY - self.dragOffsetY))
+        handled = true
     end
 
     if self.resizing then
@@ -294,12 +302,18 @@ function IncomeHUD:onMouseEvent(posX, posY, isDown, isUp, button)
         self.scale = math.max(IncomeHUD.MIN_SCALE,
             math.min(IncomeHUD.MAX_SCALE, self.resizeStartScale + delta))
         self:clampPosition()
+        handled = true
     end
 
     -- Hover detection for corner handles
     if not self.dragging and not self.resizing then
         self.hoverCorner = self:hitTestCorner(posX, posY)
+        if self.hoverCorner then
+            handled = true
+        end
     end
+
+    return handled
 end
 
 -- =========================================================

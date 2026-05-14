@@ -14,6 +14,7 @@
         <br><![CDATA[Colheita Realista]]></br>
         <uk><![CDATA[Реалістичний збір врожаю]]></uk>
         <ru><![CDATA[Реалистичный сбор урожая]]></ru>
+        <da><![CDATA[Indkomst Mod]]></da>
     </title>
     <description>
         <en><![CDATA[Adds hourly / daily income system with difficulty tiers, seasonal modifiers, and multiplayer per-farm support.]]></en>
@@ -26,6 +27,7 @@
         <br><![CDATA[Adiciona sistema de renda horária / diária com níveis de dificuldade, modificadores sazonais e suporte multiplayer.]]></br>
         <uk><![CDATA[Додає систему погодинного / щоденного доходу з рівнями складності, сезонними модифікаторами та підтримкою мультиплеєра.]]></uk>
         <ru><![CDATA[Добавляет систему почасового / ежедневного дохода с уровнями сложности, сезонными модификаторами и поддержкой мультиплеера.]]></ru>
+        <da><![CDATA[Tilføjer et timeligt / dagligt inkomstsystem med sværhedsniveauer, sæsonelle modificer og multiplayer support.]]></da>
     </description>
     <iconFilename>icon.dds</iconFilename>
 
@@ -48,6 +50,7 @@
             <br><![CDATA[Mod de Renda]]></br>
             <uk><![CDATA[Мод доходу]]></uk>
             <ru><![CDATA[Мод дохода]]></ru>
+            <da><![CDATA[inkomst Mod]]></da>
         </text>
 
         <!-- Enable/Disable -->
@@ -62,6 +65,7 @@
             <br><![CDATA[Ativar mod]]></br>
             <uk><![CDATA[Увімкнути мод]]></uk>
             <ru><![CDATA[Включить мод]]></ru>
+            <da><![CDATA[Aktiver mod]]></da>
         </text>
 
         <text name="im_enabled_long">
@@ -75,6 +79,7 @@
             <br><![CDATA[Ativar ou desativar o mod de renda]]></br>
             <uk><![CDATA[Увімкнути або вимкнути мод доходу]]></uk>
             <ru><![CDATA[Включить или выключить мод дохода]]></ru>
+            <da><![CDATA[Aktiver eller deaktiver inkomst mod]]></da>
         </text>
 
         <!-- Debug -->
@@ -89,6 +94,7 @@
             <br><![CDATA[Modo DEBUG]]></br>
             <uk><![CDATA[Режим DEBUG]]></uk>
             <ru><![CDATA[Режим DEBUG]]></ru>
+            <da><![CDATA[DEBUG Mode]]></da>
         </text>
 
         <text name="im_debug_long">
@@ -102,6 +108,7 @@
             <br><![CDATA[Ativar / desativar modo DEBUG (registro adicional)]]></br>
             <uk><![CDATA[Увімкнути / вимкнути режим DEBUG (додаткове логування)]]></uk>
             <ru><![CDATA[Включить / выключить режим DEBUG (дополнительное логирование)]]></ru>
+            <da><![CDATA[Aktiver / deaktiver debug mode (ekstra logning)]]></da>
         </text>
 
         <!-- Pay Mode -->
@@ -116,6 +123,7 @@
             <br><![CDATA[Modo de pagamento]]></br>
             <uk><![CDATA[Режим виплат]]></uk>
             <ru><![CDATA[Режим выплат]]></ru>
+            <da><![CDATA[Betalingstype]]></da>
         </text>
 
         <text name="im_paymode_long">
@@ -129,6 +137,7 @@
             <br><![CDATA[Escolher frequência de pagamento: horária ou diária]]></br>
             <uk><![CDATA[Виберіть частоту виплат: погодинно або щоденно]]></uk>
             <ru><![CDATA[Выбрать частоту выплат: почасовую или ежедневную]]></ru>
+            <da><![CDATA[Vælg betalingsfrekvens: time for time eller dagligt]]></da>
         </text>
 
         <text name="im_paymode_1">
@@ -142,6 +151,7 @@
             <br><![CDATA[Horária]]></br>
             <uk><![CDATA[Погодинно]]></uk>
             <ru><![CDATA[Почасово]]></ru>
+            <da><![CDATA[Time for time]]></da>
         </text>
 
         <text name="im_paymode_2">
@@ -155,6 +165,7 @@
             <br><![CDATA[Diária]]></br>
             <uk><![CDATA[Щоденно]]></uk>
             <ru><![CDATA[Ежедневно]]></ru>
+            <da><![CDATA[Dagligt]]></da>
         </text>
 
         <!-- Difficulty -->
@@ -169,6 +180,7 @@
             <br><![CDATA[Dificuldade]]></br>
             <uk><![CDATA[Складність]]></uk>
             <ru><![CDATA[Сложность]]></ru>
+            <da><![CDATA[Sværhedsgrad]]></da>
         </text>
 
         <text name="im_difficulty_long">
@@ -182,6 +194,7 @@
             <br><![CDATA[Definir valor da renda: Fácil=5000$, Normal=2400$, Difícil=1100$]]></br>
             <uk><![CDATA[Встановити суму доходу: Легко=5000$, Нормально=2400$, Важко=1100$]]></uk>
             <ru><![CDATA[Установить сумму дохода: Легко=5000$, Обычно=2400$, Сложно=1100$]]></ru>
+            <da><![CDATA[Indstil inkomstbeløb: Let=$5000, Normal=$2400, Svær=$1100]]></da>
         </text>
 
         <text name="im_diff_1">
@@ -195,6 +208,7 @@
             <br><![CDATA[Fácil (5000$)]]></br>
             <uk><![CDATA[Легко (5000$)]]></uk>
             <ru><![CDATA[Легко (5000$)]]></ru>
+            <da><![CDATA[Let ($5000)]]></da>
         </text>
 
         <text name="im_diff_2">
@@ -208,6 +222,7 @@
             <br><![CDATA[Normal (2400$)]]></br>
             <uk><![CDATA[Нормально (2400$)]]></uk>
             <ru><![CDATA[Обычно (2400$)]]></ru>
+            <da><![CDATA[Normal ($2400)]]></da>
         </text>
 
         <text name="im_diff_3">
@@ -221,6 +236,7 @@
             <br><![CDATA[Difícil (1100$)]]></br>
             <uk><![CDATA[Важко (1100$)]]></uk>
             <ru><![CDATA[Сложно (1100$)]]></ru>
+            <da><![CDATA[Svær ($1100)]]></da>
         </text>
 
         <!-- Notifications -->
@@ -235,6 +251,7 @@
             <br><![CDATA[Notificações]]></br>
             <uk><![CDATA[Сповіщення]]></uk>
             <ru><![CDATA[Уведомления]]></ru>
+            <da><![CDATA[Notifikationer]]></da>
         </text>
 
         <text name="im_notifications_long">
@@ -248,6 +265,7 @@
             <br><![CDATA[Ativar/desativar notificações de pagamento]]></br>
             <uk><![CDATA[Увімкнути/вимкнути сповіщення про виплати]]></uk>
             <ru><![CDATA[Включить/выключить уведомления о выплатах]]></ru>
+            <da><![CDATA[Aktiver/deaktiver betalingsnotifikationer]]></da>
         </text>
 
         <!-- Custom Amount -->
@@ -262,6 +280,7 @@
             <br><![CDATA[Valor personalizado]]></br>
             <uk><![CDATA[Власна сума]]></uk>
             <ru><![CDATA[Пользовательская сумма]]></ru>
+            <da><![CDATA[Brugerdefineret beløb]]></da>
         </text>
 
         <text name="im_customamount_long">
@@ -275,6 +294,7 @@
             <br><![CDATA[Definir valor de pagamento personalizado (0 = usar configuração de dificuldade)]]></br>
             <uk><![CDATA[Встановити власну суму виплати (0 = використовувати налаштування складності)]]></uk>
             <ru><![CDATA[Установить пользовательскую сумму выплаты (0 = использовать настройку сложности)]]></ru>
+            <da><![CDATA[Indstil brugerdefineret betalingsbeløb (0 = brug sværhedsgrad)]]></da>
         </text>
 
         <!-- Income Multiplier (NEW in 2.0) -->
@@ -289,6 +309,7 @@
             <br><![CDATA[Multiplicador de renda]]></br>
             <uk><![CDATA[Множник доходу]]></uk>
             <ru><![CDATA[Множитель дохода]]></ru>
+            <da><![CDATA[Inkomstmultiplikator]]></da>
         </text>
 
         <text name="im_multiplier_long">
@@ -302,6 +323,7 @@
             <br><![CDATA[Multiplicar o pagamento base: 1x, 2x, 5x ou 10x]]></br>
             <uk><![CDATA[Помножити базову виплату: 1x, 2x, 5x або 10x]]></uk>
             <ru><![CDATA[Умножить базовую выплату: 1x, 2x, 5x или 10x]]></ru>
+            <da><![CDATA[Multiplikér basishonoraret: 1x, 2x, 5x eller 10x]]></da>
         </text>
 
         <text name="im_mult_1">
@@ -315,6 +337,7 @@
             <br><![CDATA[1x (Normal)]]></br>
             <uk><![CDATA[1x (Нормально)]]></uk>
             <ru><![CDATA[1x (Обычно)]]></ru>
+            <da><![CDATA[1x (Normal)]]></da>
         </text>
 
         <text name="im_mult_2">
@@ -328,6 +351,7 @@
             <br><![CDATA[2x]]></br>
             <uk><![CDATA[2x]]></uk>
             <ru><![CDATA[2x]]></ru>
+            <da><![CDATA[2x]]></da>
         </text>
 
         <text name="im_mult_3">
@@ -341,6 +365,7 @@
             <br><![CDATA[5x]]></br>
             <uk><![CDATA[5x]]></uk>
             <ru><![CDATA[5x]]></ru>
+            <da><![CDATA[5x]]></da>
         </text>
 
         <text name="im_mult_4">
@@ -354,6 +379,7 @@
             <br><![CDATA[10x]]></br>
             <uk><![CDATA[10x]]></uk>
             <ru><![CDATA[10x]]></ru>
+            <da><![CDATA[10x]]></da>
         </text>
 
         <!-- Seasonal Effects (NEW in 2.0) -->
@@ -368,6 +394,7 @@
             <br><![CDATA[Efeitos sazonais]]></br>
             <uk><![CDATA[Сезонні ефекти]]></uk>
             <ru><![CDATA[Сезонные эффекты]]></ru>
+            <da><![CDATA[sæsonale effekter]]></da>
         </text>
 
         <text name="im_seasonal_long">
@@ -381,6 +408,7 @@
             <br><![CDATA[A renda varia por estação: Primavera 0,8x, Verão 1,0x, Outono 1,2x, Inverno 0,7x]]></br>
             <uk><![CDATA[Дохід змінюється за сезоном: Весна 0,8x, Літо 1,0x, Осінь 1,2x, Зима 0,7x]]></uk>
             <ru><![CDATA[Доход меняется по сезонам: Весна 0,8x, Лето 1,0x, Осень 1,2x, Зима 0,7x]]></ru>
+            <da><![CDATA[Inkomst varierer efter sæson: Forår 0,8x, Sommer 1,0x, Efterår 1,2x, Vinter 0,7x]]></da>
         </text>
 
         <!-- Show HUD -->
@@ -395,6 +423,7 @@
             <br><![CDATA[Mostrar HUD de renda]]></br>
             <uk><![CDATA[Показати HUD доходу]]></uk>
             <ru><![CDATA[Показать HUD дохода]]></ru>
+            <da><![CDATA[Vis inkomst-HUD]]></da>
         </text>
 
         <text name="im_show_hud_long">
@@ -406,6 +435,7 @@
             <it><![CDATA[Mostra l'HUD con reddito corrente, metodo di pagamento e cronologia (tasto I)]]></it>
             <cz><![CDATA[Zobrazit HUD s aktuálními příjmy, způsobem platby a historií (klávesa I)]]></cz>
             <br><![CDATA[Mostrar HUD com renda atual, método de pagamento e histórico (tecla I)]]></br>
+            <da><![CDATA[Vis inkomst-HUD med nuværende inkomst, betalingsmetode og historik (skift med tasten I)]]></da>
             <uk><![CDATA[Показати HUD з поточним доходом, методом оплати та історією (клавіша I)]]></uk>
             <ru><![CDATA[Показать HUD с текущим доходом, способом оплаты и историей (клавиша I)]]></ru>
         </text>
@@ -422,6 +452,7 @@
             <br><![CDATA[Alternar HUD de renda]]></br>
             <uk><![CDATA[Перемкнути HUD доходу]]></uk>
             <ru><![CDATA[Переключить HUD дохода]]></ru>
+            <da><![CDATA[Skift inkomst-HUD]]></da>
         </text>
 
         <!-- Income Report Dialog: key binding display name -->
@@ -436,6 +467,7 @@
             <br><![CDATA[Abrir relatório de renda]]></br>
             <uk><![CDATA[Відкрити звіт про доходи]]></uk>
             <ru><![CDATA[Открыть отчёт о доходах]]></ru>
+            <da><![CDATA[Åbn inkomstrapport]]></da>
         </text>
 
         <!-- Income Report Dialog: dialog title -->
@@ -450,6 +482,7 @@
             <br><![CDATA[Relatório de renda]]></br>
             <uk><![CDATA[Звіт про доходи]]></uk>
             <ru><![CDATA[Отчёт о доходах]]></ru>
+            <da><![CDATA[Inkomstrapport]]></da>
         </text>
 
         <!-- Income Report Dialog: summary labels -->
@@ -464,6 +497,7 @@
             <br><![CDATA[Status]]></br>
             <uk><![CDATA[Стан]]></uk>
             <ru><![CDATA[Статус]]></ru>
+            <da><![CDATA[Status]]></da>
         </text>
 
         <text name="im_report_mode_label">
@@ -477,6 +511,7 @@
             <br><![CDATA[Modo]]></br>
             <uk><![CDATA[Режим]]></uk>
             <ru><![CDATA[Режим]]></ru>
+            <da><![CDATA[Modus]]></da>
         </text>
 
         <text name="im_report_difficulty_label">
@@ -490,6 +525,7 @@
             <br><![CDATA[Dificuldade]]></br>
             <uk><![CDATA[Складність]]></uk>
             <ru><![CDATA[Сложность]]></ru>
+            <da><![CDATA[Sværhedsgræd]]></da>
         </text>
 
         <text name="im_report_amount_label">
@@ -503,6 +539,7 @@
             <br><![CDATA[Pagamento]]></br>
             <uk><![CDATA[Виплата]]></uk>
             <ru><![CDATA[Выплата]]></ru>
+            <da><![CDATA[Betaling]]></da>
         </text>
 
         <text name="im_report_multiplier_label">
@@ -516,6 +553,7 @@
             <br><![CDATA[Multiplicador]]></br>
             <uk><![CDATA[Множник]]></uk>
             <ru><![CDATA[Множитель]]></ru>
+            <da><![CDATA[Multiplikator]]></da>
         </text>
 
         <text name="im_report_seasonal_label">
@@ -529,6 +567,7 @@
             <br><![CDATA[Sazonal]]></br>
             <uk><![CDATA[Сезонне]]></uk>
             <ru><![CDATA[Сезонное]]></ru>
+            <da><![CDATA[Sæsonal]]></da>
         </text>
 
         <!-- Income Report Dialog: stats labels -->
@@ -543,6 +582,7 @@
             <br><![CDATA[Total ganho]]></br>
             <uk><![CDATA[Всього зароблено]]></uk>
             <ru><![CDATA[Всего заработано]]></ru>
+            <da><![CDATA[Totalt tjent]]></da>
         </text>
 
         <text name="im_report_avg_label">
@@ -556,6 +596,7 @@
             <br><![CDATA[Média/Pagto]]></br>
             <uk><![CDATA[Серед./Виплата]]></uk>
             <ru><![CDATA[Ср./Выплата]]></ru>
+            <da><![CDATA[Gennemsnitligt tjent]]></da>
         </text>
 
         <text name="im_report_next_label">
@@ -569,6 +610,7 @@
             <br><![CDATA[Próximo pagamento]]></br>
             <uk><![CDATA[Наступна виплата]]></uk>
             <ru><![CDATA[Следующая выплата]]></ru>
+            <da><![CDATA[Næste betaling]]></da>
         </text>
 
         <!-- Income Report Dialog: table column headers -->
@@ -583,6 +625,7 @@
             <br><![CDATA[Dia]]></br>
             <uk><![CDATA[День]]></uk>
             <ru><![CDATA[День]]></ru>
+            <da><![CDATA[Dag]]></da>
         </text>
 
         <text name="im_report_col_time">
@@ -596,6 +639,7 @@
             <br><![CDATA[Hora]]></br>
             <uk><![CDATA[Час]]></uk>
             <ru><![CDATA[Время]]></ru>
+            <da><![CDATA[Tid]]></da>
         </text>
 
         <text name="im_report_col_type">
@@ -609,6 +653,7 @@
             <br><![CDATA[Tipo]]></br>
             <uk><![CDATA[Тип]]></uk>
             <ru><![CDATA[Тип]]></ru>
+            <da><![CDATA[Type]]></da>
         </text>
 
         <text name="im_report_col_amount">
@@ -622,6 +667,7 @@
             <br><![CDATA[Valor]]></br>
             <uk><![CDATA[Сума]]></uk>
             <ru><![CDATA[Сумма]]></ru>
+            <da><![CDATA[Beløb]]></da>
         </text>
 
         <text name="im_report_col_seasonal">
@@ -635,6 +681,7 @@
             <br><![CDATA[Sazonal]]></br>
             <uk><![CDATA[Сезонне]]></uk>
             <ru><![CDATA[Сезонное]]></ru>
+            <da><![CDATA[Sæsonal]]></da>
         </text>
 
         <!-- Income Report Dialog: no history message -->
@@ -649,6 +696,7 @@
             <br><![CDATA[Sem histórico de pagamentos. A renda será registrada após o primeiro pagamento.]]></br>
             <uk><![CDATA[Ще немає історії виплат. Дохід буде записано після першої виплати.]]></uk>
             <ru><![CDATA[Истории выплат пока нет. Доход будет записан после первой выплаты.]]></ru>
+            <da><![CDATA[Ingen betalingshistorik endnu. Indkomst vil blive registreret efter den første betaling.]]></da>
         </text>
 
         <!-- Income Report Dialog: enabled/disabled status values -->
@@ -663,6 +711,7 @@
             <br><![CDATA[Ativado]]></br>
             <uk><![CDATA[Увімкнено]]></uk>
             <ru><![CDATA[Включено]]></ru>
+            <da><![CDATA[Aktiveret]]></da>
         </text>
 
         <text name="im_report_disabled">
@@ -676,6 +725,7 @@
             <br><![CDATA[Desativado]]></br>
             <uk><![CDATA[Вимкнено]]></uk>
             <ru><![CDATA[Выключено]]></ru>
+            <da><![CDATA[Deaktiveret]]></da>
         </text>
 
         <!-- Reset -->
@@ -690,6 +740,7 @@
             <br><![CDATA[Restaurar configurações de renda]]></br>
             <uk><![CDATA[Скинути налаштування доходу]]></uk>
             <ru><![CDATA[Сбросить настройки дохода]]></ru>
+            <da><![CDATA[Reset indkomstindstillinger]]></da>
         </text>
 
         <!-- ── Help Lines: Category titles ───────────────────────── -->
@@ -704,6 +755,7 @@
             <br><![CDATA[Mod de renda — Visão geral]]></br>
             <uk><![CDATA[Мод доходу — Огляд]]></uk>
             <ru><![CDATA[Мод дохода — Обзор]]></ru>
+            <da><![CDATA[Income Mod — Oversigt]]></da>
         </text>
 
         <text name="im_help_cat_settings">
@@ -717,6 +769,7 @@
             <br><![CDATA[Mod de renda — Configurações]]></br>
             <uk><![CDATA[Мод доходу — Налаштування]]></uk>
             <ru><![CDATA[Мод дохода — Настройки]]></ru>
+            <da><![CDATA[Inkomst Mod — Indstillinger]]></da>
         </text>
 
         <text name="im_help_cat_tips">
@@ -730,6 +783,7 @@
             <br><![CDATA[Mod de renda — Dicas e truques]]></br>
             <uk><![CDATA[Мод доходу — Поради]]></uk>
             <ru><![CDATA[Мод дохода — Советы]]></ru>
+            <da><![CDATA[Inkomst Mod — Tips & Tricks]]></da>
         </text>
 
         <text name="im_help_cat_info">
@@ -743,6 +797,7 @@
             <br><![CDATA[Sobre o Income Mod]]></br>
             <uk><![CDATA[Про Income Mod]]></uk>
             <ru><![CDATA[Об Income Mod]]></ru>
+            <da><![CDATA[Om Inkomst Mod]]></da>
         </text>
 
         <!-- ── Help Lines: Page titles ────────────────────────────── -->
@@ -757,6 +812,7 @@
             <br><![CDATA[Introdução]]></br>
             <uk><![CDATA[Вступ]]></uk>
             <ru><![CDATA[Введение]]></ru>
+            <da><![CDATA[Introduktion]]></da>
         </text>
 
         <text name="im_help_p2_title">
@@ -770,6 +826,7 @@
             <br><![CDATA[Como os pagamentos funcionam]]></br>
             <uk><![CDATA[Як працюють виплати]]></uk>
             <ru><![CDATA[Как работают выплаты]]></ru>
+            <da><![CDATA[Sådan fungerer betalinger]]></da>
         </text>
 
         <text name="im_help_s1_title">
@@ -783,6 +840,7 @@
             <br><![CDATA[Configurações de renda]]></br>
             <uk><![CDATA[Налаштування доходу]]></uk>
             <ru><![CDATA[Настройки дохода]]></ru>
+            <da><![CDATA[Inkomstindstillinger]]></da>
         </text>
 
         <text name="im_help_s2_title">
@@ -796,6 +854,7 @@
             <br><![CDATA[Configurações avançadas]]></br>
             <uk><![CDATA[Розширені налаштування]]></uk>
             <ru><![CDATA[Расширенные настройки]]></ru>
+            <da><![CDATA[Avancerede indstillinger]]></da>
         </text>
 
         <text name="im_help_s3_title">
@@ -809,6 +868,7 @@
             <br><![CDATA[Exibição e redefinição]]></br>
             <uk><![CDATA[Відображення та скидання]]></uk>
             <ru><![CDATA[Отображение и сброс]]></ru>
+            <da><![CDATA[Visning og nulstilling]]></da>
         </text>
 
         <text name="im_help_t1_title">
@@ -822,6 +882,7 @@
             <br><![CDATA[HUD e relatório de renda]]></br>
             <uk><![CDATA[HUD та звіт про доходи]]></uk>
             <ru><![CDATA[HUD и отчёт о доходах]]></ru>
+            <da><![CDATA[HUD og inkomstrapport]]></da>
         </text>
 
         <text name="im_help_t2_title">
@@ -835,6 +896,7 @@
             <br><![CDATA[Dicas de renda]]></br>
             <uk><![CDATA[Поради щодо доходу]]></uk>
             <ru><![CDATA[Советы по доходу]]></ru>
+            <da><![CDATA[Inkomst tips]]></da>
         </text>
 
         <text name="im_help_i1_title">
@@ -848,6 +910,7 @@
             <br><![CDATA[Sobre o Income Mod]]></br>
             <uk><![CDATA[Про Income Mod]]></uk>
             <ru><![CDATA[Об Income Mod]]></ru>
+            <da><![CDATA[Om Inkomst Mod]]></da>
         </text>
 
         <!-- ── Help Lines: Page 1 — Introduction ─────────────────── -->
@@ -862,6 +925,7 @@
             <br><![CDATA[O que é o Income Mod?]]></br>
             <uk><![CDATA[Що таке Income Mod?]]></uk>
             <ru><![CDATA[Что такое Income Mod?]]></ru>
+            <da><![CDATA[ hvad er Inkomst Mod? ]]></da>
         </text>
 
         <text name="im_help_p1_what_text">
@@ -875,6 +939,7 @@
             <br><![CDATA[O Income Mod adiciona renda passiva à sua fazenda. Sua fazenda ganha dinheiro automaticamente a cada hora ou dia de jogo. Perfeito para suporte inicial ou partida relaxada.]]></br>
             <uk><![CDATA[Income Mod додає пасивний дохід до вашої ферми. Ферма автоматично заробляє гроші кожну ігрову годину або день. Ідеально для підтримки на початку або спокійного проходження.]]></uk>
             <ru><![CDATA[Income Mod добавляет пассивный доход на вашу ферму. Ферма автоматически зарабатывает деньги каждый игровой час или день. Идеально для начала игры или спокойного прохождения.]]></ru>
+            <da><![CDATA[Indkomst mod tilføjer et passivt indkomstsystem til din gård. Din gård tjener automatisk penge hver time eller dag i spillet. Perfekt til tidligt spil eller en afslappet gennemspilning.]]></da>
         </text>
 
         <text name="im_help_p1_mp_title">
@@ -888,6 +953,7 @@
             <br><![CDATA[Suporte multiplayer]]></br>
             <uk><![CDATA[Підтримка мультиплеєра]]></uk>
             <ru><![CDATA[Поддержка мультиплеера]]></ru>
+            <da><![CDATA[Multiplayer Support]]></da>
         </text>
 
         <text name="im_help_p1_mp_text">
@@ -901,6 +967,7 @@
             <br><![CDATA[Totalmente compatível com multiplayer. Apenas o servidor processa os pagamentos — a renda nunca é duplicada. Cada fazenda ativa recebe sua própria renda, sincronizada automaticamente.]]></br>
             <uk><![CDATA[Повністю сумісний з мультиплеєром. Тільки сервер обробляє виплати — дохід ніколи не дублюється. Кожна ферма отримує власний дохід, автоматично синхронізований з усіма клієнтами.]]></uk>
             <ru><![CDATA[Полностью совместим с мультиплеером. Только сервер обрабатывает выплаты — доход никогда не дублируется. Каждая ферма получает свой доход, автоматически синхронизированный со всеми клиентами.]]></ru>
+            <da><![CDATA[Fuldt kompatibel med multiplayer. Kun serveren behandler betalinger — indkomst bliver aldrig duplikeret. Hver aktiv farm får sin egen indkomst, automatisk synkroniseret til alle klienter.]]></da>
         </text>
 
         <!-- ── Help Lines: Page 2 — How Payments Work ────────────── -->
@@ -915,6 +982,7 @@
             <br><![CDATA[Modos de pagamento]]></br>
             <uk><![CDATA[Режими виплат]]></uk>
             <ru><![CDATA[Режимы выплат]]></ru>
+            <da><![CDATA[Betalingstyper]]></da>
         </text>
 
         <text name="im_help_p2_modes_text">
@@ -928,6 +996,7 @@
             <br><![CDATA[Por hora: um pagamento por hora de jogo (24 ao dia). Diário: um pagamento no início de cada dia. Mude em ESC → Configurações → Income Mod.]]></br>
             <uk><![CDATA[Погодинно: одна виплата кожну ігрову годину (24 на день). Щоденно: одна виплата на початку кожного дня. Змінити: ESC → Налаштування → Income Mod.]]></uk>
             <ru><![CDATA[Почасово: одна выплата каждый игровой час (24 в день). Ежедневно: одна выплата в начале каждого дня. Смените в ESC → Настройки → Income Mod.]]></ru>
+            <da><![CDATA[Timevis: en betaling hver in-game time (24 pr. dag). Dagligt: en betaling ved starten af hver in-game dag. Skift når som helst via ESC → Indstillinger → Income Mod.]]></da>
         </text>
 
         <text name="im_help_p2_persist_title">
@@ -941,6 +1010,7 @@
             <br><![CDATA[Sem pagamentos duplos]]></br>
             <uk><![CDATA[Без подвійних виплат]]></uk>
             <ru><![CDATA[Без двойных выплат]]></ru>
+            <da><![CDATA[Ingen dobbelte betalinger]]></da>
         </text>
 
         <text name="im_help_p2_persist_text">
@@ -954,6 +1024,7 @@
             <br><![CDATA[O último pagamento é salvo com o jogo. Ao recarregar, os pagamentos retomam corretamente. Você nunca receberá dois pagamentos pela mesma hora ou dia.]]></br>
             <uk><![CDATA[Час останньої виплати зберігається разом з грою. Після перезавантаження виплати відновлюються правильно. Ви ніколи не отримаєте подвійну виплату за одну й ту саму годину або день.]]></uk>
             <ru><![CDATA[Время последней выплаты сохраняется вместе с игрой. При перезагрузке выплаты возобновляются корректно. Вы никогда не получите двойную выплату за один и тот же час или день.]]></ru>
+            <da><![CDATA[Det sidste betalingstidspunkt gemmes sammen med dit spil. Hvis du afslutter og genindlæser, genoptages betalingerne korrekt. Du vil aldrig blive betalt to gange for den samme time eller dag.]]></da>
         </text>
 
         <!-- ── Help Lines: Page 3 — Income Settings ───────────────── -->
@@ -968,6 +1039,7 @@
             <br><![CDATA[Ativar / Desativar]]></br>
             <uk><![CDATA[Увімкнути / Вимкнути]]></uk>
             <ru><![CDATA[Включить / Выключить]]></ru>
+            <da><![CDATA[Aktiver / Deaktiver]]></da>
         </text>
 
         <text name="im_help_s1_enable_text">
@@ -981,6 +1053,7 @@
             <br><![CDATA[O interruptor principal. Desativado: sem renda, HUD oculto. Reativado: os pagamentos retomam do tempo de jogo atual.]]></br>
             <uk><![CDATA[Головний перемикач. Вимкнено: немає доходу, HUD прихований. При повторному вмиканні виплати відновлюються з поточного ігрового часу.]]></uk>
             <ru><![CDATA[Главный переключатель. Отключён: доход не выплачивается, HUD скрыт. При повторном включении выплаты возобновляются с текущего игрового времени.]]></ru>
+            <da><![CDATA[Den hovedsætning. Når deaktiveret, bliver der ikke betalt noget indkomst og HUD er skjult. Genaktivering genoptager betalinger fra det nuværende in-game tidspunkt.]]></da>
         </text>
 
         <text name="im_help_s1_mode_title">
@@ -994,6 +1067,7 @@
             <br><![CDATA[Modo de pagamento]]></br>
             <uk><![CDATA[Режим виплат]]></uk>
             <ru><![CDATA[Режим выплат]]></ru>
+            <da><![CDATA[Betalingstyper]]></da>
         </text>
 
         <text name="im_help_s1_mode_text">
@@ -1007,6 +1081,7 @@
             <br><![CDATA[Por hora: 24 pagamentos por dia. Diário: uma vez ao dia. Por hora dá pagamentos pequenos e regulares; diário dá pagamentos maiores e menos frequentes.]]></br>
             <uk><![CDATA[Погодинно: 24 виплати на день. Щоденно: раз на день. Погодинно дає невеликі регулярні виплати; щоденно — більші, але рідші. Обидва режими підходять для будь-якого стилю гри.]]></uk>
             <ru><![CDATA[Почасово: 24 выплаты в день. Ежедневно: раз в день. Почасово даёт небольшие регулярные выплаты; ежедневно — большие, но редкие. Оба режима подходят для любого стиля игры.]]></ru>
+            <da><![CDATA[Timevis: 24 betalinger pr. in-game time. Dagligt: en betaling ved starten af hver in-game dag. Skift når som helst via ESC → Indstillinger → Income Mod.]]></da>
         </text>
 
         <text name="im_help_s1_diff_title">
@@ -1020,6 +1095,7 @@
             <br><![CDATA[Dificuldade]]></br>
             <uk><![CDATA[Складність]]></uk>
             <ru><![CDATA[Сложность]]></ru>
+            <da><![CDATA[Sværhedsgrad]]></da>
         </text>
 
         <text name="im_help_s1_diff_text">
@@ -1033,6 +1109,7 @@
             <br><![CDATA[Define a renda base por pagamento. Fácil: $5.000. Normal: $2.400. Difícil: $1.100. São valores base antes de qualquer multiplicador ou modificador sazonal.]]></br>
             <uk><![CDATA[Встановлює базовий дохід за виплату. Легко: $5 000. Нормально: $2 400. Важко: $1 100. Це базові суми до застосування будь-якого множника або сезонного модифікатора.]]></uk>
             <ru><![CDATA[Устанавливает базовый доход за выплату. Легко: $5 000. Обычно: $2 400. Сложно: $1 100. Это базовые суммы до применения множителя или сезонного модификатора.]]></ru>
+            <da><![CDATA[Indstiller den grundlæggende indkomst pr. betaling. Let: $5.000. Normal: $2.400. Svær: $1.100. Dette er grundbeløb før nogen multiplikator eller sæsonmæssig modifikator anvendes.]]></da>
         </text>
 
         <!-- ── Help Lines: Page 4 — Advanced Settings ────────────── -->
@@ -1047,6 +1124,7 @@
             <br><![CDATA[Multiplicador de renda]]></br>
             <uk><![CDATA[Множник доходу]]></uk>
             <ru><![CDATA[Множитель дохода]]></ru>
+            <da><![CDATA[Indkomstmultiplikator]]></da>
         </text>
 
         <text name="im_help_s2_mult_text">
@@ -1060,6 +1138,7 @@
             <br><![CDATA[Escala a renda em 1x, 2x, 5x ou 10x. Aplicado após a dificuldade, antes do sazonal. Exemplo: Normal ($2.400) × 5x = $12.000 por pagamento.]]></br>
             <uk><![CDATA[Масштабує весь дохід на 1x, 2x, 5x або 10x. Застосовується після складності, перед сезонним. Приклад: Нормально ($2 400) × 5x = $12 000 за виплату.]]></uk>
             <ru><![CDATA[Масштабирует весь доход на 1x, 2x, 5x или 10x. Применяется после сложности, до сезонного. Пример: Обычно ($2 400) × 5x = $12 000 за выплату.]]></ru>
+            <da><![CDATA[Skalerer al indkomst med 1x, 2x, 5x eller 10x. Anvendes efter sværhedsgrad, før sæson. Eksempel: Normal ($2.400) × 5x = $12.000 pr. betaling.]]></da>
         </text>
 
         <text name="im_help_s2_seasonal_title">
@@ -1073,6 +1152,7 @@
             <br><![CDATA[Efeitos sazonais]]></br>
             <uk><![CDATA[Сезонні ефекти]]></uk>
             <ru><![CDATA[Сезонные эффекты]]></ru>
+            <da><![CDATA[Sæsonale effekter]]></da>
         </text>
 
         <text name="im_help_s2_seasonal_text">
@@ -1086,6 +1166,7 @@
             <br><![CDATA[Quando ativado, um modificador sazonal é aplicado. Primavera: 0,8x. Verão: 1,0x. Outono: 1,2x (pico). Inverno: 0,7x. Desativado por padrão.]]></br>
             <uk><![CDATA[Коли увімкнено, застосовується сезонний модифікатор. Весна: 0,8x. Літо: 1,0x. Осінь: 1,2x (пік). Зима: 0,7x. За замовчуванням вимкнено.]]></uk>
             <ru><![CDATA[Когда включено, применяется сезонный модификатор. Весна: 0,8x. Лето: 1,0x. Осень: 1,2x (пик). Зима: 0,7x. По умолчанию отключено.]]></ru>
+            <da><![CDATA[Når aktiveret, anvendes en sæsonmæssig modifikator. Forår: 0,8x. Sommer: 1,0x. Efterår: 1,2x (top). Vinter: 0,7x. Deaktiveret som standard.]]></da>
         </text>
 
         <text name="im_help_s2_custom_title">
@@ -1099,6 +1180,7 @@
             <br><![CDATA[Valor personalizado]]></br>
             <uk><![CDATA[Власна сума]]></uk>
             <ru><![CDATA[Пользовательская сумма]]></ru>
+            <da><![CDATA[Brugerdefineret beløb]]></da>
         </text>
 
         <text name="im_help_s2_custom_text">
@@ -1112,6 +1194,7 @@
             <br><![CDATA[Substitui o valor de dificuldade via console: IncomeSetCustomAmount 3000. Defina 0 para voltar ao valor de dificuldade. O multiplicador ainda se aplica.]]></br>
             <uk><![CDATA[Замінює суму складності через консоль: IncomeSetCustomAmount 3000. Встановіть 0 для повернення до суми на основі складності. Множник все одно застосовується.]]></uk>
             <ru><![CDATA[Заменяет сумму сложности через консоль: IncomeSetCustomAmount 3000. Установите 0 для возврата к сумме сложности. Множитель всё равно применяется.]]></ru>
+            <da><![CDATA[Erstatter sværhedsgradsbeløbet via konsol: IncomeSetCustomAmount 3000. Indstil 0 for at vende tilbage til sværhedsgradsbeløbet. Multiplikatoren anvendes stadig.]]></da>
         </text>
 
         <!-- ── Help Lines: Page 5 — Display & Reset ──────────────── -->
@@ -1126,6 +1209,7 @@
             <br><![CDATA[HUD de renda]]></br>
             <uk><![CDATA[HUD доходу]]></uk>
             <ru><![CDATA[HUD дохода]]></ru>
+            <da><![CDATA[Indkomst-HUD]]></da>
         </text>
 
         <text name="im_help_s3_hud_text">
@@ -1139,6 +1223,7 @@
             <br><![CDATA[Mostra renda, modo, dificuldade, multiplicador, status sazonal, próximo pagamento e últimos 5 pagamentos. Tecla I para alternar ou desativar nas Configurações.]]></br>
             <uk><![CDATA[Показує дохід, режим, складність, множник, сезонний статус, наступну виплату та 5 останніх виплат. Клавіша I для перемикання або вимкнути в Налаштуваннях.]]></uk>
             <ru><![CDATA[Показывает доход, режим, сложность, множитель, сезонный статус, следующую выплату и последние 5 выплат. Клавиша I для переключения или отключить в Настройках.]]></ru>
+            <da><![CDATA[Viser indkomst, tilstand, sværhedsgrad, multiplikator, sæsonstatus, næste betaling og de sidste 5 betalinger. Tasten I for at skifte eller deaktivere i Indstillinger.]]></da>
         </text>
 
         <text name="im_help_s3_notify_title">
@@ -1152,6 +1237,7 @@
             <br><![CDATA[Notificações]]></br>
             <uk><![CDATA[Сповіщення]]></uk>
             <ru><![CDATA[Уведомления]]></ru>
+            <da><![CDATA[Notifikationer]]></da>
         </text>
 
         <text name="im_help_s3_notify_text">
@@ -1165,6 +1251,7 @@
             <br><![CDATA[Quando ativado, um pop-up aparece a cada pagamento mostrando o valor recebido. Desative para uma experiência mais tranquila sem alertas de pagamento.]]></br>
             <uk><![CDATA[Коли увімкнено, при кожній виплаті з'являється спливаюче сповіщення з отриманою сумою. Вимкніть для спокійнішого ігрового досвіду без сповіщень.]]></uk>
             <ru><![CDATA[Когда включено, при каждой выплате появляется всплывающее уведомление с суммой. Отключите для спокойного игрового опыта без уведомлений о выплатах.]]></ru>
+            <da><![CDATA[Når aktiveret, vises et pop-up ved hver betaling med det modtagne beløb. Deaktiver for en roligere oplevelse uden betalingsbeskeder.]]></da>
         </text>
 
         <text name="im_help_s3_reset_title">
@@ -1178,6 +1265,7 @@
             <br><![CDATA[Redefinir configurações]]></br>
             <uk><![CDATA[Скинути налаштування]]></uk>
             <ru><![CDATA[Сбросить настройки]]></ru>
+            <da><![CDATA[Nulstil indstillinger]]></da>
         </text>
 
         <text name="im_help_s3_reset_text">
@@ -1191,6 +1279,7 @@
             <br><![CDATA[Pressione X nas Configurações para redefinir todas as configurações do Income Mod. Esta ação não pode ser desfeita.]]></br>
             <uk><![CDATA[Натисніть X на сторінці Налаштувань, щоб скинути всі налаштування Income Mod до значень за замовчуванням. Цю дію не можна скасувати.]]></uk>
             <ru><![CDATA[Нажмите X на странице Настроек, чтобы сбросить все настройки Income Mod до значений по умолчанию. Это действие нельзя отменить.]]></ru>
+            <da><![CDATA[Tryk på X på siden Indstillinger for at nulstille alle Income Mod indstillinger til standard. Denne handling kan ikke fortrydes.]]></da>
         </text>
 
         <!-- ── Help Lines: Page 6 — HUD & Income Report ──────────── -->
@@ -1205,6 +1294,7 @@
             <br><![CDATA[HUD de renda — Tecla I]]></br>
             <uk><![CDATA[HUD доходу — Клавіша I]]></uk>
             <ru><![CDATA[HUD дохода — Клавиша I]]></ru>
+            <da><![CDATA[Indkomst-HUD — Tasten I]]></da>
         </text>
 
         <text name="im_help_t1_hud_text">
@@ -1218,6 +1308,7 @@
             <br><![CDATA[Pressione I durante o jogo para alternar o HUD. Mostra renda, modo de pagamento, próximo pagamento e histórico recente. O ajuste persiste entre sessões.]]></br>
             <uk><![CDATA[Натисніть I під час гри, щоб увімкнути або вимкнути HUD. Показує дохід, режим виплат, наступну виплату та нещодавню історію. Налаштування зберігається між сесіями.]]></uk>
             <ru><![CDATA[Нажмите I во время игры для переключения HUD. Показывает доход, режим выплат, следующую выплату и недавнюю историю. Настройка сохраняется между сессиями.]]></ru>
+            <da><![CDATA[Tryk på I under spil for at skifte HUD. Viser indkomst, betalingsmåde, næste betaling og nylig historie. Indstillingen bevares mellem sessioner.]]></da>
         </text>
 
         <text name="im_help_t1_report_title">
@@ -1231,6 +1322,7 @@
             <br><![CDATA[Relatório de renda — Tecla U]]></br>
             <uk><![CDATA[Звіт про доходи — Клавіша U]]></uk>
             <ru><![CDATA[Отчёт о доходах — Клавиша U]]></ru>
+            <da><![CDATA[Indkomstrapport — Tasten U]]></da>
         </text>
 
         <text name="im_help_t1_report_text">
@@ -1244,6 +1336,7 @@
             <br><![CDATA[Pressione U para abrir o relatório de renda. Mostra configuração, ganhos totais (últimos 10), média, próximo pagamento e tabela de histórico detalhado.]]></br>
             <uk><![CDATA[Натисніть U, щоб відкрити звіт про доходи. Показує конфігурацію, загальний заробіток (останні 10), середнє, наступну виплату та детальну таблицю історії.]]></uk>
             <ru><![CDATA[Нажмите U для открытия отчёта о доходах. Показывает конфигурацию, общий заработок (последние 10), среднее, следующую выплату и подробную таблицу истории.]]></ru>
+            <da><![CDATA[Tryk på U for at åbne indkomstrapporten. Viser konfiguration, samlede indtægter (sidste 10), gennemsnit, næste betaling og en detaljeret historietabel.]]></da>
         </text>
 
         <!-- ── Help Lines: Page 7 — Income Tips ──────────────────── -->
@@ -1258,6 +1351,7 @@
             <br><![CDATA[Melhor estação para renda]]></br>
             <uk><![CDATA[Найкращий сезон для доходу]]></uk>
             <ru><![CDATA[Лучший сезон для дохода]]></ru>
+            <da><![CDATA[Bedste sæson for indkomst]]></da>
         </text>
 
         <text name="im_help_t2_season_text">
@@ -1271,6 +1365,7 @@
             <br><![CDATA[Com efeitos sazonais, o outono dá 1,2x — o pico sazonal. O inverno é o mais baixo com 0,7x. Considere usar um multiplicador alto no outono para renda máxima combinada.]]></br>
             <uk><![CDATA[При сезонних ефектах Осінь дає 1,2x — пік сезону. Зима найнижча — 0,7x. Розгляньте великий множник восени для максимального сукупного доходу.]]></uk>
             <ru><![CDATA[При сезонных эффектах Осень даёт 1,2x — пик сезона. Зима наименьшая — 0,7x. Рассмотрите большой множитель осенью для максимального совокупного дохода.]]></ru>
+            <da><![CDATA[Med sæsonale effekter giver efteråret 1,2x — sæsonens top. Vinter er lavest på 0,7x. Overvej at aktivere en høj multiplikator om efteråret for maksimal kombineret indkomst.]]></da>
         </text>
 
         <text name="im_help_t2_calc_title">
@@ -1284,6 +1379,7 @@
             <br><![CDATA[Fórmula de renda]]></br>
             <uk><![CDATA[Формула доходу]]></uk>
             <ru><![CDATA[Формула дохода]]></ru>
+            <da><![CDATA[Indkomstformel]]></da>
         </text>
 
         <text name="im_help_t2_calc_text">
@@ -1297,6 +1393,7 @@
             <br><![CDATA[Final = Base × Multiplicador × Sazonal. Exemplo: Difícil ($1.100) × 10x × Outono (1,2x) = $13.200 por período. Use IncomeNext no console para ver o próximo pagamento.]]></br>
             <uk><![CDATA[Підсумок = База × Множник × Сезон. Приклад: Важко ($1 100) × 10x × Осінь (1,2x) = $13 200 за період. IncomeNext у консолі покаже наступну виплату.]]></uk>
             <ru><![CDATA[Итог = База × Множитель × Сезон. Пример: Сложно ($1 100) × 10x × Осень (1,2x) = $13 200 за период. IncomeNext в консоли покажет следующую выплату.]]></ru>
+            <da><![CDATA[Endelig = Base × Multiplikator × Sæson. Eksempel: Svær ($1.100) × 10x × Efterår (1,2x) = $13.200 pr. periode. Brug IncomeNext konsolkommandoen for at forhåndsvise din næste planlagte udbetaling.]]></da>
         </text>
 
         <!-- ── Help Lines: Page 8 — About ─────────────────────────── -->
@@ -1311,6 +1408,7 @@
             <br><![CDATA[Sobre este mod]]></br>
             <uk><![CDATA[Про цей мод]]></uk>
             <ru><![CDATA[Об этом моде]]></ru>
+            <da><![CDATA[Om denne mod]]></da>
         </text>
 
         <text name="im_help_i1_about_text">
@@ -1324,6 +1422,7 @@
             <br><![CDATA[O Income Mod v2.0 adiciona um sistema de renda passiva totalmente configurável ao FS25. Todas as configurações persistem por salvamento. Compatível com multiplayer e outros mods.]]></br>
             <uk><![CDATA[Income Mod v2.0 додає до FS25 повністю налаштовувану систему пасивного доходу. Всі налаштування зберігаються для кожного збереження. Сумісний з мультиплеєром.]]></uk>
             <ru><![CDATA[Income Mod v2.0 добавляет в FS25 полностью настраиваемую систему пассивного дохода. Все настройки сохраняются для каждого сохранения. Совместим с мультиплеером.]]></ru>
+            <da><![CDATA[Income Mod v2.0 tilføjer et fuldt konfigurerbart passivt indkomstsystem til FS25. Alle indstillinger bevares pr. gemt spil. Kompatibel med multiplayer og andre mods.]]></da>
         </text>
 
         <text name="im_help_i1_cmd_title">
@@ -1337,6 +1436,7 @@
             <br><![CDATA[Comandos do console]]></br>
             <uk><![CDATA[Консольні команди]]></uk>
             <ru><![CDATA[Консольные команды]]></ru>
+            <da><![CDATA[Konsolkommandoer]]></da>
         </text>
 
         <text name="im_help_i1_cmd_text">
@@ -1350,6 +1450,7 @@
             <br><![CDATA[Abra o console (~) e digite 'income'. Principais: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></br>
             <uk><![CDATA[Відкрийте консоль (~) і введіть 'income'. Ключові: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></uk>
             <ru><![CDATA[Откройте консоль (~) и введите 'income'. Ключевые: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></ru>
+            <da><![CDATA[Åbn udviklerkonsollen (~) og skriv 'income' for den fulde liste. Nøglekommandoer: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></da>
         </text>
     </l10n>
 
