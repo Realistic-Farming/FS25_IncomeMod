@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.1.6.0)
+-- FS25 Income Mod (version 2.1.5.0)
 -- =========================================================
 -- Passive hourly/daily income with difficulty tiers,
 -- seasonal modifiers, multiplier, and per-farm MP support.
