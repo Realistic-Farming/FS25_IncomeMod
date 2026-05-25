@@ -10076,57 +10076,46 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-05-25T06:58:37Z",
+    "timestamp": "2026-05-25T18:21:27Z",
     "date": "2026-05-25",
     "views": {
       "count": 77,
       "uniques": 35
     },
     "clones": {
-      "count": 465,
-      "uniques": 151
+      "count": 463,
+      "uniques": 150
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 55,
-        "uniques": 27
+        "count": 57,
+        "uniques": 28
       },
       {
         "referrer": "Google",
-        "count": 3,
-        "uniques": 1
-      },
-      {
-        "referrer": "Bing",
-        "count": 1,
-        "uniques": 1
+        "count": 4,
+        "uniques": 2
       }
     ],
     "popular_paths": [
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod",
         "title": "Overview",
-        "count": 59,
-        "uniques": 32
+        "count": 61,
+        "uniques": 34
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0",
         "title": "/releases/tag/v2.1.6.0",
-        "count": 9,
-        "uniques": 8
+        "count": 10,
+        "uniques": 9
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases",
         "title": "/releases",
-        "count": 5,
-        "uniques": 4
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/commit/fcca244b81bd545f203d02c01226b998a8caed7a",
-        "title": "/commit/fcca244b81bd545f203d02c01226b998a8caed7a",
-        "count": 2,
-        "uniques": 1
+        "count": 4,
+        "uniques": 3
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/blob/main/modDesc.xml",
