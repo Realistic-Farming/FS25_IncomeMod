@@ -10585,26 +10585,26 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-05-30T00:00:26Z",
+    "timestamp": "2026-05-30T12:57:21Z",
     "date": "2026-05-30",
     "views": {
-      "count": 80,
+      "count": 76,
       "uniques": 40
     },
     "clones": {
-      "count": 441,
-      "uniques": 145
+      "count": 437,
+      "uniques": 146
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 60,
+        "count": 57,
         "uniques": 30
       },
       {
         "referrer": "Google",
-        "count": 8,
-        "uniques": 6
+        "count": 5,
+        "uniques": 5
       },
       {
         "referrer": "kingmods.net",
@@ -10616,7 +10616,7 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod",
         "title": "Overview",
-        "count": 66,
+        "count": 63,
         "uniques": 40
       },
       {
@@ -10630,19 +10630,13 @@
         "title": "/releases",
         "count": 3,
         "uniques": 2
-      },
-      {
-        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/tree/main/gui",
-        "title": "/tree/main/gui",
-        "count": 1,
-        "uniques": 1
       }
     ],
     "releases": [
       {
         "assets": [
           {
-            "downloads": 34,
+            "downloads": 35,
             "name": "FS25_IncomeMod.zip"
           }
         ],
@@ -10678,7 +10672,7 @@
       {
         "assets": [
           {
-            "downloads": 11,
+            "downloads": 12,
             "name": "FS25_IncomeMod.zip"
           }
         ],
