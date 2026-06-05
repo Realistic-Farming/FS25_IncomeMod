@@ -11390,20 +11390,20 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-06-05T00:03:54Z",
+    "timestamp": "2026-06-05T12:28:33Z",
     "date": "2026-06-05",
     "views": {
-      "count": 69,
+      "count": 67,
       "uniques": 38
     },
     "clones": {
-      "count": 393,
-      "uniques": 129
+      "count": 358,
+      "uniques": 114
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 50,
+        "count": 48,
         "uniques": 29
       },
       {
@@ -11421,14 +11421,14 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod",
         "title": "Overview",
-        "count": 56,
+        "count": 55,
         "uniques": 38
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0",
         "title": "/releases/tag/v2.1.6.0",
-        "count": 12,
-        "uniques": 9
+        "count": 11,
+        "uniques": 8
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases",
