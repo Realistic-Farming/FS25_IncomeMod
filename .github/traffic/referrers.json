@@ -1166,5 +1166,22 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-06-13": [
+    {
+      "referrer": "github.com",
+      "count": 33,
+      "uniques": 22
+    },
+    {
+      "referrer": "Google",
+      "count": 4,
+      "uniques": 4
+    },
+    {
+      "referrer": "ecosia.org",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
