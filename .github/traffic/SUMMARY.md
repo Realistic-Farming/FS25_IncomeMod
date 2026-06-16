@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-06-14T12:55:12Z
-**Days tracked:** 71 | **Download snapshots:** 192 (hourly)
+**Last updated:** 2026-06-16T00:20:50Z
+**Days tracked:** 72 | **Download snapshots:** 195 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 48 | 26 |
-| Git Clones | 322 | 107 |
+| Page Views | 40 | 24 |
+| Git Clones | 317 | 101 |
 
-> **Engagement:** 1.8 pages per visitor (14-day avg)
+> **Engagement:** 1.6 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 217 of 26 visitors cloned or downloaded (**834.6%**)
+> **14-day conversion:** 213 of 24 visitors cloned or downloaded (**887.5%**)
 >
-> Unique cloners: 107 | Release downloads: 110
+> Unique cloners: 101 | Release downloads: 112
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 110 |
-| Git Clones (14-day) | 322 |
-| **Total Acquisitions** | **432** |
+| Zip Downloads | 112 |
+| Git Clones (14-day) | 317 |
+| **Total Acquisitions** | **429** |
 
 ---
 
@@ -54,7 +54,7 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 26 | 16 |
+| github.com | 19 | 14 |
 | Google | 3 | 3 |
 | ecosia.org | 1 | 1 |
 
@@ -76,8 +76,8 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_IncomeMod` | 36 | 25 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0` | 8 | 4 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod` | 32 | 23 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0` | 4 | 3 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/pulls` | 3 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/blob/main/README.md` | 1 | 1 |
 
