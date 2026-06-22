@@ -13712,21 +13712,21 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-06-22T06:16:18Z",
+    "timestamp": "2026-06-22T12:39:31Z",
     "date": "2026-06-22",
     "views": {
-      "count": 47,
-      "uniques": 26
+      "count": 55,
+      "uniques": 28
     },
     "clones": {
-      "count": 444,
-      "uniques": 142
+      "count": 487,
+      "uniques": 159
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 21,
-        "uniques": 12
+        "count": 30,
+        "uniques": 15
       },
       {
         "referrer": "Google",
@@ -13739,7 +13739,7 @@
         "uniques": 1
       },
       {
-        "referrer": "ecosia.org",
+        "referrer": "chatgpt.com",
         "count": 1,
         "uniques": 1
       }
@@ -13748,8 +13748,14 @@
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod",
         "title": "Overview",
-        "count": 33,
-        "uniques": 22
+        "count": 29,
+        "uniques": 19
+      },
+      {
+        "path": "/Realistic-Farming/FS25_IncomeMod",
+        "title": "Overview",
+        "count": 12,
+        "uniques": 11
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0",
@@ -13758,10 +13764,10 @@
         "uniques": 4
       },
       {
-        "path": "/Realistic-Farming/FS25_IncomeMod",
-        "title": "Overview",
+        "path": "/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0",
+        "title": "/releases/tag/v2.1.6.0",
         "count": 3,
-        "uniques": 3
+        "uniques": 2
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/pulls",

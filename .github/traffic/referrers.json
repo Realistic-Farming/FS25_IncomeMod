@@ -1282,8 +1282,8 @@
   "2026-06-22": [
     {
       "referrer": "github.com",
-      "count": 21,
-      "uniques": 12
+      "count": 30,
+      "uniques": 15
     },
     {
       "referrer": "Google",
@@ -1296,7 +1296,7 @@
       "uniques": 1
     },
     {
-      "referrer": "ecosia.org",
+      "referrer": "chatgpt.com",
       "count": 1,
       "uniques": 1
     }

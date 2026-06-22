@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-06-22T06:16:41Z
-**Days tracked:** 76 | **Download snapshots:** 207 (hourly)
+**Last updated:** 2026-06-22T12:39:47Z
+**Days tracked:** 76 | **Download snapshots:** 208 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 47 | 26 |
-| Git Clones | 444 | 142 |
+| Page Views | 55 | 28 |
+| Git Clones | 487 | 159 |
 
-> **Engagement:** 1.8 pages per visitor (14-day avg)
+> **Engagement:** 1.9 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 260 of 26 visitors cloned or downloaded (**1000.0%**)
+> **14-day conversion:** 277 of 28 visitors cloned or downloaded (**989.2%**)
 >
-> Unique cloners: 142 | Release downloads: 118
+> Unique cloners: 159 | Release downloads: 118
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 118 |
-| Git Clones (14-day) | 444 |
-| **Total Acquisitions** | **562** |
+| Git Clones (14-day) | 487 |
+| **Total Acquisitions** | **605** |
 
 ---
 
@@ -54,10 +54,10 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 21 | 12 |
+| github.com | 30 | 15 |
 | Google | 4 | 3 |
 | Bing | 1 | 1 |
-| ecosia.org | 1 | 1 |
+| chatgpt.com | 1 | 1 |
 
 ---
 
@@ -77,9 +77,10 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/TheCodingDad-TisonK/FS25_IncomeMod` | 33 | 22 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod` | 29 | 19 |
+| `/Realistic-Farming/FS25_IncomeMod` | 12 | 11 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0` | 5 | 4 |
-| `/Realistic-Farming/FS25_IncomeMod` | 3 | 3 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 3 | 2 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/pulls` | 3 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/releases` | 2 | 2 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/tree/development` | 1 | 1 |
