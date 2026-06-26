@@ -14472,21 +14472,21 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-06-26T00:01:55Z",
+    "timestamp": "2026-06-26T18:20:14Z",
     "date": "2026-06-26",
     "views": {
-      "count": 54,
-      "uniques": 29
+      "count": 57,
+      "uniques": 30
     },
     "clones": {
-      "count": 618,
-      "uniques": 190
+      "count": 650,
+      "uniques": 197
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 35,
-        "uniques": 20
+        "count": 38,
+        "uniques": 21
       },
       {
         "referrer": "Google",
@@ -14508,8 +14508,8 @@
       {
         "path": "/Realistic-Farming/FS25_IncomeMod",
         "title": "Overview",
-        "count": 23,
-        "uniques": 20
+        "count": 26,
+        "uniques": 22
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod",
@@ -14530,16 +14530,22 @@
         "uniques": 3
       },
       {
-        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/pulls",
-        "title": "/pulls",
-        "count": 3,
-        "uniques": 1
-      },
-      {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases",
         "title": "/releases",
         "count": 2,
         "uniques": 2
+      },
+      {
+        "path": "/TheCodingDad-TisonK/FS25_IncomeMod/pulls",
+        "title": "/pulls",
+        "count": 2,
+        "uniques": 1
+      },
+      {
+        "path": "/Realistic-Farming/FS25_IncomeMod/releases",
+        "title": "/releases",
+        "count": 1,
+        "uniques": 1
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/tree/development",
