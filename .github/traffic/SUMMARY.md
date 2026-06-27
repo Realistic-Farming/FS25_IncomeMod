@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-06-26T18:20:31Z
-**Days tracked:** 80 | **Download snapshots:** 217 (hourly)
+**Last updated:** 2026-06-27T12:03:57Z
+**Days tracked:** 81 | **Download snapshots:** 219 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 57 | 30 |
-| Git Clones | 650 | 197 |
+| Page Views | 56 | 29 |
+| Git Clones | 662 | 202 |
 
 > **Engagement:** 1.9 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 317 of 30 visitors cloned or downloaded (**1056.6%**)
+> **14-day conversion:** 324 of 29 visitors cloned or downloaded (**1117.2%**)
 >
-> Unique cloners: 197 | Release downloads: 120
+> Unique cloners: 202 | Release downloads: 122
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 120 |
-| Git Clones (14-day) | 650 |
-| **Total Acquisitions** | **770** |
+| Zip Downloads | 122 |
+| Git Clones (14-day) | 662 |
+| **Total Acquisitions** | **784** |
 
 ---
 
@@ -77,12 +77,11 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 26 | 22 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod` | 18 | 11 |
+| `/Realistic-Farming/FS25_IncomeMod` | 29 | 24 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod` | 16 | 9 |
 | `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 4 | 2 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0` | 3 | 3 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/releases` | 2 | 2 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/pulls` | 2 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/releases` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/tree/development` | 1 | 1 |
 
