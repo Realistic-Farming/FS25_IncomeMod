@@ -15238,21 +15238,21 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-06-30T06:42:31Z",
+    "timestamp": "2026-06-30T18:26:19Z",
     "date": "2026-06-30",
     "views": {
-      "count": 64,
-      "uniques": 36
+      "count": 71,
+      "uniques": 38
     },
     "clones": {
-      "count": 665,
-      "uniques": 202
+      "count": 675,
+      "uniques": 203
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 45,
-        "uniques": 28
+        "count": 52,
+        "uniques": 31
       },
       {
         "referrer": "Google",
@@ -15274,20 +15274,20 @@
       {
         "path": "/Realistic-Farming/FS25_IncomeMod",
         "title": "Overview",
-        "count": 39,
-        "uniques": 33
+        "count": 46,
+        "uniques": 36
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod",
         "title": "Overview",
-        "count": 12,
-        "uniques": 7
+        "count": 10,
+        "uniques": 6
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0",
         "title": "/releases/tag/v2.1.6.0",
-        "count": 7,
-        "uniques": 5
+        "count": 9,
+        "uniques": 7
       },
       {
         "path": "/TheCodingDad-TisonK/FS25_IncomeMod/releases",
@@ -15318,7 +15318,7 @@
       {
         "assets": [
           {
-            "downloads": 61,
+            "downloads": 62,
             "name": "FS25_IncomeMod.zip"
           }
         ],
