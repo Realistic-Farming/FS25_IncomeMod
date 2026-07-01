@@ -15,11 +15,17 @@ local IncomeSystem_mt = Class(IncomeSystem)
 
 IncomeSystem.MAX_HISTORY = 10
 
+-- Catch-up limits: how many missed interval payments a single check may pay out.
+-- Protects against a corrupted or mismatched state file paying a fortune on load.
+IncomeSystem.MAX_CATCHUP_HOURLY = 24
+IncomeSystem.MAX_CATCHUP_DAILY  = 7
+
 function IncomeSystem.new(settings)
     local self = setmetatable({}, IncomeSystem_mt)
     self.settings         = settings
     self.lastHour         = -1
     self.lastDay          = -1
+    self.lastMonotonicDay = -1
     self.lastMinuteCheck  = -1
     self.isInitialized    = false
     self.paymentHistory   = {}
@@ -40,10 +46,11 @@ function IncomeSystem:initialize()
     end
 
     local env = g_currentMission.environment
-    self.lastHour        = env.currentHour
-    self.lastDay         = env.currentDay
-    self.lastMinuteCheck = math.floor(env.dayTime / 60000)
-    self.isInitialized   = true
+    self.lastHour         = env.currentHour
+    self.lastDay          = env.currentDay
+    self.lastMonotonicDay = env.currentMonotonicDay or -1
+    self.lastMinuteCheck  = math.floor(env.dayTime / 60000)
+    self.isInitialized    = true
 
     self:log("Income System initialized (Day %d, Hour %d)", self.lastDay, self.lastHour)
     self:log("Mode: %s, Amount: $%d, Multiplier: %s",
@@ -105,7 +112,7 @@ end
 -- Payment History
 -- =========================================================
 
-function IncomeSystem:recordPayment(payType, amount, seasonMult)
+function IncomeSystem:recordPayment(payType, amount, seasonMult, count)
     if not g_currentMission or not g_currentMission.environment then
         return
     end
@@ -116,6 +123,7 @@ function IncomeSystem:recordPayment(payType, amount, seasonMult)
         amount     = amount,
         payType    = payType,
         seasonMult = seasonMult,
+        count      = count or 1,
     })
     if #self.paymentHistory > IncomeSystem.MAX_HISTORY then
         table.remove(self.paymentHistory)
@@ -127,8 +135,9 @@ end
 -- =========================================================
 
 ---@param paymentType string  "hourly", "daily", or "test"
+---@param count number|nil  number of interval payments to pay at once (catch-up), default 1
 ---@return boolean  true if payment was executed
-function IncomeSystem:giveMoney(paymentType)
+function IncomeSystem:giveMoney(paymentType, count)
     if not g_currentMission then
         self:log("Cannot give money: No mission")
         return false
@@ -138,6 +147,8 @@ function IncomeSystem:giveMoney(paymentType)
     if not g_currentMission:getIsServer() then
         return false
     end
+
+    count = math.max(1, math.floor(count or 1))
 
     local amount   = 1
     local typeText = "Test Payment"
@@ -151,6 +162,14 @@ function IncomeSystem:giveMoney(paymentType)
         if seasonMult ~= 1.0 then
             amount = math.max(1, math.floor(amount * seasonMult))
             self:log("Seasonal multiplier %.1fx applied -> $%d", seasonMult, amount)
+        end
+
+        -- Multi-interval catch-up: N missed transitions pay N intervals in one
+        -- transfer. The current season's multiplier is applied to the whole batch.
+        if count > 1 then
+            amount = amount * count
+            typeText = string.format("%s (x%d)", typeText, count)
+            self:log("Catch-up: paying %d %s intervals at once -> $%d", count, paymentType, amount)
         end
     end
 
@@ -181,7 +200,7 @@ function IncomeSystem:giveMoney(paymentType)
 
     -- Record to history
     if paymentType ~= "test" then
-        self:recordPayment(paymentType, amount, seasonMult)
+        self:recordPayment(paymentType, amount, seasonMult, count)
     end
 
     -- Show notification (client-side only)
@@ -198,21 +217,85 @@ end
 -- =========================================================
 -- Hourly / Daily Check
 -- =========================================================
+-- Multi-interval catch-up: at high game speed or after a frame hitch more than
+-- one hour/day transition can pass between two checks. Each check counts how
+-- many transitions elapsed and pays them all, instead of collapsing them into
+-- a single payment. Day arithmetic uses environment.currentMonotonicDay (the
+-- counter the base game uses for day math in AbstractMission); currentDay is
+-- only a change-detection trigger because its monotonicity is not guaranteed.
+
+---@return boolean  true if the monotonic day counter moved since the last check
+function IncomeSystem:hasMonotonicDayChanged(env)
+    local monoDay = env.currentMonotonicDay
+    return monoDay ~= nil and self.lastMonotonicDay >= 0 and monoDay ~= self.lastMonotonicDay
+end
+
+---@return number  elapsed hour transitions since the last check (>= 1, clamped)
+function IncomeSystem:countElapsedHours(env)
+    -- A change was already detected, so at least one transition happened
+    local count = 1
+    if self.lastHour >= 0 and self.lastHour <= 23 then
+        count = (env.currentHour - self.lastHour) % 24
+        if count == 0 then
+            count = 1
+        end
+        -- Fold in full days when the monotonic day counter is available
+        local monoDay = env.currentMonotonicDay
+        if monoDay ~= nil and self.lastMonotonicDay >= 0 then
+            local total = (monoDay - self.lastMonotonicDay) * 24 + (env.currentHour - self.lastHour)
+            if total > count then
+                count = total
+            end
+        end
+    end
+    if count > IncomeSystem.MAX_CATCHUP_HOURLY then
+        self:log("Hourly catch-up clamped: %d transitions -> %d", count, IncomeSystem.MAX_CATCHUP_HOURLY)
+        count = IncomeSystem.MAX_CATCHUP_HOURLY
+    end
+    return count
+end
+
+---@return number  elapsed day transitions since the last check (>= 1, clamped)
+function IncomeSystem:countElapsedDays(env)
+    local count = 1
+    local monoDay = env.currentMonotonicDay
+    if monoDay ~= nil and self.lastMonotonicDay >= 0 then
+        local dayDelta = monoDay - self.lastMonotonicDay
+        if dayDelta > 1 then
+            count = dayDelta
+        end
+    elseif self.lastDay >= 0 then
+        local dayDelta = env.currentDay - self.lastDay
+        if dayDelta > 1 then
+            count = dayDelta
+        end
+    end
+    if count > IncomeSystem.MAX_CATCHUP_DAILY then
+        self:log("Daily catch-up clamped: %d transitions -> %d", count, IncomeSystem.MAX_CATCHUP_DAILY)
+        count = IncomeSystem.MAX_CATCHUP_DAILY
+    end
+    return count
+end
 
 function IncomeSystem:checkHourly()
     if not g_currentMission or not g_currentMission.environment then
         return false
     end
-    local currentHour = g_currentMission.environment.currentHour
-    if currentHour ~= self.lastHour then
+    local env = g_currentMission.environment
+    local currentHour = env.currentHour
+    -- The monotonic day check also catches an exact multiple-of-24h jump,
+    -- where currentHour lands back on the same value
+    if currentHour ~= self.lastHour or self:hasMonotonicDayChanged(env) then
+        local count = self:countElapsedHours(env)
         local isSleeping = g_sleepManager and g_sleepManager:getIsSleeping()
         self.lastHour = currentHour
-        
+        self.lastMonotonicDay = env.currentMonotonicDay or self.lastMonotonicDay
+
         if not isSleeping then
-            self:giveMoney("hourly")
+            self:giveMoney("hourly", count)
             return true
         else
-            self:log("Skipped hourly payment due to sleeping (Hour %d)", currentHour)
+            self:log("Skipped %d hourly payment(s) due to sleeping (Hour %d)", count, currentHour)
         end
     end
     return false
@@ -222,16 +305,21 @@ function IncomeSystem:checkDaily()
     if not g_currentMission or not g_currentMission.environment then
         return false
     end
-    local currentDay = g_currentMission.environment.currentDay
-    if currentDay ~= self.lastDay then
+    local env = g_currentMission.environment
+    local currentDay = env.currentDay
+    -- The monotonic day check keeps daily mode firing even if currentDay
+    -- wraps back to the same value (short-month settings)
+    if currentDay ~= self.lastDay or self:hasMonotonicDayChanged(env) then
+        local count = self:countElapsedDays(env)
         local isSleeping = g_sleepManager and g_sleepManager:getIsSleeping()
         self.lastDay = currentDay
-        
+        self.lastMonotonicDay = env.currentMonotonicDay or self.lastMonotonicDay
+
         if not isSleeping then
-            self:giveMoney("daily")
+            self:giveMoney("daily", count)
             return true
         else
-            self:log("Skipped daily payment due to sleeping (Day %d)", currentDay)
+            self:log("Skipped %d daily payment(s) due to sleeping (Day %d)", count, currentDay)
         end
     end
     return false
@@ -293,8 +381,9 @@ end
 
 function IncomeSystem:saveState()
     return {
-        lastHour = self.lastHour,
-        lastDay  = self.lastDay,
+        lastHour         = self.lastHour,
+        lastDay          = self.lastDay,
+        lastMonotonicDay = self.lastMonotonicDay,
     }
 end
 
@@ -302,6 +391,12 @@ function IncomeSystem:loadState(state)
     if state then
         self.lastHour = state.lastHour or -1
         self.lastDay  = state.lastDay  or -1
-        self:log("Timer state restored: lastHour=%d, lastDay=%d", self.lastHour, self.lastDay)
+        -- Older state files have no monotonic day; keep the value picked up
+        -- from the environment in initialize() instead of stomping it
+        if state.lastMonotonicDay and state.lastMonotonicDay >= 0 then
+            self.lastMonotonicDay = state.lastMonotonicDay
+        end
+        self:log("Timer state restored: lastHour=%d, lastDay=%d, lastMonotonicDay=%d",
+            self.lastHour, self.lastDay, self.lastMonotonicDay)
     end
 end

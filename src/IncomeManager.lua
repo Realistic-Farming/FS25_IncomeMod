@@ -180,7 +180,8 @@ function IncomeManager:save()
     if self.incomeSystem and self.settingsManager then
         self.settingsManager:saveTimerState(
             self.incomeSystem.lastHour,
-            self.incomeSystem.lastDay
+            self.incomeSystem.lastDay,
+            self.incomeSystem.lastMonotonicDay
         )
     end
 end
