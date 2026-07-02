@@ -117,6 +117,11 @@ end
 -- =========================================================
 
 function IncomeManager:onMissionLoaded()
+    -- Register with SettingsHub (if installed) so FarmTablet's System
+    -- Settings app can list Income Mod's settings. No-ops safely if
+    -- SettingsHub isn't present.
+    IncomeSettingsHubBridge.register(self)
+
     if self.incomeSystem then
         self.incomeSystem:initialize()
     end
