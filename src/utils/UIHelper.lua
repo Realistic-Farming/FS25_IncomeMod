@@ -107,9 +107,13 @@ end
 -- =========================================================
 -- Binary Option (checkbox-style)
 -- =========================================================
--- CheckedOptionElement dispatches callbacks as:
---   target[onClickCallback](target, state)
--- so onClickCallback must be a method-name string on a target object.
+-- Like MultiTextOptionElement, CheckedOptionElement's GuiElement base
+-- calls self[callbackName](self.target, ...) directly (raiseCallback),
+-- it does NOT look the string up on self.target. Assigning a string here
+-- ("handleChange") made GuiElement try to call that string as a function
+-- on every update tick -> "attempt to call a string value" spam in
+-- GuiElement.lua:1638. onClickCallback must be a function, same as the
+-- multi-option below.
 
 function UIHelper.createBinaryOption(layout, id, textId, state, callback)
     local template = nil
@@ -144,24 +148,24 @@ function UIHelper.createBinaryOption(layout, id, textId, state, callback)
     if opt.toolTipText then opt.toolTipText = "" end
     if lbl and lbl.toolTipText then lbl.toolTipText = "" end
 
-    local Bridge = {}
-    local Bridge_mt = Class(Bridge)
-
-    function Bridge.new(callback)
-        local self = setmetatable({}, Bridge_mt)
-        self._callback = callback
-        return self
-    end
-
-    function Bridge:handleChange(newState)
-        if self._callback then
-            self._callback(newState == 2)
+    -- GIANTS calls onClickCallback(target, element) where element is the
+    -- CheckedOptionElement itself. Read element.isChecked / element.state
+    -- (2 = checked) the same way createMultiOption reads element.state.
+    opt.target = nil
+    opt.onClickCallback = function(_, element)
+        if not callback then return end
+        local checked
+        if type(element) == "table" then
+            if element.isChecked ~= nil then
+                checked = element.isChecked
+            elseif element.state ~= nil then
+                checked = (element.state == 2)
+            end
+        end
+        if checked ~= nil then
+            callback(checked)
         end
     end
-
-    local bridge = Bridge.new(callback)
-    opt.target = bridge
-    opt.onClickCallback = "handleChange"
 
     if lbl and lbl.setText then
         lbl:setText(getText(textId .. "_short"))
