@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-07-02T12:05:18Z
-**Days tracked:** 86 | **Download snapshots:** 234 (hourly)
+**Last updated:** 2026-07-03T18:57:16Z
+**Days tracked:** 87 | **Download snapshots:** 237 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 72 | 39 |
-| Git Clones | 678 | 200 |
+| Page Views | 89 | 49 |
+| Git Clones | 718 | 213 |
 
 > **Engagement:** 1.8 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 332 of 39 visitors cloned or downloaded (**851.2%**)
+> **14-day conversion:** 347 of 49 visitors cloned or downloaded (**708.1%**)
 >
-> Unique cloners: 200 | Release downloads: 132
+> Unique cloners: 213 | Release downloads: 134
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 132 |
-| Git Clones (14-day) | 678 |
-| **Total Acquisitions** | **810** |
+| Zip Downloads | 134 |
+| Git Clones (14-day) | 718 |
+| **Total Acquisitions** | **852** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 53 | 33 |
-| Bing | 1 | 1 |
+| github.com | 66 | 42 |
+| Google | 2 | 1 |
 | chatgpt.com | 1 | 1 |
 
 ---
@@ -76,13 +76,13 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 51 | 38 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 10 | 8 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod` | 7 | 4 |
+| `/Realistic-Farming/FS25_IncomeMod` | 66 | 49 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 14 | 12 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod` | 5 | 3 |
+| `/Realistic-Farming/FS25_IncomeMod/compare/63499c68787e...eee694fd41df` | 1 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/releases` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/releases` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/tree/development` | 1 | 1 |
 
 ---
 
