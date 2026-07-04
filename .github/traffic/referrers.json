@@ -1527,5 +1527,22 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-07-04": [
+    {
+      "referrer": "github.com",
+      "count": 75,
+      "uniques": 46
+    },
+    {
+      "referrer": "Google",
+      "count": 4,
+      "uniques": 3
+    },
+    {
+      "referrer": "chatgpt.com",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }

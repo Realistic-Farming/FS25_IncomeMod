@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-07-03T18:57:16Z
-**Days tracked:** 87 | **Download snapshots:** 237 (hourly)
+**Last updated:** 2026-07-04T18:51:09Z
+**Days tracked:** 88 | **Download snapshots:** 242 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 89 | 49 |
-| Git Clones | 718 | 213 |
+| Page Views | 100 | 56 |
+| Git Clones | 705 | 211 |
 
-> **Engagement:** 1.8 pages per visitor (14-day avg)
+> **Engagement:** 1.7 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 347 of 49 visitors cloned or downloaded (**708.1%**)
+> **14-day conversion:** 349 of 56 visitors cloned or downloaded (**623.2%**)
 >
-> Unique cloners: 213 | Release downloads: 134
+> Unique cloners: 211 | Release downloads: 138
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 134 |
-| Git Clones (14-day) | 718 |
-| **Total Acquisitions** | **852** |
+| Zip Downloads | 138 |
+| Git Clones (14-day) | 705 |
+| **Total Acquisitions** | **843** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 66 | 42 |
-| Google | 2 | 1 |
+| github.com | 75 | 46 |
+| Google | 4 | 3 |
 | chatgpt.com | 1 | 1 |
 
 ---
@@ -76,13 +76,13 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 66 | 49 |
+| `/Realistic-Farming/FS25_IncomeMod` | 76 | 56 |
 | `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 14 | 12 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod` | 5 | 3 |
+| `/Realistic-Farming/FS25_IncomeMod/releases` | 4 | 2 |
+| `/TheCodingDad-TisonK/FS25_IncomeMod` | 3 | 3 |
 | `/Realistic-Farming/FS25_IncomeMod/compare/63499c68787e...eee694fd41df` | 1 | 1 |
-| `/Realistic-Farming/FS25_IncomeMod/releases` | 1 | 1 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.1` | 1 | 1 |
 | `/TheCodingDad-TisonK/FS25_IncomeMod/releases` | 1 | 1 |
-| `/TheCodingDad-TisonK/FS25_IncomeMod/releases/tag/v2.1.6.0` | 1 | 1 |
 
 ---
 
