@@ -22,6 +22,8 @@ source(modDirectory .. "src/settings/SettingsGUI.lua")
 source(modDirectory .. "src/utils/UIHelper.lua")
 source(modDirectory .. "src/settings/SettingsUI.lua")
 source(modDirectory .. "src/settings/SettingsHubBridge.lua")
+source(modDirectory .. "src/integrations/IncomeStateLedgerBridge.lua")  -- bedrock: optional StateLedger timer-state bridge
+source(modDirectory .. "src/integrations/IncomeMasterHUDBridge.lua")    -- bedrock: optional MasterHUD draw bridge
 source(modDirectory .. "src/ui/IncomeHUD.lua")
 source(modDirectory .. "src/ui/IncomeReportDialog.lua")
 source(modDirectory .. "src/IncomeSystem.lua")
@@ -70,10 +72,15 @@ FSBaseMission.update = Utils.appendedFunction(FSBaseMission.update, function(mis
     end
 end)
 
--- Per-frame draw: Income HUD overlay (client-side only)
+-- Per-frame draw: Income HUD overlay (client-side only).
+-- When FS25_MasterHUD is installed it owns our draw (its single suspend-aware loop
+-- calls IncomeMasterHUDBridge.drawStack), so this hook stands down to avoid double
+-- drawing. When MasterHUD is absent this hook runs the exact same body. The draw body
+-- lives in IncomeMasterHUDBridge.drawStack so the two paths can never diverge.
 FSBaseMission.draw = Utils.appendedFunction(FSBaseMission.draw, function(mission)
-    if im and im.incomeHUD then
-        im.incomeHUD:draw()
+    if IncomeMasterHUDBridge and IncomeMasterHUDBridge.active then return end
+    if IncomeMasterHUDBridge then
+        IncomeMasterHUDBridge.drawStack()
     end
 end)
 
