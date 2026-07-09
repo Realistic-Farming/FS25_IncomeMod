@@ -74,6 +74,12 @@ function IncomeSettingsHubBridge.register(im)
         hub:registerModule("IncomeMod", {
             adminSettings = defs,
             onChange      = function(key, value, playerId) applyChange(key, value) end,
+            -- We own our persistence (Settings.lua / SettingsManager.lua save to our own
+            -- XML) and load it before this registration runs, so the hub must mirror-for-
+            -- display only: never restore its own stale copy and replay it back through
+            -- onChange on load. Without this the hub can push a stale value over our real
+            -- setting every load (the SoilFertilizer `enabled=false` reset-on-load bug class).
+            selfPersisted = true,
         })
     end)
 
