@@ -1597,5 +1597,22 @@
       "count": 5,
       "uniques": 4
     }
+  ],
+  "2026-07-09": [
+    {
+      "referrer": "github.com",
+      "count": 82,
+      "uniques": 47
+    },
+    {
+      "referrer": "Google",
+      "count": 5,
+      "uniques": 4
+    },
+    {
+      "referrer": "yandex.ru",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
