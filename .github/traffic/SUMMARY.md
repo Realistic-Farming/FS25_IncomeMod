@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-07-15T18:50:43Z
-**Days tracked:** 99 | **Download snapshots:** 274 (hourly)
+**Last updated:** 2026-07-16T18:05:46Z
+**Days tracked:** 100 | **Download snapshots:** 275 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 123 | 63 |
-| Git Clones | 453 | 116 |
+| Page Views | 120 | 59 |
+| Git Clones | 450 | 114 |
 
-> **Engagement:** 1.9 pages per visitor (14-day avg)
+> **Engagement:** 2.0 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 269 of 63 visitors cloned or downloaded (**426.9%**)
+> **14-day conversion:** 267 of 59 visitors cloned or downloaded (**452.5%**)
 >
-> Unique cloners: 116 | Release downloads: 153
+> Unique cloners: 114 | Release downloads: 153
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 153 |
-| Git Clones (14-day) | 453 |
-| **Total Acquisitions** | **606** |
+| Git Clones (14-day) | 450 |
+| **Total Acquisitions** | **603** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 83 | 49 |
-| Google | 8 | 6 |
+| github.com | 79 | 45 |
+| Google | 6 | 5 |
 | yandex.ru | 1 | 1 |
 
 ---
@@ -76,12 +76,12 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 88 | 62 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 18 | 14 |
+| `/Realistic-Farming/FS25_IncomeMod` | 83 | 56 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 17 | 13 |
 | `/Realistic-Farming/FS25_IncomeMod/releases` | 12 | 9 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.1` | 3 | 3 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.1` | 4 | 4 |
+| `/Realistic-Farming/FS25_IncomeMod/tree/development` | 3 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/compare/63499c68787e...eee694fd41df` | 1 | 1 |
-| `/Realistic-Farming/FS25_IncomeMod/tree/development` | 1 | 1 |
 
 ---
 

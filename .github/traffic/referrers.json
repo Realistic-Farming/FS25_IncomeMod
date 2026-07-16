@@ -1716,5 +1716,22 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-07-16": [
+    {
+      "referrer": "github.com",
+      "count": 79,
+      "uniques": 45
+    },
+    {
+      "referrer": "Google",
+      "count": 6,
+      "uniques": 5
+    },
+    {
+      "referrer": "yandex.ru",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
