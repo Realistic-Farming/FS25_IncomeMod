@@ -15,19 +15,19 @@
 - Baseline date: 2026-06-30
 
 ## Near-term (next release cycle)
-- [ ] SettingsHub migration: register the 9 settings; remove the ESC-menu settings injection (SettingsUI.lua + UIHelper.lua) and the InGameMenuSettingsFrame hooks.
-- [ ] StateLedger migration: move settings and timer state to `IncomeMod_Settings` + `IncomeMod_State`; keep the timer state exact so cadence survives reload.
+- [x] SettingsHub: 9 settings registered (selfPersisted). ESC injection (SettingsUI.lua + UIHelper.lua, InGameMenuSettingsFrame hooks) retained as the standalone fallback; full removal is a later cleanup.
+- [x] StateLedger: `IncomeMod_Settings` + `IncomeMod_State` bridge live (delegate-when-present); own XML kept as the safety copy.
 
 ## Mid-term (this season)
-- [ ] NetworkSync channel `IncomeMod_Sync` for settings broadcast and client-side payment notifications.
-- [ ] MasterHUD registration of `IncomeMod_HUD` (delegate-when-present; own hook stays as fallback).
+- [ ] NetworkSync channel `IncomeMod_Sync` for settings broadcast and client-side payment notifications. Not built yet.
+- [x] MasterHUD `IncomeMod_HUD` registered (delegate-when-present; own hook stays as fallback).
 - [ ] Expose the five companion read functions for FarmTablet IncomeApp.
 
 ## Long-term / aspirational
 - [ ] Richer income models (subsidy tiers, contract-linked bonuses) without becoming a markets system.
 
 ## Cross-mod / ecosystem dependencies
-- [ ] All four bedrock migrations (blocks on: StateLedger, NetworkSync, MasterHUD, SettingsHub, delegate-when-present).
+- [~] Bedrock 3/4 done (StateLedger + MasterHUD + SettingsHub); NetworkSync remaining.
 - [ ] FarmTablet IncomeApp (blocks on: the five read functions being exposed).
 
 ## Deferred / parked
