@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-07-18T18:41:48Z
-**Days tracked:** 102 | **Download snapshots:** 282 (hourly)
+**Last updated:** 2026-07-19T12:45:02Z
+**Days tracked:** 103 | **Download snapshots:** 285 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 110 | 57 |
-| Git Clones | 401 | 93 |
+| Page Views | 111 | 59 |
+| Git Clones | 391 | 89 |
 
-> **Engagement:** 1.9 pages per visitor (14-day avg)
+> **Engagement:** 1.8 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 250 of 57 visitors cloned or downloaded (**438.5%**)
+> **14-day conversion:** 251 of 59 visitors cloned or downloaded (**425.4%**)
 >
-> Unique cloners: 93 | Release downloads: 157
+> Unique cloners: 89 | Release downloads: 162
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 157 |
-| Git Clones (14-day) | 401 |
-| **Total Acquisitions** | **558** |
+| Zip Downloads | 162 |
+| Git Clones (14-day) | 391 |
+| **Total Acquisitions** | **553** |
 
 ---
 
@@ -54,9 +54,9 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 73 | 45 |
-| Google | 4 | 3 |
-| yandex.ru | 1 | 1 |
+| github.com | 74 | 47 |
+| Google | 5 | 4 |
+| yandex.ru | 3 | 2 |
 
 ---
 
@@ -76,11 +76,11 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 79 | 55 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 15 | 11 |
-| `/Realistic-Farming/FS25_IncomeMod/releases` | 10 | 9 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.1` | 3 | 3 |
+| `/Realistic-Farming/FS25_IncomeMod` | 82 | 57 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 15 | 10 |
+| `/Realistic-Farming/FS25_IncomeMod/releases` | 9 | 8 |
 | `/Realistic-Farming/FS25_IncomeMod/tree/development` | 3 | 1 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.1` | 2 | 2 |
 
 ---
 
