@@ -9,7 +9,7 @@
 - [ ] Decide whether the console reset command should also push `SETTINGS_CHANGED` via NetworkSync.
 
 ## Bugs
-- [ ] None from the audit: payments are already server-gated (getIsServer in giveMoney), so no MP double-pay.
+- [x] 2026-07-26 bug sweep: IncomeMod bugs fixed and merged to main. IM-001 (`setPayMode()` resets both mode timers to prevent catch-up exploit), IM-002 (added missing `isAux` parameter to `mouseEvent` signature), IM-003 (version strings consolidated to match modDesc.xml). All closed.
 
 ## Features / enhancements
 - [ ] Companion read API: isActive, getCurrentPaymentAmount, getPayMode, getSeasonalMultiplier, getPaymentHistory (for FarmTablet IncomeApp).
