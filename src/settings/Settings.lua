@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.1.5.0)
+-- FS25 Income Mod (version 2.1.6.1)
 -- =========================================================
 -- Author: TisonK
 -- =========================================================
@@ -83,8 +83,17 @@ end
 ---@param mode number
 function Settings:setPayMode(mode)
     if mode == Settings.PAY_MODE_HOURLY or mode == Settings.PAY_MODE_DAILY then
+        local changed = mode ~= self.payMode
         self.payMode = mode
         Logging.info("Income Mod: Pay mode changed to: %s", self:getPayModeName())
+        if changed and IncomeSystem then
+            local now = g_currentMission and g_currentMission.environment
+            if now then
+                IncomeSystem.lastHour         = now.currentHour
+                IncomeSystem.lastDay          = now.currentDay
+                IncomeSystem.lastMonotonicDay = now.currentMonotonicDay or -1
+            end
+        end
     end
 end
 
