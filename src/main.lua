@@ -1,5 +1,5 @@
 -- =========================================================
--- FS25 Income Mod (version 2.1.5.0)
+-- FS25 Income Mod (version 2.1.6.1)
 -- =========================================================
 -- Passive hourly/daily income with difficulty tiers,
 -- seasonal modifiers, multiplier, and per-farm MP support.
@@ -21,6 +21,9 @@ source(modDirectory .. "src/settings/Settings.lua")
 source(modDirectory .. "src/settings/SettingsGUI.lua")
 source(modDirectory .. "src/utils/UIHelper.lua")
 source(modDirectory .. "src/settings/SettingsUI.lua")
+source(modDirectory .. "src/settings/SettingsHubBridge.lua")
+source(modDirectory .. "src/integrations/IncomeStateLedgerBridge.lua")  -- bedrock: optional StateLedger timer-state bridge
+source(modDirectory .. "src/integrations/IncomeMasterHUDBridge.lua")    -- bedrock: optional MasterHUD draw bridge
 source(modDirectory .. "src/ui/IncomeHUD.lua")
 source(modDirectory .. "src/ui/IncomeReportDialog.lua")
 source(modDirectory .. "src/IncomeSystem.lua")
@@ -34,12 +37,12 @@ local im  -- local handle, also exposed as g_IncomeManager
 
 local function load(mission)
     if im == nil then
-        Logging.info("Income Mod v2.0.0.5: Initializing...")
+        Logging.info("Income Mod v2.1.6.1: Initializing...")
         im = IncomeManager.new(mission, modDirectory, modName)
         getfenv(0)["g_IncomeManager"] = im
         -- Attach to g_currentMission for cross-mod access (getfenv(0) is per-mod scoped)
         mission.incomeManager = im
-        Logging.info("Income Mod v2.0.0.5: Initialized successfully")
+        Logging.info("Income Mod v2.1.6.1: Initialized successfully")
     end
 end
 
@@ -69,16 +72,21 @@ FSBaseMission.update = Utils.appendedFunction(FSBaseMission.update, function(mis
     end
 end)
 
--- Per-frame draw: Income HUD overlay (client-side only)
+-- Per-frame draw: Income HUD overlay (client-side only).
+-- When FS25_MasterHUD is installed it owns our draw (its single suspend-aware loop
+-- calls IncomeMasterHUDBridge.drawStack), so this hook stands down to avoid double
+-- drawing. When MasterHUD is absent this hook runs the exact same body. The draw body
+-- lives in IncomeMasterHUDBridge.drawStack so the two paths can never diverge.
 FSBaseMission.draw = Utils.appendedFunction(FSBaseMission.draw, function(mission)
-    if im and im.incomeHUD then
-        im.incomeHUD:draw()
+    if IncomeMasterHUDBridge and IncomeMasterHUDBridge.active then return end
+    if IncomeMasterHUDBridge then
+        IncomeMasterHUDBridge.drawStack()
     end
 end)
 
 -- Route mouse events to IncomeHUD (RMB over panel = toggle; fixed position, no drag)
 local incomeMouseHandler = {}
-function incomeMouseHandler:mouseEvent(posX, posY, isDown, isUp, button, eventUsed)
+function incomeMouseHandler:mouseEvent(posX, posY, isDown, isUp, button, eventUsed, isAux)
     if eventUsed then return eventUsed end
     if im and im.incomeHUD then
         return im.incomeHUD:onMouseEvent(posX, posY, isDown, isUp, button, eventUsed)
@@ -156,7 +164,7 @@ end
 -- =========================================================
 
 print("============================================")
-print("    FS25 Income Mod v2.0.0.5 LOADED        ")
+print("    FS25 Income Mod v2.1.6.1 LOADED        ")
 print("    Hourly/Daily income | Seasonal mods    ")
 print("    Per-farm MP support | Type 'income'    ")
 print("============================================")

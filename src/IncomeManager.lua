@@ -117,6 +117,27 @@ end
 -- =========================================================
 
 function IncomeManager:onMissionLoaded()
+    -- Register with SettingsHub (if installed) so FarmTablet's System
+    -- Settings app can list Income Mod's settings. No-ops safely if
+    -- SettingsHub isn't present.
+    IncomeSettingsHubBridge.register(self)
+
+    -- StateLedger (bedrock, delegate-when-present): when installed, the shared master
+    -- save file becomes the load source of truth for the income timer state;
+    -- FS25_IncomeMod_state.xml stays the standalone safety copy. Registered BEFORE
+    -- self:loadState() below so the ledger's deserialize has delivered when we read
+    -- (register() forces the parse, since we load in the same phase StateLedger parses).
+    if IncomeStateLedgerBridge then
+        IncomeStateLedgerBridge.register(self)
+    end
+
+    -- MasterHUD (bedrock, delegate-when-present): when installed, the income HUD draw
+    -- folds into MasterHUD's single suspend-aware loop and our own FSBaseMission.draw
+    -- hook stands down. No-ops when MasterHUD is absent (own hook draws it).
+    if IncomeMasterHUDBridge then
+        IncomeMasterHUDBridge.register(self)
+    end
+
     if self.incomeSystem then
         self.incomeSystem:initialize()
     end
@@ -180,7 +201,8 @@ function IncomeManager:save()
     if self.incomeSystem and self.settingsManager then
         self.settingsManager:saveTimerState(
             self.incomeSystem.lastHour,
-            self.incomeSystem.lastDay
+            self.incomeSystem.lastDay,
+            self.incomeSystem.lastMonotonicDay
         )
     end
 end
@@ -190,7 +212,16 @@ end
 -- =========================================================
 
 function IncomeManager:loadState()
-    if self.incomeSystem and self.settingsManager then
+    if not self.incomeSystem then return end
+    -- StateLedger is the load source of truth when present and it delivered a state
+    -- block; otherwise read the standalone FS25_IncomeMod_state.xml (also the first-load
+    -- path right after installing the ledger onto an existing save). The state file is
+    -- written every save regardless, as a safety copy.
+    if IncomeStateLedgerBridge and IncomeStateLedgerBridge.hasState() then
+        IncomeStateLedgerBridge.applyState(self.incomeSystem)
+        return
+    end
+    if self.settingsManager then
         local state = self.settingsManager:loadTimerState()
         if state then
             self.incomeSystem:loadState(state)

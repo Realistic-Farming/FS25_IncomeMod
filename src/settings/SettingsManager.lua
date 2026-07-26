@@ -119,7 +119,8 @@ end
 
 ---@param lastHour number  last hour a payment was made
 ---@param lastDay  number  last day a payment was made
-function SettingsManager:saveTimerState(lastHour, lastDay)
+---@param lastMonotonicDay number|nil  monotonic day counter at the last payment check
+function SettingsManager:saveTimerState(lastHour, lastDay, lastMonotonicDay)
     local xmlPath = self:getStateXmlFilePath()
     if not xmlPath then return end
 
@@ -127,12 +128,13 @@ function SettingsManager:saveTimerState(lastHour, lastDay)
     if xml then
         xml:setInt("IncomeState.lastHour", lastHour)
         xml:setInt("IncomeState.lastDay",  lastDay)
+        xml:setInt("IncomeState.lastMonotonicDay", lastMonotonicDay or -1)
         xml:save()
         xml:delete()
     end
 end
 
----@return table|nil  {lastHour, lastDay} or nil if no state file exists
+---@return table|nil  {lastHour, lastDay, lastMonotonicDay} or nil if no state file exists
 function SettingsManager:loadTimerState()
     local xmlPath = self:getStateXmlFilePath()
     if not xmlPath or not fileExists(xmlPath) then
@@ -141,10 +143,11 @@ function SettingsManager:loadTimerState()
 
     local xml = XMLFile.load("im_State", xmlPath)
     if xml then
-        local lastHour = xml:getInt("IncomeState.lastHour", -1)
-        local lastDay  = xml:getInt("IncomeState.lastDay",  -1)
+        local lastHour         = xml:getInt("IncomeState.lastHour", -1)
+        local lastDay          = xml:getInt("IncomeState.lastDay",  -1)
+        local lastMonotonicDay = xml:getInt("IncomeState.lastMonotonicDay", -1)
         xml:delete()
-        return { lastHour = lastHour, lastDay = lastDay }
+        return { lastHour = lastHour, lastDay = lastDay, lastMonotonicDay = lastMonotonicDay }
     end
     return nil
 end
