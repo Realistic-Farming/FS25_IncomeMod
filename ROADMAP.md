@@ -17,6 +17,7 @@
 ## Near-term (next release cycle)
 - [x] SettingsHub: 9 settings registered (selfPersisted). ESC injection (SettingsUI.lua + UIHelper.lua, InGameMenuSettingsFrame hooks) retained as the standalone fallback; full removal is a later cleanup.
 - [x] StateLedger: `IncomeMod_Settings` + `IncomeMod_State` bridge live (delegate-when-present); own XML kept as the safety copy.
+- [x] 2026-07-26 bug sweep: IM-001 (setPayMode timer reset), IM-002 (mouseEvent isAux param), IM-003 (version strings) fixed and merged to main.
 
 ## Mid-term (this season)
 - [ ] NetworkSync channel `IncomeMod_Sync` for settings broadcast and client-side payment notifications. Not built yet.
