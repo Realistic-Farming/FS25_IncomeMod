@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-07-27T12:47:17Z
-**Days tracked:** 110 | **Download snapshots:** 309 (hourly)
+**Last updated:** 2026-07-28T12:28:32Z
+**Days tracked:** 111 | **Download snapshots:** 310 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 117 | 57 |
-| Git Clones | 408 | 94 |
+| Page Views | 111 | 55 |
+| Git Clones | 398 | 93 |
 
 > **Engagement:** 2.0 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 268 of 57 visitors cloned or downloaded (**470.1%**)
+> **14-day conversion:** 267 of 55 visitors cloned or downloaded (**485.4%**)
 >
-> Unique cloners: 94 | Release downloads: 174
+> Unique cloners: 93 | Release downloads: 174
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 174 |
-| Git Clones (14-day) | 408 |
-| **Total Acquisitions** | **582** |
+| Git Clones (14-day) | 398 |
+| **Total Acquisitions** | **572** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 81 | 47 |
-| Google | 4 | 4 |
+| github.com | 80 | 46 |
+| Google | 3 | 3 |
 | yandex.ru | 2 | 1 |
 | Bing | 1 | 1 |
 | search.brave.com | 1 | 1 |
@@ -78,9 +78,9 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 85 | 55 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 16 | 9 |
-| `/Realistic-Farming/FS25_IncomeMod/releases` | 8 | 8 |
+| `/Realistic-Farming/FS25_IncomeMod` | 83 | 54 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 13 | 9 |
+| `/Realistic-Farming/FS25_IncomeMod/releases` | 7 | 7 |
 | `/Realistic-Farming/FS25_IncomeMod/tree/development` | 3 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/32` | 2 | 2 |
 | `/Realistic-Farming/FS25_IncomeMod/compare/60ff7fe4a4de...13df71fe56dc` | 1 | 1 |
