@@ -1588,11 +1588,7 @@
     </actions>
 
     <inputBinding>
-        <actionBinding action="IM_TOGGLE_HUD">
-            <binding device="KB_MOUSE_DEFAULT" input="KEY_I" />
-        </actionBinding>
-        <actionBinding action="IM_INCOME_REPORT">
-            <binding device="KB_MOUSE_DEFAULT" input="KEY_U" />
-        </actionBinding>
+        <actionBinding action="IM_TOGGLE_HUD" />
+        <actionBinding action="IM_INCOME_REPORT" />
     </inputBinding>
 </modDesc>
