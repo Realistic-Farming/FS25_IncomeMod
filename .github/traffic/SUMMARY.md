@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-07-30T18:07:40Z
-**Days tracked:** 113 | **Download snapshots:** 318 (hourly)
+**Last updated:** 2026-08-01T12:49:13Z
+**Days tracked:** 114 | **Download snapshots:** 321 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 99 | 53 |
-| Git Clones | 380 | 86 |
+| Page Views | 98 | 53 |
+| Git Clones | 363 | 82 |
 
 > **Engagement:** 1.8 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 265 of 53 visitors cloned or downloaded (**500.0%**)
+> **14-day conversion:** 264 of 53 visitors cloned or downloaded (**498.1%**)
 >
-> Unique cloners: 86 | Release downloads: 179
+> Unique cloners: 82 | Release downloads: 182
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 179 |
-| Git Clones (14-day) | 380 |
-| **Total Acquisitions** | **559** |
+| Zip Downloads | 182 |
+| Git Clones (14-day) | 363 |
+| **Total Acquisitions** | **545** |
 
 ---
 
@@ -54,10 +54,10 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 72 | 42 |
-| Google | 4 | 4 |
+| github.com | 71 | 40 |
+| Google | 5 | 5 |
+| yandex.ru | 3 | 2 |
 | Bing | 2 | 2 |
-| yandex.ru | 2 | 1 |
 | search.brave.com | 1 | 1 |
 
 ---
@@ -78,9 +78,9 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 73 | 51 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 12 | 10 |
-| `/Realistic-Farming/FS25_IncomeMod/releases` | 9 | 8 |
+| `/Realistic-Farming/FS25_IncomeMod` | 71 | 51 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 14 | 12 |
+| `/Realistic-Farming/FS25_IncomeMod/releases` | 8 | 7 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/32` | 2 | 2 |
 | `/Realistic-Farming/FS25_IncomeMod/compare/60ff7fe4a4de...13df71fe56dc` | 1 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/32/changes/024f61b22afcbbfad2620d426321f3219013cc9e` | 1 | 1 |
