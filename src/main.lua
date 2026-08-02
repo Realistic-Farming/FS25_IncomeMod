@@ -23,9 +23,11 @@ source(modDirectory .. "src/utils/UIHelper.lua")
 source(modDirectory .. "src/settings/SettingsUI.lua")
 source(modDirectory .. "src/settings/SettingsHubBridge.lua")
 source(modDirectory .. "src/integrations/IncomeStateLedgerBridge.lua")  -- bedrock: optional StateLedger timer-state bridge
+source(modDirectory .. "src/integrations/IncomeEmergencyLoanBridge.lua") -- [C3] optional StateLedger emergency-loan debt bridge
 source(modDirectory .. "src/integrations/IncomeMasterHUDBridge.lua")    -- bedrock: optional MasterHUD draw bridge
 source(modDirectory .. "src/ui/IncomeHUD.lua")
 source(modDirectory .. "src/ui/IncomeReportDialog.lua")
+source(modDirectory .. "src/EmergencyLoan.lua")
 source(modDirectory .. "src/IncomeSystem.lua")
 source(modDirectory .. "src/IncomeManager.lua")
 

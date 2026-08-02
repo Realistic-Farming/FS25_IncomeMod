@@ -178,6 +178,14 @@ function IncomeSystem:giveMoney(paymentType, count)
     if g_farmManager and g_farmManager.farms then
         for _, farm in pairs(g_farmManager.farms) do
             if farm and farm.farmId and farm.farmId ~= 0 then
+                -- [C3] EMERGENCY LOAN repayment: auto-deduct a share of this
+                -- payout toward any outstanding emergency loan, server-only.
+                -- The deduction rides IncomeMod's own server-gated money path
+                -- (same addMoney gate as the grant), so it is MP-safe.
+                local emergencyLoan = g_IncomeManager and g_IncomeManager.emergencyLoan
+                if emergencyLoan and emergencyLoan:getOutstanding(farm.farmId) > 0 then
+                    emergencyLoan:applyRepayment(farm.farmId, amount)
+                end
                 g_currentMission:addMoney(amount, farm.farmId, MoneyType.OTHER, true)
                 paidCount = paidCount + 1
                 self:log("%s: $%d -> farm %d", typeText, amount, farm.farmId)

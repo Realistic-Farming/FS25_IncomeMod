@@ -23,6 +23,12 @@ function IncomeManager.new(mission, modDirectory, modName)
     self.settingsManager = SettingsManager.new()
     self.settings        = Settings.new(self.settingsManager)
     self.incomeSystem    = IncomeSystem.new(self.settings)
+    -- [C3] EMERGENCY LOAN: the never-stuck recovery hatch. Owns the per-farm
+    -- debt ledger; server-authoritative grant + Time Guard interest + income
+    -- repayment. Armed in onMissionLoaded.
+    self.emergencyLoan = EmergencyLoan.new()
+    self.emergencyLoan.settings     = self.settings
+    self.emergencyLoan.incomeSystem = self.incomeSystem
 
     -- UI injection and HUD: client-side only
     if mission:getIsClient() and g_gui then
@@ -131,6 +137,14 @@ function IncomeManager:onMissionLoaded()
         IncomeStateLedgerBridge.register(self)
     end
 
+    -- [C3] EMERGENCY LOAN: register the debt-ledger sidecar with StateLedger
+    -- (delegate-when-present) so the ledger's deserialize has delivered before
+    -- the loan reads its state. No-ops when StateLedger is absent (the loan is
+    -- then session-only, which is the graceful degrade for a recovery hatch).
+    if IncomeEmergencyLoanBridge then
+        IncomeEmergencyLoanBridge.register(self)
+    end
+
     -- MasterHUD (bedrock, delegate-when-present): when installed, the income HUD draw
     -- folds into MasterHUD's single suspend-aware loop and our own FSBaseMission.draw
     -- hook stands down. No-ops when MasterHUD is absent (own hook draws it).
@@ -182,6 +196,15 @@ end
 function IncomeManager:update(dt)
     if self.incomeSystem then
         self.incomeSystem:update(dt)
+    end
+    if self.emergencyLoan then
+        -- [C3] refresh the forecast cache on the day boundary, never per-frame.
+        local env = g_currentMission and g_currentMission.environment
+        local mono = env and env.currentMonotonicDay or -1
+        if mono ~= -1 and mono ~= self._emergencyLoanDay then
+            self._emergencyLoanDay = mono
+            self.emergencyLoan:onDayChange()
+        end
     end
     if self.incomeHUD then
         self.incomeHUD:update(dt)
