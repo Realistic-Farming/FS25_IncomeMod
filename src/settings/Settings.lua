@@ -136,6 +136,17 @@ function Settings:getPaymentAmount()
 end
 
 -- =========================================================
+-- Release Gate
+-- =========================================================
+
+--- Release-gate opt-in. True when the player has explicitly enabled experimental
+--- (LOCKED) systems. Orthogonal to difficulty: the two locks stack, see ReleaseGate.lua.
+---@return boolean
+function Settings:allowsExperimentalSystems()
+    return self.experimentalSystems == true
+end
+
+-- =========================================================
 -- Load / Save / Validate
 -- =========================================================
 
@@ -173,6 +184,7 @@ function Settings:validateSettings()
     self.showNotifications  = not not self.showNotifications
     self.seasonalEffects    = not not self.seasonalEffects
     self.showHUD            = not not self.showHUD
+    self.experimentalSystems = not not self.experimentalSystems
 
     self.customAmount = tonumber(self.customAmount) or 0
     if self.customAmount < 0 then
@@ -203,6 +215,7 @@ function Settings:resetToDefaults(saveImmediately)
     self.seasonalEffects   = false
     self.incomeMultiplier  = 1
     self.showHUD           = true
+    self.experimentalSystems = false
 
     if saveImmediately then
         self:save()

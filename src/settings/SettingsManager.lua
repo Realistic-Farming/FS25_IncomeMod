@@ -26,6 +26,8 @@ SettingsManager.defaultConfig = {
     seasonalEffects   = false,
     incomeMultiplier  = 1,
     showHUD           = true,
+    -- Release-gate opt-in (default false), orthogonal to difficulty. See ReleaseGate.lua.
+    experimentalSystems = false,
 }
 
 function SettingsManager.new()
@@ -75,6 +77,7 @@ function SettingsManager:loadSettings(settingsObject)
             settingsObject.seasonalEffects   = xml:getBool(t .. ".seasonalEffects",   self.defaultConfig.seasonalEffects)
             settingsObject.incomeMultiplier  = xml:getInt (t .. ".incomeMultiplier",  self.defaultConfig.incomeMultiplier)
             settingsObject.showHUD           = xml:getBool(t .. ".showHUD",           self.defaultConfig.showHUD)
+            settingsObject.experimentalSystems = xml:getBool(t .. ".experimentalSystems", self.defaultConfig.experimentalSystems)
             xml:delete()
             return
         end
@@ -90,6 +93,7 @@ function SettingsManager:loadSettings(settingsObject)
     settingsObject.seasonalEffects   = d.seasonalEffects
     settingsObject.incomeMultiplier  = d.incomeMultiplier
     settingsObject.showHUD           = d.showHUD
+    settingsObject.experimentalSystems = d.experimentalSystems
 end
 
 function SettingsManager:saveSettings(settingsObject)
@@ -108,6 +112,7 @@ function SettingsManager:saveSettings(settingsObject)
         xml:setBool(t .. ".seasonalEffects",   settingsObject.seasonalEffects)
         xml:setInt (t .. ".incomeMultiplier",  settingsObject.incomeMultiplier)
         xml:setBool(t .. ".showHUD",           settingsObject.showHUD)
+        xml:setBool(t .. ".experimentalSystems", settingsObject.experimentalSystems)
         xml:save()
         xml:delete()
     end

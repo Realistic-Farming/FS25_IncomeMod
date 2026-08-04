@@ -68,6 +68,7 @@ function IncomeSettingsHubBridge.register(im)
         { id = "showNotifications", type = "bool", default = s.showNotifications, adminOnly = false, label = "Show Notifications" },
         { id = "showHUD",           type = "bool", default = s.showHUD,           adminOnly = false, label = "Show HUD" },
         { id = "debugMode",         type = "bool", default = s.debugMode,         adminOnly = false, label = "Debug Mode" },
+        { id = "experimentalSystems", type = "bool", default = s.experimentalSystems, adminOnly = true, label = "Experimental Systems" },
     }
 
     local ok, err = pcall(function()

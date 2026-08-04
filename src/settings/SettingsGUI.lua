@@ -31,6 +31,7 @@ function SettingsGUI:registerConsoleCommands()
     addConsoleCommand("IncomeHistory",           "Show last 10 payment records",                        "consoleCommandHistory",          self)
     addConsoleCommand("IncomeNext",              "Show when the next payment fires",                    "consoleCommandNext",             self)
     addConsoleCommand("IncomeToggleHUD",         "Show/hide the income HUD overlay (true/false)",       "consoleCommandToggleHUD",        self)
+    addConsoleCommand("IncomeSetExperimental",   "Enable/disable experimental systems (true/false)",     "consoleCommandSetExperimental",  self)
     addConsoleCommand("income",                  "Show all income commands",                            "consoleCommandHelp",             self)
 
     Logging.info("Income Mod console commands registered")
@@ -210,9 +211,29 @@ function SettingsGUI:consoleCommandToggleHUD(value)
 end
 
 -- =========================================================
--- Test Payment
+-- Experimental Systems (release gate opt-in)
 -- =========================================================
 
+function SettingsGUI:consoleCommandSetExperimental(value)
+    if value == nil then
+        return "Usage: IncomeSetExperimental true|false"
+    end
+    local v = value:lower()
+    if v ~= "true" and v ~= "false" then
+        return "Invalid value. Use 'true' or 'false'"
+    end
+    if g_IncomeManager and g_IncomeManager.settings then
+        local on = (v == "true")
+        g_IncomeManager.settings.experimentalSystems = on
+        g_IncomeManager.settings:save()
+        return string.format("Experimental systems %s", on and "enabled (at your own risk)" or "disabled")
+    end
+    return "Error: Income Mod not initialized"
+end
+
+-- =========================================================
+-- Test Payment
+-- =========================================================
 function SettingsGUI:consoleCommandTestPayment()
     if g_IncomeManager and g_IncomeManager.incomeSystem then
         local success = g_IncomeManager.incomeSystem:giveMoney("test")
