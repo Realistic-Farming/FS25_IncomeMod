@@ -196,13 +196,19 @@ Found a bug? [Open an issue](https://github.com/TheCodingDad-TisonK/FS25_IncomeM
 
 ---
 
+## 📋 Changelog
+
+- **2.1.7.0** - Release gate. Experimental systems ship locked until deliberately released. Turn them on under the mod's settings, independent of difficulty. The C3 loan elaboration (escalation and Time Guard compounding) stays locked until released; the interest-free bridge loan and the floor escape remain available.
+
+---
+
 ## 📝 License
 
 This mod is licensed under **[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)**.
 
 You may share it in its original form with attribution. You may not sell it, modify and redistribute it, or reupload it under a different name or authorship. Contributions via pull request are explicitly permitted and encouraged.
 
-**Author:** TisonK · **Version:** 2.1.5.0
+**Author:** TisonK · **Version:** 2.1.7.0
 
 © 2026 TisonK — See [LICENSE](LICENSE) for full terms.
 
