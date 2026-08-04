@@ -15,8 +15,9 @@
 - Baseline date: 2026-06-30
 
 ## Near-term (next release cycle)
+- [x] Release gate (2026-08-04): wired per Arissani's 2026-08-03 lock set. C3 is CONDITIONAL - the loan itself stays available, only its cost elaboration (the re-draw escalation, the Time Guard compounding, the Economy-dial pricing) locks until the experimentalSystems opt-in is on. `ReleaseGate.lua` + `incomeRelease` status command + `IncomeSetExperimental`. 44 assertions green.
 - [x] Emergency Loan (C3): the never-stuck recovery hatch. Forecast-crossing-zero trigger (alone), server-authoritative grant, Time Guard compounding monthly interest, auto-deduct repayment, one compounding debt line. C1 holds (difficulty scales cost, never availability). 27 assertions. PR to main pending. The base-game loan confirm was answered from the decompile (`Farm:getLoan()`, `loanMax`, 4% rate).
-- [x] SettingsHub: 9 settings registered (selfPersisted). ESC injection (SettingsUI.lua + UIHelper.lua, InGameMenuSettingsFrame hooks) retained as the standalone fallback; full removal is a later cleanup.
+- [x] SettingsHub: 10 settings registered (selfPersisted). ESC injection (SettingsUI.lua + UIHelper.lua, InGameMenuSettingsFrame hooks) retained as the standalone fallback; full removal is a later cleanup.
 - [x] StateLedger: `IncomeMod_Settings` + `IncomeMod_State` bridge live (delegate-when-present); own XML kept as the safety copy.
 - [x] 2026-07-26 bug sweep: IM-001 (setPayMode timer reset), IM-002 (mouseEvent isAux param), IM-003 (version strings) fixed and merged to main.
 
