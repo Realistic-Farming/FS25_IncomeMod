@@ -19,6 +19,7 @@ local modName      = g_currentModName
 source(modDirectory .. "src/settings/SettingsManager.lua")
 source(modDirectory .. "src/settings/Settings.lua")
 source(modDirectory .. "src/settings/SettingsGUI.lua")
+source(modDirectory .. "src/ReleaseGate.lua")
 source(modDirectory .. "src/utils/UIHelper.lua")
 source(modDirectory .. "src/settings/SettingsUI.lua")
 source(modDirectory .. "src/settings/SettingsHubBridge.lua")
@@ -145,6 +146,17 @@ end
 
 getfenv(0)["income"]        = income
 getfenv(0)["incomeStatus"]  = incomeStatus
+
+function incomeRelease()
+    local s = getSettings()
+    if s then
+        print(ReleaseGate and ReleaseGate.status(s:allowsExperimentalSystems()) or "Release gate not loaded")
+    else
+        print("Income Mod not initialized")
+    end
+end
+
+getfenv(0)["incomeRelease"] = incomeRelease
 
 getfenv(0)["incomeEnable"]  = function()
     local gui = getGUI()

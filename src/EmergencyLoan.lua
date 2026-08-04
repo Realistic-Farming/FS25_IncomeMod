@@ -133,10 +133,20 @@ end
 --- debt * (1 + rate)^N, NOT N * rate (the brief's build specific). Server-only,
 --- idempotent (Time Guard persists the cursor). Time Guard never writes money;
 --- this body does, through the server-gated deduct.
+--- RELEASE GATE (Arissani 2026-08-03, C3 CONDITIONAL per the never-stuck
+--- invariant): the cost elaboration (the re-draw escalation + the Time Guard
+--- compounding interest + the Economy-dial pricing when it builds) is LOCKED
+--- until the player opts into experimental systems. The loan itself - the grant,
+--- the re-draw, the forecast and the repayment - stays fully available, so the
+--- never-stuck escape is never removed: a locked loan runs at the neutral
+--- interest-free cost character. Fail-open (see ReleaseGate.isSystemLive).
 ---@param farmId number
 ---@param ctx table
 function EmergencyLoan:onInterestSettle(farmId, ctx)
     if g_server == nil then return end
+    if ReleaseGate ~= nil and not ReleaseGate.isSystemLive("c3_loan_elaboration") then
+        return
+    end
     local debt = self.debts[farmId]
     if not debt or (debt.principal or 0) <= 0 then return end
 
