@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-08-05T12:30:18Z
-**Days tracked:** 118 | **Download snapshots:** 333 (hourly)
+**Last updated:** 2026-08-06T12:48:12Z
+**Days tracked:** 119 | **Download snapshots:** 334 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 93 | 49 |
-| Git Clones | 359 | 89 |
+| Page Views | 99 | 51 |
+| Git Clones | 359 | 91 |
 
-> **Engagement:** 1.8 pages per visitor (14-day avg)
+> **Engagement:** 1.9 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 278 of 49 visitors cloned or downloaded (**567.3%**)
+> **14-day conversion:** 280 of 51 visitors cloned or downloaded (**549.0%**)
 >
-> Unique cloners: 89 | Release downloads: 189
+> Unique cloners: 91 | Release downloads: 189
 
 ---
 
@@ -54,7 +54,7 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 65 | 36 |
+| github.com | 68 | 37 |
 | Google | 6 | 6 |
 | kingmods.net | 2 | 1 |
 | Bing | 1 | 1 |
@@ -78,16 +78,16 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 66 | 46 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 10 | 10 |
-| `/Realistic-Farming/FS25_IncomeMod/releases` | 8 | 8 |
+| `/Realistic-Farming/FS25_IncomeMod` | 69 | 48 |
+| `/Realistic-Farming/FS25_IncomeMod/releases` | 9 | 9 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 9 | 9 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.7.0` | 3 | 2 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/32` | 2 | 2 |
 | `/Realistic-Farming/FS25_IncomeMod/branches` | 2 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/compare/60ff7fe4a4de...13df71fe56dc` | 1 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/32/changes/024f61b22afcbbfad2620d426321f3219013cc9e` | 1 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/33` | 1 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/35` | 1 | 1 |
-| `/Realistic-Farming/FS25_IncomeMod/pull/36` | 1 | 1 |
 
 ---
 
