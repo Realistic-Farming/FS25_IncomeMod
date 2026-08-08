@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-08-08T06:29:16Z
-**Days tracked:** 121 | **Download snapshots:** 340 (hourly)
+**Last updated:** 2026-08-08T12:20:52Z
+**Days tracked:** 121 | **Download snapshots:** 341 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 105 | 56 |
-| Git Clones | 336 | 84 |
+| Page Views | 108 | 60 |
+| Git Clones | 321 | 74 |
 
 > **Engagement:** 1.8 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 274 of 56 visitors cloned or downloaded (**489.2%**)
+> **14-day conversion:** 264 of 60 visitors cloned or downloaded (**440.0%**)
 >
-> Unique cloners: 84 | Release downloads: 190
+> Unique cloners: 74 | Release downloads: 190
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 190 |
-| Git Clones (14-day) | 336 |
-| **Total Acquisitions** | **526** |
+| Git Clones (14-day) | 321 |
+| **Total Acquisitions** | **511** |
 
 ---
 
@@ -54,9 +54,9 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 66 | 37 |
+| github.com | 65 | 39 |
 | Google | 11 | 10 |
-| kingmods.net | 2 | 1 |
+| kingmods.net | 4 | 2 |
 | Bing | 1 | 1 |
 | yandex.ru | 1 | 1 |
 
@@ -69,7 +69,7 @@
 | Metric | Current |
 |--------|---------|
 | Stars | 5 |
-| Forks | 1 |
+| Forks | 2 |
 | Watchers | 0 |
 
 ---
@@ -78,10 +78,10 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 72 | 52 |
+| `/Realistic-Farming/FS25_IncomeMod` | 73 | 55 |
 | `/Realistic-Farming/FS25_IncomeMod/releases` | 10 | 9 |
 | `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 9 | 9 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.7.0` | 3 | 2 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.7.0` | 5 | 4 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/32` | 2 | 2 |
 | `/Realistic-Farming/FS25_IncomeMod/branches` | 2 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/compare/4e0d3fc702a7...813fe4f4f259` | 1 | 1 |
