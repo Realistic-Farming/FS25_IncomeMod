@@ -32,6 +32,13 @@ source(modDirectory .. "src/EmergencyLoan.lua")
 source(modDirectory .. "src/IncomeSystem.lua")
 source(modDirectory .. "src/IncomeManager.lua")
 
+-- Esc RF PDA framework joiner (NO-HOST).
+source(g_currentModDirectory .. "src/gui/RfEscModules.lua")
+source(g_currentModDirectory .. "src/gui/RfPdaMenuPage.lua")
+source(g_currentModDirectory .. "src/gui/RfEscBootstrap.lua")
+source(g_currentModDirectory .. "src/gui/RfEscUiDebugger.lua")
+source(g_currentModDirectory .. "src/gui/ImRfPdaGuest.lua")
+
 local im  -- local handle, also exposed as g_IncomeManager
 
 -- =========================================================
@@ -182,3 +189,30 @@ print("    FS25 Income Mod v2.1.6.1 LOADED        ")
 print("    Hourly/Daily income | Seasonal mods    ")
 print("    Per-farm MP support | Type 'income'    ")
 print("============================================")
+
+
+local function _rfEscTryRegister()
+    if ImRfPdaGuest ~= nil and type(ImRfPdaGuest.tryRegister) == "function" then
+        pcall(ImRfPdaGuest.tryRegister)
+    end
+end
+
+-- Esc RF PDA: register module after mission/door ready (retry-safe).
+if Mission00 ~= nil then
+    Mission00.loadMission00Finished = Utils.appendedFunction(Mission00.loadMission00Finished, function()
+        _rfEscTryRegister()
+    end)
+end
+if FSBaseMission ~= nil then
+    FSBaseMission.onStartMission = Utils.appendedFunction(FSBaseMission.onStartMission, function()
+        _rfEscTryRegister()
+    end)
+end
+
+if FSBaseMission ~= nil then
+    FSBaseMission.delete = Utils.appendedFunction(FSBaseMission.delete, function()
+        if ImRfPdaGuest ~= nil and type(ImRfPdaGuest.reset) == "function" then
+            ImRfPdaGuest.reset()
+        end
+    end)
+end
