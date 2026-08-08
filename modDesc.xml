@@ -1452,6 +1452,639 @@
             <ru><![CDATA[Откройте консоль (~) и введите 'income'. Ключевые: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></ru>
             <da><![CDATA[Åbn udviklerkonsollen (~) og skriv 'income' for den fulde liste. Nøglekommandoer: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></da>
         </text>
+    
+
+        <!-- Esc RF PDA framework keys (26-lang; EN real + [EN] stubs) -->
+        <text name="rf_pda_side_info_income">
+            <en><![CDATA[This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></en>
+            <de><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></de>
+            <fr><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></fr>
+            <pl><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></pl>
+            <es><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></es>
+            <it><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></it>
+            <cz><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></cz>
+            <br><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></br>
+            <uk><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></uk>
+            <ru><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></ru>
+            <da><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></da>
+            <ct><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></ct>
+            <ea><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></ea>
+            <fc><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></fc>
+            <fi><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></fi>
+            <hu><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></hu>
+            <id><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></id>
+            <jp><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></jp>
+            <kr><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></kr>
+            <nl><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></nl>
+            <no><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></no>
+            <pt><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></pt>
+            <ro><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></ro>
+            <sv><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></sv>
+            <tr><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></tr>
+            <vi><![CDATA[[EN] This pause page is your passive-income glance. See whether Income is on, how you get paid, how much, and when the next payment is due. The table lists recent payments the system remembers (newest first). The system keeps only the last ten; Esc shows up to eight here and says so when more sit in the ring. Open the Income report or HUD if you want the same story elsewhere. Esc never moves money from this page.]]></vi>
+        </text>
+
+        <text name="im_rf_pda_module_title">
+            <en><![CDATA[Income]]></en>
+            <de><![CDATA[[EN] Income]]></de>
+            <fr><![CDATA[[EN] Income]]></fr>
+            <pl><![CDATA[[EN] Income]]></pl>
+            <es><![CDATA[[EN] Income]]></es>
+            <it><![CDATA[[EN] Income]]></it>
+            <cz><![CDATA[[EN] Income]]></cz>
+            <br><![CDATA[[EN] Income]]></br>
+            <uk><![CDATA[[EN] Income]]></uk>
+            <ru><![CDATA[[EN] Income]]></ru>
+            <da><![CDATA[[EN] Income]]></da>
+            <ct><![CDATA[[EN] Income]]></ct>
+            <ea><![CDATA[[EN] Income]]></ea>
+            <fc><![CDATA[[EN] Income]]></fc>
+            <fi><![CDATA[[EN] Income]]></fi>
+            <hu><![CDATA[[EN] Income]]></hu>
+            <id><![CDATA[[EN] Income]]></id>
+            <jp><![CDATA[[EN] Income]]></jp>
+            <kr><![CDATA[[EN] Income]]></kr>
+            <nl><![CDATA[[EN] Income]]></nl>
+            <no><![CDATA[[EN] Income]]></no>
+            <pt><![CDATA[[EN] Income]]></pt>
+            <ro><![CDATA[[EN] Income]]></ro>
+            <sv><![CDATA[[EN] Income]]></sv>
+            <tr><![CDATA[[EN] Income]]></tr>
+            <vi><![CDATA[[EN] Income]]></vi>
+        </text>
+
+        <text name="im_rf_pda_waiting">
+            <en><![CDATA[Income manager not ready]]></en>
+            <de><![CDATA[[EN] Income manager not ready]]></de>
+            <fr><![CDATA[[EN] Income manager not ready]]></fr>
+            <pl><![CDATA[[EN] Income manager not ready]]></pl>
+            <es><![CDATA[[EN] Income manager not ready]]></es>
+            <it><![CDATA[[EN] Income manager not ready]]></it>
+            <cz><![CDATA[[EN] Income manager not ready]]></cz>
+            <br><![CDATA[[EN] Income manager not ready]]></br>
+            <uk><![CDATA[[EN] Income manager not ready]]></uk>
+            <ru><![CDATA[[EN] Income manager not ready]]></ru>
+            <da><![CDATA[[EN] Income manager not ready]]></da>
+            <ct><![CDATA[[EN] Income manager not ready]]></ct>
+            <ea><![CDATA[[EN] Income manager not ready]]></ea>
+            <fc><![CDATA[[EN] Income manager not ready]]></fc>
+            <fi><![CDATA[[EN] Income manager not ready]]></fi>
+            <hu><![CDATA[[EN] Income manager not ready]]></hu>
+            <id><![CDATA[[EN] Income manager not ready]]></id>
+            <jp><![CDATA[[EN] Income manager not ready]]></jp>
+            <kr><![CDATA[[EN] Income manager not ready]]></kr>
+            <nl><![CDATA[[EN] Income manager not ready]]></nl>
+            <no><![CDATA[[EN] Income manager not ready]]></no>
+            <pt><![CDATA[[EN] Income manager not ready]]></pt>
+            <ro><![CDATA[[EN] Income manager not ready]]></ro>
+            <sv><![CDATA[[EN] Income manager not ready]]></sv>
+            <tr><![CDATA[[EN] Income manager not ready]]></tr>
+            <vi><![CDATA[[EN] Income manager not ready]]></vi>
+        </text>
+
+        <text name="im_rf_pda_on">
+            <en><![CDATA[On]]></en>
+            <de><![CDATA[[EN] On]]></de>
+            <fr><![CDATA[[EN] On]]></fr>
+            <pl><![CDATA[[EN] On]]></pl>
+            <es><![CDATA[[EN] On]]></es>
+            <it><![CDATA[[EN] On]]></it>
+            <cz><![CDATA[[EN] On]]></cz>
+            <br><![CDATA[[EN] On]]></br>
+            <uk><![CDATA[[EN] On]]></uk>
+            <ru><![CDATA[[EN] On]]></ru>
+            <da><![CDATA[[EN] On]]></da>
+            <ct><![CDATA[[EN] On]]></ct>
+            <ea><![CDATA[[EN] On]]></ea>
+            <fc><![CDATA[[EN] On]]></fc>
+            <fi><![CDATA[[EN] On]]></fi>
+            <hu><![CDATA[[EN] On]]></hu>
+            <id><![CDATA[[EN] On]]></id>
+            <jp><![CDATA[[EN] On]]></jp>
+            <kr><![CDATA[[EN] On]]></kr>
+            <nl><![CDATA[[EN] On]]></nl>
+            <no><![CDATA[[EN] On]]></no>
+            <pt><![CDATA[[EN] On]]></pt>
+            <ro><![CDATA[[EN] On]]></ro>
+            <sv><![CDATA[[EN] On]]></sv>
+            <tr><![CDATA[[EN] On]]></tr>
+            <vi><![CDATA[[EN] On]]></vi>
+        </text>
+
+        <text name="im_rf_pda_off">
+            <en><![CDATA[Off]]></en>
+            <de><![CDATA[[EN] Off]]></de>
+            <fr><![CDATA[[EN] Off]]></fr>
+            <pl><![CDATA[[EN] Off]]></pl>
+            <es><![CDATA[[EN] Off]]></es>
+            <it><![CDATA[[EN] Off]]></it>
+            <cz><![CDATA[[EN] Off]]></cz>
+            <br><![CDATA[[EN] Off]]></br>
+            <uk><![CDATA[[EN] Off]]></uk>
+            <ru><![CDATA[[EN] Off]]></ru>
+            <da><![CDATA[[EN] Off]]></da>
+            <ct><![CDATA[[EN] Off]]></ct>
+            <ea><![CDATA[[EN] Off]]></ea>
+            <fc><![CDATA[[EN] Off]]></fc>
+            <fi><![CDATA[[EN] Off]]></fi>
+            <hu><![CDATA[[EN] Off]]></hu>
+            <id><![CDATA[[EN] Off]]></id>
+            <jp><![CDATA[[EN] Off]]></jp>
+            <kr><![CDATA[[EN] Off]]></kr>
+            <nl><![CDATA[[EN] Off]]></nl>
+            <no><![CDATA[[EN] Off]]></no>
+            <pt><![CDATA[[EN] Off]]></pt>
+            <ro><![CDATA[[EN] Off]]></ro>
+            <sv><![CDATA[[EN] Off]]></sv>
+            <tr><![CDATA[[EN] Off]]></tr>
+            <vi><![CDATA[[EN] Off]]></vi>
+        </text>
+
+        <text name="im_rf_pda_lbl_enabled">
+            <en><![CDATA[Income]]></en>
+            <de><![CDATA[[EN] Income]]></de>
+            <fr><![CDATA[[EN] Income]]></fr>
+            <pl><![CDATA[[EN] Income]]></pl>
+            <es><![CDATA[[EN] Income]]></es>
+            <it><![CDATA[[EN] Income]]></it>
+            <cz><![CDATA[[EN] Income]]></cz>
+            <br><![CDATA[[EN] Income]]></br>
+            <uk><![CDATA[[EN] Income]]></uk>
+            <ru><![CDATA[[EN] Income]]></ru>
+            <da><![CDATA[[EN] Income]]></da>
+            <ct><![CDATA[[EN] Income]]></ct>
+            <ea><![CDATA[[EN] Income]]></ea>
+            <fc><![CDATA[[EN] Income]]></fc>
+            <fi><![CDATA[[EN] Income]]></fi>
+            <hu><![CDATA[[EN] Income]]></hu>
+            <id><![CDATA[[EN] Income]]></id>
+            <jp><![CDATA[[EN] Income]]></jp>
+            <kr><![CDATA[[EN] Income]]></kr>
+            <nl><![CDATA[[EN] Income]]></nl>
+            <no><![CDATA[[EN] Income]]></no>
+            <pt><![CDATA[[EN] Income]]></pt>
+            <ro><![CDATA[[EN] Income]]></ro>
+            <sv><![CDATA[[EN] Income]]></sv>
+            <tr><![CDATA[[EN] Income]]></tr>
+            <vi><![CDATA[[EN] Income]]></vi>
+        </text>
+
+        <text name="im_rf_pda_lbl_mode">
+            <en><![CDATA[Pay mode]]></en>
+            <de><![CDATA[[EN] Pay mode]]></de>
+            <fr><![CDATA[[EN] Pay mode]]></fr>
+            <pl><![CDATA[[EN] Pay mode]]></pl>
+            <es><![CDATA[[EN] Pay mode]]></es>
+            <it><![CDATA[[EN] Pay mode]]></it>
+            <cz><![CDATA[[EN] Pay mode]]></cz>
+            <br><![CDATA[[EN] Pay mode]]></br>
+            <uk><![CDATA[[EN] Pay mode]]></uk>
+            <ru><![CDATA[[EN] Pay mode]]></ru>
+            <da><![CDATA[[EN] Pay mode]]></da>
+            <ct><![CDATA[[EN] Pay mode]]></ct>
+            <ea><![CDATA[[EN] Pay mode]]></ea>
+            <fc><![CDATA[[EN] Pay mode]]></fc>
+            <fi><![CDATA[[EN] Pay mode]]></fi>
+            <hu><![CDATA[[EN] Pay mode]]></hu>
+            <id><![CDATA[[EN] Pay mode]]></id>
+            <jp><![CDATA[[EN] Pay mode]]></jp>
+            <kr><![CDATA[[EN] Pay mode]]></kr>
+            <nl><![CDATA[[EN] Pay mode]]></nl>
+            <no><![CDATA[[EN] Pay mode]]></no>
+            <pt><![CDATA[[EN] Pay mode]]></pt>
+            <ro><![CDATA[[EN] Pay mode]]></ro>
+            <sv><![CDATA[[EN] Pay mode]]></sv>
+            <tr><![CDATA[[EN] Pay mode]]></tr>
+            <vi><![CDATA[[EN] Pay mode]]></vi>
+        </text>
+
+        <text name="im_rf_pda_lbl_amount">
+            <en><![CDATA[Payment amount]]></en>
+            <de><![CDATA[[EN] Payment amount]]></de>
+            <fr><![CDATA[[EN] Payment amount]]></fr>
+            <pl><![CDATA[[EN] Payment amount]]></pl>
+            <es><![CDATA[[EN] Payment amount]]></es>
+            <it><![CDATA[[EN] Payment amount]]></it>
+            <cz><![CDATA[[EN] Payment amount]]></cz>
+            <br><![CDATA[[EN] Payment amount]]></br>
+            <uk><![CDATA[[EN] Payment amount]]></uk>
+            <ru><![CDATA[[EN] Payment amount]]></ru>
+            <da><![CDATA[[EN] Payment amount]]></da>
+            <ct><![CDATA[[EN] Payment amount]]></ct>
+            <ea><![CDATA[[EN] Payment amount]]></ea>
+            <fc><![CDATA[[EN] Payment amount]]></fc>
+            <fi><![CDATA[[EN] Payment amount]]></fi>
+            <hu><![CDATA[[EN] Payment amount]]></hu>
+            <id><![CDATA[[EN] Payment amount]]></id>
+            <jp><![CDATA[[EN] Payment amount]]></jp>
+            <kr><![CDATA[[EN] Payment amount]]></kr>
+            <nl><![CDATA[[EN] Payment amount]]></nl>
+            <no><![CDATA[[EN] Payment amount]]></no>
+            <pt><![CDATA[[EN] Payment amount]]></pt>
+            <ro><![CDATA[[EN] Payment amount]]></ro>
+            <sv><![CDATA[[EN] Payment amount]]></sv>
+            <tr><![CDATA[[EN] Payment amount]]></tr>
+            <vi><![CDATA[[EN] Payment amount]]></vi>
+        </text>
+
+        <text name="im_rf_pda_waiting_init">
+            <en><![CDATA[waiting]]></en>
+            <de><![CDATA[[EN] waiting]]></de>
+            <fr><![CDATA[[EN] waiting]]></fr>
+            <pl><![CDATA[[EN] waiting]]></pl>
+            <es><![CDATA[[EN] waiting]]></es>
+            <it><![CDATA[[EN] waiting]]></it>
+            <cz><![CDATA[[EN] waiting]]></cz>
+            <br><![CDATA[[EN] waiting]]></br>
+            <uk><![CDATA[[EN] waiting]]></uk>
+            <ru><![CDATA[[EN] waiting]]></ru>
+            <da><![CDATA[[EN] waiting]]></da>
+            <ct><![CDATA[[EN] waiting]]></ct>
+            <ea><![CDATA[[EN] waiting]]></ea>
+            <fc><![CDATA[[EN] waiting]]></fc>
+            <fi><![CDATA[[EN] waiting]]></fi>
+            <hu><![CDATA[[EN] waiting]]></hu>
+            <id><![CDATA[[EN] waiting]]></id>
+            <jp><![CDATA[[EN] waiting]]></jp>
+            <kr><![CDATA[[EN] waiting]]></kr>
+            <nl><![CDATA[[EN] waiting]]></nl>
+            <no><![CDATA[[EN] waiting]]></no>
+            <pt><![CDATA[[EN] waiting]]></pt>
+            <ro><![CDATA[[EN] waiting]]></ro>
+            <sv><![CDATA[[EN] waiting]]></sv>
+            <tr><![CDATA[[EN] waiting]]></tr>
+            <vi><![CDATA[[EN] waiting]]></vi>
+        </text>
+
+        <text name="im_rf_pda_lbl_next">
+            <en><![CDATA[Next payment]]></en>
+            <de><![CDATA[[EN] Next payment]]></de>
+            <fr><![CDATA[[EN] Next payment]]></fr>
+            <pl><![CDATA[[EN] Next payment]]></pl>
+            <es><![CDATA[[EN] Next payment]]></es>
+            <it><![CDATA[[EN] Next payment]]></it>
+            <cz><![CDATA[[EN] Next payment]]></cz>
+            <br><![CDATA[[EN] Next payment]]></br>
+            <uk><![CDATA[[EN] Next payment]]></uk>
+            <ru><![CDATA[[EN] Next payment]]></ru>
+            <da><![CDATA[[EN] Next payment]]></da>
+            <ct><![CDATA[[EN] Next payment]]></ct>
+            <ea><![CDATA[[EN] Next payment]]></ea>
+            <fc><![CDATA[[EN] Next payment]]></fc>
+            <fi><![CDATA[[EN] Next payment]]></fi>
+            <hu><![CDATA[[EN] Next payment]]></hu>
+            <id><![CDATA[[EN] Next payment]]></id>
+            <jp><![CDATA[[EN] Next payment]]></jp>
+            <kr><![CDATA[[EN] Next payment]]></kr>
+            <nl><![CDATA[[EN] Next payment]]></nl>
+            <no><![CDATA[[EN] Next payment]]></no>
+            <pt><![CDATA[[EN] Next payment]]></pt>
+            <ro><![CDATA[[EN] Next payment]]></ro>
+            <sv><![CDATA[[EN] Next payment]]></sv>
+            <tr><![CDATA[[EN] Next payment]]></tr>
+            <vi><![CDATA[[EN] Next payment]]></vi>
+        </text>
+
+        <text name="im_rf_pda_lbl_recent">
+            <en><![CDATA[Recent ring]]></en>
+            <de><![CDATA[[EN] Recent ring]]></de>
+            <fr><![CDATA[[EN] Recent ring]]></fr>
+            <pl><![CDATA[[EN] Recent ring]]></pl>
+            <es><![CDATA[[EN] Recent ring]]></es>
+            <it><![CDATA[[EN] Recent ring]]></it>
+            <cz><![CDATA[[EN] Recent ring]]></cz>
+            <br><![CDATA[[EN] Recent ring]]></br>
+            <uk><![CDATA[[EN] Recent ring]]></uk>
+            <ru><![CDATA[[EN] Recent ring]]></ru>
+            <da><![CDATA[[EN] Recent ring]]></da>
+            <ct><![CDATA[[EN] Recent ring]]></ct>
+            <ea><![CDATA[[EN] Recent ring]]></ea>
+            <fc><![CDATA[[EN] Recent ring]]></fc>
+            <fi><![CDATA[[EN] Recent ring]]></fi>
+            <hu><![CDATA[[EN] Recent ring]]></hu>
+            <id><![CDATA[[EN] Recent ring]]></id>
+            <jp><![CDATA[[EN] Recent ring]]></jp>
+            <kr><![CDATA[[EN] Recent ring]]></kr>
+            <nl><![CDATA[[EN] Recent ring]]></nl>
+            <no><![CDATA[[EN] Recent ring]]></no>
+            <pt><![CDATA[[EN] Recent ring]]></pt>
+            <ro><![CDATA[[EN] Recent ring]]></ro>
+            <sv><![CDATA[[EN] Recent ring]]></sv>
+            <tr><![CDATA[[EN] Recent ring]]></tr>
+            <vi><![CDATA[[EN] Recent ring]]></vi>
+        </text>
+
+        <text name="im_rf_pda_no_history">
+            <en><![CDATA[no payments yet]]></en>
+            <de><![CDATA[[EN] no payments yet]]></de>
+            <fr><![CDATA[[EN] no payments yet]]></fr>
+            <pl><![CDATA[[EN] no payments yet]]></pl>
+            <es><![CDATA[[EN] no payments yet]]></es>
+            <it><![CDATA[[EN] no payments yet]]></it>
+            <cz><![CDATA[[EN] no payments yet]]></cz>
+            <br><![CDATA[[EN] no payments yet]]></br>
+            <uk><![CDATA[[EN] no payments yet]]></uk>
+            <ru><![CDATA[[EN] no payments yet]]></ru>
+            <da><![CDATA[[EN] no payments yet]]></da>
+            <ct><![CDATA[[EN] no payments yet]]></ct>
+            <ea><![CDATA[[EN] no payments yet]]></ea>
+            <fc><![CDATA[[EN] no payments yet]]></fc>
+            <fi><![CDATA[[EN] no payments yet]]></fi>
+            <hu><![CDATA[[EN] no payments yet]]></hu>
+            <id><![CDATA[[EN] no payments yet]]></id>
+            <jp><![CDATA[[EN] no payments yet]]></jp>
+            <kr><![CDATA[[EN] no payments yet]]></kr>
+            <nl><![CDATA[[EN] no payments yet]]></nl>
+            <no><![CDATA[[EN] no payments yet]]></no>
+            <pt><![CDATA[[EN] no payments yet]]></pt>
+            <ro><![CDATA[[EN] no payments yet]]></ro>
+            <sv><![CDATA[[EN] no payments yet]]></sv>
+            <tr><![CDATA[[EN] no payments yet]]></tr>
+            <vi><![CDATA[[EN] no payments yet]]></vi>
+        </text>
+
+        <text name="im_rf_pda_cap_note">
+            <en><![CDATA[System keeps last 10 payments only (true data cap).]]></en>
+            <de><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></de>
+            <fr><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></fr>
+            <pl><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></pl>
+            <es><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></es>
+            <it><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></it>
+            <cz><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></cz>
+            <br><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></br>
+            <uk><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></uk>
+            <ru><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></ru>
+            <da><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></da>
+            <ct><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></ct>
+            <ea><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></ea>
+            <fc><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></fc>
+            <fi><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></fi>
+            <hu><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></hu>
+            <id><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></id>
+            <jp><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></jp>
+            <kr><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></kr>
+            <nl><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></nl>
+            <no><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></no>
+            <pt><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></pt>
+            <ro><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></ro>
+            <sv><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></sv>
+            <tr><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></tr>
+            <vi><![CDATA[[EN] System keeps last 10 payments only (true data cap).]]></vi>
+        </text>
+
+        <text name="im_rf_pda_blurb">
+            <en><![CDATA[Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></en>
+            <de><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></de>
+            <fr><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></fr>
+            <pl><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></pl>
+            <es><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></es>
+            <it><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></it>
+            <cz><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></cz>
+            <br><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></br>
+            <uk><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></uk>
+            <ru><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></ru>
+            <da><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></da>
+            <ct><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></ct>
+            <ea><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></ea>
+            <fc><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></fc>
+            <fi><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></fi>
+            <hu><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></hu>
+            <id><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></id>
+            <jp><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></jp>
+            <kr><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></kr>
+            <nl><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></nl>
+            <no><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></no>
+            <pt><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></pt>
+            <ro><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></ro>
+            <sv><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></sv>
+            <tr><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></tr>
+            <vi><![CDATA[[EN] Passive income glance: on/off, pay mode, amount, next payment, recent payment table.]]></vi>
+        </text>
+        <text name="im_rf_pda_col_day">
+            <en><![CDATA[Day]]></en>
+            <de><![CDATA[[EN] Day]]></de>
+            <fr><![CDATA[[EN] Day]]></fr>
+            <pl><![CDATA[[EN] Day]]></pl>
+            <es><![CDATA[[EN] Day]]></es>
+            <it><![CDATA[[EN] Day]]></it>
+            <cz><![CDATA[[EN] Day]]></cz>
+            <br><![CDATA[[EN] Day]]></br>
+            <uk><![CDATA[[EN] Day]]></uk>
+            <ru><![CDATA[[EN] Day]]></ru>
+            <da><![CDATA[[EN] Day]]></da>
+            <ct><![CDATA[[EN] Day]]></ct>
+            <ea><![CDATA[[EN] Day]]></ea>
+            <fc><![CDATA[[EN] Day]]></fc>
+            <fi><![CDATA[[EN] Day]]></fi>
+            <hu><![CDATA[[EN] Day]]></hu>
+            <id><![CDATA[[EN] Day]]></id>
+            <jp><![CDATA[[EN] Day]]></jp>
+            <kr><![CDATA[[EN] Day]]></kr>
+            <nl><![CDATA[[EN] Day]]></nl>
+            <no><![CDATA[[EN] Day]]></no>
+            <pt><![CDATA[[EN] Day]]></pt>
+            <ro><![CDATA[[EN] Day]]></ro>
+            <sv><![CDATA[[EN] Day]]></sv>
+            <tr><![CDATA[[EN] Day]]></tr>
+            <vi><![CDATA[[EN] Day]]></vi>
+        </text>
+        <text name="im_rf_pda_col_time">
+            <en><![CDATA[Time]]></en>
+            <de><![CDATA[[EN] Time]]></de>
+            <fr><![CDATA[[EN] Time]]></fr>
+            <pl><![CDATA[[EN] Time]]></pl>
+            <es><![CDATA[[EN] Time]]></es>
+            <it><![CDATA[[EN] Time]]></it>
+            <cz><![CDATA[[EN] Time]]></cz>
+            <br><![CDATA[[EN] Time]]></br>
+            <uk><![CDATA[[EN] Time]]></uk>
+            <ru><![CDATA[[EN] Time]]></ru>
+            <da><![CDATA[[EN] Time]]></da>
+            <ct><![CDATA[[EN] Time]]></ct>
+            <ea><![CDATA[[EN] Time]]></ea>
+            <fc><![CDATA[[EN] Time]]></fc>
+            <fi><![CDATA[[EN] Time]]></fi>
+            <hu><![CDATA[[EN] Time]]></hu>
+            <id><![CDATA[[EN] Time]]></id>
+            <jp><![CDATA[[EN] Time]]></jp>
+            <kr><![CDATA[[EN] Time]]></kr>
+            <nl><![CDATA[[EN] Time]]></nl>
+            <no><![CDATA[[EN] Time]]></no>
+            <pt><![CDATA[[EN] Time]]></pt>
+            <ro><![CDATA[[EN] Time]]></ro>
+            <sv><![CDATA[[EN] Time]]></sv>
+            <tr><![CDATA[[EN] Time]]></tr>
+            <vi><![CDATA[[EN] Time]]></vi>
+        </text>
+        <text name="im_rf_pda_col_type">
+            <en><![CDATA[Type]]></en>
+            <de><![CDATA[[EN] Type]]></de>
+            <fr><![CDATA[[EN] Type]]></fr>
+            <pl><![CDATA[[EN] Type]]></pl>
+            <es><![CDATA[[EN] Type]]></es>
+            <it><![CDATA[[EN] Type]]></it>
+            <cz><![CDATA[[EN] Type]]></cz>
+            <br><![CDATA[[EN] Type]]></br>
+            <uk><![CDATA[[EN] Type]]></uk>
+            <ru><![CDATA[[EN] Type]]></ru>
+            <da><![CDATA[[EN] Type]]></da>
+            <ct><![CDATA[[EN] Type]]></ct>
+            <ea><![CDATA[[EN] Type]]></ea>
+            <fc><![CDATA[[EN] Type]]></fc>
+            <fi><![CDATA[[EN] Type]]></fi>
+            <hu><![CDATA[[EN] Type]]></hu>
+            <id><![CDATA[[EN] Type]]></id>
+            <jp><![CDATA[[EN] Type]]></jp>
+            <kr><![CDATA[[EN] Type]]></kr>
+            <nl><![CDATA[[EN] Type]]></nl>
+            <no><![CDATA[[EN] Type]]></no>
+            <pt><![CDATA[[EN] Type]]></pt>
+            <ro><![CDATA[[EN] Type]]></ro>
+            <sv><![CDATA[[EN] Type]]></sv>
+            <tr><![CDATA[[EN] Type]]></tr>
+            <vi><![CDATA[[EN] Type]]></vi>
+        </text>
+        <text name="im_rf_pda_col_amount">
+            <en><![CDATA[Amount]]></en>
+            <de><![CDATA[[EN] Amount]]></de>
+            <fr><![CDATA[[EN] Amount]]></fr>
+            <pl><![CDATA[[EN] Amount]]></pl>
+            <es><![CDATA[[EN] Amount]]></es>
+            <it><![CDATA[[EN] Amount]]></it>
+            <cz><![CDATA[[EN] Amount]]></cz>
+            <br><![CDATA[[EN] Amount]]></br>
+            <uk><![CDATA[[EN] Amount]]></uk>
+            <ru><![CDATA[[EN] Amount]]></ru>
+            <da><![CDATA[[EN] Amount]]></da>
+            <ct><![CDATA[[EN] Amount]]></ct>
+            <ea><![CDATA[[EN] Amount]]></ea>
+            <fc><![CDATA[[EN] Amount]]></fc>
+            <fi><![CDATA[[EN] Amount]]></fi>
+            <hu><![CDATA[[EN] Amount]]></hu>
+            <id><![CDATA[[EN] Amount]]></id>
+            <jp><![CDATA[[EN] Amount]]></jp>
+            <kr><![CDATA[[EN] Amount]]></kr>
+            <nl><![CDATA[[EN] Amount]]></nl>
+            <no><![CDATA[[EN] Amount]]></no>
+            <pt><![CDATA[[EN] Amount]]></pt>
+            <ro><![CDATA[[EN] Amount]]></ro>
+            <sv><![CDATA[[EN] Amount]]></sv>
+            <tr><![CDATA[[EN] Amount]]></tr>
+            <vi><![CDATA[[EN] Amount]]></vi>
+        </text>
+        <text name="im_rf_pda_showing_of">
+            <en><![CDATA[Showing %d of %d]]></en>
+            <de><![CDATA[[EN] Showing %d of %d]]></de>
+            <fr><![CDATA[[EN] Showing %d of %d]]></fr>
+            <pl><![CDATA[[EN] Showing %d of %d]]></pl>
+            <es><![CDATA[[EN] Showing %d of %d]]></es>
+            <it><![CDATA[[EN] Showing %d of %d]]></it>
+            <cz><![CDATA[[EN] Showing %d of %d]]></cz>
+            <br><![CDATA[[EN] Showing %d of %d]]></br>
+            <uk><![CDATA[[EN] Showing %d of %d]]></uk>
+            <ru><![CDATA[[EN] Showing %d of %d]]></ru>
+            <da><![CDATA[[EN] Showing %d of %d]]></da>
+            <ct><![CDATA[[EN] Showing %d of %d]]></ct>
+            <ea><![CDATA[[EN] Showing %d of %d]]></ea>
+            <fc><![CDATA[[EN] Showing %d of %d]]></fc>
+            <fi><![CDATA[[EN] Showing %d of %d]]></fi>
+            <hu><![CDATA[[EN] Showing %d of %d]]></hu>
+            <id><![CDATA[[EN] Showing %d of %d]]></id>
+            <jp><![CDATA[[EN] Showing %d of %d]]></jp>
+            <kr><![CDATA[[EN] Showing %d of %d]]></kr>
+            <nl><![CDATA[[EN] Showing %d of %d]]></nl>
+            <no><![CDATA[[EN] Showing %d of %d]]></no>
+            <pt><![CDATA[[EN] Showing %d of %d]]></pt>
+            <ro><![CDATA[[EN] Showing %d of %d]]></ro>
+            <sv><![CDATA[[EN] Showing %d of %d]]></sv>
+            <tr><![CDATA[[EN] Showing %d of %d]]></tr>
+            <vi><![CDATA[[EN] Showing %d of %d]]></vi>
+        </text>
+        <text name="im_rf_pda_lbl_difficulty">
+            <en><![CDATA[Difficulty]]></en>
+            <de><![CDATA[[EN] Difficulty]]></de>
+            <fr><![CDATA[[EN] Difficulty]]></fr>
+            <pl><![CDATA[[EN] Difficulty]]></pl>
+            <es><![CDATA[[EN] Difficulty]]></es>
+            <it><![CDATA[[EN] Difficulty]]></it>
+            <cz><![CDATA[[EN] Difficulty]]></cz>
+            <br><![CDATA[[EN] Difficulty]]></br>
+            <uk><![CDATA[[EN] Difficulty]]></uk>
+            <ru><![CDATA[[EN] Difficulty]]></ru>
+            <da><![CDATA[[EN] Difficulty]]></da>
+            <ct><![CDATA[[EN] Difficulty]]></ct>
+            <ea><![CDATA[[EN] Difficulty]]></ea>
+            <fc><![CDATA[[EN] Difficulty]]></fc>
+            <fi><![CDATA[[EN] Difficulty]]></fi>
+            <hu><![CDATA[[EN] Difficulty]]></hu>
+            <id><![CDATA[[EN] Difficulty]]></id>
+            <jp><![CDATA[[EN] Difficulty]]></jp>
+            <kr><![CDATA[[EN] Difficulty]]></kr>
+            <nl><![CDATA[[EN] Difficulty]]></nl>
+            <no><![CDATA[[EN] Difficulty]]></no>
+            <pt><![CDATA[[EN] Difficulty]]></pt>
+            <ro><![CDATA[[EN] Difficulty]]></ro>
+            <sv><![CDATA[[EN] Difficulty]]></sv>
+            <tr><![CDATA[[EN] Difficulty]]></tr>
+            <vi><![CDATA[[EN] Difficulty]]></vi>
+        </text>
+        <text name="im_rf_pda_lbl_multiplier">
+            <en><![CDATA[Multiplier]]></en>
+            <de><![CDATA[[EN] Multiplier]]></de>
+            <fr><![CDATA[[EN] Multiplier]]></fr>
+            <pl><![CDATA[[EN] Multiplier]]></pl>
+            <es><![CDATA[[EN] Multiplier]]></es>
+            <it><![CDATA[[EN] Multiplier]]></it>
+            <cz><![CDATA[[EN] Multiplier]]></cz>
+            <br><![CDATA[[EN] Multiplier]]></br>
+            <uk><![CDATA[[EN] Multiplier]]></uk>
+            <ru><![CDATA[[EN] Multiplier]]></ru>
+            <da><![CDATA[[EN] Multiplier]]></da>
+            <ct><![CDATA[[EN] Multiplier]]></ct>
+            <ea><![CDATA[[EN] Multiplier]]></ea>
+            <fc><![CDATA[[EN] Multiplier]]></fc>
+            <fi><![CDATA[[EN] Multiplier]]></fi>
+            <hu><![CDATA[[EN] Multiplier]]></hu>
+            <id><![CDATA[[EN] Multiplier]]></id>
+            <jp><![CDATA[[EN] Multiplier]]></jp>
+            <kr><![CDATA[[EN] Multiplier]]></kr>
+            <nl><![CDATA[[EN] Multiplier]]></nl>
+            <no><![CDATA[[EN] Multiplier]]></no>
+            <pt><![CDATA[[EN] Multiplier]]></pt>
+            <ro><![CDATA[[EN] Multiplier]]></ro>
+            <sv><![CDATA[[EN] Multiplier]]></sv>
+            <tr><![CDATA[[EN] Multiplier]]></tr>
+            <vi><![CDATA[[EN] Multiplier]]></vi>
+        </text>
+        <text name="im_rf_pda_lbl_seasonal">
+            <en><![CDATA[Seasonal]]></en>
+            <de><![CDATA[[EN] Seasonal]]></de>
+            <fr><![CDATA[[EN] Seasonal]]></fr>
+            <pl><![CDATA[[EN] Seasonal]]></pl>
+            <es><![CDATA[[EN] Seasonal]]></es>
+            <it><![CDATA[[EN] Seasonal]]></it>
+            <cz><![CDATA[[EN] Seasonal]]></cz>
+            <br><![CDATA[[EN] Seasonal]]></br>
+            <uk><![CDATA[[EN] Seasonal]]></uk>
+            <ru><![CDATA[[EN] Seasonal]]></ru>
+            <da><![CDATA[[EN] Seasonal]]></da>
+            <ct><![CDATA[[EN] Seasonal]]></ct>
+            <ea><![CDATA[[EN] Seasonal]]></ea>
+            <fc><![CDATA[[EN] Seasonal]]></fc>
+            <fi><![CDATA[[EN] Seasonal]]></fi>
+            <hu><![CDATA[[EN] Seasonal]]></hu>
+            <id><![CDATA[[EN] Seasonal]]></id>
+            <jp><![CDATA[[EN] Seasonal]]></jp>
+            <kr><![CDATA[[EN] Seasonal]]></kr>
+            <nl><![CDATA[[EN] Seasonal]]></nl>
+            <no><![CDATA[[EN] Seasonal]]></no>
+            <pt><![CDATA[[EN] Seasonal]]></pt>
+            <ro><![CDATA[[EN] Seasonal]]></ro>
+            <sv><![CDATA[[EN] Seasonal]]></sv>
+            <tr><![CDATA[[EN] Seasonal]]></tr>
+            <vi><![CDATA[[EN] Seasonal]]></vi>
+        </text>
+
     </l10n>
 
     <!--
