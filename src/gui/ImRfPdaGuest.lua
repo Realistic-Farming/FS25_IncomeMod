@@ -1,4 +1,4 @@
-﻿-- =========================================================
+-- =========================================================
 -- ImRfPdaGuest - Esc RF PDA Income framework (Table shell)
 -- Stage-8 densify 2026-08-05 (Samantha DESIGN Option B + George ENGINE ACK).
 -- Soft-detect: mission.incomeManager then g_IncomeManager.
