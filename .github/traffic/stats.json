@@ -22655,26 +22655,26 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-08-09T06:33:56Z",
+    "timestamp": "2026-08-09T12:21:36Z",
     "date": "2026-08-09",
     "views": {
-      "count": 108,
-      "uniques": 60
+      "count": 105,
+      "uniques": 61
     },
     "clones": {
-      "count": 321,
-      "uniques": 74
+      "count": 351,
+      "uniques": 84
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 65,
-        "uniques": 39
+        "count": 62,
+        "uniques": 40
       },
       {
         "referrer": "Google",
-        "count": 11,
-        "uniques": 10
+        "count": 10,
+        "uniques": 9
       },
       {
         "referrer": "kingmods.net",
@@ -22696,20 +22696,20 @@
       {
         "path": "/Realistic-Farming/FS25_IncomeMod",
         "title": "Overview",
-        "count": 73,
+        "count": 69,
         "uniques": 55
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases",
         "title": "/releases",
-        "count": 10,
-        "uniques": 9
+        "count": 9,
+        "uniques": 8
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0",
         "title": "/releases/tag/v2.1.6.0",
-        "count": 9,
-        "uniques": 9
+        "count": 8,
+        "uniques": 8
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.7.0",
@@ -22730,6 +22730,12 @@
         "uniques": 1
       },
       {
+        "path": "/Realistic-Farming/FS25_IncomeMod/pull/37",
+        "title": "/pull/37",
+        "count": 2,
+        "uniques": 1
+      },
+      {
         "path": "/Realistic-Farming/FS25_IncomeMod/compare/4e0d3fc702a7...813fe4f4f259",
         "title": "/compare/4e0d3fc702a7...813fe4f4f259",
         "count": 1,
@@ -22744,12 +22750,6 @@
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/projects",
         "title": "/projects",
-        "count": 1,
-        "uniques": 1
-      },
-      {
-        "path": "/Realistic-Farming/FS25_IncomeMod/pull/32/changes/024f61b22afcbbfad2620d426321f3219013cc9e",
-        "title": "/pull/32/changes/024f61b22afcbbfad2620d426321f3219013cc9e",
         "count": 1,
         "uniques": 1
       }
