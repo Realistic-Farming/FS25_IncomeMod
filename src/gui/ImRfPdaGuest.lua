@@ -170,6 +170,27 @@ local function optionalHint(s)
     return table.concat(parts, "  ·  ")
 end
 
+local _guiWarned = false
+
+--- Move a shared shell element by pixel string, using the engine's own normalizer.
+--- textSize / position are NORMALISED in FS25 (TextElement defaults to 0.03), so a raw
+--- pixel number here would throw the layout across the screen. Nil-safe: if GuiUtils is
+--- absent we skip the move and leave the XML baseline rather than guess.
+local function setElPosPx(el, xPx, yPx)
+    if el == nil or type(el.setPosition) ~= "function" then return false end
+    if GuiUtils == nil or type(GuiUtils.getNormalizedXValue) ~= "function"
+        or type(GuiUtils.getNormalizedYValue) ~= "function" then
+        if not _guiWarned then
+            _guiWarned = true
+            print("[IncomeMod] ImRfPdaGuest: GuiUtils normalizer absent - leaving rfFwTableTitle at XML baseline")
+        end
+        return false
+    end
+    el:setPosition(GuiUtils.getNormalizedXValue(xPx, 0), GuiUtils.getNormalizedYValue(yPx, 0))
+    if type(el.updateAbsolutePosition) == "function" then el:updateAbsolutePosition() end
+    return true
+end
+
 function ImRfPdaGuest.onShow(container, lightOnly)
     clearHostDupes(container)
     showTableMode(container)
@@ -179,6 +200,10 @@ function ImRfPdaGuest.onShow(container, lightOnly)
     paintHeaders(container)
 
     local titleEl = findDescendant(container, "rfFwTableTitle")
+    -- Wizard eyes-on: the On / mode / amount summary belongs at the BOTTOM of the page,
+    -- not smashed under the page title. Sits below rfFwMore (-292) and rfFwHintTable (-328).
+    -- Re-applied every show so returning from a sibling Table module cannot leave it high.
+    setElPosPx(titleEl, "0px", "-360px")
     local moreEl = findDescendant(container, "rfFwMore")
     local hintEl = findDescendant(container, "rfFwHintTable")
     local emptyEl = findDescendant(container, "rfFwEmptyHint")
@@ -268,7 +293,15 @@ function ImRfPdaGuest.onShow(container, lightOnly)
     end
 end
 
-function ImRfPdaGuest.onHide() end
+--- Restore the shared Table title to its XML baseline.
+--- rfFwTableTitle is shared with Dairy / Depot / NPCFavor, so Income must not leave it
+--- at -360. NOTE: no host currently calls onHide (verified across the suite), which is
+--- why each sibling guest also sets this id explicitly on its own onShow - that is what
+--- actually prevents the bleed today. This stays correct for when onHide is wired.
+function ImRfPdaGuest.onHide(container)
+    if container == nil then return end
+    setElPosPx(findDescendant(container, "rfFwTableTitle"), "0px", "0px")
+end
 
 function ImRfPdaGuest.tryRegister()
     if RfEscBootstrap ~= nil then
