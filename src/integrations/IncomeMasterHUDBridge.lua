@@ -37,6 +37,9 @@ IncomeMasterHUDBridge.active = false   -- MasterHUD present and we registered
 -- The income HUD draw body. Resolves the manager from the canonical global so it can
 -- be driven either by MasterHUD's loop or by IncomeMod's own draw hook.
 function IncomeMasterHUDBridge.drawStack()
+    -- Suite hide: MasterHUD # key. No-op when MasterHUD absent.
+    local mh = (g_currentMission ~= nil and g_currentMission.masterHUD) or g_masterHUD
+    if mh ~= nil and mh.areHudsHidden ~= nil and mh:areHudsHidden() then return end
     local im = g_IncomeManager
     if im ~= nil and im.incomeHUD ~= nil then
         im.incomeHUD:draw()
@@ -62,6 +65,18 @@ function IncomeMasterHUDBridge.register(im)
     if ok then
         IncomeMasterHUDBridge.active = true
         Logging.info("Income Mod: Registered income HUD with MasterHUD (single draw loop + menu-suspend)")
+        if hud.registerEditListener ~= nil then
+            hud:registerEditListener(IncomeMasterHUDBridge.HUD_ID, {
+                enter = function()
+                    local ih = im ~= nil and im.incomeHUD or nil
+                    if ih ~= nil and ih.enterEditMode ~= nil then ih:enterEditMode() end
+                end,
+                exit = function()
+                    local ih = im ~= nil and im.incomeHUD or nil
+                    if ih ~= nil and ih.editMode and ih.exitEditMode ~= nil then ih:exitEditMode() end
+                end,
+            })
+        end
     else
         Logging.warning("Income Mod: MasterHUD registration failed: %s (using own draw hook)", tostring(err))
     end

@@ -227,8 +227,8 @@ end
 -- =========================================================
 -- Mouse event (called from main.lua addModEventListener)
 -- FS25 button numbers: 1=LMB, 3=RMB.
--- RMB over panel → enter edit mode (drag/resize).
--- RMB anywhere while editing → exit edit mode.
+-- RMB over panel → exit edit only (suite Ctrl+# / MasterHUD enters edit).
+-- Never enter via right-click so vehicle/tool RMB actions stay free.
 -- =========================================================
 
 function IncomeHUD:onMouseEvent(posX, posY, isDown, isUp, button, eventUsed)
@@ -236,13 +236,10 @@ function IncomeHUD:onMouseEvent(posX, posY, isDown, isUp, button, eventUsed)
     if not self.settings.showHUD then return false end
     if not self.visible then return false end
 
-    -- RMB: enter if over HUD, exit from anywhere
+    -- RMB: exit if editing; never enter via right-click
     if isDown and button == Input.MOUSE_BUTTON_RIGHT then
         if self.editMode then
             self:exitEditMode()
-            return true
-        elseif self:isPointerOverHUD(posX, posY) then
-            self:enterEditMode()
             return true
         end
         return false
