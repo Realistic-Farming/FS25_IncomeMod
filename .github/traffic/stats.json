@@ -23574,20 +23574,20 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-08-13T00:53:54Z",
+    "timestamp": "2026-08-13T12:39:05Z",
     "date": "2026-08-13",
     "views": {
-      "count": 105,
+      "count": 103,
       "uniques": 66
     },
     "clones": {
-      "count": 331,
-      "uniques": 71
+      "count": 340,
+      "uniques": 75
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 61,
+        "count": 60,
         "uniques": 43
       },
       {
@@ -23610,7 +23610,7 @@
       {
         "path": "/Realistic-Farming/FS25_IncomeMod",
         "title": "Overview",
-        "count": 74,
+        "count": 73,
         "uniques": 63
       },
       {
@@ -23622,14 +23622,14 @@
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases",
         "title": "/releases",
-        "count": 7,
+        "count": 6,
         "uniques": 6
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0",
         "title": "/releases/tag/v2.1.6.0",
-        "count": 6,
-        "uniques": 6
+        "count": 5,
+        "uniques": 5
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/branches",
@@ -23672,7 +23672,7 @@
       {
         "assets": [
           {
-            "downloads": 11,
+            "downloads": 12,
             "name": "FS25_IncomeMod.zip"
           }
         ],
