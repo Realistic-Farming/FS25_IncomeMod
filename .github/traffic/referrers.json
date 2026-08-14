@@ -2394,7 +2394,7 @@
   "2026-08-14": [
     {
       "referrer": "github.com",
-      "count": 60,
+      "count": 59,
       "uniques": 43
     },
     {
@@ -2406,11 +2406,6 @@
       "referrer": "kingmods.net",
       "count": 5,
       "uniques": 3
-    },
-    {
-      "referrer": "yandex.ru",
-      "count": 1,
-      "uniques": 1
     }
   ]
 }
