@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-08-15T00:30:13Z
-**Days tracked:** 128 | **Download snapshots:** 372 (hourly)
+**Last updated:** 2026-08-15T06:16:20Z
+**Days tracked:** 128 | **Download snapshots:** 373 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 101 | 65 |
-| Git Clones | 361 | 82 |
+| Page Views | 108 | 67 |
+| Git Clones | 391 | 90 |
 
-> **Engagement:** 1.5 pages per visitor (14-day avg)
+> **Engagement:** 1.6 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 285 of 65 visitors cloned or downloaded (**438.4%**)
+> **14-day conversion:** 293 of 67 visitors cloned or downloaded (**437.3%**)
 >
-> Unique cloners: 82 | Release downloads: 203
+> Unique cloners: 90 | Release downloads: 203
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 203 |
-| Git Clones (14-day) | 361 |
-| **Total Acquisitions** | **564** |
+| Git Clones (14-day) | 391 |
+| **Total Acquisitions** | **594** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 59 | 43 |
-| Google | 11 | 9 |
+| github.com | 63 | 45 |
+| Google | 10 | 8 |
 | kingmods.net | 5 | 3 |
 
 ---
@@ -76,16 +76,16 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 72 | 62 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.7.0` | 8 | 7 |
+| `/Realistic-Farming/FS25_IncomeMod` | 74 | 63 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.7.0` | 9 | 8 |
 | `/Realistic-Farming/FS25_IncomeMod/releases` | 7 | 7 |
+| `/Realistic-Farming/FS25_IncomeMod/pull/36` | 3 | 3 |
 | `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.6.0` | 3 | 3 |
 | `/Realistic-Farming/FS25_IncomeMod/branches` | 2 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/37` | 2 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/compare/4e0d3fc702a7...813fe4f4f259` | 1 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/projects` | 1 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/14/files` | 1 | 1 |
-| `/Realistic-Farming/FS25_IncomeMod/pull/35` | 1 | 1 |
 
 ---
 
