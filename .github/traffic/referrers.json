@@ -2506,23 +2506,23 @@
   "2026-08-20": [
     {
       "referrer": "github.com",
-      "count": 62,
-      "uniques": 44
+      "count": 64,
+      "uniques": 41
     },
     {
       "referrer": "Google",
-      "count": 9,
-      "uniques": 7
+      "count": 8,
+      "uniques": 6
     },
     {
       "referrer": "kingmods.net",
-      "count": 5,
-      "uniques": 3
+      "count": 3,
+      "uniques": 2
     },
     {
       "referrer": "realisticfarming.com",
-      "count": 1,
-      "uniques": 1
+      "count": 2,
+      "uniques": 2
     }
   ]
 }
