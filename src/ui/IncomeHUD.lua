@@ -10,7 +10,10 @@
 -- =========================================================
 
 ---@class IncomeHUD
-IncomeHUD = {}
+-- BUILD 17:57 (Wizard hot-reload law 2026-08-21, FS25-HotReload-Guide.md Part 1):
+-- reuse the existing class table on Ctrl+R reload so updated methods land on the
+-- table live metatables already reference, instead of orphaning it.
+IncomeHUD = IncomeHUD or {}
 local IncomeHUD_mt = Class(IncomeHUD)
 
 IncomeHUD.MAX_HISTORY_ROWS  = 5
@@ -28,9 +31,13 @@ function IncomeHUD.new(incomeSystem, settings)
     self.visible = true
 
     -- Panel anchor: top-left of content area (text starts here)
-    self.posX       = 0.77
-    self.posY       = 0.90
-    self.panelWidth = 0.21
+    -- BUILD 17:10 (Sam DESIGN 17:08): factory home splits Income off the WE box -
+    -- both mods shipped (0.77, 0.90) and stacked. Income sits under WE in the
+    -- 0.550-0.750 band (posY is the panel TOP edge per the clamp below): 0.73-0.84,
+    -- keeping the gap above Soil's top at ~0.709. Saved hudLayout XML still wins.
+    self.posX       = 0.55
+    self.posY       = 0.84
+    self.panelWidth = 0.20
 
     -- Base layout constants (at scale 1.0 — multiplied by self.scale at draw time)
     self.LINE_H      = 0.017
@@ -75,7 +82,8 @@ function IncomeHUD.new(incomeSystem, settings)
         BORDER       = {0.20, 0.20, 0.20, 0.40},   -- neutral subtle border
         DIVIDER      = {0.25, 0.25, 0.25, 0.85},
         SHADOW       = {0.00, 0.00, 0.00, 0.35},
-        HEADER       = {1.00, 1.00, 1.00, 1.00},
+        -- BUILD 18:47: TEMPORARY loud green for the hot-reload proof (was 1,1,1,1).
+        HEADER       = {0.20, 1.00, 0.20, 1.00},
         ENABLED      = {0.30, 0.90, 0.30, 1.00},   -- green ON status — keep
         DISABLED     = {0.90, 0.30, 0.30, 1.00},   -- red OFF status — keep
         LABEL        = {0.72, 0.72, 0.72, 1.00},   -- neutral gray, no green tint
@@ -441,7 +449,9 @@ function IncomeHUD:drawPanel()
     setTextBold(true)
     setTextAlignment(RenderText.ALIGN_LEFT)
     setTextColor(self.COLORS.HEADER[1], self.COLORS.HEADER[2], self.COLORS.HEADER[3], self.COLORS.HEADER[4])
-    renderText(x, cy - tsTitle, tsTitle, "INCOME MOD")
+    -- BUILD 18:47: TEMPORARY visible hot-reload needle (Wizard Ctrl+R proof with
+    -- Brian eyes-on). Revert the string and COLORS.HEADER when the proof is scored.
+    renderText(x, cy - tsTitle, tsTitle, "INCOME MOD *R4*")
 
     local statusColor = s.enabled and self.COLORS.ENABLED or self.COLORS.DISABLED
     setTextAlignment(RenderText.ALIGN_RIGHT)
@@ -593,4 +603,33 @@ end
 
 function IncomeHUD:divider(dx, dy, dw, sc)
     self:rect(dx, dy, dw, 0.001 * (sc or 1.0), self.COLORS.DIVIDER)
+end
+
+-- =========================================================
+
+-- BUILD 17:57 (Wizard hot-reload law, FS25-HotReload-Guide.md Part 2): after a
+
+-- Ctrl+R reload the metatable chain does not reliably deliver updated methods to
+
+-- live instances, so copy them on directly. The live instance lives on the
+
+-- mission handle published by src/main.lua (mission.incomeManager), holding the
+
+-- HUD as .incomeHUD (IncomeManager.lua). Functions only; state fields untouched.
+
+if g_currentMission ~= nil and g_currentMission.incomeManager ~= nil
+    and g_currentMission.incomeManager.incomeHUD ~= nil then
+    local inst = g_currentMission.incomeManager.incomeHUD
+    for k, v in pairs(IncomeHUD) do
+        if type(v) == "function" then
+            inst[k] = v
+        end
+    end
+    -- BUILD 18:47 TEMPORARY (revert with the needle): COLORS is constructor-set
+    -- instance STATE, which method patching deliberately does not touch - so the
+    -- loud-green header needle must be pushed onto the live instance here, or the
+    -- Ctrl+R proof would show the *HOT* title (method-borne) without the color.
+    if inst.COLORS ~= nil then
+        inst.COLORS.HEADER = {0.20, 1.00, 0.20, 1.00}
+    end
 end
