@@ -12,7 +12,7 @@
 -- from the income timer (different cadence, different merge rules).
 -- =========================================================
 
-IncomeEmergencyLoanBridge = {}
+IncomeEmergencyLoanBridge = IncomeEmergencyLoanBridge or {}
 
 -- LOCKED persistence key. Never renamed after first persist.
 IncomeEmergencyLoanBridge.MODULE_ID = "IncomeMod_EmergencyLoan"

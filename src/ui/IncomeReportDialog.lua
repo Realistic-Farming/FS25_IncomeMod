@@ -10,7 +10,7 @@
 -- =========================================================
 
 ---@class IncomeReportDialog
-IncomeReportDialog = {}
+IncomeReportDialog = IncomeReportDialog or {}
 local IncomeReportDialog_mt = Class(IncomeReportDialog, ScreenElement)
 
 IncomeReportDialog.MAX_ROWS = 10

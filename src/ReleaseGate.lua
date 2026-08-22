@@ -16,7 +16,7 @@
 -- broke farm reach the base-game loan, at the neutral (interest-free) cost character.
 -- =========================================================
 
-ReleaseGate = {}
+ReleaseGate = ReleaseGate or {}
 
 -- The certified experimental (LOCKED) set. Each entry: [systemId] = { name, status }.
 -- `status` is a SHORT player-facing note on what is not working or implemented yet.

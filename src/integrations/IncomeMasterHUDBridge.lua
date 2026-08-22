@@ -29,7 +29,7 @@
 -- The cross-mod handle is g_currentMission.masterHUD (published in Mission00.load).
 -- =========================================================
 
-IncomeMasterHUDBridge = {}
+IncomeMasterHUDBridge = IncomeMasterHUDBridge or {}
 
 IncomeMasterHUDBridge.HUD_ID = "IncomeMod_HUD"
 IncomeMasterHUDBridge.active = false   -- MasterHUD present and we registered
