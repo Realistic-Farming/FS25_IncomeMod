@@ -47,7 +47,7 @@ Automatic payments that fit your playstyle — hourly for steady trickle, daily 
 
 ### 📊 Income HUD
 
-Press `I` to toggle the live earnings overlay. Right-click the panel to enter **Edit Mode** — drag it anywhere on screen, drag a corner to resize, right-click again to lock it in.
+Toggle the live earnings overlay with the *Toggle Income HUD* action (no default key - assign one under Options > Controls > Mods; if you leave it unassigned the game may auto-pick a key combination, so check the Controls list for what it chose). To move or resize the panel, enter the suite layout edit mode provided by FS25_MasterHUD (*Edit HUD Layout* action, also player-assigned) - the panel outlines in orange; drag it anywhere on screen, drag a corner to resize, and right-click to exit edit mode and lock it in.
 
 Shows at a glance:
 - Current income mode and amount
@@ -56,7 +56,7 @@ Shows at a glance:
 
 ### 📋 Income Report Dialog
 
-Press `U` to open the full income report. Includes:
+Open the full income report with the *Income Report* action (no default key - assign one under Options > Controls > Mods). Includes:
 - Settings summary (mode, difficulty, multiplier)
 - Total and average earnings
 - Complete payment history with day, time, type, amount, and seasonal modifier

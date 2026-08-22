@@ -10,10 +10,10 @@
 -- =========================================================
 
 ---@class SettingsManager
-SettingsManager = {}
+SettingsManager = SettingsManager or {}
 local SettingsManager_mt = Class(SettingsManager)
 
-SettingsManager.MOD_NAME = g_currentModName
+SettingsManager.MOD_NAME = (IncomeModModName or g_currentModName)
 SettingsManager.XMLTAG   = "IncomeManager"
 
 SettingsManager.defaultConfig = {

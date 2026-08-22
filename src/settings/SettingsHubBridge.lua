@@ -27,7 +27,7 @@
 --     separate, verifiable change of its own.
 -- =========================================================
 
-IncomeSettingsHubBridge = {}
+IncomeSettingsHubBridge = IncomeSettingsHubBridge or {}
 
 local function applyChange(key, value)
     local im = g_IncomeManager

@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="92">
     <author>TisonK</author>
-    <version>2.1.7.29</version>
+    <version>2.1.7.34</version>
     <modName>FS25_IncomeMod</modName>
     <title>
         <en><![CDATA[Income Mod]]></en>
         <de><![CDATA[Realistisches Ernten]]></de>
-        <fr><![CDATA[RÃ©colte RÃ©aliste]]></fr>
-        <pl><![CDATA[Realistyczne Å»niwa]]></pl>
+        <fr><![CDATA[R├â┬®colte R├â┬®aliste]]></fr>
+        <pl><![CDATA[Realistyczne ├à┬╗niwa]]></pl>
         <es><![CDATA[Cosecha Realista]]></es>
         <it><![CDATA[Raccolta Realistica]]></it>
-        <cz><![CDATA[RealistickÃ¡ SklizeÅˆ]]></cz>
+        <cz><![CDATA[Realistick├â┬í Sklize├à╦å]]></cz>
         <br><![CDATA[Colheita Realista]]></br>
-        <uk><![CDATA[Ð ÐµÐ°Ð»Ñ–ÑÑ‚Ð¸Ñ‡Ð½Ð¸Ð¹ Ð·Ð±Ñ–Ñ€ Ð²Ñ€Ð¾Ð¶Ð°ÑŽ]]></uk>
-        <ru><![CDATA[Ð ÐµÐ°Ð»Ð¸ÑÑ‚Ð¸Ñ‡Ð½Ñ‹Ð¹ ÑÐ±Ð¾Ñ€ ÑƒÑ€Ð¾Ð¶Ð°Ñ]]></ru>
+        <uk><![CDATA[├É┬á├É┬Á├É┬░├É┬╗├æÔÇô├æ┬ü├æÔÇÜ├É┬©├æÔÇí├É┬¢├É┬©├É┬╣ ├É┬À├É┬▒├æÔÇô├æÔé¼ ├É┬▓├æÔé¼├É┬¥├É┬Â├É┬░├æ┼¢]]></uk>
+        <ru><![CDATA[├É┬á├É┬Á├É┬░├É┬╗├É┬©├æ┬ü├æÔÇÜ├É┬©├æÔÇí├É┬¢├æÔÇ╣├É┬╣ ├æ┬ü├É┬▒├É┬¥├æÔé¼ ├æãÆ├æÔé¼├É┬¥├É┬Â├É┬░├æ┬Å]]></ru>
         <da><![CDATA[Indkomst Mod]]></da>
     </title>
     <description>
         <en><![CDATA[Adds hourly / daily income system with difficulty tiers, seasonal modifiers, and multiplayer per-farm support.]]></en>
-        <de><![CDATA[FÃ¼gt ein stÃ¼ndliches / tÃ¤gliches Einkommenssystem mit Schwierigkeitsstufen, saisonalen Modifikatoren und Mehrspielersupport hinzu.]]></de>
-        <fr><![CDATA[Ajoute un systÃ¨me de revenus horaires / quotidiens avec niveaux de difficultÃ©, modificateurs saisonniers et support multijoueur.]]></fr>
-        <pl><![CDATA[Dodaje system dochodÃ³w godzinowych / dziennych z poziomami trudnoÅ›ci, modyfikatorami sezonowymi i wsparciem wieloosobowym.]]></pl>
-        <es><![CDATA[AÃ±ade sistema de ingresos horarios / diarios con niveles de dificultad, modificadores estacionales y soporte multijugador.]]></es>
-        <it><![CDATA[Aggiunge un sistema di reddito orario / giornaliero con livelli di difficoltÃ , modificatori stagionali e supporto multigiocatore.]]></it>
-        <cz><![CDATA[PÅ™idÃ¡vÃ¡ hodinovÃ½ / dennÃ­ pÅ™Ã­jmovÃ½ systÃ©m s obtÃ­Å¾nostÃ­, sezÃ³nnÃ­mi modifikÃ¡tory a podporou vÃ­ce hrÃ¡ÄÅ¯.]]></cz>
-        <br><![CDATA[Adiciona sistema de renda horÃ¡ria / diÃ¡ria com nÃ­veis de dificuldade, modificadores sazonais e suporte multiplayer.]]></br>
-        <uk><![CDATA[Ð”Ð¾Ð´Ð°Ñ” ÑÐ¸ÑÑ‚ÐµÐ¼Ñƒ Ð¿Ð¾Ð³Ð¾Ð´Ð¸Ð½Ð½Ð¾Ð³Ð¾ / Ñ‰Ð¾Ð´ÐµÐ½Ð½Ð¾Ð³Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ñƒ Ð· Ñ€Ñ–Ð²Ð½ÑÐ¼Ð¸ ÑÐºÐ»Ð°Ð´Ð½Ð¾ÑÑ‚Ñ–, ÑÐµÐ·Ð¾Ð½Ð½Ð¸Ð¼Ð¸ Ð¼Ð¾Ð´Ð¸Ñ„Ñ–ÐºÐ°Ñ‚Ð¾Ñ€Ð°Ð¼Ð¸ Ñ‚Ð° Ð¿Ñ–Ð´Ñ‚Ñ€Ð¸Ð¼ÐºÐ¾ÑŽ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð¿Ð»ÐµÑ”Ñ€Ð°.]]></uk>
-        <ru><![CDATA[Ð”Ð¾Ð±Ð°Ð²Ð»ÑÐµÑ‚ ÑÐ¸ÑÑ‚ÐµÐ¼Ñƒ Ð¿Ð¾Ñ‡Ð°ÑÐ¾Ð²Ð¾Ð³Ð¾ / ÐµÐ¶ÐµÐ´Ð½ÐµÐ²Ð½Ð¾Ð³Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ð° Ñ ÑƒÑ€Ð¾Ð²Ð½ÑÐ¼Ð¸ ÑÐ»Ð¾Ð¶Ð½Ð¾ÑÑ‚Ð¸, ÑÐµÐ·Ð¾Ð½Ð½Ñ‹Ð¼Ð¸ Ð¼Ð¾Ð´Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€Ð°Ð¼Ð¸ Ð¸ Ð¿Ð¾Ð´Ð´ÐµÑ€Ð¶ÐºÐ¾Ð¹ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð¿Ð»ÐµÐµÑ€Ð°.]]></ru>
-        <da><![CDATA[TilfÃ¸jer et timeligt / dagligt inkomstsystem med svÃ¦rhedsniveauer, sÃ¦sonelle modificer og multiplayer support.]]></da>
+        <de><![CDATA[F├â┬╝gt ein st├â┬╝ndliches / t├â┬ñgliches Einkommenssystem mit Schwierigkeitsstufen, saisonalen Modifikatoren und Mehrspielersupport hinzu.]]></de>
+        <fr><![CDATA[Ajoute un syst├â┬¿me de revenus horaires / quotidiens avec niveaux de difficult├â┬®, modificateurs saisonniers et support multijoueur.]]></fr>
+        <pl><![CDATA[Dodaje system dochod├â┬│w godzinowych / dziennych z poziomami trudno├àÔÇ║ci, modyfikatorami sezonowymi i wsparciem wieloosobowym.]]></pl>
+        <es><![CDATA[A├â┬▒ade sistema de ingresos horarios / diarios con niveles de dificultad, modificadores estacionales y soporte multijugador.]]></es>
+        <it><![CDATA[Aggiunge un sistema di reddito orario / giornaliero con livelli di difficolt├â┬á, modificatori stagionali e supporto multigiocatore.]]></it>
+        <cz><![CDATA[P├àÔäóid├â┬ív├â┬í hodinov├â┬¢ / denn├â┬¡ p├àÔäó├â┬¡jmov├â┬¢ syst├â┬®m s obt├â┬¡├à┬¥nost├â┬¡, sez├â┬│nn├â┬¡mi modifik├â┬ítory a podporou v├â┬¡ce hr├â┬í├ä┬ì├à┬».]]></cz>
+        <br><![CDATA[Adiciona sistema de renda hor├â┬íria / di├â┬íria com n├â┬¡veis de dificuldade, modificadores sazonais e suporte multiplayer.]]></br>
+        <uk><![CDATA[├ÉÔÇØ├É┬¥├É┬┤├É┬░├æÔÇØ ├æ┬ü├É┬©├æ┬ü├æÔÇÜ├É┬Á├É┬╝├æãÆ ├É┬┐├É┬¥├É┬│├É┬¥├É┬┤├É┬©├É┬¢├É┬¢├É┬¥├É┬│├É┬¥ / ├æÔÇ░├É┬¥├É┬┤├É┬Á├É┬¢├É┬¢├É┬¥├É┬│├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ ├É┬À ├æÔé¼├æÔÇô├É┬▓├É┬¢├æ┬Å├É┬╝├É┬© ├æ┬ü├É┬║├É┬╗├É┬░├É┬┤├É┬¢├É┬¥├æ┬ü├æÔÇÜ├æÔÇô, ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├É┬©├É┬╝├É┬© ├É┬╝├É┬¥├É┬┤├É┬©├æÔÇ×├æÔÇô├É┬║├É┬░├æÔÇÜ├É┬¥├æÔé¼├É┬░├É┬╝├É┬© ├æÔÇÜ├É┬░ ├É┬┐├æÔÇô├É┬┤├æÔÇÜ├æÔé¼├É┬©├É┬╝├É┬║├É┬¥├æ┼¢ ├É┬╝├æãÆ├É┬╗├æ┼Æ├æÔÇÜ├É┬©├É┬┐├É┬╗├É┬Á├æÔÇØ├æÔé¼├É┬░.]]></uk>
+        <ru><![CDATA[├ÉÔÇØ├É┬¥├É┬▒├É┬░├É┬▓├É┬╗├æ┬Å├É┬Á├æÔÇÜ ├æ┬ü├É┬©├æ┬ü├æÔÇÜ├É┬Á├É┬╝├æãÆ ├É┬┐├É┬¥├æÔÇí├É┬░├æ┬ü├É┬¥├É┬▓├É┬¥├É┬│├É┬¥ / ├É┬Á├É┬Â├É┬Á├É┬┤├É┬¢├É┬Á├É┬▓├É┬¢├É┬¥├É┬│├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░ ├æ┬ü ├æãÆ├æÔé¼├É┬¥├É┬▓├É┬¢├æ┬Å├É┬╝├É┬© ├æ┬ü├É┬╗├É┬¥├É┬Â├É┬¢├É┬¥├æ┬ü├æÔÇÜ├É┬©, ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├æÔÇ╣├É┬╝├É┬© ├É┬╝├É┬¥├É┬┤├É┬©├æÔÇ×├É┬©├É┬║├É┬░├æÔÇÜ├É┬¥├æÔé¼├É┬░├É┬╝├É┬© ├É┬© ├É┬┐├É┬¥├É┬┤├É┬┤├É┬Á├æÔé¼├É┬Â├É┬║├É┬¥├É┬╣ ├É┬╝├æãÆ├É┬╗├æ┼Æ├æÔÇÜ├É┬©├É┬┐├É┬╗├É┬Á├É┬Á├æÔé¼├É┬░.]]></ru>
+        <da><![CDATA[Tilf├â┬©jer et timeligt / dagligt inkomstsystem med sv├â┬ªrhedsniveauer, s├â┬ªsonelle modificer og multiplayer support.]]></da>
     </description>
     <iconFilename>icon.dds</iconFilename>
 
@@ -46,10 +46,10 @@
             <pl><![CDATA[Mod Dochodu]]></pl>
             <es><![CDATA[Mod de Ingresos]]></es>
             <it><![CDATA[Mod Reddito]]></it>
-            <cz><![CDATA[PÅ™Ã­jmovÃ½ Mod]]></cz>
+            <cz><![CDATA[P├àÔäó├â┬¡jmov├â┬¢ Mod]]></cz>
             <br><![CDATA[Mod de Renda]]></br>
-            <uk><![CDATA[ÐœÐ¾Ð´ Ð´Ð¾Ñ…Ð¾Ð´Ñƒ]]></uk>
-            <ru><![CDATA[ÐœÐ¾Ð´ Ð´Ð¾Ñ…Ð¾Ð´Ð°]]></ru>
+            <uk><![CDATA[├É┼ô├É┬¥├É┬┤ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ]]></uk>
+            <ru><![CDATA[├É┼ô├É┬¥├É┬┤ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░]]></ru>
             <da><![CDATA[inkomst Mod]]></da>
         </text>
 
@@ -58,27 +58,27 @@
             <en><![CDATA[Enable Mod]]></en>
             <de><![CDATA[Mod aktivieren]]></de>
             <fr><![CDATA[Activer le mod]]></fr>
-            <pl><![CDATA[WÅ‚Ä…cz mod]]></pl>
+            <pl><![CDATA[W├àÔÇÜ├äÔÇªcz mod]]></pl>
             <es><![CDATA[Activar mod]]></es>
             <it><![CDATA[Attiva mod]]></it>
             <cz><![CDATA[Povolit mod]]></cz>
             <br><![CDATA[Ativar mod]]></br>
-            <uk><![CDATA[Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð¼Ð¾Ð´]]></uk>
-            <ru><![CDATA[Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¼Ð¾Ð´]]></ru>
+            <uk><![CDATA[├É┬ú├É┬▓├æÔÇô├É┬╝├É┬║├É┬¢├æãÆ├æÔÇÜ├É┬© ├É┬╝├É┬¥├É┬┤]]></uk>
+            <ru><![CDATA[├ÉÔÇÖ├É┬║├É┬╗├æ┼¢├æÔÇí├É┬©├æÔÇÜ├æ┼Æ ├É┬╝├É┬¥├É┬┤]]></ru>
             <da><![CDATA[Aktiver mod]]></da>
         </text>
 
         <text name="im_enabled_long">
             <en><![CDATA[Enable or disable the income mod]]></en>
             <de><![CDATA[Einkommens-Mod aktivieren oder deaktivieren]]></de>
-            <fr><![CDATA[Activer ou dÃ©sactiver le module de revenu]]></fr>
-            <pl><![CDATA[WÅ‚Ä…cz lub wyÅ‚Ä…cz mod dochodÃ³w]]></pl>
-            <es><![CDATA[Activar o desactivar el mÃ³dulo de ingresos]]></es>
+            <fr><![CDATA[Activer ou d├â┬®sactiver le module de revenu]]></fr>
+            <pl><![CDATA[W├àÔÇÜ├äÔÇªcz lub wy├àÔÇÜ├äÔÇªcz mod dochod├â┬│w]]></pl>
+            <es><![CDATA[Activar o desactivar el m├â┬│dulo de ingresos]]></es>
             <it><![CDATA[Attiva o disattiva il modulo di reddito]]></it>
-            <cz><![CDATA[Povolit nebo zakÃ¡zat pÅ™Ã­jmovÃ½ mod]]></cz>
+            <cz><![CDATA[Povolit nebo zak├â┬ízat p├àÔäó├â┬¡jmov├â┬¢ mod]]></cz>
             <br><![CDATA[Ativar ou desativar o mod de renda]]></br>
-            <uk><![CDATA[Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð°Ð±Ð¾ Ð²Ð¸Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð¼Ð¾Ð´ Ð´Ð¾Ñ…Ð¾Ð´Ñƒ]]></uk>
-            <ru><![CDATA[Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¸Ð»Ð¸ Ð²Ñ‹ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð¼Ð¾Ð´ Ð´Ð¾Ñ…Ð¾Ð´Ð°]]></ru>
+            <uk><![CDATA[├É┬ú├É┬▓├æÔÇô├É┬╝├É┬║├É┬¢├æãÆ├æÔÇÜ├É┬© ├É┬░├É┬▒├É┬¥ ├É┬▓├É┬©├É┬╝├É┬║├É┬¢├æãÆ├æÔÇÜ├É┬© ├É┬╝├É┬¥├É┬┤ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ]]></uk>
+            <ru><![CDATA[├ÉÔÇÖ├É┬║├É┬╗├æ┼¢├æÔÇí├É┬©├æÔÇÜ├æ┼Æ ├É┬©├É┬╗├É┬© ├É┬▓├æÔÇ╣├É┬║├É┬╗├æ┼¢├æÔÇí├É┬©├æÔÇÜ├æ┼Æ ├É┬╝├É┬¥├É┬┤ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░]]></ru>
             <da><![CDATA[Aktiver eller deaktiver inkomst mod]]></da>
         </text>
 
@@ -89,25 +89,25 @@
             <fr><![CDATA[Mode DEBUG]]></fr>
             <pl><![CDATA[Tryb DEBUG]]></pl>
             <es><![CDATA[Modo DEBUG]]></es>
-            <it><![CDATA[ModalitÃ  DEBUG]]></it>
-            <cz><![CDATA[DEBUG reÅ¾im]]></cz>
+            <it><![CDATA[Modalit├â┬á DEBUG]]></it>
+            <cz><![CDATA[DEBUG re├à┬¥im]]></cz>
             <br><![CDATA[Modo DEBUG]]></br>
-            <uk><![CDATA[Ð ÐµÐ¶Ð¸Ð¼ DEBUG]]></uk>
-            <ru><![CDATA[Ð ÐµÐ¶Ð¸Ð¼ DEBUG]]></ru>
+            <uk><![CDATA[├É┬á├É┬Á├É┬Â├É┬©├É┬╝ DEBUG]]></uk>
+            <ru><![CDATA[├É┬á├É┬Á├É┬Â├É┬©├É┬╝ DEBUG]]></ru>
             <da><![CDATA[DEBUG Mode]]></da>
         </text>
 
         <text name="im_debug_long">
             <en><![CDATA[Enable / disable debug mode (extra logging)]]></en>
-            <de><![CDATA[DEBUG-Modus ein- / ausschalten (zusÃ¤tzliche Protokollierung)]]></de>
-            <fr><![CDATA[Activer / dÃ©sactiver le mode DEBUG (journalisation supplÃ©mentaire)]]></fr>
-            <pl><![CDATA[WÅ‚Ä…cz / wyÅ‚Ä…cz tryb DEBUG (dodatkowe logowanie)]]></pl>
+            <de><![CDATA[DEBUG-Modus ein- / ausschalten (zus├â┬ñtzliche Protokollierung)]]></de>
+            <fr><![CDATA[Activer / d├â┬®sactiver le mode DEBUG (journalisation suppl├â┬®mentaire)]]></fr>
+            <pl><![CDATA[W├àÔÇÜ├äÔÇªcz / wy├àÔÇÜ├äÔÇªcz tryb DEBUG (dodatkowe logowanie)]]></pl>
             <es><![CDATA[Activar / desactivar modo DEBUG (registro adicional)]]></es>
-            <it><![CDATA[Attiva / disattiva modalitÃ  DEBUG (registrazione aggiuntiva)]]></it>
-            <cz><![CDATA[Povolit / zakÃ¡zat DEBUG reÅ¾im (dodateÄnÃ© logovÃ¡nÃ­)]]></cz>
+            <it><![CDATA[Attiva / disattiva modalit├â┬á DEBUG (registrazione aggiuntiva)]]></it>
+            <cz><![CDATA[Povolit / zak├â┬ízat DEBUG re├à┬¥im (dodate├ä┬ìn├â┬® logov├â┬ín├â┬¡)]]></cz>
             <br><![CDATA[Ativar / desativar modo DEBUG (registro adicional)]]></br>
-            <uk><![CDATA[Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ / Ð²Ð¸Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ñ€ÐµÐ¶Ð¸Ð¼ DEBUG (Ð´Ð¾Ð´Ð°Ñ‚ÐºÐ¾Ð²Ðµ Ð»Ð¾Ð³ÑƒÐ²Ð°Ð½Ð½Ñ)]]></uk>
-            <ru><![CDATA[Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ / Ð²Ñ‹ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ñ€ÐµÐ¶Ð¸Ð¼ DEBUG (Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ðµ Ð»Ð¾Ð³Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ)]]></ru>
+            <uk><![CDATA[├É┬ú├É┬▓├æÔÇô├É┬╝├É┬║├É┬¢├æãÆ├æÔÇÜ├É┬© / ├É┬▓├É┬©├É┬╝├É┬║├É┬¢├æãÆ├æÔÇÜ├É┬© ├æÔé¼├É┬Á├É┬Â├É┬©├É┬╝ DEBUG (├É┬┤├É┬¥├É┬┤├É┬░├æÔÇÜ├É┬║├É┬¥├É┬▓├É┬Á ├É┬╗├É┬¥├É┬│├æãÆ├É┬▓├É┬░├É┬¢├É┬¢├æ┬Å)]]></uk>
+            <ru><![CDATA[├ÉÔÇÖ├É┬║├É┬╗├æ┼¢├æÔÇí├É┬©├æÔÇÜ├æ┼Æ / ├É┬▓├æÔÇ╣├É┬║├É┬╗├æ┼¢├æÔÇí├É┬©├æÔÇÜ├æ┼Æ ├æÔé¼├É┬Á├É┬Â├É┬©├É┬╝ DEBUG (├É┬┤├É┬¥├É┬┐├É┬¥├É┬╗├É┬¢├É┬©├æÔÇÜ├É┬Á├É┬╗├æ┼Æ├É┬¢├É┬¥├É┬Á ├É┬╗├É┬¥├É┬│├É┬©├æÔé¼├É┬¥├É┬▓├É┬░├É┬¢├É┬©├É┬Á)]]></ru>
             <da><![CDATA[Aktiver / deaktiver debug mode (ekstra logning)]]></da>
         </text>
 
@@ -116,55 +116,55 @@
             <en><![CDATA[Pay Mode]]></en>
             <de><![CDATA[Zahlungsmodus]]></de>
             <fr><![CDATA[Mode de paiement]]></fr>
-            <pl><![CDATA[Tryb pÅ‚atnoÅ›ci]]></pl>
+            <pl><![CDATA[Tryb p├àÔÇÜatno├àÔÇ║ci]]></pl>
             <es><![CDATA[Modo de pago]]></es>
-            <it><![CDATA[ModalitÃ  pagamento]]></it>
-            <cz><![CDATA[PlatebnÃ­ reÅ¾im]]></cz>
+            <it><![CDATA[Modalit├â┬á pagamento]]></it>
+            <cz><![CDATA[Platebn├â┬¡ re├à┬¥im]]></cz>
             <br><![CDATA[Modo de pagamento]]></br>
-            <uk><![CDATA[Ð ÐµÐ¶Ð¸Ð¼ Ð²Ð¸Ð¿Ð»Ð°Ñ‚]]></uk>
-            <ru><![CDATA[Ð ÐµÐ¶Ð¸Ð¼ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚]]></ru>
+            <uk><![CDATA[├É┬á├É┬Á├É┬Â├É┬©├É┬╝ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ]]></uk>
+            <ru><![CDATA[├É┬á├É┬Á├É┬Â├É┬©├É┬╝ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ]]></ru>
             <da><![CDATA[Betalingstype]]></da>
         </text>
 
         <text name="im_paymode_long">
             <en><![CDATA[Choose payment frequency: hourly or daily]]></en>
-            <de><![CDATA[WÃ¤hlen Sie die ZahlungshÃ¤ufigkeit: stÃ¼ndlich oder tÃ¤glich]]></de>
-            <fr><![CDATA[Choisissez la frÃ©quence de paiement : horaire ou quotidienne]]></fr>
-            <pl><![CDATA[Wybierz czÄ™stotliwoÅ›Ä‡ pÅ‚atnoÅ›ci: godzinowa lub dzienna]]></pl>
+            <de><![CDATA[W├â┬ñhlen Sie die Zahlungsh├â┬ñufigkeit: st├â┬╝ndlich oder t├â┬ñglich]]></de>
+            <fr><![CDATA[Choisissez la fr├â┬®quence de paiement : horaire ou quotidienne]]></fr>
+            <pl><![CDATA[Wybierz cz├äÔäóstotliwo├àÔÇ║├äÔÇí p├àÔÇÜatno├àÔÇ║ci: godzinowa lub dzienna]]></pl>
             <es><![CDATA[Elegir frecuencia de pago: horaria o diaria]]></es>
             <it><![CDATA[Scegli frequenza pagamento: oraria o giornaliera]]></it>
-            <cz><![CDATA[Vyberte frekvenci plateb: hodinovou nebo dennÃ­]]></cz>
-            <br><![CDATA[Escolher frequÃªncia de pagamento: horÃ¡ria ou diÃ¡ria]]></br>
-            <uk><![CDATA[Ð’Ð¸Ð±ÐµÑ€Ñ–Ñ‚ÑŒ Ñ‡Ð°ÑÑ‚Ð¾Ñ‚Ñƒ Ð²Ð¸Ð¿Ð»Ð°Ñ‚: Ð¿Ð¾Ð³Ð¾Ð´Ð¸Ð½Ð½Ð¾ Ð°Ð±Ð¾ Ñ‰Ð¾Ð´ÐµÐ½Ð½Ð¾]]></uk>
-            <ru><![CDATA[Ð’Ñ‹Ð±Ñ€Ð°Ñ‚ÑŒ Ñ‡Ð°ÑÑ‚Ð¾Ñ‚Ñƒ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚: Ð¿Ð¾Ñ‡Ð°ÑÐ¾Ð²ÑƒÑŽ Ð¸Ð»Ð¸ ÐµÐ¶ÐµÐ´Ð½ÐµÐ²Ð½ÑƒÑŽ]]></ru>
-            <da><![CDATA[VÃ¦lg betalingsfrekvens: time for time eller dagligt]]></da>
+            <cz><![CDATA[Vyberte frekvenci plateb: hodinovou nebo denn├â┬¡]]></cz>
+            <br><![CDATA[Escolher frequ├â┬¬ncia de pagamento: hor├â┬íria ou di├â┬íria]]></br>
+            <uk><![CDATA[├ÉÔÇÖ├É┬©├É┬▒├É┬Á├æÔé¼├æÔÇô├æÔÇÜ├æ┼Æ ├æÔÇí├É┬░├æ┬ü├æÔÇÜ├É┬¥├æÔÇÜ├æãÆ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ: ├É┬┐├É┬¥├É┬│├É┬¥├É┬┤├É┬©├É┬¢├É┬¢├É┬¥ ├É┬░├É┬▒├É┬¥ ├æÔÇ░├É┬¥├É┬┤├É┬Á├É┬¢├É┬¢├É┬¥]]></uk>
+            <ru><![CDATA[├ÉÔÇÖ├æÔÇ╣├É┬▒├æÔé¼├É┬░├æÔÇÜ├æ┼Æ ├æÔÇí├É┬░├æ┬ü├æÔÇÜ├É┬¥├æÔÇÜ├æãÆ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ: ├É┬┐├É┬¥├æÔÇí├É┬░├æ┬ü├É┬¥├É┬▓├æãÆ├æ┼¢ ├É┬©├É┬╗├É┬© ├É┬Á├É┬Â├É┬Á├É┬┤├É┬¢├É┬Á├É┬▓├É┬¢├æãÆ├æ┼¢]]></ru>
+            <da><![CDATA[V├â┬ªlg betalingsfrekvens: time for time eller dagligt]]></da>
         </text>
 
         <text name="im_paymode_1">
             <en><![CDATA[Hourly]]></en>
-            <de><![CDATA[StÃ¼ndlich]]></de>
+            <de><![CDATA[St├â┬╝ndlich]]></de>
             <fr><![CDATA[Horaire]]></fr>
             <pl><![CDATA[Godzinowa]]></pl>
             <es><![CDATA[Horaria]]></es>
             <it><![CDATA[Oraria]]></it>
-            <cz><![CDATA[HodinovÃ¡]]></cz>
-            <br><![CDATA[HorÃ¡ria]]></br>
-            <uk><![CDATA[ÐŸÐ¾Ð³Ð¾Ð´Ð¸Ð½Ð½Ð¾]]></uk>
-            <ru><![CDATA[ÐŸÐ¾Ñ‡Ð°ÑÐ¾Ð²Ð¾]]></ru>
+            <cz><![CDATA[Hodinov├â┬í]]></cz>
+            <br><![CDATA[Hor├â┬íria]]></br>
+            <uk><![CDATA[├É┼©├É┬¥├É┬│├É┬¥├É┬┤├É┬©├É┬¢├É┬¢├É┬¥]]></uk>
+            <ru><![CDATA[├É┼©├É┬¥├æÔÇí├É┬░├æ┬ü├É┬¥├É┬▓├É┬¥]]></ru>
             <da><![CDATA[Time for time]]></da>
         </text>
 
         <text name="im_paymode_2">
             <en><![CDATA[Daily]]></en>
-            <de><![CDATA[TÃ¤glich]]></de>
+            <de><![CDATA[T├â┬ñglich]]></de>
             <fr><![CDATA[Quotidienne]]></fr>
             <pl><![CDATA[Dzienna]]></pl>
             <es><![CDATA[Diaria]]></es>
             <it><![CDATA[Giornaliera]]></it>
-            <cz><![CDATA[DennÃ­]]></cz>
-            <br><![CDATA[DiÃ¡ria]]></br>
-            <uk><![CDATA[Ð©Ð¾Ð´ÐµÐ½Ð½Ð¾]]></uk>
-            <ru><![CDATA[Ð•Ð¶ÐµÐ´Ð½ÐµÐ²Ð½Ð¾]]></ru>
+            <cz><![CDATA[Denn├â┬¡]]></cz>
+            <br><![CDATA[Di├â┬íria]]></br>
+            <uk><![CDATA[├É┬®├É┬¥├É┬┤├É┬Á├É┬¢├É┬¢├É┬¥]]></uk>
+            <ru><![CDATA[├ÉÔÇó├É┬Â├É┬Á├É┬┤├É┬¢├É┬Á├É┬▓├É┬¢├É┬¥]]></ru>
             <da><![CDATA[Dagligt]]></da>
         </text>
 
@@ -172,42 +172,42 @@
         <text name="im_difficulty_short">
             <en><![CDATA[Difficulty]]></en>
             <de><![CDATA[Schwierigkeit]]></de>
-            <fr><![CDATA[DifficultÃ©]]></fr>
-            <pl><![CDATA[TrudnoÅ›Ä‡]]></pl>
+            <fr><![CDATA[Difficult├â┬®]]></fr>
+            <pl><![CDATA[Trudno├àÔÇ║├äÔÇí]]></pl>
             <es><![CDATA[Dificultad]]></es>
-            <it><![CDATA[DifficoltÃ ]]></it>
-            <cz><![CDATA[ObtÃ­Å¾nost]]></cz>
+            <it><![CDATA[Difficolt├â┬á]]></it>
+            <cz><![CDATA[Obt├â┬¡├à┬¥nost]]></cz>
             <br><![CDATA[Dificuldade]]></br>
-            <uk><![CDATA[Ð¡ÐºÐ»Ð°Ð´Ð½Ñ–ÑÑ‚ÑŒ]]></uk>
-            <ru><![CDATA[Ð¡Ð»Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒ]]></ru>
-            <da><![CDATA[SvÃ¦rhedsgrad]]></da>
+            <uk><![CDATA[├É┬í├É┬║├É┬╗├É┬░├É┬┤├É┬¢├æÔÇô├æ┬ü├æÔÇÜ├æ┼Æ]]></uk>
+            <ru><![CDATA[├É┬í├É┬╗├É┬¥├É┬Â├É┬¢├É┬¥├æ┬ü├æÔÇÜ├æ┼Æ]]></ru>
+            <da><![CDATA[Sv├â┬ªrhedsgrad]]></da>
         </text>
 
         <text name="im_difficulty_long">
             <en><![CDATA[Set income amount: Easy=$5000, Normal=$2400, Hard=$1100]]></en>
             <de><![CDATA[Einkommensbetrag festlegen: Einfach=5000$, Normal=2400$, Schwer=1100$]]></de>
-            <fr><![CDATA[DÃ©finir le montant du revenu : Facile=5000$, Normal=2400$, Difficile=1100$]]></fr>
-            <pl><![CDATA[Ustaw kwotÄ™ dochodu: Åatwy=5000$, Normalny=2400$, Trudny=1100$]]></pl>
-            <es><![CDATA[Establecer monto de ingreso: FÃ¡cil=5000$, Normal=2400$, DifÃ­cil=1100$]]></es>
+            <fr><![CDATA[D├â┬®finir le montant du revenu : Facile=5000$, Normal=2400$, Difficile=1100$]]></fr>
+            <pl><![CDATA[Ustaw kwot├äÔäó dochodu: ├à┬üatwy=5000$, Normalny=2400$, Trudny=1100$]]></pl>
+            <es><![CDATA[Establecer monto de ingreso: F├â┬ícil=5000$, Normal=2400$, Dif├â┬¡cil=1100$]]></es>
             <it><![CDATA[Imposta importo reddito: Facile=5000$, Normale=2400$, Difficile=1100$]]></it>
-            <cz><![CDATA[Nastavit vÃ½Å¡i pÅ™Ã­jmu: SnadnÃ©=5000$, NormÃ¡lnÃ­=2400$, TÄ›Å¾kÃ©=1100$]]></cz>
-            <br><![CDATA[Definir valor da renda: FÃ¡cil=5000$, Normal=2400$, DifÃ­cil=1100$]]></br>
-            <uk><![CDATA[Ð’ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ ÑÑƒÐ¼Ñƒ Ð´Ð¾Ñ…Ð¾Ð´Ñƒ: Ð›ÐµÐ³ÐºÐ¾=5000$, ÐÐ¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¾=2400$, Ð’Ð°Ð¶ÐºÐ¾=1100$]]></uk>
-            <ru><![CDATA[Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ ÑÑƒÐ¼Ð¼Ñƒ Ð´Ð¾Ñ…Ð¾Ð´Ð°: Ð›ÐµÐ³ÐºÐ¾=5000$, ÐžÐ±Ñ‹Ñ‡Ð½Ð¾=2400$, Ð¡Ð»Ð¾Ð¶Ð½Ð¾=1100$]]></ru>
-            <da><![CDATA[Indstil inkomstbelÃ¸b: Let=$5000, Normal=$2400, SvÃ¦r=$1100]]></da>
+            <cz><![CDATA[Nastavit v├â┬¢├à┬íi p├àÔäó├â┬¡jmu: Snadn├â┬®=5000$, Norm├â┬íln├â┬¡=2400$, T├äÔÇ║├à┬¥k├â┬®=1100$]]></cz>
+            <br><![CDATA[Definir valor da renda: F├â┬ícil=5000$, Normal=2400$, Dif├â┬¡cil=1100$]]></br>
+            <uk><![CDATA[├ÉÔÇÖ├æ┬ü├æÔÇÜ├É┬░├É┬¢├É┬¥├É┬▓├É┬©├æÔÇÜ├É┬© ├æ┬ü├æãÆ├É┬╝├æãÆ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ: ├ÉÔÇ║├É┬Á├É┬│├É┬║├É┬¥=5000$, ├É┬Ø├É┬¥├æÔé¼├É┬╝├É┬░├É┬╗├æ┼Æ├É┬¢├É┬¥=2400$, ├ÉÔÇÖ├É┬░├É┬Â├É┬║├É┬¥=1100$]]></uk>
+            <ru><![CDATA[├É┬ú├æ┬ü├æÔÇÜ├É┬░├É┬¢├É┬¥├É┬▓├É┬©├æÔÇÜ├æ┼Æ ├æ┬ü├æãÆ├É┬╝├É┬╝├æãÆ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░: ├ÉÔÇ║├É┬Á├É┬│├É┬║├É┬¥=5000$, ├É┼¥├É┬▒├æÔÇ╣├æÔÇí├É┬¢├É┬¥=2400$, ├É┬í├É┬╗├É┬¥├É┬Â├É┬¢├É┬¥=1100$]]></ru>
+            <da><![CDATA[Indstil inkomstbel├â┬©b: Let=$5000, Normal=$2400, Sv├â┬ªr=$1100]]></da>
         </text>
 
         <text name="im_diff_1">
             <en><![CDATA[Easy ($5000)]]></en>
             <de><![CDATA[Einfach (5000$)]]></de>
             <fr><![CDATA[Facile (5000$)]]></fr>
-            <pl><![CDATA[Åatwy (5000$)]]></pl>
-            <es><![CDATA[FÃ¡cil (5000$)]]></es>
+            <pl><![CDATA[├à┬üatwy (5000$)]]></pl>
+            <es><![CDATA[F├â┬ícil (5000$)]]></es>
             <it><![CDATA[Facile (5000$)]]></it>
-            <cz><![CDATA[SnadnÃ© (5000$)]]></cz>
-            <br><![CDATA[FÃ¡cil (5000$)]]></br>
-            <uk><![CDATA[Ð›ÐµÐ³ÐºÐ¾ (5000$)]]></uk>
-            <ru><![CDATA[Ð›ÐµÐ³ÐºÐ¾ (5000$)]]></ru>
+            <cz><![CDATA[Snadn├â┬® (5000$)]]></cz>
+            <br><![CDATA[F├â┬ícil (5000$)]]></br>
+            <uk><![CDATA[├ÉÔÇ║├É┬Á├É┬│├É┬║├É┬¥ (5000$)]]></uk>
+            <ru><![CDATA[├ÉÔÇ║├É┬Á├É┬│├É┬║├É┬¥ (5000$)]]></ru>
             <da><![CDATA[Let ($5000)]]></da>
         </text>
 
@@ -218,10 +218,10 @@
             <pl><![CDATA[Normalny (2400$)]]></pl>
             <es><![CDATA[Normal (2400$)]]></es>
             <it><![CDATA[Normale (2400$)]]></it>
-            <cz><![CDATA[NormÃ¡lnÃ­ (2400$)]]></cz>
+            <cz><![CDATA[Norm├â┬íln├â┬¡ (2400$)]]></cz>
             <br><![CDATA[Normal (2400$)]]></br>
-            <uk><![CDATA[ÐÐ¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¾ (2400$)]]></uk>
-            <ru><![CDATA[ÐžÐ±Ñ‹Ñ‡Ð½Ð¾ (2400$)]]></ru>
+            <uk><![CDATA[├É┬Ø├É┬¥├æÔé¼├É┬╝├É┬░├É┬╗├æ┼Æ├É┬¢├É┬¥ (2400$)]]></uk>
+            <ru><![CDATA[├É┼¥├É┬▒├æÔÇ╣├æÔÇí├É┬¢├É┬¥ (2400$)]]></ru>
             <da><![CDATA[Normal ($2400)]]></da>
         </text>
 
@@ -230,13 +230,13 @@
             <de><![CDATA[Schwer (1100$)]]></de>
             <fr><![CDATA[Difficile (1100$)]]></fr>
             <pl><![CDATA[Trudny (1100$)]]></pl>
-            <es><![CDATA[DifÃ­cil (1100$)]]></es>
+            <es><![CDATA[Dif├â┬¡cil (1100$)]]></es>
             <it><![CDATA[Difficile (1100$)]]></it>
-            <cz><![CDATA[TÄ›Å¾kÃ© (1100$)]]></cz>
-            <br><![CDATA[DifÃ­cil (1100$)]]></br>
-            <uk><![CDATA[Ð’Ð°Ð¶ÐºÐ¾ (1100$)]]></uk>
-            <ru><![CDATA[Ð¡Ð»Ð¾Ð¶Ð½Ð¾ (1100$)]]></ru>
-            <da><![CDATA[SvÃ¦r ($1100)]]></da>
+            <cz><![CDATA[T├äÔÇ║├à┬¥k├â┬® (1100$)]]></cz>
+            <br><![CDATA[Dif├â┬¡cil (1100$)]]></br>
+            <uk><![CDATA[├ÉÔÇÖ├É┬░├É┬Â├É┬║├É┬¥ (1100$)]]></uk>
+            <ru><![CDATA[├É┬í├É┬╗├É┬¥├É┬Â├É┬¢├É┬¥ (1100$)]]></ru>
+            <da><![CDATA[Sv├â┬ªr ($1100)]]></da>
         </text>
 
         <!-- Notifications -->
@@ -247,24 +247,24 @@
             <pl><![CDATA[Powiadomienia]]></pl>
             <es><![CDATA[Notificaciones]]></es>
             <it><![CDATA[Notifiche]]></it>
-            <cz><![CDATA[UpozornÄ›nÃ­]]></cz>
-            <br><![CDATA[NotificaÃ§Ãµes]]></br>
-            <uk><![CDATA[Ð¡Ð¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ]]></uk>
-            <ru><![CDATA[Ð£Ð²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ñ]]></ru>
+            <cz><![CDATA[Upozorn├äÔÇ║n├â┬¡]]></cz>
+            <br><![CDATA[Notifica├â┬º├â┬Áes]]></br>
+            <uk><![CDATA[├É┬í├É┬┐├É┬¥├É┬▓├æÔÇô├æÔÇ░├É┬Á├É┬¢├É┬¢├æ┬Å]]></uk>
+            <ru><![CDATA[├É┬ú├É┬▓├É┬Á├É┬┤├É┬¥├É┬╝├É┬╗├É┬Á├É┬¢├É┬©├æ┬Å]]></ru>
             <da><![CDATA[Notifikationer]]></da>
         </text>
 
         <text name="im_notifications_long">
             <en><![CDATA[Enable/disable payment notifications]]></en>
             <de><![CDATA[Zahlungsbenachrichtigungen ein-/ausschalten]]></de>
-            <fr><![CDATA[Activer/dÃ©sactiver les notifications de paiement]]></fr>
-            <pl><![CDATA[WÅ‚Ä…cz/wyÅ‚Ä…cz powiadomienia o pÅ‚atnoÅ›ciach]]></pl>
+            <fr><![CDATA[Activer/d├â┬®sactiver les notifications de paiement]]></fr>
+            <pl><![CDATA[W├àÔÇÜ├äÔÇªcz/wy├àÔÇÜ├äÔÇªcz powiadomienia o p├àÔÇÜatno├àÔÇ║ciach]]></pl>
             <es><![CDATA[Activar/desactivar notificaciones de pago]]></es>
             <it><![CDATA[Attiva/disattiva notifiche pagamento]]></it>
-            <cz><![CDATA[Povolit/zakÃ¡zat upozornÄ›nÃ­ na platby]]></cz>
-            <br><![CDATA[Ativar/desativar notificaÃ§Ãµes de pagamento]]></br>
-            <uk><![CDATA[Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸/Ð²Ð¸Ð¼ÐºÐ½ÑƒÑ‚Ð¸ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ Ð¿Ñ€Ð¾ Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ð¸]]></uk>
-            <ru><![CDATA[Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ/Ð²Ñ‹ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ñ Ð¾ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ð°Ñ…]]></ru>
+            <cz><![CDATA[Povolit/zak├â┬ízat upozorn├äÔÇ║n├â┬¡ na platby]]></cz>
+            <br><![CDATA[Ativar/desativar notifica├â┬º├â┬Áes de pagamento]]></br>
+            <uk><![CDATA[├É┬ú├É┬▓├æÔÇô├É┬╝├É┬║├É┬¢├æãÆ├æÔÇÜ├É┬©/├É┬▓├É┬©├É┬╝├É┬║├É┬¢├æãÆ├æÔÇÜ├É┬© ├æ┬ü├É┬┐├É┬¥├É┬▓├æÔÇô├æÔÇ░├É┬Á├É┬¢├É┬¢├æ┬Å ├É┬┐├æÔé¼├É┬¥ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬©]]></uk>
+            <ru><![CDATA[├ÉÔÇÖ├É┬║├É┬╗├æ┼¢├æÔÇí├É┬©├æÔÇÜ├æ┼Æ/├É┬▓├æÔÇ╣├É┬║├É┬╗├æ┼¢├æÔÇí├É┬©├æÔÇÜ├æ┼Æ ├æãÆ├É┬▓├É┬Á├É┬┤├É┬¥├É┬╝├É┬╗├É┬Á├É┬¢├É┬©├æ┬Å ├É┬¥ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬░├æÔÇª]]></ru>
             <da><![CDATA[Aktiver/deaktiver betalingsnotifikationer]]></da>
         </text>
 
@@ -272,29 +272,29 @@
         <text name="im_customamount_short">
             <en><![CDATA[Custom Amount]]></en>
             <de><![CDATA[Benutzerdefinierter Betrag]]></de>
-            <fr><![CDATA[Montant personnalisÃ©]]></fr>
+            <fr><![CDATA[Montant personnalis├â┬®]]></fr>
             <pl><![CDATA[Niestandardowa kwota]]></pl>
             <es><![CDATA[Cantidad personalizada]]></es>
             <it><![CDATA[Importo personalizzato]]></it>
-            <cz><![CDATA[VlastnÃ­ ÄÃ¡stka]]></cz>
+            <cz><![CDATA[Vlastn├â┬¡ ├ä┬ì├â┬ístka]]></cz>
             <br><![CDATA[Valor personalizado]]></br>
-            <uk><![CDATA[Ð’Ð»Ð°ÑÐ½Ð° ÑÑƒÐ¼Ð°]]></uk>
-            <ru><![CDATA[ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ°Ñ ÑÑƒÐ¼Ð¼Ð°]]></ru>
-            <da><![CDATA[Brugerdefineret belÃ¸b]]></da>
+            <uk><![CDATA[├ÉÔÇÖ├É┬╗├É┬░├æ┬ü├É┬¢├É┬░ ├æ┬ü├æãÆ├É┬╝├É┬░]]></uk>
+            <ru><![CDATA[├É┼©├É┬¥├É┬╗├æ┼Æ├É┬À├É┬¥├É┬▓├É┬░├æÔÇÜ├É┬Á├É┬╗├æ┼Æ├æ┬ü├É┬║├É┬░├æ┬Å ├æ┬ü├æãÆ├É┬╝├É┬╝├É┬░]]></ru>
+            <da><![CDATA[Brugerdefineret bel├â┬©b]]></da>
         </text>
 
         <text name="im_customamount_long">
             <en><![CDATA[Set custom payment amount (0 = use difficulty setting)]]></en>
             <de><![CDATA[Benutzerdefinierten Zahlungsbetrag festlegen (0 = Schwierigkeitsstufe verwenden)]]></de>
-            <fr><![CDATA[DÃ©finir le montant de paiement personnalisÃ© (0 = utiliser le rÃ©glage de difficultÃ©)]]></fr>
-            <pl><![CDATA[Ustaw niestandardowÄ… kwotÄ™ pÅ‚atnoÅ›ci (0 = uÅ¼yj ustawienia trudnoÅ›ci)]]></pl>
-            <es><![CDATA[Establecer monto de pago personalizado (0 = usar configuraciÃ³n de dificultad)]]></es>
-            <it><![CDATA[Imposta importo pagamento personalizzato (0 = usa impostazione difficoltÃ )]]></it>
-            <cz><![CDATA[Nastavit vlastnÃ­ ÄÃ¡stku platby (0 = pouÅ¾Ã­t nastavenÃ­ obtÃ­Å¾nosti)]]></cz>
-            <br><![CDATA[Definir valor de pagamento personalizado (0 = usar configuraÃ§Ã£o de dificuldade)]]></br>
-            <uk><![CDATA[Ð’ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ð¸ Ð²Ð»Ð°ÑÐ½Ñƒ ÑÑƒÐ¼Ñƒ Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ð¸ (0 = Ð²Ð¸ÐºÐ¾Ñ€Ð¸ÑÑ‚Ð¾Ð²ÑƒÐ²Ð°Ñ‚Ð¸ Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ ÑÐºÐ»Ð°Ð´Ð½Ð¾ÑÑ‚Ñ–)]]></uk>
-            <ru><![CDATA[Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚ÑŒ Ð¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÑƒÑŽ ÑÑƒÐ¼Ð¼Ñƒ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñ‹ (0 = Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÑƒ ÑÐ»Ð¾Ð¶Ð½Ð¾ÑÑ‚Ð¸)]]></ru>
-            <da><![CDATA[Indstil brugerdefineret betalingsbelÃ¸b (0 = brug svÃ¦rhedsgrad)]]></da>
+            <fr><![CDATA[D├â┬®finir le montant de paiement personnalis├â┬® (0 = utiliser le r├â┬®glage de difficult├â┬®)]]></fr>
+            <pl><![CDATA[Ustaw niestandardow├äÔÇª kwot├äÔäó p├àÔÇÜatno├àÔÇ║ci (0 = u├à┬╝yj ustawienia trudno├àÔÇ║ci)]]></pl>
+            <es><![CDATA[Establecer monto de pago personalizado (0 = usar configuraci├â┬│n de dificultad)]]></es>
+            <it><![CDATA[Imposta importo pagamento personalizzato (0 = usa impostazione difficolt├â┬á)]]></it>
+            <cz><![CDATA[Nastavit vlastn├â┬¡ ├ä┬ì├â┬ístku platby (0 = pou├à┬¥├â┬¡t nastaven├â┬¡ obt├â┬¡├à┬¥nosti)]]></cz>
+            <br><![CDATA[Definir valor de pagamento personalizado (0 = usar configura├â┬º├â┬úo de dificuldade)]]></br>
+            <uk><![CDATA[├ÉÔÇÖ├æ┬ü├æÔÇÜ├É┬░├É┬¢├É┬¥├É┬▓├É┬©├æÔÇÜ├É┬© ├É┬▓├É┬╗├É┬░├æ┬ü├É┬¢├æãÆ ├æ┬ü├æãÆ├É┬╝├æãÆ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬© (0 = ├É┬▓├É┬©├É┬║├É┬¥├æÔé¼├É┬©├æ┬ü├æÔÇÜ├É┬¥├É┬▓├æãÆ├É┬▓├É┬░├æÔÇÜ├É┬© ├É┬¢├É┬░├É┬╗├É┬░├æ╦å├æÔÇÜ├æãÆ├É┬▓├É┬░├É┬¢├É┬¢├æ┬Å ├æ┬ü├É┬║├É┬╗├É┬░├É┬┤├É┬¢├É┬¥├æ┬ü├æÔÇÜ├æÔÇô)]]></uk>
+            <ru><![CDATA[├É┬ú├æ┬ü├æÔÇÜ├É┬░├É┬¢├É┬¥├É┬▓├É┬©├æÔÇÜ├æ┼Æ ├É┬┐├É┬¥├É┬╗├æ┼Æ├É┬À├É┬¥├É┬▓├É┬░├æÔÇÜ├É┬Á├É┬╗├æ┼Æ├æ┬ü├É┬║├æãÆ├æ┼¢ ├æ┬ü├æãÆ├É┬╝├É┬╝├æãÆ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æÔÇ╣ (0 = ├É┬©├æ┬ü├É┬┐├É┬¥├É┬╗├æ┼Æ├É┬À├É┬¥├É┬▓├É┬░├æÔÇÜ├æ┼Æ ├É┬¢├É┬░├æ┬ü├æÔÇÜ├æÔé¼├É┬¥├É┬╣├É┬║├æãÆ ├æ┬ü├É┬╗├É┬¥├É┬Â├É┬¢├É┬¥├æ┬ü├æÔÇÜ├É┬©)]]></ru>
+            <da><![CDATA[Indstil brugerdefineret betalingsbel├â┬©b (0 = brug sv├â┬ªrhedsgrad)]]></da>
         </text>
 
         <!-- Income Multiplier (NEW in 2.0) -->
@@ -302,13 +302,13 @@
             <en><![CDATA[Income Multiplier]]></en>
             <de><![CDATA[Einkommensmultiplikator]]></de>
             <fr><![CDATA[Multiplicateur de revenu]]></fr>
-            <pl><![CDATA[MnoÅ¼nik dochodu]]></pl>
+            <pl><![CDATA[Mno├à┬╝nik dochodu]]></pl>
             <es><![CDATA[Multiplicador de ingresos]]></es>
             <it><![CDATA[Moltiplicatore reddito]]></it>
-            <cz><![CDATA[PÅ™Ã­jmovÃ½ multiplikÃ¡tor]]></cz>
+            <cz><![CDATA[P├àÔäó├â┬¡jmov├â┬¢ multiplik├â┬ítor]]></cz>
             <br><![CDATA[Multiplicador de renda]]></br>
-            <uk><![CDATA[ÐœÐ½Ð¾Ð¶Ð½Ð¸Ðº Ð´Ð¾Ñ…Ð¾Ð´Ñƒ]]></uk>
-            <ru><![CDATA[ÐœÐ½Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒ Ð´Ð¾Ñ…Ð¾Ð´Ð°]]></ru>
+            <uk><![CDATA[├É┼ô├É┬¢├É┬¥├É┬Â├É┬¢├É┬©├É┬║ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ]]></uk>
+            <ru><![CDATA[├É┼ô├É┬¢├É┬¥├É┬Â├É┬©├æÔÇÜ├É┬Á├É┬╗├æ┼Æ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░]]></ru>
             <da><![CDATA[Inkomstmultiplikator]]></da>
         </text>
 
@@ -316,14 +316,14 @@
             <en><![CDATA[Multiply the base payment: 1x, 2x, 5x, or 10x]]></en>
             <de><![CDATA[Basisbetrag multiplizieren: 1x, 2x, 5x oder 10x]]></de>
             <fr><![CDATA[Multiplier le paiement de base : 1x, 2x, 5x ou 10x]]></fr>
-            <pl><![CDATA[PomnÃ³Å¼ podstawowÄ… pÅ‚atnoÅ›Ä‡: 1x, 2x, 5x lub 10x]]></pl>
+            <pl><![CDATA[Pomn├â┬│├à┬╝ podstawow├äÔÇª p├àÔÇÜatno├àÔÇ║├äÔÇí: 1x, 2x, 5x lub 10x]]></pl>
             <es><![CDATA[Multiplicar el pago base: 1x, 2x, 5x o 10x]]></es>
             <it><![CDATA[Moltiplica il pagamento base: 1x, 2x, 5x o 10x]]></it>
-            <cz><![CDATA[ZnÃ¡sobit zÃ¡kladnÃ­ platbu: 1x, 2x, 5x nebo 10x]]></cz>
+            <cz><![CDATA[Zn├â┬ísobit z├â┬íkladn├â┬¡ platbu: 1x, 2x, 5x nebo 10x]]></cz>
             <br><![CDATA[Multiplicar o pagamento base: 1x, 2x, 5x ou 10x]]></br>
-            <uk><![CDATA[ÐŸÐ¾Ð¼Ð½Ð¾Ð¶Ð¸Ñ‚Ð¸ Ð±Ð°Ð·Ð¾Ð²Ñƒ Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ñƒ: 1x, 2x, 5x Ð°Ð±Ð¾ 10x]]></uk>
-            <ru><![CDATA[Ð£Ð¼Ð½Ð¾Ð¶Ð¸Ñ‚ÑŒ Ð±Ð°Ð·Ð¾Ð²ÑƒÑŽ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñƒ: 1x, 2x, 5x Ð¸Ð»Ð¸ 10x]]></ru>
-            <da><![CDATA[MultiplikÃ©r basishonoraret: 1x, 2x, 5x eller 10x]]></da>
+            <uk><![CDATA[├É┼©├É┬¥├É┬╝├É┬¢├É┬¥├É┬Â├É┬©├æÔÇÜ├É┬© ├É┬▒├É┬░├É┬À├É┬¥├É┬▓├æãÆ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ: 1x, 2x, 5x ├É┬░├É┬▒├É┬¥ 10x]]></uk>
+            <ru><![CDATA[├É┬ú├É┬╝├É┬¢├É┬¥├É┬Â├É┬©├æÔÇÜ├æ┼Æ ├É┬▒├É┬░├É┬À├É┬¥├É┬▓├æãÆ├æ┼¢ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ: 1x, 2x, 5x ├É┬©├É┬╗├É┬© 10x]]></ru>
+            <da><![CDATA[Multiplik├â┬®r basishonoraret: 1x, 2x, 5x eller 10x]]></da>
         </text>
 
         <text name="im_mult_1">
@@ -333,10 +333,10 @@
             <pl><![CDATA[1x (Normalny)]]></pl>
             <es><![CDATA[1x (Normal)]]></es>
             <it><![CDATA[1x (Normale)]]></it>
-            <cz><![CDATA[1x (NormÃ¡lnÃ­)]]></cz>
+            <cz><![CDATA[1x (Norm├â┬íln├â┬¡)]]></cz>
             <br><![CDATA[1x (Normal)]]></br>
-            <uk><![CDATA[1x (ÐÐ¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¾)]]></uk>
-            <ru><![CDATA[1x (ÐžÐ±Ñ‹Ñ‡Ð½Ð¾)]]></ru>
+            <uk><![CDATA[1x (├É┬Ø├É┬¥├æÔé¼├É┬╝├É┬░├É┬╗├æ┼Æ├É┬¢├É┬¥)]]></uk>
+            <ru><![CDATA[1x (├É┼¥├É┬▒├æÔÇ╣├æÔÇí├É┬¢├É┬¥)]]></ru>
             <da><![CDATA[1x (Normal)]]></da>
         </text>
 
@@ -390,25 +390,25 @@
             <pl><![CDATA[Efekty sezonowe]]></pl>
             <es><![CDATA[Efectos estacionales]]></es>
             <it><![CDATA[Effetti stagionali]]></it>
-            <cz><![CDATA[SezÃ³nnÃ­ efekty]]></cz>
+            <cz><![CDATA[Sez├â┬│nn├â┬¡ efekty]]></cz>
             <br><![CDATA[Efeitos sazonais]]></br>
-            <uk><![CDATA[Ð¡ÐµÐ·Ð¾Ð½Ð½Ñ– ÐµÑ„ÐµÐºÑ‚Ð¸]]></uk>
-            <ru><![CDATA[Ð¡ÐµÐ·Ð¾Ð½Ð½Ñ‹Ðµ ÑÑ„Ñ„ÐµÐºÑ‚Ñ‹]]></ru>
-            <da><![CDATA[sÃ¦sonale effekter]]></da>
+            <uk><![CDATA[├É┬í├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├æÔÇô ├É┬Á├æÔÇ×├É┬Á├É┬║├æÔÇÜ├É┬©]]></uk>
+            <ru><![CDATA[├É┬í├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├æÔÇ╣├É┬Á ├æ┬ì├æÔÇ×├æÔÇ×├É┬Á├É┬║├æÔÇÜ├æÔÇ╣]]></ru>
+            <da><![CDATA[s├â┬ªsonale effekter]]></da>
         </text>
 
         <text name="im_seasonal_long">
             <en><![CDATA[Income varies by season: Spring 0.8x, Summer 1.0x, Autumn 1.2x, Winter 0.7x]]></en>
-            <de><![CDATA[Einkommen variiert je nach Jahreszeit: FrÃ¼hling 0,8x, Sommer 1,0x, Herbst 1,2x, Winter 0,7x]]></de>
-            <fr><![CDATA[Le revenu varie selon la saison : Printemps 0,8x, Ã‰tÃ© 1,0x, Automne 1,2x, Hiver 0,7x]]></fr>
-            <pl><![CDATA[DochÃ³d zmienia siÄ™ w zaleÅ¼noÅ›ci od sezonu: Wiosna 0,8x, Lato 1,0x, JesieÅ„ 1,2x, Zima 0,7x]]></pl>
-            <es><![CDATA[Los ingresos varÃ­an por temporada: Primavera 0,8x, Verano 1,0x, OtoÃ±o 1,2x, Invierno 0,7x]]></es>
+            <de><![CDATA[Einkommen variiert je nach Jahreszeit: Fr├â┬╝hling 0,8x, Sommer 1,0x, Herbst 1,2x, Winter 0,7x]]></de>
+            <fr><![CDATA[Le revenu varie selon la saison : Printemps 0,8x, ├âÔÇ░t├â┬® 1,0x, Automne 1,2x, Hiver 0,7x]]></fr>
+            <pl><![CDATA[Doch├â┬│d zmienia si├äÔäó w zale├à┬╝no├àÔÇ║ci od sezonu: Wiosna 0,8x, Lato 1,0x, Jesie├àÔÇ× 1,2x, Zima 0,7x]]></pl>
+            <es><![CDATA[Los ingresos var├â┬¡an por temporada: Primavera 0,8x, Verano 1,0x, Oto├â┬▒o 1,2x, Invierno 0,7x]]></es>
             <it><![CDATA[Il reddito varia per stagione: Primavera 0,8x, Estate 1,0x, Autunno 1,2x, Inverno 0,7x]]></it>
-            <cz><![CDATA[PÅ™Ã­jem se mÄ›nÃ­ podle roÄnÃ­ho obdobÃ­: Jaro 0,8x, LÃ©to 1,0x, Podzim 1,2x, Zima 0,7x]]></cz>
-            <br><![CDATA[A renda varia por estaÃ§Ã£o: Primavera 0,8x, VerÃ£o 1,0x, Outono 1,2x, Inverno 0,7x]]></br>
-            <uk><![CDATA[Ð”Ð¾Ñ…Ñ–Ð´ Ð·Ð¼Ñ–Ð½ÑŽÑ”Ñ‚ÑŒÑÑ Ð·Ð° ÑÐµÐ·Ð¾Ð½Ð¾Ð¼: Ð’ÐµÑÐ½Ð° 0,8x, Ð›Ñ–Ñ‚Ð¾ 1,0x, ÐžÑÑ–Ð½ÑŒ 1,2x, Ð—Ð¸Ð¼Ð° 0,7x]]></uk>
-            <ru><![CDATA[Ð”Ð¾Ñ…Ð¾Ð´ Ð¼ÐµÐ½ÑÐµÑ‚ÑÑ Ð¿Ð¾ ÑÐµÐ·Ð¾Ð½Ð°Ð¼: Ð’ÐµÑÐ½Ð° 0,8x, Ð›ÐµÑ‚Ð¾ 1,0x, ÐžÑÐµÐ½ÑŒ 1,2x, Ð—Ð¸Ð¼Ð° 0,7x]]></ru>
-            <da><![CDATA[Inkomst varierer efter sÃ¦son: ForÃ¥r 0,8x, Sommer 1,0x, EfterÃ¥r 1,2x, Vinter 0,7x]]></da>
+            <cz><![CDATA[P├àÔäó├â┬¡jem se m├äÔÇ║n├â┬¡ podle ro├ä┬ìn├â┬¡ho obdob├â┬¡: Jaro 0,8x, L├â┬®to 1,0x, Podzim 1,2x, Zima 0,7x]]></cz>
+            <br><![CDATA[A renda varia por esta├â┬º├â┬úo: Primavera 0,8x, Ver├â┬úo 1,0x, Outono 1,2x, Inverno 0,7x]]></br>
+            <uk><![CDATA[├ÉÔÇØ├É┬¥├æÔÇª├æÔÇô├É┬┤ ├É┬À├É┬╝├æÔÇô├É┬¢├æ┼¢├æÔÇØ├æÔÇÜ├æ┼Æ├æ┬ü├æ┬Å ├É┬À├É┬░ ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├É┬¥├É┬╝: ├ÉÔÇÖ├É┬Á├æ┬ü├É┬¢├É┬░ 0,8x, ├ÉÔÇ║├æÔÇô├æÔÇÜ├É┬¥ 1,0x, ├É┼¥├æ┬ü├æÔÇô├É┬¢├æ┼Æ 1,2x, ├ÉÔÇö├É┬©├É┬╝├É┬░ 0,7x]]></uk>
+            <ru><![CDATA[├ÉÔÇØ├É┬¥├æÔÇª├É┬¥├É┬┤ ├É┬╝├É┬Á├É┬¢├æ┬Å├É┬Á├æÔÇÜ├æ┬ü├æ┬Å ├É┬┐├É┬¥ ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├É┬░├É┬╝: ├ÉÔÇÖ├É┬Á├æ┬ü├É┬¢├É┬░ 0,8x, ├ÉÔÇ║├É┬Á├æÔÇÜ├É┬¥ 1,0x, ├É┼¥├æ┬ü├É┬Á├É┬¢├æ┼Æ 1,2x, ├ÉÔÇö├É┬©├É┬╝├É┬░ 0,7x]]></ru>
+            <da><![CDATA[Inkomst varierer efter s├â┬ªson: For├â┬Ñr 0,8x, Sommer 1,0x, Efter├â┬Ñr 1,2x, Vinter 0,7x]]></da>
         </text>
 
         <!-- Show HUD -->
@@ -416,13 +416,13 @@
             <en><![CDATA[Show Income HUD]]></en>
             <de><![CDATA[Einkommens-HUD anzeigen]]></de>
             <fr><![CDATA[Afficher l'HUD de revenu]]></fr>
-            <pl><![CDATA[PokaÅ¼ HUD dochodu]]></pl>
+            <pl><![CDATA[Poka├à┬╝ HUD dochodu]]></pl>
             <es><![CDATA[Mostrar HUD de ingresos]]></es>
             <it><![CDATA[Mostra HUD reddito]]></it>
-            <cz><![CDATA[Zobrazit HUD pÅ™Ã­jmÅ¯]]></cz>
+            <cz><![CDATA[Zobrazit HUD p├àÔäó├â┬¡jm├à┬»]]></cz>
             <br><![CDATA[Mostrar HUD de renda]]></br>
-            <uk><![CDATA[ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚Ð¸ HUD Ð´Ð¾Ñ…Ð¾Ð´Ñƒ]]></uk>
-            <ru><![CDATA[ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ HUD Ð´Ð¾Ñ…Ð¾Ð´Ð°]]></ru>
+            <uk><![CDATA[├É┼©├É┬¥├É┬║├É┬░├É┬À├É┬░├æÔÇÜ├É┬© HUD ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ]]></uk>
+            <ru><![CDATA[├É┼©├É┬¥├É┬║├É┬░├É┬À├É┬░├æÔÇÜ├æ┼Æ HUD ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░]]></ru>
             <da><![CDATA[Vis inkomst-HUD]]></da>
         </text>
 
@@ -430,14 +430,14 @@
             <en><![CDATA[Show the income HUD overlay with current income, payment method, and history (toggle with I key)]]></en>
             <de><![CDATA[Einkommens-HUD mit Einkommen, Zahlungsart und Verlauf anzeigen (mit Taste I umschalten)]]></de>
             <fr><![CDATA[Afficher l'HUD avec les revenus actuels, le mode de paiement et l'historique (touche I)]]></fr>
-            <pl><![CDATA[PokaÅ¼ nakÅ‚adkÄ™ HUD z bieÅ¼Ä…cym dochodem, trybem pÅ‚atnoÅ›ci i historiÄ… (klawisz I)]]></pl>
-            <es><![CDATA[Mostrar HUD con ingresos actuales, mÃ©todo de pago e historial (tecla I)]]></es>
+            <pl><![CDATA[Poka├à┬╝ nak├àÔÇÜadk├äÔäó HUD z bie├à┬╝├äÔÇªcym dochodem, trybem p├àÔÇÜatno├àÔÇ║ci i histori├äÔÇª (klawisz I)]]></pl>
+            <es><![CDATA[Mostrar HUD con ingresos actuales, m├â┬®todo de pago e historial (tecla I)]]></es>
             <it><![CDATA[Mostra l'HUD con reddito corrente, metodo di pagamento e cronologia (tasto I)]]></it>
-            <cz><![CDATA[Zobrazit HUD s aktuÃ¡lnÃ­mi pÅ™Ã­jmy, zpÅ¯sobem platby a historiÃ­ (klÃ¡vesa I)]]></cz>
-            <br><![CDATA[Mostrar HUD com renda atual, mÃ©todo de pagamento e histÃ³rico (tecla I)]]></br>
-            <da><![CDATA[Vis inkomst-HUD med nuvÃ¦rende inkomst, betalingsmetode og historik (skift med tasten I)]]></da>
-            <uk><![CDATA[ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚Ð¸ HUD Ð· Ð¿Ð¾Ñ‚Ð¾Ñ‡Ð½Ð¸Ð¼ Ð´Ð¾Ñ…Ð¾Ð´Ð¾Ð¼, Ð¼ÐµÑ‚Ð¾Ð´Ð¾Ð¼ Ð¾Ð¿Ð»Ð°Ñ‚Ð¸ Ñ‚Ð° Ñ–ÑÑ‚Ð¾Ñ€Ñ–Ñ”ÑŽ (ÐºÐ»Ð°Ð²Ñ–ÑˆÐ° I)]]></uk>
-            <ru><![CDATA[ÐŸÐ¾ÐºÐ°Ð·Ð°Ñ‚ÑŒ HUD Ñ Ñ‚ÐµÐºÑƒÑ‰Ð¸Ð¼ Ð´Ð¾Ñ…Ð¾Ð´Ð¾Ð¼, ÑÐ¿Ð¾ÑÐ¾Ð±Ð¾Ð¼ Ð¾Ð¿Ð»Ð°Ñ‚Ñ‹ Ð¸ Ð¸ÑÑ‚Ð¾Ñ€Ð¸ÐµÐ¹ (ÐºÐ»Ð°Ð²Ð¸ÑˆÐ° I)]]></ru>
+            <cz><![CDATA[Zobrazit HUD s aktu├â┬íln├â┬¡mi p├àÔäó├â┬¡jmy, zp├à┬»sobem platby a histori├â┬¡ (kl├â┬ívesa I)]]></cz>
+            <br><![CDATA[Mostrar HUD com renda atual, m├â┬®todo de pagamento e hist├â┬│rico (tecla I)]]></br>
+            <da><![CDATA[Vis inkomst-HUD med nuv├â┬ªrende inkomst, betalingsmetode og historik (skift med tasten I)]]></da>
+            <uk><![CDATA[├É┼©├É┬¥├É┬║├É┬░├É┬À├É┬░├æÔÇÜ├É┬© HUD ├É┬À ├É┬┐├É┬¥├æÔÇÜ├É┬¥├æÔÇí├É┬¢├É┬©├É┬╝ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬¥├É┬╝, ├É┬╝├É┬Á├æÔÇÜ├É┬¥├É┬┤├É┬¥├É┬╝ ├É┬¥├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬© ├æÔÇÜ├É┬░ ├æÔÇô├æ┬ü├æÔÇÜ├É┬¥├æÔé¼├æÔÇô├æÔÇØ├æ┼¢ (├É┬║├É┬╗├É┬░├É┬▓├æÔÇô├æ╦å├É┬░ I)]]></uk>
+            <ru><![CDATA[├É┼©├É┬¥├É┬║├É┬░├É┬À├É┬░├æÔÇÜ├æ┼Æ HUD ├æ┬ü ├æÔÇÜ├É┬Á├É┬║├æãÆ├æÔÇ░├É┬©├É┬╝ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬¥├É┬╝, ├æ┬ü├É┬┐├É┬¥├æ┬ü├É┬¥├É┬▒├É┬¥├É┬╝ ├É┬¥├É┬┐├É┬╗├É┬░├æÔÇÜ├æÔÇ╣ ├É┬© ├É┬©├æ┬ü├æÔÇÜ├É┬¥├æÔé¼├É┬©├É┬Á├É┬╣ (├É┬║├É┬╗├É┬░├É┬▓├É┬©├æ╦å├É┬░ I)]]></ru>
         </text>
 
         <!-- HUD toggle key binding display name -->
@@ -445,29 +445,29 @@
             <en><![CDATA[Toggle Income HUD]]></en>
             <de><![CDATA[Einkommens-HUD umschalten]]></de>
             <fr><![CDATA[Basculer l'HUD de revenu]]></fr>
-            <pl><![CDATA[PrzeÅ‚Ä…cz HUD dochodu]]></pl>
+            <pl><![CDATA[Prze├àÔÇÜ├äÔÇªcz HUD dochodu]]></pl>
             <es><![CDATA[Alternar HUD de ingresos]]></es>
             <it><![CDATA[Attiva/disattiva HUD reddito]]></it>
-            <cz><![CDATA[PÅ™epnout HUD pÅ™Ã­jmÅ¯]]></cz>
+            <cz><![CDATA[P├àÔäóepnout HUD p├àÔäó├â┬¡jm├à┬»]]></cz>
             <br><![CDATA[Alternar HUD de renda]]></br>
-            <uk><![CDATA[ÐŸÐµÑ€ÐµÐ¼ÐºÐ½ÑƒÑ‚Ð¸ HUD Ð´Ð¾Ñ…Ð¾Ð´Ñƒ]]></uk>
-            <ru><![CDATA[ÐŸÐµÑ€ÐµÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ HUD Ð´Ð¾Ñ…Ð¾Ð´Ð°]]></ru>
+            <uk><![CDATA[├É┼©├É┬Á├æÔé¼├É┬Á├É┬╝├É┬║├É┬¢├æãÆ├æÔÇÜ├É┬© HUD ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ]]></uk>
+            <ru><![CDATA[├É┼©├É┬Á├æÔé¼├É┬Á├É┬║├É┬╗├æ┼¢├æÔÇí├É┬©├æÔÇÜ├æ┼Æ HUD ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░]]></ru>
             <da><![CDATA[Skift inkomst-HUD]]></da>
         </text>
 
         <!-- Income Report Dialog: key binding display name -->
         <text name="input_IM_INCOME_REPORT">
             <en><![CDATA[Open Income Report]]></en>
-            <de><![CDATA[Einkommensbericht Ã¶ffnen]]></de>
+            <de><![CDATA[Einkommensbericht ├â┬Âffnen]]></de>
             <fr><![CDATA[Ouvrir le rapport de revenu]]></fr>
-            <pl><![CDATA[OtwÃ³rz raport dochodu]]></pl>
+            <pl><![CDATA[Otw├â┬│rz raport dochodu]]></pl>
             <es><![CDATA[Abrir informe de ingresos]]></es>
             <it><![CDATA[Apri rapporto reddito]]></it>
-            <cz><![CDATA[OtevÅ™Ã­t pÅ™ehled pÅ™Ã­jmÅ¯]]></cz>
-            <br><![CDATA[Abrir relatÃ³rio de renda]]></br>
-            <uk><![CDATA[Ð’Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð·Ð²Ñ–Ñ‚ Ð¿Ñ€Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ð¸]]></uk>
-            <ru><![CDATA[ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¾Ñ‚Ñ‡Ñ‘Ñ‚ Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ð°Ñ…]]></ru>
-            <da><![CDATA[Ã…bn inkomstrapport]]></da>
+            <cz><![CDATA[Otev├àÔäó├â┬¡t p├àÔäóehled p├àÔäó├â┬¡jm├à┬»]]></cz>
+            <br><![CDATA[Abrir relat├â┬│rio de renda]]></br>
+            <uk><![CDATA[├ÉÔÇÖ├æÔÇô├É┬┤├É┬║├æÔé¼├É┬©├æÔÇÜ├É┬© ├É┬À├É┬▓├æÔÇô├æÔÇÜ ├É┬┐├æÔé¼├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬©]]></uk>
+            <ru><![CDATA[├É┼¥├æÔÇÜ├É┬║├æÔé¼├æÔÇ╣├æÔÇÜ├æ┼Æ ├É┬¥├æÔÇÜ├æÔÇí├æÔÇÿ├æÔÇÜ ├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░├æÔÇª]]></ru>
+            <da><![CDATA[├âÔÇªbn inkomstrapport]]></da>
         </text>
 
         <!-- Income Report Dialog: dialog title -->
@@ -478,10 +478,10 @@
             <pl><![CDATA[Raport dochodu]]></pl>
             <es><![CDATA[Informe de ingresos]]></es>
             <it><![CDATA[Rapporto reddito]]></it>
-            <cz><![CDATA[PÅ™ehled pÅ™Ã­jmÅ¯]]></cz>
-            <br><![CDATA[RelatÃ³rio de renda]]></br>
-            <uk><![CDATA[Ð—Ð²Ñ–Ñ‚ Ð¿Ñ€Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ð¸]]></uk>
-            <ru><![CDATA[ÐžÑ‚Ñ‡Ñ‘Ñ‚ Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ð°Ñ…]]></ru>
+            <cz><![CDATA[P├àÔäóehled p├àÔäó├â┬¡jm├à┬»]]></cz>
+            <br><![CDATA[Relat├â┬│rio de renda]]></br>
+            <uk><![CDATA[├ÉÔÇö├É┬▓├æÔÇô├æÔÇÜ ├É┬┐├æÔé¼├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬©]]></uk>
+            <ru><![CDATA[├É┼¥├æÔÇÜ├æÔÇí├æÔÇÿ├æÔÇÜ ├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░├æÔÇª]]></ru>
             <da><![CDATA[Inkomstrapport]]></da>
         </text>
 
@@ -495,8 +495,8 @@
             <it><![CDATA[Stato]]></it>
             <cz><![CDATA[Stav]]></cz>
             <br><![CDATA[Status]]></br>
-            <uk><![CDATA[Ð¡Ñ‚Ð°Ð½]]></uk>
-            <ru><![CDATA[Ð¡Ñ‚Ð°Ñ‚ÑƒÑ]]></ru>
+            <uk><![CDATA[├É┬í├æÔÇÜ├É┬░├É┬¢]]></uk>
+            <ru><![CDATA[├É┬í├æÔÇÜ├É┬░├æÔÇÜ├æãÆ├æ┬ü]]></ru>
             <da><![CDATA[Status]]></da>
         </text>
 
@@ -506,39 +506,39 @@
             <fr><![CDATA[Mode]]></fr>
             <pl><![CDATA[Tryb]]></pl>
             <es><![CDATA[Modo]]></es>
-            <it><![CDATA[ModalitÃ ]]></it>
-            <cz><![CDATA[ReÅ¾im]]></cz>
+            <it><![CDATA[Modalit├â┬á]]></it>
+            <cz><![CDATA[Re├à┬¥im]]></cz>
             <br><![CDATA[Modo]]></br>
-            <uk><![CDATA[Ð ÐµÐ¶Ð¸Ð¼]]></uk>
-            <ru><![CDATA[Ð ÐµÐ¶Ð¸Ð¼]]></ru>
+            <uk><![CDATA[├É┬á├É┬Á├É┬Â├É┬©├É┬╝]]></uk>
+            <ru><![CDATA[├É┬á├É┬Á├É┬Â├É┬©├É┬╝]]></ru>
             <da><![CDATA[Modus]]></da>
         </text>
 
         <text name="im_report_difficulty_label">
             <en><![CDATA[Difficulty]]></en>
             <de><![CDATA[Schwierigkeit]]></de>
-            <fr><![CDATA[DifficultÃ©]]></fr>
-            <pl><![CDATA[TrudnoÅ›Ä‡]]></pl>
+            <fr><![CDATA[Difficult├â┬®]]></fr>
+            <pl><![CDATA[Trudno├àÔÇ║├äÔÇí]]></pl>
             <es><![CDATA[Dificultad]]></es>
-            <it><![CDATA[DifficoltÃ ]]></it>
-            <cz><![CDATA[ObtÃ­Å¾nost]]></cz>
+            <it><![CDATA[Difficolt├â┬á]]></it>
+            <cz><![CDATA[Obt├â┬¡├à┬¥nost]]></cz>
             <br><![CDATA[Dificuldade]]></br>
-            <uk><![CDATA[Ð¡ÐºÐ»Ð°Ð´Ð½Ñ–ÑÑ‚ÑŒ]]></uk>
-            <ru><![CDATA[Ð¡Ð»Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒ]]></ru>
-            <da><![CDATA[SvÃ¦rhedsgrÃ¦d]]></da>
+            <uk><![CDATA[├É┬í├É┬║├É┬╗├É┬░├É┬┤├É┬¢├æÔÇô├æ┬ü├æÔÇÜ├æ┼Æ]]></uk>
+            <ru><![CDATA[├É┬í├É┬╗├É┬¥├É┬Â├É┬¢├É┬¥├æ┬ü├æÔÇÜ├æ┼Æ]]></ru>
+            <da><![CDATA[Sv├â┬ªrhedsgr├â┬ªd]]></da>
         </text>
 
         <text name="im_report_amount_label">
             <en><![CDATA[Payment]]></en>
             <de><![CDATA[Zahlung]]></de>
             <fr><![CDATA[Paiement]]></fr>
-            <pl><![CDATA[PÅ‚atnoÅ›Ä‡]]></pl>
+            <pl><![CDATA[P├àÔÇÜatno├àÔÇ║├äÔÇí]]></pl>
             <es><![CDATA[Pago]]></es>
             <it><![CDATA[Pagamento]]></it>
             <cz><![CDATA[Platba]]></cz>
             <br><![CDATA[Pagamento]]></br>
-            <uk><![CDATA[Ð’Ð¸Ð¿Ð»Ð°Ñ‚Ð°]]></uk>
-            <ru><![CDATA[Ð’Ñ‹Ð¿Ð»Ð°Ñ‚Ð°]]></ru>
+            <uk><![CDATA[├ÉÔÇÖ├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬░]]></uk>
+            <ru><![CDATA[├ÉÔÇÖ├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬░]]></ru>
             <da><![CDATA[Betaling]]></da>
         </text>
 
@@ -546,13 +546,13 @@
             <en><![CDATA[Multiplier]]></en>
             <de><![CDATA[Multiplikator]]></de>
             <fr><![CDATA[Multiplicateur]]></fr>
-            <pl><![CDATA[MnoÅ¼nik]]></pl>
+            <pl><![CDATA[Mno├à┬╝nik]]></pl>
             <es><![CDATA[Multiplicador]]></es>
             <it><![CDATA[Moltiplicatore]]></it>
-            <cz><![CDATA[MultiplikÃ¡tor]]></cz>
+            <cz><![CDATA[Multiplik├â┬ítor]]></cz>
             <br><![CDATA[Multiplicador]]></br>
-            <uk><![CDATA[ÐœÐ½Ð¾Ð¶Ð½Ð¸Ðº]]></uk>
-            <ru><![CDATA[ÐœÐ½Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒ]]></ru>
+            <uk><![CDATA[├É┼ô├É┬¢├É┬¥├É┬Â├É┬¢├É┬©├É┬║]]></uk>
+            <ru><![CDATA[├É┼ô├É┬¢├É┬¥├É┬Â├É┬©├æÔÇÜ├É┬Á├É┬╗├æ┼Æ]]></ru>
             <da><![CDATA[Multiplikator]]></da>
         </text>
 
@@ -563,54 +563,54 @@
             <pl><![CDATA[Sezonowe]]></pl>
             <es><![CDATA[Estacional]]></es>
             <it><![CDATA[Stagionale]]></it>
-            <cz><![CDATA[SezÃ³nnÃ­]]></cz>
+            <cz><![CDATA[Sez├â┬│nn├â┬¡]]></cz>
             <br><![CDATA[Sazonal]]></br>
-            <uk><![CDATA[Ð¡ÐµÐ·Ð¾Ð½Ð½Ðµ]]></uk>
-            <ru><![CDATA[Ð¡ÐµÐ·Ð¾Ð½Ð½Ð¾Ðµ]]></ru>
-            <da><![CDATA[SÃ¦sonal]]></da>
+            <uk><![CDATA[├É┬í├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├É┬Á]]></uk>
+            <ru><![CDATA[├É┬í├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├É┬¥├É┬Á]]></ru>
+            <da><![CDATA[S├â┬ªsonal]]></da>
         </text>
 
         <!-- Income Report Dialog: stats labels -->
         <text name="im_report_total_label">
             <en><![CDATA[Total Earned]]></en>
             <de><![CDATA[Gesamtverdienst]]></de>
-            <fr><![CDATA[Total gagnÃ©]]></fr>
-            <pl><![CDATA[ÅÄ…cznie zarobiono]]></pl>
+            <fr><![CDATA[Total gagn├â┬®]]></fr>
+            <pl><![CDATA[├à┬ü├äÔÇªcznie zarobiono]]></pl>
             <es><![CDATA[Total ganado]]></es>
             <it><![CDATA[Totale guadagnato]]></it>
-            <cz><![CDATA[Celkem vydÄ›lÃ¡no]]></cz>
+            <cz><![CDATA[Celkem vyd├äÔÇ║l├â┬íno]]></cz>
             <br><![CDATA[Total ganho]]></br>
-            <uk><![CDATA[Ð’ÑÑŒÐ¾Ð³Ð¾ Ð·Ð°Ñ€Ð¾Ð±Ð»ÐµÐ½Ð¾]]></uk>
-            <ru><![CDATA[Ð’ÑÐµÐ³Ð¾ Ð·Ð°Ñ€Ð°Ð±Ð¾Ñ‚Ð°Ð½Ð¾]]></ru>
+            <uk><![CDATA[├ÉÔÇÖ├æ┬ü├æ┼Æ├É┬¥├É┬│├É┬¥ ├É┬À├É┬░├æÔé¼├É┬¥├É┬▒├É┬╗├É┬Á├É┬¢├É┬¥]]></uk>
+            <ru><![CDATA[├ÉÔÇÖ├æ┬ü├É┬Á├É┬│├É┬¥ ├É┬À├É┬░├æÔé¼├É┬░├É┬▒├É┬¥├æÔÇÜ├É┬░├É┬¢├É┬¥]]></ru>
             <da><![CDATA[Totalt tjent]]></da>
         </text>
 
         <text name="im_report_avg_label">
             <en><![CDATA[Avg/Payment]]></en>
-            <de><![CDATA[Ã˜/Zahlung]]></de>
+            <de><![CDATA[├â╦£/Zahlung]]></de>
             <fr><![CDATA[Moy./Paiement]]></fr>
-            <pl><![CDATA[Åšred./PÅ‚atnoÅ›Ä‡]]></pl>
+            <pl><![CDATA[├à┼íred./P├àÔÇÜatno├àÔÇ║├äÔÇí]]></pl>
             <es><![CDATA[Prom./Pago]]></es>
             <it><![CDATA[Media/Pag.]]></it>
-            <cz><![CDATA[PrÅ¯mÄ›r/Platba]]></cz>
-            <br><![CDATA[MÃ©dia/Pagto]]></br>
-            <uk><![CDATA[Ð¡ÐµÑ€ÐµÐ´./Ð’Ð¸Ð¿Ð»Ð°Ñ‚Ð°]]></uk>
-            <ru><![CDATA[Ð¡Ñ€./Ð’Ñ‹Ð¿Ð»Ð°Ñ‚Ð°]]></ru>
+            <cz><![CDATA[Pr├à┬»m├äÔÇ║r/Platba]]></cz>
+            <br><![CDATA[M├â┬®dia/Pagto]]></br>
+            <uk><![CDATA[├É┬í├É┬Á├æÔé¼├É┬Á├É┬┤./├ÉÔÇÖ├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬░]]></uk>
+            <ru><![CDATA[├É┬í├æÔé¼./├ÉÔÇÖ├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬░]]></ru>
             <da><![CDATA[Gennemsnitligt tjent]]></da>
         </text>
 
         <text name="im_report_next_label">
             <en><![CDATA[Next Payment]]></en>
-            <de><![CDATA[NÃ¤chste Zahlung]]></de>
+            <de><![CDATA[N├â┬ñchste Zahlung]]></de>
             <fr><![CDATA[Prochain paiement]]></fr>
-            <pl><![CDATA[NastÄ™pna pÅ‚atnoÅ›Ä‡]]></pl>
-            <es><![CDATA[PrÃ³ximo pago]]></es>
+            <pl><![CDATA[Nast├äÔäópna p├àÔÇÜatno├àÔÇ║├äÔÇí]]></pl>
+            <es><![CDATA[Pr├â┬│ximo pago]]></es>
             <it><![CDATA[Prossimo pagamento]]></it>
-            <cz><![CDATA[PÅ™Ã­Å¡tÃ­ platba]]></cz>
-            <br><![CDATA[PrÃ³ximo pagamento]]></br>
-            <uk><![CDATA[ÐÐ°ÑÑ‚ÑƒÐ¿Ð½Ð° Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ð°]]></uk>
-            <ru><![CDATA[Ð¡Ð»ÐµÐ´ÑƒÑŽÑ‰Ð°Ñ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ð°]]></ru>
-            <da><![CDATA[NÃ¦ste betaling]]></da>
+            <cz><![CDATA[P├àÔäó├â┬¡├à┬ít├â┬¡ platba]]></cz>
+            <br><![CDATA[Pr├â┬│ximo pagamento]]></br>
+            <uk><![CDATA[├É┬Ø├É┬░├æ┬ü├æÔÇÜ├æãÆ├É┬┐├É┬¢├É┬░ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬░]]></uk>
+            <ru><![CDATA[├É┬í├É┬╗├É┬Á├É┬┤├æãÆ├æ┼¢├æÔÇ░├É┬░├æ┬Å ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬░]]></ru>
+            <da><![CDATA[N├â┬ªste betaling]]></da>
         </text>
 
         <!-- Income Report Dialog: table column headers -->
@@ -618,13 +618,13 @@
             <en><![CDATA[Day]]></en>
             <de><![CDATA[Tag]]></de>
             <fr><![CDATA[Jour]]></fr>
-            <pl><![CDATA[DzieÅ„]]></pl>
-            <es><![CDATA[DÃ­a]]></es>
+            <pl><![CDATA[Dzie├àÔÇ×]]></pl>
+            <es><![CDATA[D├â┬¡a]]></es>
             <it><![CDATA[Giorno]]></it>
             <cz><![CDATA[Den]]></cz>
             <br><![CDATA[Dia]]></br>
-            <uk><![CDATA[Ð”ÐµÐ½ÑŒ]]></uk>
-            <ru><![CDATA[Ð”ÐµÐ½ÑŒ]]></ru>
+            <uk><![CDATA[├ÉÔÇØ├É┬Á├É┬¢├æ┼Æ]]></uk>
+            <ru><![CDATA[├ÉÔÇØ├É┬Á├É┬¢├æ┼Æ]]></ru>
             <da><![CDATA[Dag]]></da>
         </text>
 
@@ -635,10 +635,10 @@
             <pl><![CDATA[Godzina]]></pl>
             <es><![CDATA[Hora]]></es>
             <it><![CDATA[Ora]]></it>
-            <cz><![CDATA[ÄŒas]]></cz>
+            <cz><![CDATA[├ä┼Æas]]></cz>
             <br><![CDATA[Hora]]></br>
-            <uk><![CDATA[Ð§Ð°Ñ]]></uk>
-            <ru><![CDATA[Ð’Ñ€ÐµÐ¼Ñ]]></ru>
+            <uk><![CDATA[├É┬º├É┬░├æ┬ü]]></uk>
+            <ru><![CDATA[├ÉÔÇÖ├æÔé¼├É┬Á├É┬╝├æ┬Å]]></ru>
             <da><![CDATA[Tid]]></da>
         </text>
 
@@ -651,8 +651,8 @@
             <it><![CDATA[Tipo]]></it>
             <cz><![CDATA[Typ]]></cz>
             <br><![CDATA[Tipo]]></br>
-            <uk><![CDATA[Ð¢Ð¸Ð¿]]></uk>
-            <ru><![CDATA[Ð¢Ð¸Ð¿]]></ru>
+            <uk><![CDATA[├É┬ó├É┬©├É┬┐]]></uk>
+            <ru><![CDATA[├É┬ó├É┬©├É┬┐]]></ru>
             <da><![CDATA[Type]]></da>
         </text>
 
@@ -663,11 +663,11 @@
             <pl><![CDATA[Kwota]]></pl>
             <es><![CDATA[Monto]]></es>
             <it><![CDATA[Importo]]></it>
-            <cz><![CDATA[ÄŒÃ¡stka]]></cz>
+            <cz><![CDATA[├ä┼Æ├â┬ístka]]></cz>
             <br><![CDATA[Valor]]></br>
-            <uk><![CDATA[Ð¡ÑƒÐ¼Ð°]]></uk>
-            <ru><![CDATA[Ð¡ÑƒÐ¼Ð¼Ð°]]></ru>
-            <da><![CDATA[BelÃ¸b]]></da>
+            <uk><![CDATA[├É┬í├æãÆ├É┬╝├É┬░]]></uk>
+            <ru><![CDATA[├É┬í├æãÆ├É┬╝├É┬╝├É┬░]]></ru>
+            <da><![CDATA[Bel├â┬©b]]></da>
         </text>
 
         <text name="im_report_col_seasonal">
@@ -677,141 +677,141 @@
             <pl><![CDATA[Sezonowe]]></pl>
             <es><![CDATA[Estacional]]></es>
             <it><![CDATA[Stagionale]]></it>
-            <cz><![CDATA[SezÃ³nnÃ­]]></cz>
+            <cz><![CDATA[Sez├â┬│nn├â┬¡]]></cz>
             <br><![CDATA[Sazonal]]></br>
-            <uk><![CDATA[Ð¡ÐµÐ·Ð¾Ð½Ð½Ðµ]]></uk>
-            <ru><![CDATA[Ð¡ÐµÐ·Ð¾Ð½Ð½Ð¾Ðµ]]></ru>
-            <da><![CDATA[SÃ¦sonal]]></da>
+            <uk><![CDATA[├É┬í├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├É┬Á]]></uk>
+            <ru><![CDATA[├É┬í├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├É┬¥├É┬Á]]></ru>
+            <da><![CDATA[S├â┬ªsonal]]></da>
         </text>
 
         <!-- Income Report Dialog: no history message -->
         <text name="im_report_no_history">
             <en><![CDATA[No payment history yet. Income will be recorded after the first payment.]]></en>
             <de><![CDATA[Noch kein Zahlungsverlauf. Einkommen wird nach der ersten Zahlung aufgezeichnet.]]></de>
-            <fr><![CDATA[Pas encore d'historique de paiement. Les revenus seront enregistrÃ©s aprÃ¨s le premier paiement.]]></fr>
-            <pl><![CDATA[Brak historii pÅ‚atnoÅ›ci. DochÃ³d zostanie zarejestrowany po pierwszej pÅ‚atnoÅ›ci.]]></pl>
-            <es><![CDATA[AÃºn no hay historial de pagos. Los ingresos se registrarÃ¡n despuÃ©s del primer pago.]]></es>
+            <fr><![CDATA[Pas encore d'historique de paiement. Les revenus seront enregistr├â┬®s apr├â┬¿s le premier paiement.]]></fr>
+            <pl><![CDATA[Brak historii p├àÔÇÜatno├àÔÇ║ci. Doch├â┬│d zostanie zarejestrowany po pierwszej p├àÔÇÜatno├àÔÇ║ci.]]></pl>
+            <es><![CDATA[A├â┬║n no hay historial de pagos. Los ingresos se registrar├â┬ín despu├â┬®s del primer pago.]]></es>
             <it><![CDATA[Nessuna cronologia pagamenti. I ricavi verranno registrati dopo il primo pagamento.]]></it>
-            <cz><![CDATA[ZatÃ­m Å¾Ã¡dnÃ¡ historie plateb. PÅ™Ã­jem bude zaznamenÃ¡n po prvnÃ­ platbÄ›.]]></cz>
-            <br><![CDATA[Sem histÃ³rico de pagamentos. A renda serÃ¡ registrada apÃ³s o primeiro pagamento.]]></br>
-            <uk><![CDATA[Ð©Ðµ Ð½ÐµÐ¼Ð°Ñ” Ñ–ÑÑ‚Ð¾Ñ€Ñ–Ñ— Ð²Ð¸Ð¿Ð»Ð°Ñ‚. Ð”Ð¾Ñ…Ñ–Ð´ Ð±ÑƒÐ´Ðµ Ð·Ð°Ð¿Ð¸ÑÐ°Ð½Ð¾ Ð¿Ñ–ÑÐ»Ñ Ð¿ÐµÑ€ÑˆÐ¾Ñ— Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ð¸.]]></uk>
-            <ru><![CDATA[Ð˜ÑÑ‚Ð¾Ñ€Ð¸Ð¸ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚ Ð¿Ð¾ÐºÐ° Ð½ÐµÑ‚. Ð”Ð¾Ñ…Ð¾Ð´ Ð±ÑƒÐ´ÐµÑ‚ Ð·Ð°Ð¿Ð¸ÑÐ°Ð½ Ð¿Ð¾ÑÐ»Ðµ Ð¿ÐµÑ€Ð²Ð¾Ð¹ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñ‹.]]></ru>
-            <da><![CDATA[Ingen betalingshistorik endnu. Indkomst vil blive registreret efter den fÃ¸rste betaling.]]></da>
+            <cz><![CDATA[Zat├â┬¡m ├à┬¥├â┬ídn├â┬í historie plateb. P├àÔäó├â┬¡jem bude zaznamen├â┬ín po prvn├â┬¡ platb├äÔÇ║.]]></cz>
+            <br><![CDATA[Sem hist├â┬│rico de pagamentos. A renda ser├â┬í registrada ap├â┬│s o primeiro pagamento.]]></br>
+            <uk><![CDATA[├É┬®├É┬Á ├É┬¢├É┬Á├É┬╝├É┬░├æÔÇØ ├æÔÇô├æ┬ü├æÔÇÜ├É┬¥├æÔé¼├æÔÇô├æÔÇö ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ. ├ÉÔÇØ├É┬¥├æÔÇª├æÔÇô├É┬┤ ├É┬▒├æãÆ├É┬┤├É┬Á ├É┬À├É┬░├É┬┐├É┬©├æ┬ü├É┬░├É┬¢├É┬¥ ├É┬┐├æÔÇô├æ┬ü├É┬╗├æ┬Å ├É┬┐├É┬Á├æÔé¼├æ╦å├É┬¥├æÔÇö ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬©.]]></uk>
+            <ru><![CDATA[├É╦£├æ┬ü├æÔÇÜ├É┬¥├æÔé¼├É┬©├É┬© ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ ├É┬┐├É┬¥├É┬║├É┬░ ├É┬¢├É┬Á├æÔÇÜ. ├ÉÔÇØ├É┬¥├æÔÇª├É┬¥├É┬┤ ├É┬▒├æãÆ├É┬┤├É┬Á├æÔÇÜ ├É┬À├É┬░├É┬┐├É┬©├æ┬ü├É┬░├É┬¢ ├É┬┐├É┬¥├æ┬ü├É┬╗├É┬Á ├É┬┐├É┬Á├æÔé¼├É┬▓├É┬¥├É┬╣ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æÔÇ╣.]]></ru>
+            <da><![CDATA[Ingen betalingshistorik endnu. Indkomst vil blive registreret efter den f├â┬©rste betaling.]]></da>
         </text>
 
         <!-- Income Report Dialog: enabled/disabled status values -->
         <text name="im_report_enabled">
             <en><![CDATA[Enabled]]></en>
             <de><![CDATA[Aktiviert]]></de>
-            <fr><![CDATA[ActivÃ©]]></fr>
-            <pl><![CDATA[WÅ‚Ä…czone]]></pl>
+            <fr><![CDATA[Activ├â┬®]]></fr>
+            <pl><![CDATA[W├àÔÇÜ├äÔÇªczone]]></pl>
             <es><![CDATA[Activado]]></es>
             <it><![CDATA[Attivato]]></it>
             <cz><![CDATA[Povoleno]]></cz>
             <br><![CDATA[Ativado]]></br>
-            <uk><![CDATA[Ð£Ð²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð¾]]></uk>
-            <ru><![CDATA[Ð’ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾]]></ru>
+            <uk><![CDATA[├É┬ú├É┬▓├æÔÇô├É┬╝├É┬║├É┬¢├É┬Á├É┬¢├É┬¥]]></uk>
+            <ru><![CDATA[├ÉÔÇÖ├É┬║├É┬╗├æ┼¢├æÔÇí├É┬Á├É┬¢├É┬¥]]></ru>
             <da><![CDATA[Aktiveret]]></da>
         </text>
 
         <text name="im_report_disabled">
             <en><![CDATA[Disabled]]></en>
             <de><![CDATA[Deaktiviert]]></de>
-            <fr><![CDATA[DÃ©sactivÃ©]]></fr>
-            <pl><![CDATA[WyÅ‚Ä…czone]]></pl>
+            <fr><![CDATA[D├â┬®sactiv├â┬®]]></fr>
+            <pl><![CDATA[Wy├àÔÇÜ├äÔÇªczone]]></pl>
             <es><![CDATA[Desactivado]]></es>
             <it><![CDATA[Disattivato]]></it>
-            <cz><![CDATA[ZakÃ¡zÃ¡no]]></cz>
+            <cz><![CDATA[Zak├â┬íz├â┬íno]]></cz>
             <br><![CDATA[Desativado]]></br>
-            <uk><![CDATA[Ð’Ð¸Ð¼ÐºÐ½ÐµÐ½Ð¾]]></uk>
-            <ru><![CDATA[Ð’Ñ‹ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾]]></ru>
+            <uk><![CDATA[├ÉÔÇÖ├É┬©├É┬╝├É┬║├É┬¢├É┬Á├É┬¢├É┬¥]]></uk>
+            <ru><![CDATA[├ÉÔÇÖ├æÔÇ╣├É┬║├É┬╗├æ┼¢├æÔÇí├É┬Á├É┬¢├É┬¥]]></ru>
             <da><![CDATA[Deaktiveret]]></da>
         </text>
 
         <!-- Reset -->
         <text name="im_reset">
             <en><![CDATA[Reset Income Settings]]></en>
-            <de><![CDATA[Einkommenseinstellungen zurÃ¼cksetzen]]></de>
-            <fr><![CDATA[RÃ©initialiser les paramÃ¨tres de revenu]]></fr>
+            <de><![CDATA[Einkommenseinstellungen zur├â┬╝cksetzen]]></de>
+            <fr><![CDATA[R├â┬®initialiser les param├â┬¿tres de revenu]]></fr>
             <pl><![CDATA[Resetuj ustawienia dochodu]]></pl>
             <es><![CDATA[Restablecer config. ingresos]]></es>
             <it><![CDATA[Ripristina impostazioni reddito]]></it>
-            <cz><![CDATA[Resetovat nastavenÃ­ pÅ™Ã­jmu]]></cz>
-            <br><![CDATA[Restaurar configuraÃ§Ãµes de renda]]></br>
-            <uk><![CDATA[Ð¡ÐºÐ¸Ð½ÑƒÑ‚Ð¸ Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð´Ð¾Ñ…Ð¾Ð´Ñƒ]]></uk>
-            <ru><![CDATA[Ð¡Ð±Ñ€Ð¾ÑÐ¸Ñ‚ÑŒ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð´Ð¾Ñ…Ð¾Ð´Ð°]]></ru>
+            <cz><![CDATA[Resetovat nastaven├â┬¡ p├àÔäó├â┬¡jmu]]></cz>
+            <br><![CDATA[Restaurar configura├â┬º├â┬Áes de renda]]></br>
+            <uk><![CDATA[├É┬í├É┬║├É┬©├É┬¢├æãÆ├æÔÇÜ├É┬© ├É┬¢├É┬░├É┬╗├É┬░├æ╦å├æÔÇÜ├æãÆ├É┬▓├É┬░├É┬¢├É┬¢├æ┬Å ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ]]></uk>
+            <ru><![CDATA[├É┬í├É┬▒├æÔé¼├É┬¥├æ┬ü├É┬©├æÔÇÜ├æ┼Æ ├É┬¢├É┬░├æ┬ü├æÔÇÜ├æÔé¼├É┬¥├É┬╣├É┬║├É┬© ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░]]></ru>
             <da><![CDATA[Reset indkomstindstillinger]]></da>
         </text>
 
-        <!-- â”€â”€ Help Lines: Category titles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+        <!-- ├óÔÇØÔé¼├óÔÇØÔé¼ Help Lines: Category titles ├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼ -->
         <text name="im_help_cat_overview">
-            <en><![CDATA[Income Mod â€” Overview]]></en>
-            <de><![CDATA[Einkommens-Mod â€” Ãœbersicht]]></de>
-            <fr><![CDATA[Mod de revenu â€” Vue d'ensemble]]></fr>
-            <pl><![CDATA[Mod dochodÃ³w â€” PrzeglÄ…d]]></pl>
-            <es><![CDATA[Mod de ingresos â€” Resumen]]></es>
-            <it><![CDATA[Mod reddito â€” Panoramica]]></it>
-            <cz><![CDATA[PÅ™Ã­jmovÃ½ mod â€” PÅ™ehled]]></cz>
-            <br><![CDATA[Mod de renda â€” VisÃ£o geral]]></br>
-            <uk><![CDATA[ÐœÐ¾Ð´ Ð´Ð¾Ñ…Ð¾Ð´Ñƒ â€” ÐžÐ³Ð»ÑÐ´]]></uk>
-            <ru><![CDATA[ÐœÐ¾Ð´ Ð´Ð¾Ñ…Ð¾Ð´Ð° â€” ÐžÐ±Ð·Ð¾Ñ€]]></ru>
-            <da><![CDATA[Income Mod â€” Oversigt]]></da>
+            <en><![CDATA[Income Mod ├óÔé¼ÔÇØ Overview]]></en>
+            <de><![CDATA[Einkommens-Mod ├óÔé¼ÔÇØ ├â┼ôbersicht]]></de>
+            <fr><![CDATA[Mod de revenu ├óÔé¼ÔÇØ Vue d'ensemble]]></fr>
+            <pl><![CDATA[Mod dochod├â┬│w ├óÔé¼ÔÇØ Przegl├äÔÇªd]]></pl>
+            <es><![CDATA[Mod de ingresos ├óÔé¼ÔÇØ Resumen]]></es>
+            <it><![CDATA[Mod reddito ├óÔé¼ÔÇØ Panoramica]]></it>
+            <cz><![CDATA[P├àÔäó├â┬¡jmov├â┬¢ mod ├óÔé¼ÔÇØ P├àÔäóehled]]></cz>
+            <br><![CDATA[Mod de renda ├óÔé¼ÔÇØ Vis├â┬úo geral]]></br>
+            <uk><![CDATA[├É┼ô├É┬¥├É┬┤ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ ├óÔé¼ÔÇØ ├É┼¥├É┬│├É┬╗├æ┬Å├É┬┤]]></uk>
+            <ru><![CDATA[├É┼ô├É┬¥├É┬┤ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░ ├óÔé¼ÔÇØ ├É┼¥├É┬▒├É┬À├É┬¥├æÔé¼]]></ru>
+            <da><![CDATA[Income Mod ├óÔé¼ÔÇØ Oversigt]]></da>
         </text>
 
         <text name="im_help_cat_settings">
-            <en><![CDATA[Income Mod â€” Settings]]></en>
-            <de><![CDATA[Einkommens-Mod â€” Einstellungen]]></de>
-            <fr><![CDATA[Mod de revenu â€” ParamÃ¨tres]]></fr>
-            <pl><![CDATA[Mod dochodÃ³w â€” Ustawienia]]></pl>
-            <es><![CDATA[Mod de ingresos â€” Ajustes]]></es>
-            <it><![CDATA[Mod reddito â€” Impostazioni]]></it>
-            <cz><![CDATA[PÅ™Ã­jmovÃ½ mod â€” NastavenÃ­]]></cz>
-            <br><![CDATA[Mod de renda â€” ConfiguraÃ§Ãµes]]></br>
-            <uk><![CDATA[ÐœÐ¾Ð´ Ð´Ð¾Ñ…Ð¾Ð´Ñƒ â€” ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ]]></uk>
-            <ru><![CDATA[ÐœÐ¾Ð´ Ð´Ð¾Ñ…Ð¾Ð´Ð° â€” ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸]]></ru>
-            <da><![CDATA[Inkomst Mod â€” Indstillinger]]></da>
+            <en><![CDATA[Income Mod ├óÔé¼ÔÇØ Settings]]></en>
+            <de><![CDATA[Einkommens-Mod ├óÔé¼ÔÇØ Einstellungen]]></de>
+            <fr><![CDATA[Mod de revenu ├óÔé¼ÔÇØ Param├â┬¿tres]]></fr>
+            <pl><![CDATA[Mod dochod├â┬│w ├óÔé¼ÔÇØ Ustawienia]]></pl>
+            <es><![CDATA[Mod de ingresos ├óÔé¼ÔÇØ Ajustes]]></es>
+            <it><![CDATA[Mod reddito ├óÔé¼ÔÇØ Impostazioni]]></it>
+            <cz><![CDATA[P├àÔäó├â┬¡jmov├â┬¢ mod ├óÔé¼ÔÇØ Nastaven├â┬¡]]></cz>
+            <br><![CDATA[Mod de renda ├óÔé¼ÔÇØ Configura├â┬º├â┬Áes]]></br>
+            <uk><![CDATA[├É┼ô├É┬¥├É┬┤ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ ├óÔé¼ÔÇØ ├É┬Ø├É┬░├É┬╗├É┬░├æ╦å├æÔÇÜ├æãÆ├É┬▓├É┬░├É┬¢├É┬¢├æ┬Å]]></uk>
+            <ru><![CDATA[├É┼ô├É┬¥├É┬┤ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░ ├óÔé¼ÔÇØ ├É┬Ø├É┬░├æ┬ü├æÔÇÜ├æÔé¼├É┬¥├É┬╣├É┬║├É┬©]]></ru>
+            <da><![CDATA[Inkomst Mod ├óÔé¼ÔÇØ Indstillinger]]></da>
         </text>
 
         <text name="im_help_cat_tips">
-            <en><![CDATA[Income Mod â€” Tips & Tricks]]></en>
-            <de><![CDATA[Einkommens-Mod â€” Tipps & Tricks]]></de>
-            <fr><![CDATA[Mod de revenu â€” Astuces]]></fr>
-            <pl><![CDATA[Mod dochodÃ³w â€” Porady i sztuczki]]></pl>
-            <es><![CDATA[Mod de ingresos â€” Consejos]]></es>
-            <it><![CDATA[Mod reddito â€” Consigli]]></it>
-            <cz><![CDATA[PÅ™Ã­jmovÃ½ mod â€” Tipy a triky]]></cz>
-            <br><![CDATA[Mod de renda â€” Dicas e truques]]></br>
-            <uk><![CDATA[ÐœÐ¾Ð´ Ð´Ð¾Ñ…Ð¾Ð´Ñƒ â€” ÐŸÐ¾Ñ€Ð°Ð´Ð¸]]></uk>
-            <ru><![CDATA[ÐœÐ¾Ð´ Ð´Ð¾Ñ…Ð¾Ð´Ð° â€” Ð¡Ð¾Ð²ÐµÑ‚Ñ‹]]></ru>
-            <da><![CDATA[Inkomst Mod â€” Tips & Tricks]]></da>
+            <en><![CDATA[Income Mod ├óÔé¼ÔÇØ Tips & Tricks]]></en>
+            <de><![CDATA[Einkommens-Mod ├óÔé¼ÔÇØ Tipps & Tricks]]></de>
+            <fr><![CDATA[Mod de revenu ├óÔé¼ÔÇØ Astuces]]></fr>
+            <pl><![CDATA[Mod dochod├â┬│w ├óÔé¼ÔÇØ Porady i sztuczki]]></pl>
+            <es><![CDATA[Mod de ingresos ├óÔé¼ÔÇØ Consejos]]></es>
+            <it><![CDATA[Mod reddito ├óÔé¼ÔÇØ Consigli]]></it>
+            <cz><![CDATA[P├àÔäó├â┬¡jmov├â┬¢ mod ├óÔé¼ÔÇØ Tipy a triky]]></cz>
+            <br><![CDATA[Mod de renda ├óÔé¼ÔÇØ Dicas e truques]]></br>
+            <uk><![CDATA[├É┼ô├É┬¥├É┬┤ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ ├óÔé¼ÔÇØ ├É┼©├É┬¥├æÔé¼├É┬░├É┬┤├É┬©]]></uk>
+            <ru><![CDATA[├É┼ô├É┬¥├É┬┤ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░ ├óÔé¼ÔÇØ ├É┬í├É┬¥├É┬▓├É┬Á├æÔÇÜ├æÔÇ╣]]></ru>
+            <da><![CDATA[Inkomst Mod ├óÔé¼ÔÇØ Tips & Tricks]]></da>
         </text>
 
         <text name="im_help_cat_info">
             <en><![CDATA[About Income Mod]]></en>
-            <de><![CDATA[Ãœber Einkommens-Mod]]></de>
-            <fr><![CDATA[Ã€ propos d'Income Mod]]></fr>
+            <de><![CDATA[├â┼ôber Einkommens-Mod]]></de>
+            <fr><![CDATA[├âÔé¼ propos d'Income Mod]]></fr>
             <pl><![CDATA[O Income Mod]]></pl>
             <es><![CDATA[Acerca de Income Mod]]></es>
             <it><![CDATA[Informazioni su Income Mod]]></it>
             <cz><![CDATA[O Income Modu]]></cz>
             <br><![CDATA[Sobre o Income Mod]]></br>
-            <uk><![CDATA[ÐŸÑ€Ð¾ Income Mod]]></uk>
-            <ru><![CDATA[ÐžÐ± Income Mod]]></ru>
+            <uk><![CDATA[├É┼©├æÔé¼├É┬¥ Income Mod]]></uk>
+            <ru><![CDATA[├É┼¥├É┬▒ Income Mod]]></ru>
             <da><![CDATA[Om Inkomst Mod]]></da>
         </text>
 
-        <!-- â”€â”€ Help Lines: Page titles â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+        <!-- ├óÔÇØÔé¼├óÔÇØÔé¼ Help Lines: Page titles ├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼ -->
         <text name="im_help_p1_title">
             <en><![CDATA[Introduction]]></en>
-            <de><![CDATA[EinfÃ¼hrung]]></de>
+            <de><![CDATA[Einf├â┬╝hrung]]></de>
             <fr><![CDATA[Introduction]]></fr>
             <pl><![CDATA[Wprowadzenie]]></pl>
-            <es><![CDATA[IntroducciÃ³n]]></es>
+            <es><![CDATA[Introducci├â┬│n]]></es>
             <it><![CDATA[Introduzione]]></it>
-            <cz><![CDATA[Ãšvod]]></cz>
-            <br><![CDATA[IntroduÃ§Ã£o]]></br>
-            <uk><![CDATA[Ð’ÑÑ‚ÑƒÐ¿]]></uk>
-            <ru><![CDATA[Ð’Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ]]></ru>
+            <cz><![CDATA[├â┼ívod]]></cz>
+            <br><![CDATA[Introdu├â┬º├â┬úo]]></br>
+            <uk><![CDATA[├ÉÔÇÖ├æ┬ü├æÔÇÜ├æãÆ├É┬┐]]></uk>
+            <ru><![CDATA[├ÉÔÇÖ├É┬▓├É┬Á├É┬┤├É┬Á├É┬¢├É┬©├É┬Á]]></ru>
             <da><![CDATA[Introduktion]]></da>
         </text>
 
@@ -819,55 +819,55 @@
             <en><![CDATA[How Payments Work]]></en>
             <de><![CDATA[Wie Zahlungen funktionieren]]></de>
             <fr><![CDATA[Fonctionnement des paiements]]></fr>
-            <pl><![CDATA[Jak dziaÅ‚ajÄ… pÅ‚atnoÅ›ci]]></pl>
-            <es><![CDATA[CÃ³mo funcionan los pagos]]></es>
+            <pl><![CDATA[Jak dzia├àÔÇÜaj├äÔÇª p├àÔÇÜatno├àÔÇ║ci]]></pl>
+            <es><![CDATA[C├â┬│mo funcionan los pagos]]></es>
             <it><![CDATA[Come funzionano i pagamenti]]></it>
-            <cz><![CDATA[Jak fungujÃ­ platby]]></cz>
+            <cz><![CDATA[Jak funguj├â┬¡ platby]]></cz>
             <br><![CDATA[Como os pagamentos funcionam]]></br>
-            <uk><![CDATA[Ð¯Ðº Ð¿Ñ€Ð°Ñ†ÑŽÑŽÑ‚ÑŒ Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ð¸]]></uk>
-            <ru><![CDATA[ÐšÐ°Ðº Ñ€Ð°Ð±Ð¾Ñ‚Ð°ÑŽÑ‚ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñ‹]]></ru>
-            <da><![CDATA[SÃ¥dan fungerer betalinger]]></da>
+            <uk><![CDATA[├É┬»├É┬║ ├É┬┐├æÔé¼├É┬░├æÔÇá├æ┼¢├æ┼¢├æÔÇÜ├æ┼Æ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬©]]></uk>
+            <ru><![CDATA[├É┼í├É┬░├É┬║ ├æÔé¼├É┬░├É┬▒├É┬¥├æÔÇÜ├É┬░├æ┼¢├æÔÇÜ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æÔÇ╣]]></ru>
+            <da><![CDATA[S├â┬Ñdan fungerer betalinger]]></da>
         </text>
 
         <text name="im_help_s1_title">
             <en><![CDATA[Income Settings]]></en>
             <de><![CDATA[Einkommenseinstellungen]]></de>
-            <fr><![CDATA[ParamÃ¨tres de revenu]]></fr>
+            <fr><![CDATA[Param├â┬¿tres de revenu]]></fr>
             <pl><![CDATA[Ustawienia dochodu]]></pl>
             <es><![CDATA[Ajustes de ingresos]]></es>
             <it><![CDATA[Impostazioni reddito]]></it>
-            <cz><![CDATA[NastavenÃ­ pÅ™Ã­jmu]]></cz>
-            <br><![CDATA[ConfiguraÃ§Ãµes de renda]]></br>
-            <uk><![CDATA[ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð´Ð¾Ñ…Ð¾Ð´Ñƒ]]></uk>
-            <ru><![CDATA[ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Ð´Ð¾Ñ…Ð¾Ð´Ð°]]></ru>
+            <cz><![CDATA[Nastaven├â┬¡ p├àÔäó├â┬¡jmu]]></cz>
+            <br><![CDATA[Configura├â┬º├â┬Áes de renda]]></br>
+            <uk><![CDATA[├É┬Ø├É┬░├É┬╗├É┬░├æ╦å├æÔÇÜ├æãÆ├É┬▓├É┬░├É┬¢├É┬¢├æ┬Å ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ]]></uk>
+            <ru><![CDATA[├É┬Ø├É┬░├æ┬ü├æÔÇÜ├æÔé¼├É┬¥├É┬╣├É┬║├É┬© ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░]]></ru>
             <da><![CDATA[Inkomstindstillinger]]></da>
         </text>
 
         <text name="im_help_s2_title">
             <en><![CDATA[Advanced Settings]]></en>
             <de><![CDATA[Erweiterte Einstellungen]]></de>
-            <fr><![CDATA[ParamÃ¨tres avancÃ©s]]></fr>
+            <fr><![CDATA[Param├â┬¿tres avanc├â┬®s]]></fr>
             <pl><![CDATA[Ustawienia zaawansowane]]></pl>
             <es><![CDATA[Ajustes avanzados]]></es>
             <it><![CDATA[Impostazioni avanzate]]></it>
-            <cz><![CDATA[RozÅ¡Ã­Å™enÃ¡ nastavenÃ­]]></cz>
-            <br><![CDATA[ConfiguraÃ§Ãµes avanÃ§adas]]></br>
-            <uk><![CDATA[Ð Ð¾Ð·ÑˆÐ¸Ñ€ÐµÐ½Ñ– Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ]]></uk>
-            <ru><![CDATA[Ð Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð½Ñ‹Ðµ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸]]></ru>
+            <cz><![CDATA[Roz├à┬í├â┬¡├àÔäóen├â┬í nastaven├â┬¡]]></cz>
+            <br><![CDATA[Configura├â┬º├â┬Áes avan├â┬ºadas]]></br>
+            <uk><![CDATA[├É┬á├É┬¥├É┬À├æ╦å├É┬©├æÔé¼├É┬Á├É┬¢├æÔÇô ├É┬¢├É┬░├É┬╗├É┬░├æ╦å├æÔÇÜ├æãÆ├É┬▓├É┬░├É┬¢├É┬¢├æ┬Å]]></uk>
+            <ru><![CDATA[├É┬á├É┬░├æ┬ü├æ╦å├É┬©├æÔé¼├É┬Á├É┬¢├É┬¢├æÔÇ╣├É┬Á ├É┬¢├É┬░├æ┬ü├æÔÇÜ├æÔé¼├É┬¥├É┬╣├É┬║├É┬©]]></ru>
             <da><![CDATA[Avancerede indstillinger]]></da>
         </text>
 
         <text name="im_help_s3_title">
             <en><![CDATA[Display & Reset]]></en>
-            <de><![CDATA[Anzeige & ZurÃ¼cksetzen]]></de>
-            <fr><![CDATA[Affichage & RÃ©initialisation]]></fr>
-            <pl><![CDATA[WyÅ›wietlanie i reset]]></pl>
+            <de><![CDATA[Anzeige & Zur├â┬╝cksetzen]]></de>
+            <fr><![CDATA[Affichage & R├â┬®initialisation]]></fr>
+            <pl><![CDATA[Wy├àÔÇ║wietlanie i reset]]></pl>
             <es><![CDATA[Pantalla y restablecer]]></es>
             <it><![CDATA[Visualizzazione e reset]]></it>
-            <cz><![CDATA[ZobrazenÃ­ a reset]]></cz>
-            <br><![CDATA[ExibiÃ§Ã£o e redefiniÃ§Ã£o]]></br>
-            <uk><![CDATA[Ð’Ñ–Ð´Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð½Ñ Ñ‚Ð° ÑÐºÐ¸Ð´Ð°Ð½Ð½Ñ]]></uk>
-            <ru><![CDATA[ÐžÑ‚Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð¸ ÑÐ±Ñ€Ð¾Ñ]]></ru>
+            <cz><![CDATA[Zobrazen├â┬¡ a reset]]></cz>
+            <br><![CDATA[Exibi├â┬º├â┬úo e redefini├â┬º├â┬úo]]></br>
+            <uk><![CDATA[├ÉÔÇÖ├æÔÇô├É┬┤├É┬¥├É┬▒├æÔé¼├É┬░├É┬Â├É┬Á├É┬¢├É┬¢├æ┬Å ├æÔÇÜ├É┬░ ├æ┬ü├É┬║├É┬©├É┬┤├É┬░├É┬¢├É┬¢├æ┬Å]]></uk>
+            <ru><![CDATA[├É┼¥├æÔÇÜ├É┬¥├É┬▒├æÔé¼├É┬░├É┬Â├É┬Á├É┬¢├É┬©├É┬Á ├É┬© ├æ┬ü├É┬▒├æÔé¼├É┬¥├æ┬ü]]></ru>
             <da><![CDATA[Visning og nulstilling]]></da>
         </text>
 
@@ -878,10 +878,10 @@
             <pl><![CDATA[HUD i raport dochodu]]></pl>
             <es><![CDATA[HUD e informe de ingresos]]></es>
             <it><![CDATA[HUD e rapporto reddito]]></it>
-            <cz><![CDATA[HUD a pÅ™ehled pÅ™Ã­jmÅ¯]]></cz>
-            <br><![CDATA[HUD e relatÃ³rio de renda]]></br>
-            <uk><![CDATA[HUD Ñ‚Ð° Ð·Ð²Ñ–Ñ‚ Ð¿Ñ€Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ð¸]]></uk>
-            <ru><![CDATA[HUD Ð¸ Ð¾Ñ‚Ñ‡Ñ‘Ñ‚ Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ð°Ñ…]]></ru>
+            <cz><![CDATA[HUD a p├àÔäóehled p├àÔäó├â┬¡jm├à┬»]]></cz>
+            <br><![CDATA[HUD e relat├â┬│rio de renda]]></br>
+            <uk><![CDATA[HUD ├æÔÇÜ├É┬░ ├É┬À├É┬▓├æÔÇô├æÔÇÜ ├É┬┐├æÔé¼├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬©]]></uk>
+            <ru><![CDATA[HUD ├É┬© ├É┬¥├æÔÇÜ├æÔÇí├æÔÇÿ├æÔÇÜ ├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░├æÔÇª]]></ru>
             <da><![CDATA[HUD og inkomstrapport]]></da>
         </text>
 
@@ -889,57 +889,57 @@
             <en><![CDATA[Income Tips]]></en>
             <de><![CDATA[Einkommenstipps]]></de>
             <fr><![CDATA[Conseils sur les revenus]]></fr>
-            <pl><![CDATA[Porady dotyczÄ…ce dochodu]]></pl>
+            <pl><![CDATA[Porady dotycz├äÔÇªce dochodu]]></pl>
             <es><![CDATA[Consejos de ingresos]]></es>
             <it><![CDATA[Consigli sul reddito]]></it>
-            <cz><![CDATA[Tipy pro pÅ™Ã­jem]]></cz>
+            <cz><![CDATA[Tipy pro p├àÔäó├â┬¡jem]]></cz>
             <br><![CDATA[Dicas de renda]]></br>
-            <uk><![CDATA[ÐŸÐ¾Ñ€Ð°Ð´Ð¸ Ñ‰Ð¾Ð´Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ñƒ]]></uk>
-            <ru><![CDATA[Ð¡Ð¾Ð²ÐµÑ‚Ñ‹ Ð¿Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ñƒ]]></ru>
+            <uk><![CDATA[├É┼©├É┬¥├æÔé¼├É┬░├É┬┤├É┬© ├æÔÇ░├É┬¥├É┬┤├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ]]></uk>
+            <ru><![CDATA[├É┬í├É┬¥├É┬▓├É┬Á├æÔÇÜ├æÔÇ╣ ├É┬┐├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ]]></ru>
             <da><![CDATA[Inkomst tips]]></da>
         </text>
 
         <text name="im_help_i1_title">
             <en><![CDATA[About Income Mod]]></en>
-            <de><![CDATA[Ãœber Einkommens-Mod]]></de>
-            <fr><![CDATA[Ã€ propos d'Income Mod]]></fr>
+            <de><![CDATA[├â┼ôber Einkommens-Mod]]></de>
+            <fr><![CDATA[├âÔé¼ propos d'Income Mod]]></fr>
             <pl><![CDATA[O Income Mod]]></pl>
             <es><![CDATA[Acerca de Income Mod]]></es>
             <it><![CDATA[Informazioni su Income Mod]]></it>
             <cz><![CDATA[O Income Modu]]></cz>
             <br><![CDATA[Sobre o Income Mod]]></br>
-            <uk><![CDATA[ÐŸÑ€Ð¾ Income Mod]]></uk>
-            <ru><![CDATA[ÐžÐ± Income Mod]]></ru>
+            <uk><![CDATA[├É┼©├æÔé¼├É┬¥ Income Mod]]></uk>
+            <ru><![CDATA[├É┼¥├É┬▒ Income Mod]]></ru>
             <da><![CDATA[Om Inkomst Mod]]></da>
         </text>
 
-        <!-- â”€â”€ Help Lines: Page 1 â€” Introduction â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+        <!-- ├óÔÇØÔé¼├óÔÇØÔé¼ Help Lines: Page 1 ├óÔé¼ÔÇØ Introduction ├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼ -->
         <text name="im_help_p1_what_title">
             <en><![CDATA[What Is Income Mod?]]></en>
             <de><![CDATA[Was ist der Einkommens-Mod?]]></de>
             <fr><![CDATA[Qu'est-ce qu'Income Mod ?]]></fr>
             <pl><![CDATA[Czym jest Income Mod?]]></pl>
-            <es><![CDATA[Â¿QuÃ© es Income Mod?]]></es>
-            <it><![CDATA[Cos'Ã¨ Income Mod?]]></it>
+            <es><![CDATA[├é┬┐Qu├â┬® es Income Mod?]]></es>
+            <it><![CDATA[Cos'├â┬¿ Income Mod?]]></it>
             <cz><![CDATA[Co je Income Mod?]]></cz>
-            <br><![CDATA[O que Ã© o Income Mod?]]></br>
-            <uk><![CDATA[Ð©Ð¾ Ñ‚Ð°ÐºÐµ Income Mod?]]></uk>
-            <ru><![CDATA[Ð§Ñ‚Ð¾ Ñ‚Ð°ÐºÐ¾Ðµ Income Mod?]]></ru>
+            <br><![CDATA[O que ├â┬® o Income Mod?]]></br>
+            <uk><![CDATA[├É┬®├É┬¥ ├æÔÇÜ├É┬░├É┬║├É┬Á Income Mod?]]></uk>
+            <ru><![CDATA[├É┬º├æÔÇÜ├É┬¥ ├æÔÇÜ├É┬░├É┬║├É┬¥├É┬Á Income Mod?]]></ru>
             <da><![CDATA[ hvad er Inkomst Mod? ]]></da>
         </text>
 
         <text name="im_help_p1_what_text">
             <en><![CDATA[Income Mod adds a passive income system to your farm. Your farm automatically earns money each in-game hour or day. Perfect for early-game cash flow or a relaxed playthrough.]]></en>
-            <de><![CDATA[Der Einkommens-Mod fÃ¼gt Ihrem Betrieb ein passives Einkommenssystem hinzu. Ihr Betrieb verdient automatisch Geld jede Spielstunde oder jeden Tag. Ideal fÃ¼r den frÃ¼hen Spielstart oder entspanntes Spielen.]]></de>
-            <fr><![CDATA[Income Mod ajoute des revenus passifs Ã  votre ferme. Votre ferme gagne automatiquement de l'argent chaque heure ou jour de jeu. IdÃ©al pour le dÃ©but de partie ou une session dÃ©tendue.]]></fr>
-            <pl><![CDATA[Income Mod dodaje pasywny system dochodÃ³w do Twojego gospodarstwa. Farma automatycznie zarabia pieniÄ…dze co godzinÄ™ lub dzieÅ„ gry. Idealne na poczÄ…tku rozgrywki lub do relaksujÄ…cej zabawy.]]></pl>
-            <es><![CDATA[Income Mod aÃ±ade ingresos pasivos a tu granja. Tu granja gana dinero automÃ¡ticamente cada hora o dÃ­a de juego. Perfecto para el flujo de caja inicial o una partida relajada.]]></es>
+            <de><![CDATA[Der Einkommens-Mod f├â┬╝gt Ihrem Betrieb ein passives Einkommenssystem hinzu. Ihr Betrieb verdient automatisch Geld jede Spielstunde oder jeden Tag. Ideal f├â┬╝r den fr├â┬╝hen Spielstart oder entspanntes Spielen.]]></de>
+            <fr><![CDATA[Income Mod ajoute des revenus passifs ├â┬á votre ferme. Votre ferme gagne automatiquement de l'argent chaque heure ou jour de jeu. Id├â┬®al pour le d├â┬®but de partie ou une session d├â┬®tendue.]]></fr>
+            <pl><![CDATA[Income Mod dodaje pasywny system dochod├â┬│w do Twojego gospodarstwa. Farma automatycznie zarabia pieni├äÔÇªdze co godzin├äÔäó lub dzie├àÔÇ× gry. Idealne na pocz├äÔÇªtku rozgrywki lub do relaksuj├äÔÇªcej zabawy.]]></pl>
+            <es><![CDATA[Income Mod a├â┬▒ade ingresos pasivos a tu granja. Tu granja gana dinero autom├â┬íticamente cada hora o d├â┬¡a de juego. Perfecto para el flujo de caja inicial o una partida relajada.]]></es>
             <it><![CDATA[Income Mod aggiunge un reddito passivo alla tua fattoria. La fattoria guadagna denaro automaticamente ogni ora o giorno di gioco. Perfetto per supporto iniziale o gameplay rilassato.]]></it>
-            <cz><![CDATA[Income Mod pÅ™idÃ¡vÃ¡ pasivnÃ­ pÅ™Ã­jmovÃ½ systÃ©m na vaÅ¡i farmu. Farma automaticky vydÄ›lÃ¡vÃ¡ penÃ­ze kaÅ¾dou hernÃ­ hodinu nebo den. IdeÃ¡lnÃ­ pro poÄÃ¡teÄnÃ­ podporu nebo uvolnÄ›nou hru.]]></cz>
-            <br><![CDATA[O Income Mod adiciona renda passiva Ã  sua fazenda. Sua fazenda ganha dinheiro automaticamente a cada hora ou dia de jogo. Perfeito para suporte inicial ou partida relaxada.]]></br>
-            <uk><![CDATA[Income Mod Ð´Ð¾Ð´Ð°Ñ” Ð¿Ð°ÑÐ¸Ð²Ð½Ð¸Ð¹ Ð´Ð¾Ñ…Ñ–Ð´ Ð´Ð¾ Ð²Ð°ÑˆÐ¾Ñ— Ñ„ÐµÑ€Ð¼Ð¸. Ð¤ÐµÑ€Ð¼Ð° Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾ Ð·Ð°Ñ€Ð¾Ð±Ð»ÑÑ” Ð³Ñ€Ð¾ÑˆÑ– ÐºÐ¾Ð¶Ð½Ñƒ Ñ–Ð³Ñ€Ð¾Ð²Ñƒ Ð³Ð¾Ð´Ð¸Ð½Ñƒ Ð°Ð±Ð¾ Ð´ÐµÐ½ÑŒ. Ð†Ð´ÐµÐ°Ð»ÑŒÐ½Ð¾ Ð´Ð»Ñ Ð¿Ñ–Ð´Ñ‚Ñ€Ð¸Ð¼ÐºÐ¸ Ð½Ð° Ð¿Ð¾Ñ‡Ð°Ñ‚ÐºÑƒ Ð°Ð±Ð¾ ÑÐ¿Ð¾ÐºÑ–Ð¹Ð½Ð¾Ð³Ð¾ Ð¿Ñ€Ð¾Ñ…Ð¾Ð´Ð¶ÐµÐ½Ð½Ñ.]]></uk>
-            <ru><![CDATA[Income Mod Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÑ‚ Ð¿Ð°ÑÑÐ¸Ð²Ð½Ñ‹Ð¹ Ð´Ð¾Ñ…Ð¾Ð´ Ð½Ð° Ð²Ð°ÑˆÑƒ Ñ„ÐµÑ€Ð¼Ñƒ. Ð¤ÐµÑ€Ð¼Ð° Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ Ð·Ð°Ñ€Ð°Ð±Ð°Ñ‚Ñ‹Ð²Ð°ÐµÑ‚ Ð´ÐµÐ½ÑŒÐ³Ð¸ ÐºÐ°Ð¶Ð´Ñ‹Ð¹ Ð¸Ð³Ñ€Ð¾Ð²Ð¾Ð¹ Ñ‡Ð°Ñ Ð¸Ð»Ð¸ Ð´ÐµÐ½ÑŒ. Ð˜Ð´ÐµÐ°Ð»ÑŒÐ½Ð¾ Ð´Ð»Ñ Ð½Ð°Ñ‡Ð°Ð»Ð° Ð¸Ð³Ñ€Ñ‹ Ð¸Ð»Ð¸ ÑÐ¿Ð¾ÐºÐ¾Ð¹Ð½Ð¾Ð³Ð¾ Ð¿Ñ€Ð¾Ñ…Ð¾Ð¶Ð´ÐµÐ½Ð¸Ñ.]]></ru>
-            <da><![CDATA[Indkomst mod tilfÃ¸jer et passivt indkomstsystem til din gÃ¥rd. Din gÃ¥rd tjener automatisk penge hver time eller dag i spillet. Perfekt til tidligt spil eller en afslappet gennemspilning.]]></da>
+            <cz><![CDATA[Income Mod p├àÔäóid├â┬ív├â┬í pasivn├â┬¡ p├àÔäó├â┬¡jmov├â┬¢ syst├â┬®m na va├à┬íi farmu. Farma automaticky vyd├äÔÇ║l├â┬ív├â┬í pen├â┬¡ze ka├à┬¥dou hern├â┬¡ hodinu nebo den. Ide├â┬íln├â┬¡ pro po├ä┬ì├â┬íte├ä┬ìn├â┬¡ podporu nebo uvoln├äÔÇ║nou hru.]]></cz>
+            <br><![CDATA[O Income Mod adiciona renda passiva ├â┬á sua fazenda. Sua fazenda ganha dinheiro automaticamente a cada hora ou dia de jogo. Perfeito para suporte inicial ou partida relaxada.]]></br>
+            <uk><![CDATA[Income Mod ├É┬┤├É┬¥├É┬┤├É┬░├æÔÇØ ├É┬┐├É┬░├æ┬ü├É┬©├É┬▓├É┬¢├É┬©├É┬╣ ├É┬┤├É┬¥├æÔÇª├æÔÇô├É┬┤ ├É┬┤├É┬¥ ├É┬▓├É┬░├æ╦å├É┬¥├æÔÇö ├æÔÇ×├É┬Á├æÔé¼├É┬╝├É┬©. ├É┬ñ├É┬Á├æÔé¼├É┬╝├É┬░ ├É┬░├É┬▓├æÔÇÜ├É┬¥├É┬╝├É┬░├æÔÇÜ├É┬©├æÔÇí├É┬¢├É┬¥ ├É┬À├É┬░├æÔé¼├É┬¥├É┬▒├É┬╗├æ┬Å├æÔÇØ ├É┬│├æÔé¼├É┬¥├æ╦å├æÔÇô ├É┬║├É┬¥├É┬Â├É┬¢├æãÆ ├æÔÇô├É┬│├æÔé¼├É┬¥├É┬▓├æãÆ ├É┬│├É┬¥├É┬┤├É┬©├É┬¢├æãÆ ├É┬░├É┬▒├É┬¥ ├É┬┤├É┬Á├É┬¢├æ┼Æ. ├ÉÔÇá├É┬┤├É┬Á├É┬░├É┬╗├æ┼Æ├É┬¢├É┬¥ ├É┬┤├É┬╗├æ┬Å ├É┬┐├æÔÇô├É┬┤├æÔÇÜ├æÔé¼├É┬©├É┬╝├É┬║├É┬© ├É┬¢├É┬░ ├É┬┐├É┬¥├æÔÇí├É┬░├æÔÇÜ├É┬║├æãÆ ├É┬░├É┬▒├É┬¥ ├æ┬ü├É┬┐├É┬¥├É┬║├æÔÇô├É┬╣├É┬¢├É┬¥├É┬│├É┬¥ ├É┬┐├æÔé¼├É┬¥├æÔÇª├É┬¥├É┬┤├É┬Â├É┬Á├É┬¢├É┬¢├æ┬Å.]]></uk>
+            <ru><![CDATA[Income Mod ├É┬┤├É┬¥├É┬▒├É┬░├É┬▓├É┬╗├æ┬Å├É┬Á├æÔÇÜ ├É┬┐├É┬░├æ┬ü├æ┬ü├É┬©├É┬▓├É┬¢├æÔÇ╣├É┬╣ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤ ├É┬¢├É┬░ ├É┬▓├É┬░├æ╦å├æãÆ ├æÔÇ×├É┬Á├æÔé¼├É┬╝├æãÆ. ├É┬ñ├É┬Á├æÔé¼├É┬╝├É┬░ ├É┬░├É┬▓├æÔÇÜ├É┬¥├É┬╝├É┬░├æÔÇÜ├É┬©├æÔÇí├É┬Á├æ┬ü├É┬║├É┬© ├É┬À├É┬░├æÔé¼├É┬░├É┬▒├É┬░├æÔÇÜ├æÔÇ╣├É┬▓├É┬░├É┬Á├æÔÇÜ ├É┬┤├É┬Á├É┬¢├æ┼Æ├É┬│├É┬© ├É┬║├É┬░├É┬Â├É┬┤├æÔÇ╣├É┬╣ ├É┬©├É┬│├æÔé¼├É┬¥├É┬▓├É┬¥├É┬╣ ├æÔÇí├É┬░├æ┬ü ├É┬©├É┬╗├É┬© ├É┬┤├É┬Á├É┬¢├æ┼Æ. ├É╦£├É┬┤├É┬Á├É┬░├É┬╗├æ┼Æ├É┬¢├É┬¥ ├É┬┤├É┬╗├æ┬Å ├É┬¢├É┬░├æÔÇí├É┬░├É┬╗├É┬░ ├É┬©├É┬│├æÔé¼├æÔÇ╣ ├É┬©├É┬╗├É┬© ├æ┬ü├É┬┐├É┬¥├É┬║├É┬¥├É┬╣├É┬¢├É┬¥├É┬│├É┬¥ ├É┬┐├æÔé¼├É┬¥├æÔÇª├É┬¥├É┬Â├É┬┤├É┬Á├É┬¢├É┬©├æ┬Å.]]></ru>
+            <da><![CDATA[Indkomst mod tilf├â┬©jer et passivt indkomstsystem til din g├â┬Ñrd. Din g├â┬Ñrd tjener automatisk penge hver time eller dag i spillet. Perfekt til tidligt spil eller en afslappet gennemspilning.]]></da>
         </text>
 
         <text name="im_help_p1_mp_title">
@@ -949,196 +949,196 @@
             <pl><![CDATA[Wsparcie wieloosobowe]]></pl>
             <es><![CDATA[Soporte multijugador]]></es>
             <it><![CDATA[Supporto multigiocatore]]></it>
-            <cz><![CDATA[Podpora vÃ­ce hrÃ¡ÄÅ¯]]></cz>
+            <cz><![CDATA[Podpora v├â┬¡ce hr├â┬í├ä┬ì├à┬»]]></cz>
             <br><![CDATA[Suporte multiplayer]]></br>
-            <uk><![CDATA[ÐŸÑ–Ð´Ñ‚Ñ€Ð¸Ð¼ÐºÐ° Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð¿Ð»ÐµÑ”Ñ€Ð°]]></uk>
-            <ru><![CDATA[ÐŸÐ¾Ð´Ð´ÐµÑ€Ð¶ÐºÐ° Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð¿Ð»ÐµÐµÑ€Ð°]]></ru>
+            <uk><![CDATA[├É┼©├æÔÇô├É┬┤├æÔÇÜ├æÔé¼├É┬©├É┬╝├É┬║├É┬░ ├É┬╝├æãÆ├É┬╗├æ┼Æ├æÔÇÜ├É┬©├É┬┐├É┬╗├É┬Á├æÔÇØ├æÔé¼├É┬░]]></uk>
+            <ru><![CDATA[├É┼©├É┬¥├É┬┤├É┬┤├É┬Á├æÔé¼├É┬Â├É┬║├É┬░ ├É┬╝├æãÆ├É┬╗├æ┼Æ├æÔÇÜ├É┬©├É┬┐├É┬╗├É┬Á├É┬Á├æÔé¼├É┬░]]></ru>
             <da><![CDATA[Multiplayer Support]]></da>
         </text>
 
         <text name="im_help_p1_mp_text">
-            <en><![CDATA[Fully compatible with multiplayer. Only the server processes payments â€” income is never duplicated. Each active farm gets its own income, automatically synced to all clients.]]></en>
-            <de><![CDATA[VollstÃ¤ndig multiplayer-kompatibel. Nur der Server verarbeitet Zahlungen â€” Einkommen wird nie dupliziert. Jeder aktive Betrieb erhÃ¤lt sein eigenes Einkommen, automatisch an alle Clients synchronisiert.]]></de>
-            <fr><![CDATA[EntiÃ¨rement compatible multijoueur. Seul le serveur traite les paiements â€” les revenus ne sont jamais dupliquÃ©s. Chaque ferme active reÃ§oit ses propres revenus, synchronisÃ©s automatiquement.]]></fr>
-            <pl><![CDATA[W peÅ‚ni kompatybilny z wieloosobowym. Tylko serwer przetwarza pÅ‚atnoÅ›ci â€” dochÃ³d nigdy nie jest powielony. KaÅ¼de gospodarstwo otrzymuje wÅ‚asny dochÃ³d, synchronizowany ze wszystkimi klientami.]]></pl>
-            <es><![CDATA[Totalmente compatible con multijugador. Solo el servidor procesa los pagos â€” los ingresos nunca se duplican. Cada granja activa recibe sus propios ingresos, sincronizados automÃ¡ticamente.]]></es>
-            <it><![CDATA[Completamente compatibile con il multigiocatore. Solo il server elabora i pagamenti â€” il reddito non viene mai duplicato. Ogni fattoria attiva riceve il proprio reddito, sincronizzato automaticamente.]]></it>
-            <cz><![CDATA[PlnÄ› kompatibilnÃ­ s vÃ­ce hrÃ¡Äi. Pouze server zpracovÃ¡vÃ¡ platby â€” pÅ™Ã­jem nenÃ­ nikdy zdvojen. KaÅ¾dÃ¡ aktivnÃ­ farma obdrÅ¾Ã­ vlastnÃ­ pÅ™Ã­jem, automaticky synchronizovanÃ½ se vÅ¡emi klienty.]]></cz>
-            <br><![CDATA[Totalmente compatÃ­vel com multiplayer. Apenas o servidor processa os pagamentos â€” a renda nunca Ã© duplicada. Cada fazenda ativa recebe sua prÃ³pria renda, sincronizada automaticamente.]]></br>
-            <uk><![CDATA[ÐŸÐ¾Ð²Ð½Ñ–ÑÑ‚ÑŽ ÑÑƒÐ¼Ñ–ÑÐ½Ð¸Ð¹ Ð· Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð¿Ð»ÐµÑ”Ñ€Ð¾Ð¼. Ð¢Ñ–Ð»ÑŒÐºÐ¸ ÑÐµÑ€Ð²ÐµÑ€ Ð¾Ð±Ñ€Ð¾Ð±Ð»ÑÑ” Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ð¸ â€” Ð´Ð¾Ñ…Ñ–Ð´ Ð½Ñ–ÐºÐ¾Ð»Ð¸ Ð½Ðµ Ð´ÑƒÐ±Ð»ÑŽÑ”Ñ‚ÑŒÑÑ. ÐšÐ¾Ð¶Ð½Ð° Ñ„ÐµÑ€Ð¼Ð° Ð¾Ñ‚Ñ€Ð¸Ð¼ÑƒÑ” Ð²Ð»Ð°ÑÐ½Ð¸Ð¹ Ð´Ð¾Ñ…Ñ–Ð´, Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¾ ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ñ–Ð·Ð¾Ð²Ð°Ð½Ð¸Ð¹ Ð· ÑƒÑÑ–Ð¼Ð° ÐºÐ»Ñ–Ñ”Ð½Ñ‚Ð°Ð¼Ð¸.]]></uk>
-            <ru><![CDATA[ÐŸÐ¾Ð»Ð½Ð¾ÑÑ‚ÑŒÑŽ ÑÐ¾Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼ Ñ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð¿Ð»ÐµÐµÑ€Ð¾Ð¼. Ð¢Ð¾Ð»ÑŒÐºÐ¾ ÑÐµÑ€Ð²ÐµÑ€ Ð¾Ð±Ñ€Ð°Ð±Ð°Ñ‚Ñ‹Ð²Ð°ÐµÑ‚ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñ‹ â€” Ð´Ð¾Ñ…Ð¾Ð´ Ð½Ð¸ÐºÐ¾Ð³Ð´Ð° Ð½Ðµ Ð´ÑƒÐ±Ð»Ð¸Ñ€ÑƒÐµÑ‚ÑÑ. ÐšÐ°Ð¶Ð´Ð°Ñ Ñ„ÐµÑ€Ð¼Ð° Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÑ‚ ÑÐ²Ð¾Ð¹ Ð´Ð¾Ñ…Ð¾Ð´, Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸ ÑÐ¸Ð½Ñ…Ñ€Ð¾Ð½Ð¸Ð·Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ ÑÐ¾ Ð²ÑÐµÐ¼Ð¸ ÐºÐ»Ð¸ÐµÐ½Ñ‚Ð°Ð¼Ð¸.]]></ru>
-            <da><![CDATA[Fuldt kompatibel med multiplayer. Kun serveren behandler betalinger â€” indkomst bliver aldrig duplikeret. Hver aktiv farm fÃ¥r sin egen indkomst, automatisk synkroniseret til alle klienter.]]></da>
+            <en><![CDATA[Fully compatible with multiplayer. Only the server processes payments ├óÔé¼ÔÇØ income is never duplicated. Each active farm gets its own income, automatically synced to all clients.]]></en>
+            <de><![CDATA[Vollst├â┬ñndig multiplayer-kompatibel. Nur der Server verarbeitet Zahlungen ├óÔé¼ÔÇØ Einkommen wird nie dupliziert. Jeder aktive Betrieb erh├â┬ñlt sein eigenes Einkommen, automatisch an alle Clients synchronisiert.]]></de>
+            <fr><![CDATA[Enti├â┬¿rement compatible multijoueur. Seul le serveur traite les paiements ├óÔé¼ÔÇØ les revenus ne sont jamais dupliqu├â┬®s. Chaque ferme active re├â┬ºoit ses propres revenus, synchronis├â┬®s automatiquement.]]></fr>
+            <pl><![CDATA[W pe├àÔÇÜni kompatybilny z wieloosobowym. Tylko serwer przetwarza p├àÔÇÜatno├àÔÇ║ci ├óÔé¼ÔÇØ doch├â┬│d nigdy nie jest powielony. Ka├à┬╝de gospodarstwo otrzymuje w├àÔÇÜasny doch├â┬│d, synchronizowany ze wszystkimi klientami.]]></pl>
+            <es><![CDATA[Totalmente compatible con multijugador. Solo el servidor procesa los pagos ├óÔé¼ÔÇØ los ingresos nunca se duplican. Cada granja activa recibe sus propios ingresos, sincronizados autom├â┬íticamente.]]></es>
+            <it><![CDATA[Completamente compatibile con il multigiocatore. Solo il server elabora i pagamenti ├óÔé¼ÔÇØ il reddito non viene mai duplicato. Ogni fattoria attiva riceve il proprio reddito, sincronizzato automaticamente.]]></it>
+            <cz><![CDATA[Pln├äÔÇ║ kompatibiln├â┬¡ s v├â┬¡ce hr├â┬í├ä┬ìi. Pouze server zpracov├â┬ív├â┬í platby ├óÔé¼ÔÇØ p├àÔäó├â┬¡jem nen├â┬¡ nikdy zdvojen. Ka├à┬¥d├â┬í aktivn├â┬¡ farma obdr├à┬¥├â┬¡ vlastn├â┬¡ p├àÔäó├â┬¡jem, automaticky synchronizovan├â┬¢ se v├à┬íemi klienty.]]></cz>
+            <br><![CDATA[Totalmente compat├â┬¡vel com multiplayer. Apenas o servidor processa os pagamentos ├óÔé¼ÔÇØ a renda nunca ├â┬® duplicada. Cada fazenda ativa recebe sua pr├â┬│pria renda, sincronizada automaticamente.]]></br>
+            <uk><![CDATA[├É┼©├É┬¥├É┬▓├É┬¢├æÔÇô├æ┬ü├æÔÇÜ├æ┼¢ ├æ┬ü├æãÆ├É┬╝├æÔÇô├æ┬ü├É┬¢├É┬©├É┬╣ ├É┬À ├É┬╝├æãÆ├É┬╗├æ┼Æ├æÔÇÜ├É┬©├É┬┐├É┬╗├É┬Á├æÔÇØ├æÔé¼├É┬¥├É┬╝. ├É┬ó├æÔÇô├É┬╗├æ┼Æ├É┬║├É┬© ├æ┬ü├É┬Á├æÔé¼├É┬▓├É┬Á├æÔé¼ ├É┬¥├É┬▒├æÔé¼├É┬¥├É┬▒├É┬╗├æ┬Å├æÔÇØ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬© ├óÔé¼ÔÇØ ├É┬┤├É┬¥├æÔÇª├æÔÇô├É┬┤ ├É┬¢├æÔÇô├É┬║├É┬¥├É┬╗├É┬© ├É┬¢├É┬Á ├É┬┤├æãÆ├É┬▒├É┬╗├æ┼¢├æÔÇØ├æÔÇÜ├æ┼Æ├æ┬ü├æ┬Å. ├É┼í├É┬¥├É┬Â├É┬¢├É┬░ ├æÔÇ×├É┬Á├æÔé¼├É┬╝├É┬░ ├É┬¥├æÔÇÜ├æÔé¼├É┬©├É┬╝├æãÆ├æÔÇØ ├É┬▓├É┬╗├É┬░├æ┬ü├É┬¢├É┬©├É┬╣ ├É┬┤├É┬¥├æÔÇª├æÔÇô├É┬┤, ├É┬░├É┬▓├æÔÇÜ├É┬¥├É┬╝├É┬░├æÔÇÜ├É┬©├æÔÇí├É┬¢├É┬¥ ├æ┬ü├É┬©├É┬¢├æÔÇª├æÔé¼├É┬¥├É┬¢├æÔÇô├É┬À├É┬¥├É┬▓├É┬░├É┬¢├É┬©├É┬╣ ├É┬À ├æãÆ├æ┬ü├æÔÇô├É┬╝├É┬░ ├É┬║├É┬╗├æÔÇô├æÔÇØ├É┬¢├æÔÇÜ├É┬░├É┬╝├É┬©.]]></uk>
+            <ru><![CDATA[├É┼©├É┬¥├É┬╗├É┬¢├É┬¥├æ┬ü├æÔÇÜ├æ┼Æ├æ┼¢ ├æ┬ü├É┬¥├É┬▓├É┬╝├É┬Á├æ┬ü├æÔÇÜ├É┬©├É┬╝ ├æ┬ü ├É┬╝├æãÆ├É┬╗├æ┼Æ├æÔÇÜ├É┬©├É┬┐├É┬╗├É┬Á├É┬Á├æÔé¼├É┬¥├É┬╝. ├É┬ó├É┬¥├É┬╗├æ┼Æ├É┬║├É┬¥ ├æ┬ü├É┬Á├æÔé¼├É┬▓├É┬Á├æÔé¼ ├É┬¥├É┬▒├æÔé¼├É┬░├É┬▒├É┬░├æÔÇÜ├æÔÇ╣├É┬▓├É┬░├É┬Á├æÔÇÜ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æÔÇ╣ ├óÔé¼ÔÇØ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤ ├É┬¢├É┬©├É┬║├É┬¥├É┬│├É┬┤├É┬░ ├É┬¢├É┬Á ├É┬┤├æãÆ├É┬▒├É┬╗├É┬©├æÔé¼├æãÆ├É┬Á├æÔÇÜ├æ┬ü├æ┬Å. ├É┼í├É┬░├É┬Â├É┬┤├É┬░├æ┬Å ├æÔÇ×├É┬Á├æÔé¼├É┬╝├É┬░ ├É┬┐├É┬¥├É┬╗├æãÆ├æÔÇí├É┬░├É┬Á├æÔÇÜ ├æ┬ü├É┬▓├É┬¥├É┬╣ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤, ├É┬░├É┬▓├æÔÇÜ├É┬¥├É┬╝├É┬░├æÔÇÜ├É┬©├æÔÇí├É┬Á├æ┬ü├É┬║├É┬© ├æ┬ü├É┬©├É┬¢├æÔÇª├æÔé¼├É┬¥├É┬¢├É┬©├É┬À├É┬©├æÔé¼├É┬¥├É┬▓├É┬░├É┬¢├É┬¢├æÔÇ╣├É┬╣ ├æ┬ü├É┬¥ ├É┬▓├æ┬ü├É┬Á├É┬╝├É┬© ├É┬║├É┬╗├É┬©├É┬Á├É┬¢├æÔÇÜ├É┬░├É┬╝├É┬©.]]></ru>
+            <da><![CDATA[Fuldt kompatibel med multiplayer. Kun serveren behandler betalinger ├óÔé¼ÔÇØ indkomst bliver aldrig duplikeret. Hver aktiv farm f├â┬Ñr sin egen indkomst, automatisk synkroniseret til alle klienter.]]></da>
         </text>
 
-        <!-- â”€â”€ Help Lines: Page 2 â€” How Payments Work â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+        <!-- ├óÔÇØÔé¼├óÔÇØÔé¼ Help Lines: Page 2 ├óÔé¼ÔÇØ How Payments Work ├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼ -->
         <text name="im_help_p2_modes_title">
             <en><![CDATA[Pay Modes]]></en>
             <de><![CDATA[Zahlungsmodi]]></de>
             <fr><![CDATA[Modes de paiement]]></fr>
-            <pl><![CDATA[Tryby pÅ‚atnoÅ›ci]]></pl>
+            <pl><![CDATA[Tryby p├àÔÇÜatno├àÔÇ║ci]]></pl>
             <es><![CDATA[Modos de pago]]></es>
-            <it><![CDATA[ModalitÃ  di pagamento]]></it>
-            <cz><![CDATA[PlatebnÃ­ reÅ¾imy]]></cz>
+            <it><![CDATA[Modalit├â┬á di pagamento]]></it>
+            <cz><![CDATA[Platebn├â┬¡ re├à┬¥imy]]></cz>
             <br><![CDATA[Modos de pagamento]]></br>
-            <uk><![CDATA[Ð ÐµÐ¶Ð¸Ð¼Ð¸ Ð²Ð¸Ð¿Ð»Ð°Ñ‚]]></uk>
-            <ru><![CDATA[Ð ÐµÐ¶Ð¸Ð¼Ñ‹ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚]]></ru>
+            <uk><![CDATA[├É┬á├É┬Á├É┬Â├É┬©├É┬╝├É┬© ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ]]></uk>
+            <ru><![CDATA[├É┬á├É┬Á├É┬Â├É┬©├É┬╝├æÔÇ╣ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ]]></ru>
             <da><![CDATA[Betalingstyper]]></da>
         </text>
 
         <text name="im_help_p2_modes_text">
-            <en><![CDATA[Hourly: one payment every in-game hour (24 per day). Daily: one payment at the start of each in-game day. Switch at any time via ESC â†’ Settings â†’ Income Mod.]]></en>
-            <de><![CDATA[StÃ¼ndlich: eine Zahlung pro Spielstunde (24 pro Tag). TÃ¤glich: eine Zahlung zu Beginn jedes Spieltages. Jederzeit wechseln: ESC â†’ Einstellungen â†’ Einkommens-Mod.]]></de>
-            <fr><![CDATA[Horaire : un paiement par heure de jeu (24 par jour). Quotidien : un paiement au dÃ©but de chaque journÃ©e. Changez via Ã‰chap â†’ ParamÃ¨tres â†’ Income Mod.]]></fr>
-            <pl><![CDATA[Godzinowy: jedna pÅ‚atnoÅ›Ä‡ co godzinÄ™ gry (24 na dzieÅ„). Dzienny: jedna pÅ‚atnoÅ›Ä‡ na poczÄ…tku kaÅ¼dego dnia. ZmieÅ„ w ESC â†’ Ustawienia â†’ Income Mod.]]></pl>
-            <es><![CDATA[Horario: un pago por hora de juego (24 al dÃ­a). Diario: un pago al inicio de cada dÃ­a. Cambia en ESC â†’ Ajustes â†’ Income Mod.]]></es>
-            <it><![CDATA[Orario: un pagamento ogni ora (24 al giorno). Giornaliero: un pagamento all'inizio di ogni giorno. Cambia in ESC â†’ Impostazioni â†’ Income Mod.]]></it>
-            <cz><![CDATA[HodinovÄ›: jedna platba kaÅ¾dou hernÃ­ hodinu (24 za den). DennÄ›: jedna platba na zaÄÃ¡tku kaÅ¾dÃ©ho dne. ZmÄ›Åˆte v ESC â†’ NastavenÃ­ â†’ Income Mod.]]></cz>
-            <br><![CDATA[Por hora: um pagamento por hora de jogo (24 ao dia). DiÃ¡rio: um pagamento no inÃ­cio de cada dia. Mude em ESC â†’ ConfiguraÃ§Ãµes â†’ Income Mod.]]></br>
-            <uk><![CDATA[ÐŸÐ¾Ð³Ð¾Ð´Ð¸Ð½Ð½Ð¾: Ð¾Ð´Ð½Ð° Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ð° ÐºÐ¾Ð¶Ð½Ñƒ Ñ–Ð³Ñ€Ð¾Ð²Ñƒ Ð³Ð¾Ð´Ð¸Ð½Ñƒ (24 Ð½Ð° Ð´ÐµÐ½ÑŒ). Ð©Ð¾Ð´ÐµÐ½Ð½Ð¾: Ð¾Ð´Ð½Ð° Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ð° Ð½Ð° Ð¿Ð¾Ñ‡Ð°Ñ‚ÐºÑƒ ÐºÐ¾Ð¶Ð½Ð¾Ð³Ð¾ Ð´Ð½Ñ. Ð—Ð¼Ñ–Ð½Ð¸Ñ‚Ð¸: ESC â†’ ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ â†’ Income Mod.]]></uk>
-            <ru><![CDATA[ÐŸÐ¾Ñ‡Ð°ÑÐ¾Ð²Ð¾: Ð¾Ð´Ð½Ð° Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ð° ÐºÐ°Ð¶Ð´Ñ‹Ð¹ Ð¸Ð³Ñ€Ð¾Ð²Ð¾Ð¹ Ñ‡Ð°Ñ (24 Ð² Ð´ÐµÐ½ÑŒ). Ð•Ð¶ÐµÐ´Ð½ÐµÐ²Ð½Ð¾: Ð¾Ð´Ð½Ð° Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ð° Ð² Ð½Ð°Ñ‡Ð°Ð»Ðµ ÐºÐ°Ð¶Ð´Ð¾Ð³Ð¾ Ð´Ð½Ñ. Ð¡Ð¼ÐµÐ½Ð¸Ñ‚Ðµ Ð² ESC â†’ ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ â†’ Income Mod.]]></ru>
-            <da><![CDATA[Timevis: en betaling hver in-game time (24 pr. dag). Dagligt: en betaling ved starten af hver in-game dag. Skift nÃ¥r som helst via ESC â†’ Indstillinger â†’ Income Mod.]]></da>
+            <en><![CDATA[Hourly: one payment every in-game hour (24 per day). Daily: one payment at the start of each in-game day. Switch at any time via ESC ├óÔÇáÔÇÖ Settings ├óÔÇáÔÇÖ Income Mod.]]></en>
+            <de><![CDATA[St├â┬╝ndlich: eine Zahlung pro Spielstunde (24 pro Tag). T├â┬ñglich: eine Zahlung zu Beginn jedes Spieltages. Jederzeit wechseln: ESC ├óÔÇáÔÇÖ Einstellungen ├óÔÇáÔÇÖ Einkommens-Mod.]]></de>
+            <fr><![CDATA[Horaire : un paiement par heure de jeu (24 par jour). Quotidien : un paiement au d├â┬®but de chaque journ├â┬®e. Changez via ├âÔÇ░chap ├óÔÇáÔÇÖ Param├â┬¿tres ├óÔÇáÔÇÖ Income Mod.]]></fr>
+            <pl><![CDATA[Godzinowy: jedna p├àÔÇÜatno├àÔÇ║├äÔÇí co godzin├äÔäó gry (24 na dzie├àÔÇ×). Dzienny: jedna p├àÔÇÜatno├àÔÇ║├äÔÇí na pocz├äÔÇªtku ka├à┬╝dego dnia. Zmie├àÔÇ× w ESC ├óÔÇáÔÇÖ Ustawienia ├óÔÇáÔÇÖ Income Mod.]]></pl>
+            <es><![CDATA[Horario: un pago por hora de juego (24 al d├â┬¡a). Diario: un pago al inicio de cada d├â┬¡a. Cambia en ESC ├óÔÇáÔÇÖ Ajustes ├óÔÇáÔÇÖ Income Mod.]]></es>
+            <it><![CDATA[Orario: un pagamento ogni ora (24 al giorno). Giornaliero: un pagamento all'inizio di ogni giorno. Cambia in ESC ├óÔÇáÔÇÖ Impostazioni ├óÔÇáÔÇÖ Income Mod.]]></it>
+            <cz><![CDATA[Hodinov├äÔÇ║: jedna platba ka├à┬¥dou hern├â┬¡ hodinu (24 za den). Denn├äÔÇ║: jedna platba na za├ä┬ì├â┬ítku ka├à┬¥d├â┬®ho dne. Zm├äÔÇ║├à╦åte v ESC ├óÔÇáÔÇÖ Nastaven├â┬¡ ├óÔÇáÔÇÖ Income Mod.]]></cz>
+            <br><![CDATA[Por hora: um pagamento por hora de jogo (24 ao dia). Di├â┬írio: um pagamento no in├â┬¡cio de cada dia. Mude em ESC ├óÔÇáÔÇÖ Configura├â┬º├â┬Áes ├óÔÇáÔÇÖ Income Mod.]]></br>
+            <uk><![CDATA[├É┼©├É┬¥├É┬│├É┬¥├É┬┤├É┬©├É┬¢├É┬¢├É┬¥: ├É┬¥├É┬┤├É┬¢├É┬░ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬░ ├É┬║├É┬¥├É┬Â├É┬¢├æãÆ ├æÔÇô├É┬│├æÔé¼├É┬¥├É┬▓├æãÆ ├É┬│├É┬¥├É┬┤├É┬©├É┬¢├æãÆ (24 ├É┬¢├É┬░ ├É┬┤├É┬Á├É┬¢├æ┼Æ). ├É┬®├É┬¥├É┬┤├É┬Á├É┬¢├É┬¢├É┬¥: ├É┬¥├É┬┤├É┬¢├É┬░ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬░ ├É┬¢├É┬░ ├É┬┐├É┬¥├æÔÇí├É┬░├æÔÇÜ├É┬║├æãÆ ├É┬║├É┬¥├É┬Â├É┬¢├É┬¥├É┬│├É┬¥ ├É┬┤├É┬¢├æ┬Å. ├ÉÔÇö├É┬╝├æÔÇô├É┬¢├É┬©├æÔÇÜ├É┬©: ESC ├óÔÇáÔÇÖ ├É┬Ø├É┬░├É┬╗├É┬░├æ╦å├æÔÇÜ├æãÆ├É┬▓├É┬░├É┬¢├É┬¢├æ┬Å ├óÔÇáÔÇÖ Income Mod.]]></uk>
+            <ru><![CDATA[├É┼©├É┬¥├æÔÇí├É┬░├æ┬ü├É┬¥├É┬▓├É┬¥: ├É┬¥├É┬┤├É┬¢├É┬░ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬░ ├É┬║├É┬░├É┬Â├É┬┤├æÔÇ╣├É┬╣ ├É┬©├É┬│├æÔé¼├É┬¥├É┬▓├É┬¥├É┬╣ ├æÔÇí├É┬░├æ┬ü (24 ├É┬▓ ├É┬┤├É┬Á├É┬¢├æ┼Æ). ├ÉÔÇó├É┬Â├É┬Á├É┬┤├É┬¢├É┬Á├É┬▓├É┬¢├É┬¥: ├É┬¥├É┬┤├É┬¢├É┬░ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬░ ├É┬▓ ├É┬¢├É┬░├æÔÇí├É┬░├É┬╗├É┬Á ├É┬║├É┬░├É┬Â├É┬┤├É┬¥├É┬│├É┬¥ ├É┬┤├É┬¢├æ┬Å. ├É┬í├É┬╝├É┬Á├É┬¢├É┬©├æÔÇÜ├É┬Á ├É┬▓ ESC ├óÔÇáÔÇÖ ├É┬Ø├É┬░├æ┬ü├æÔÇÜ├æÔé¼├É┬¥├É┬╣├É┬║├É┬© ├óÔÇáÔÇÖ Income Mod.]]></ru>
+            <da><![CDATA[Timevis: en betaling hver in-game time (24 pr. dag). Dagligt: en betaling ved starten af hver in-game dag. Skift n├â┬Ñr som helst via ESC ├óÔÇáÔÇÖ Indstillinger ├óÔÇáÔÇÖ Income Mod.]]></da>
         </text>
 
         <text name="im_help_p2_persist_title">
             <en><![CDATA[No Double-Payments]]></en>
             <de><![CDATA[Keine Doppelzahlungen]]></de>
             <fr><![CDATA[Pas de double paiement]]></fr>
-            <pl><![CDATA[Brak podwÃ³jnych pÅ‚atnoÅ›ci]]></pl>
+            <pl><![CDATA[Brak podw├â┬│jnych p├àÔÇÜatno├àÔÇ║ci]]></pl>
             <es><![CDATA[Sin dobles pagos]]></es>
             <it><![CDATA[Nessun pagamento doppio]]></it>
-            <cz><![CDATA[Å½Ã¡dnÃ© dvojitÃ© platby]]></cz>
+            <cz><![CDATA[├à┬¢├â┬ídn├â┬® dvojit├â┬® platby]]></cz>
             <br><![CDATA[Sem pagamentos duplos]]></br>
-            <uk><![CDATA[Ð‘ÐµÐ· Ð¿Ð¾Ð´Ð²Ñ–Ð¹Ð½Ð¸Ñ… Ð²Ð¸Ð¿Ð»Ð°Ñ‚]]></uk>
-            <ru><![CDATA[Ð‘ÐµÐ· Ð´Ð²Ð¾Ð¹Ð½Ñ‹Ñ… Ð²Ñ‹Ð¿Ð»Ð°Ñ‚]]></ru>
+            <uk><![CDATA[├ÉÔÇÿ├É┬Á├É┬À ├É┬┐├É┬¥├É┬┤├É┬▓├æÔÇô├É┬╣├É┬¢├É┬©├æÔÇª ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ]]></uk>
+            <ru><![CDATA[├ÉÔÇÿ├É┬Á├É┬À ├É┬┤├É┬▓├É┬¥├É┬╣├É┬¢├æÔÇ╣├æÔÇª ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ]]></ru>
             <da><![CDATA[Ingen dobbelte betalinger]]></da>
         </text>
 
         <text name="im_help_p2_persist_text">
             <en><![CDATA[The last payment time is saved with your game. If you exit and reload, payments resume correctly. You will never be paid twice for the same hour or day.]]></en>
-            <de><![CDATA[Der letzte Zahlungszeitpunkt wird mit dem Spielstand gespeichert. Beim Neuladen werden Zahlungen korrekt fortgesetzt. Sie werden nie zweimal fÃ¼r dieselbe Stunde oder denselben Tag bezahlt.]]></de>
-            <fr><![CDATA[Le dernier paiement est sauvegardÃ© avec la partie. Au rechargement, les paiements reprennent correctement. Vous ne serez jamais payÃ© deux fois pour la mÃªme heure ou le mÃªme jour.]]></fr>
-            <pl><![CDATA[Ostatni czas pÅ‚atnoÅ›ci jest zapisywany z grÄ…. Po przeÅ‚adowaniu pÅ‚atnoÅ›ci wznawiajÄ… siÄ™ poprawnie. Nigdy nie otrzymasz podwÃ³jnej pÅ‚atnoÅ›ci za tÄ™ samÄ… godzinÄ™ lub dzieÅ„.]]></pl>
-            <es><![CDATA[El Ãºltimo pago se guarda con la partida. Al recargar, los pagos se reanudan correctamente. Nunca recibirÃ¡s dos pagos por la misma hora o dÃ­a.]]></es>
+            <de><![CDATA[Der letzte Zahlungszeitpunkt wird mit dem Spielstand gespeichert. Beim Neuladen werden Zahlungen korrekt fortgesetzt. Sie werden nie zweimal f├â┬╝r dieselbe Stunde oder denselben Tag bezahlt.]]></de>
+            <fr><![CDATA[Le dernier paiement est sauvegard├â┬® avec la partie. Au rechargement, les paiements reprennent correctement. Vous ne serez jamais pay├â┬® deux fois pour la m├â┬¬me heure ou le m├â┬¬me jour.]]></fr>
+            <pl><![CDATA[Ostatni czas p├àÔÇÜatno├àÔÇ║ci jest zapisywany z gr├äÔÇª. Po prze├àÔÇÜadowaniu p├àÔÇÜatno├àÔÇ║ci wznawiaj├äÔÇª si├äÔäó poprawnie. Nigdy nie otrzymasz podw├â┬│jnej p├àÔÇÜatno├àÔÇ║ci za t├äÔäó sam├äÔÇª godzin├äÔäó lub dzie├àÔÇ×.]]></pl>
+            <es><![CDATA[El ├â┬║ltimo pago se guarda con la partida. Al recargar, los pagos se reanudan correctamente. Nunca recibir├â┬ís dos pagos por la misma hora o d├â┬¡a.]]></es>
             <it><![CDATA[L'ultimo pagamento viene salvato con la partita. Al ricaricamento i pagamenti riprendono correttamente. Non riceverai mai due pagamenti per la stessa ora o giorno.]]></it>
-            <cz><![CDATA[ÄŒas poslednÃ­ platby se uklÃ¡dÃ¡ se hrou. Po naÄtenÃ­ platby pokraÄujÃ­ sprÃ¡vnÄ›. Nikdy neobdrÅ¾Ã­te dvojitou platbu za tutÃ©Å¾ hodinu nebo den.]]></cz>
-            <br><![CDATA[O Ãºltimo pagamento Ã© salvo com o jogo. Ao recarregar, os pagamentos retomam corretamente. VocÃª nunca receberÃ¡ dois pagamentos pela mesma hora ou dia.]]></br>
-            <uk><![CDATA[Ð§Ð°Ñ Ð¾ÑÑ‚Ð°Ð½Ð½ÑŒÐ¾Ñ— Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ð¸ Ð·Ð±ÐµÑ€Ñ–Ð³Ð°Ñ”Ñ‚ÑŒÑÑ Ñ€Ð°Ð·Ð¾Ð¼ Ð· Ð³Ñ€Ð¾ÑŽ. ÐŸÑ–ÑÐ»Ñ Ð¿ÐµÑ€ÐµÐ·Ð°Ð²Ð°Ð½Ñ‚Ð°Ð¶ÐµÐ½Ð½Ñ Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ð¸ Ð²Ñ–Ð´Ð½Ð¾Ð²Ð»ÑŽÑŽÑ‚ÑŒÑÑ Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾. Ð’Ð¸ Ð½Ñ–ÐºÐ¾Ð»Ð¸ Ð½Ðµ Ð¾Ñ‚Ñ€Ð¸Ð¼Ð°Ñ”Ñ‚Ðµ Ð¿Ð¾Ð´Ð²Ñ–Ð¹Ð½Ñƒ Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ñƒ Ð·Ð° Ð¾Ð´Ð½Ñƒ Ð¹ Ñ‚Ñƒ ÑÐ°Ð¼Ñƒ Ð³Ð¾Ð´Ð¸Ð½Ñƒ Ð°Ð±Ð¾ Ð´ÐµÐ½ÑŒ.]]></uk>
-            <ru><![CDATA[Ð’Ñ€ÐµÐ¼Ñ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ¹ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñ‹ ÑÐ¾Ñ…Ñ€Ð°Ð½ÑÐµÑ‚ÑÑ Ð²Ð¼ÐµÑÑ‚Ðµ Ñ Ð¸Ð³Ñ€Ð¾Ð¹. ÐŸÑ€Ð¸ Ð¿ÐµÑ€ÐµÐ·Ð°Ð³Ñ€ÑƒÐ·ÐºÐµ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñ‹ Ð²Ð¾Ð·Ð¾Ð±Ð½Ð¾Ð²Ð»ÑÑŽÑ‚ÑÑ ÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾. Ð’Ñ‹ Ð½Ð¸ÐºÐ¾Ð³Ð´Ð° Ð½Ðµ Ð¿Ð¾Ð»ÑƒÑ‡Ð¸Ñ‚Ðµ Ð´Ð²Ð¾Ð¹Ð½ÑƒÑŽ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñƒ Ð·Ð° Ð¾Ð´Ð¸Ð½ Ð¸ Ñ‚Ð¾Ñ‚ Ð¶Ðµ Ñ‡Ð°Ñ Ð¸Ð»Ð¸ Ð´ÐµÐ½ÑŒ.]]></ru>
-            <da><![CDATA[Det sidste betalingstidspunkt gemmes sammen med dit spil. Hvis du afslutter og genindlÃ¦ser, genoptages betalingerne korrekt. Du vil aldrig blive betalt to gange for den samme time eller dag.]]></da>
+            <cz><![CDATA[├ä┼Æas posledn├â┬¡ platby se ukl├â┬íd├â┬í se hrou. Po na├ä┬ìten├â┬¡ platby pokra├ä┬ìuj├â┬¡ spr├â┬ívn├äÔÇ║. Nikdy neobdr├à┬¥├â┬¡te dvojitou platbu za tut├â┬®├à┬¥ hodinu nebo den.]]></cz>
+            <br><![CDATA[O ├â┬║ltimo pagamento ├â┬® salvo com o jogo. Ao recarregar, os pagamentos retomam corretamente. Voc├â┬¬ nunca receber├â┬í dois pagamentos pela mesma hora ou dia.]]></br>
+            <uk><![CDATA[├É┬º├É┬░├æ┬ü ├É┬¥├æ┬ü├æÔÇÜ├É┬░├É┬¢├É┬¢├æ┼Æ├É┬¥├æÔÇö ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬© ├É┬À├É┬▒├É┬Á├æÔé¼├æÔÇô├É┬│├É┬░├æÔÇØ├æÔÇÜ├æ┼Æ├æ┬ü├æ┬Å ├æÔé¼├É┬░├É┬À├É┬¥├É┬╝ ├É┬À ├É┬│├æÔé¼├É┬¥├æ┼¢. ├É┼©├æÔÇô├æ┬ü├É┬╗├æ┬Å ├É┬┐├É┬Á├æÔé¼├É┬Á├É┬À├É┬░├É┬▓├É┬░├É┬¢├æÔÇÜ├É┬░├É┬Â├É┬Á├É┬¢├É┬¢├æ┬Å ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬© ├É┬▓├æÔÇô├É┬┤├É┬¢├É┬¥├É┬▓├É┬╗├æ┼¢├æ┼¢├æÔÇÜ├æ┼Æ├æ┬ü├æ┬Å ├É┬┐├æÔé¼├É┬░├É┬▓├É┬©├É┬╗├æ┼Æ├É┬¢├É┬¥. ├ÉÔÇÖ├É┬© ├É┬¢├æÔÇô├É┬║├É┬¥├É┬╗├É┬© ├É┬¢├É┬Á ├É┬¥├æÔÇÜ├æÔé¼├É┬©├É┬╝├É┬░├æÔÇØ├æÔÇÜ├É┬Á ├É┬┐├É┬¥├É┬┤├É┬▓├æÔÇô├É┬╣├É┬¢├æãÆ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ ├É┬À├É┬░ ├É┬¥├É┬┤├É┬¢├æãÆ ├É┬╣ ├æÔÇÜ├æãÆ ├æ┬ü├É┬░├É┬╝├æãÆ ├É┬│├É┬¥├É┬┤├É┬©├É┬¢├æãÆ ├É┬░├É┬▒├É┬¥ ├É┬┤├É┬Á├É┬¢├æ┼Æ.]]></uk>
+            <ru><![CDATA[├ÉÔÇÖ├æÔé¼├É┬Á├É┬╝├æ┬Å ├É┬┐├É┬¥├æ┬ü├É┬╗├É┬Á├É┬┤├É┬¢├É┬Á├É┬╣ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æÔÇ╣ ├æ┬ü├É┬¥├æÔÇª├æÔé¼├É┬░├É┬¢├æ┬Å├É┬Á├æÔÇÜ├æ┬ü├æ┬Å ├É┬▓├É┬╝├É┬Á├æ┬ü├æÔÇÜ├É┬Á ├æ┬ü ├É┬©├É┬│├æÔé¼├É┬¥├É┬╣. ├É┼©├æÔé¼├É┬© ├É┬┐├É┬Á├æÔé¼├É┬Á├É┬À├É┬░├É┬│├æÔé¼├æãÆ├É┬À├É┬║├É┬Á ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æÔÇ╣ ├É┬▓├É┬¥├É┬À├É┬¥├É┬▒├É┬¢├É┬¥├É┬▓├É┬╗├æ┬Å├æ┼¢├æÔÇÜ├æ┬ü├æ┬Å ├É┬║├É┬¥├æÔé¼├æÔé¼├É┬Á├É┬║├æÔÇÜ├É┬¢├É┬¥. ├ÉÔÇÖ├æÔÇ╣ ├É┬¢├É┬©├É┬║├É┬¥├É┬│├É┬┤├É┬░ ├É┬¢├É┬Á ├É┬┐├É┬¥├É┬╗├æãÆ├æÔÇí├É┬©├æÔÇÜ├É┬Á ├É┬┤├É┬▓├É┬¥├É┬╣├É┬¢├æãÆ├æ┼¢ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ ├É┬À├É┬░ ├É┬¥├É┬┤├É┬©├É┬¢ ├É┬© ├æÔÇÜ├É┬¥├æÔÇÜ ├É┬Â├É┬Á ├æÔÇí├É┬░├æ┬ü ├É┬©├É┬╗├É┬© ├É┬┤├É┬Á├É┬¢├æ┼Æ.]]></ru>
+            <da><![CDATA[Det sidste betalingstidspunkt gemmes sammen med dit spil. Hvis du afslutter og genindl├â┬ªser, genoptages betalingerne korrekt. Du vil aldrig blive betalt to gange for den samme time eller dag.]]></da>
         </text>
 
-        <!-- â”€â”€ Help Lines: Page 3 â€” Income Settings â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+        <!-- ├óÔÇØÔé¼├óÔÇØÔé¼ Help Lines: Page 3 ├óÔé¼ÔÇØ Income Settings ├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼ -->
         <text name="im_help_s1_enable_title">
             <en><![CDATA[Enable / Disable]]></en>
             <de><![CDATA[Aktivieren / Deaktivieren]]></de>
-            <fr><![CDATA[Activer / DÃ©sactiver]]></fr>
-            <pl><![CDATA[WÅ‚Ä…cz / WyÅ‚Ä…cz]]></pl>
+            <fr><![CDATA[Activer / D├â┬®sactiver]]></fr>
+            <pl><![CDATA[W├àÔÇÜ├äÔÇªcz / Wy├àÔÇÜ├äÔÇªcz]]></pl>
             <es><![CDATA[Activar / Desactivar]]></es>
             <it><![CDATA[Attiva / Disattiva]]></it>
-            <cz><![CDATA[Povolit / ZakÃ¡zat]]></cz>
+            <cz><![CDATA[Povolit / Zak├â┬ízat]]></cz>
             <br><![CDATA[Ativar / Desativar]]></br>
-            <uk><![CDATA[Ð£Ð²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ / Ð’Ð¸Ð¼ÐºÐ½ÑƒÑ‚Ð¸]]></uk>
-            <ru><![CDATA[Ð’ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ / Ð’Ñ‹ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ]]></ru>
+            <uk><![CDATA[├É┬ú├É┬▓├æÔÇô├É┬╝├É┬║├É┬¢├æãÆ├æÔÇÜ├É┬© / ├ÉÔÇÖ├É┬©├É┬╝├É┬║├É┬¢├æãÆ├æÔÇÜ├É┬©]]></uk>
+            <ru><![CDATA[├ÉÔÇÖ├É┬║├É┬╗├æ┼¢├æÔÇí├É┬©├æÔÇÜ├æ┼Æ / ├ÉÔÇÖ├æÔÇ╣├É┬║├É┬╗├æ┼¢├æÔÇí├É┬©├æÔÇÜ├æ┼Æ]]></ru>
             <da><![CDATA[Aktiver / Deaktiver]]></da>
         </text>
 
         <text name="im_help_s1_enable_text">
             <en><![CDATA[The master switch. When disabled, no income is paid and the HUD is hidden. Re-enabling resumes payments from the current in-game time.]]></en>
             <de><![CDATA[Der Hauptschalter. Wenn deaktiviert, werden keine Einnahmen ausgezahlt und der HUD ist ausgeblendet. Bei erneuter Aktivierung werden Zahlungen fortgesetzt.]]></de>
-            <fr><![CDATA[L'interrupteur principal. DÃ©sactivÃ© : pas de revenu, HUD masquÃ©. RÃ©activÃ© : les paiements reprennent Ã  partir du temps de jeu actuel.]]></fr>
-            <pl><![CDATA[GÅ‚Ã³wny przeÅ‚Ä…cznik. Gdy wyÅ‚Ä…czony â€” brak dochodÃ³w i HUD jest ukryty. Po ponownym wÅ‚Ä…czeniu pÅ‚atnoÅ›ci wznawiajÄ… siÄ™ od bieÅ¼Ä…cego czasu gry.]]></pl>
+            <fr><![CDATA[L'interrupteur principal. D├â┬®sactiv├â┬® : pas de revenu, HUD masqu├â┬®. R├â┬®activ├â┬® : les paiements reprennent ├â┬á partir du temps de jeu actuel.]]></fr>
+            <pl><![CDATA[G├àÔÇÜ├â┬│wny prze├àÔÇÜ├äÔÇªcznik. Gdy wy├àÔÇÜ├äÔÇªczony ├óÔé¼ÔÇØ brak dochod├â┬│w i HUD jest ukryty. Po ponownym w├àÔÇÜ├äÔÇªczeniu p├àÔÇÜatno├àÔÇ║ci wznawiaj├äÔÇª si├äÔäó od bie├à┬╝├äÔÇªcego czasu gry.]]></pl>
             <es><![CDATA[El interruptor principal. Desactivado: sin ingresos, HUD oculto. Al reactivar, los pagos se reanudan desde el tiempo de juego actual.]]></es>
             <it><![CDATA[L'interruttore principale. Disabilitato: nessun reddito, HUD nascosto. Riabilitato: i pagamenti riprendono dal tempo di gioco attuale.]]></it>
-            <cz><![CDATA[HlavnÃ­ pÅ™epÃ­naÄ. ZakÃ¡zÃ¡no: Å¾Ã¡dnÃ½ pÅ™Ã­jem, HUD je skrytÃ½. Po opÄ›tovnÃ©m povolenÃ­ se platby obnovÃ­ od aktuÃ¡lnÃ­ho hernÃ­ho Äasu.]]></cz>
+            <cz><![CDATA[Hlavn├â┬¡ p├àÔäóep├â┬¡na├ä┬ì. Zak├â┬íz├â┬íno: ├à┬¥├â┬ídn├â┬¢ p├àÔäó├â┬¡jem, HUD je skryt├â┬¢. Po op├äÔÇ║tovn├â┬®m povolen├â┬¡ se platby obnov├â┬¡ od aktu├â┬íln├â┬¡ho hern├â┬¡ho ├ä┬ìasu.]]></cz>
             <br><![CDATA[O interruptor principal. Desativado: sem renda, HUD oculto. Reativado: os pagamentos retomam do tempo de jogo atual.]]></br>
-            <uk><![CDATA[Ð“Ð¾Ð»Ð¾Ð²Ð½Ð¸Ð¹ Ð¿ÐµÑ€ÐµÐ¼Ð¸ÐºÐ°Ñ‡. Ð’Ð¸Ð¼ÐºÐ½ÐµÐ½Ð¾: Ð½ÐµÐ¼Ð°Ñ” Ð´Ð¾Ñ…Ð¾Ð´Ñƒ, HUD Ð¿Ñ€Ð¸Ñ…Ð¾Ð²Ð°Ð½Ð¸Ð¹. ÐŸÑ€Ð¸ Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð½Ð¾Ð¼Ñƒ Ð²Ð¼Ð¸ÐºÐ°Ð½Ð½Ñ– Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ð¸ Ð²Ñ–Ð´Ð½Ð¾Ð²Ð»ÑŽÑŽÑ‚ÑŒÑÑ Ð· Ð¿Ð¾Ñ‚Ð¾Ñ‡Ð½Ð¾Ð³Ð¾ Ñ–Ð³Ñ€Ð¾Ð²Ð¾Ð³Ð¾ Ñ‡Ð°ÑÑƒ.]]></uk>
-            <ru><![CDATA[Ð“Ð»Ð°Ð²Ð½Ñ‹Ð¹ Ð¿ÐµÑ€ÐµÐºÐ»ÑŽÑ‡Ð°Ñ‚ÐµÐ»ÑŒ. ÐžÑ‚ÐºÐ»ÑŽÑ‡Ñ‘Ð½: Ð´Ð¾Ñ…Ð¾Ð´ Ð½Ðµ Ð²Ñ‹Ð¿Ð»Ð°Ñ‡Ð¸Ð²Ð°ÐµÑ‚ÑÑ, HUD ÑÐºÑ€Ñ‹Ñ‚. ÐŸÑ€Ð¸ Ð¿Ð¾Ð²Ñ‚Ð¾Ñ€Ð½Ð¾Ð¼ Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ð¸ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñ‹ Ð²Ð¾Ð·Ð¾Ð±Ð½Ð¾Ð²Ð»ÑÑŽÑ‚ÑÑ Ñ Ñ‚ÐµÐºÑƒÑ‰ÐµÐ³Ð¾ Ð¸Ð³Ñ€Ð¾Ð²Ð¾Ð³Ð¾ Ð²Ñ€ÐµÐ¼ÐµÐ½Ð¸.]]></ru>
-            <da><![CDATA[Den hovedsÃ¦tning. NÃ¥r deaktiveret, bliver der ikke betalt noget indkomst og HUD er skjult. Genaktivering genoptager betalinger fra det nuvÃ¦rende in-game tidspunkt.]]></da>
+            <uk><![CDATA[├ÉÔÇ£├É┬¥├É┬╗├É┬¥├É┬▓├É┬¢├É┬©├É┬╣ ├É┬┐├É┬Á├æÔé¼├É┬Á├É┬╝├É┬©├É┬║├É┬░├æÔÇí. ├ÉÔÇÖ├É┬©├É┬╝├É┬║├É┬¢├É┬Á├É┬¢├É┬¥: ├É┬¢├É┬Á├É┬╝├É┬░├æÔÇØ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ, HUD ├É┬┐├æÔé¼├É┬©├æÔÇª├É┬¥├É┬▓├É┬░├É┬¢├É┬©├É┬╣. ├É┼©├æÔé¼├É┬© ├É┬┐├É┬¥├É┬▓├æÔÇÜ├É┬¥├æÔé¼├É┬¢├É┬¥├É┬╝├æãÆ ├É┬▓├É┬╝├É┬©├É┬║├É┬░├É┬¢├É┬¢├æÔÇô ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬© ├É┬▓├æÔÇô├É┬┤├É┬¢├É┬¥├É┬▓├É┬╗├æ┼¢├æ┼¢├æÔÇÜ├æ┼Æ├æ┬ü├æ┬Å ├É┬À ├É┬┐├É┬¥├æÔÇÜ├É┬¥├æÔÇí├É┬¢├É┬¥├É┬│├É┬¥ ├æÔÇô├É┬│├æÔé¼├É┬¥├É┬▓├É┬¥├É┬│├É┬¥ ├æÔÇí├É┬░├æ┬ü├æãÆ.]]></uk>
+            <ru><![CDATA[├ÉÔÇ£├É┬╗├É┬░├É┬▓├É┬¢├æÔÇ╣├É┬╣ ├É┬┐├É┬Á├æÔé¼├É┬Á├É┬║├É┬╗├æ┼¢├æÔÇí├É┬░├æÔÇÜ├É┬Á├É┬╗├æ┼Æ. ├É┼¥├æÔÇÜ├É┬║├É┬╗├æ┼¢├æÔÇí├æÔÇÿ├É┬¢: ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤ ├É┬¢├É┬Á ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇí├É┬©├É┬▓├É┬░├É┬Á├æÔÇÜ├æ┬ü├æ┬Å, HUD ├æ┬ü├É┬║├æÔé¼├æÔÇ╣├æÔÇÜ. ├É┼©├æÔé¼├É┬© ├É┬┐├É┬¥├É┬▓├æÔÇÜ├É┬¥├æÔé¼├É┬¢├É┬¥├É┬╝ ├É┬▓├É┬║├É┬╗├æ┼¢├æÔÇí├É┬Á├É┬¢├É┬©├É┬© ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æÔÇ╣ ├É┬▓├É┬¥├É┬À├É┬¥├É┬▒├É┬¢├É┬¥├É┬▓├É┬╗├æ┬Å├æ┼¢├æÔÇÜ├æ┬ü├æ┬Å ├æ┬ü ├æÔÇÜ├É┬Á├É┬║├æãÆ├æÔÇ░├É┬Á├É┬│├É┬¥ ├É┬©├É┬│├æÔé¼├É┬¥├É┬▓├É┬¥├É┬│├É┬¥ ├É┬▓├æÔé¼├É┬Á├É┬╝├É┬Á├É┬¢├É┬©.]]></ru>
+            <da><![CDATA[Den hoveds├â┬ªtning. N├â┬Ñr deaktiveret, bliver der ikke betalt noget indkomst og HUD er skjult. Genaktivering genoptager betalinger fra det nuv├â┬ªrende in-game tidspunkt.]]></da>
         </text>
 
         <text name="im_help_s1_mode_title">
             <en><![CDATA[Pay Mode]]></en>
             <de><![CDATA[Zahlungsmodus]]></de>
             <fr><![CDATA[Mode de paiement]]></fr>
-            <pl><![CDATA[Tryb pÅ‚atnoÅ›ci]]></pl>
+            <pl><![CDATA[Tryb p├àÔÇÜatno├àÔÇ║ci]]></pl>
             <es><![CDATA[Modo de pago]]></es>
-            <it><![CDATA[ModalitÃ  pagamento]]></it>
-            <cz><![CDATA[PlatebnÃ­ reÅ¾im]]></cz>
+            <it><![CDATA[Modalit├â┬á pagamento]]></it>
+            <cz><![CDATA[Platebn├â┬¡ re├à┬¥im]]></cz>
             <br><![CDATA[Modo de pagamento]]></br>
-            <uk><![CDATA[Ð ÐµÐ¶Ð¸Ð¼ Ð²Ð¸Ð¿Ð»Ð°Ñ‚]]></uk>
-            <ru><![CDATA[Ð ÐµÐ¶Ð¸Ð¼ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚]]></ru>
+            <uk><![CDATA[├É┬á├É┬Á├É┬Â├É┬©├É┬╝ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ]]></uk>
+            <ru><![CDATA[├É┬á├É┬Á├É┬Â├É┬©├É┬╝ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ]]></ru>
             <da><![CDATA[Betalingstyper]]></da>
         </text>
 
         <text name="im_help_s1_mode_text">
             <en><![CDATA[Hourly pays 24 times per in-game day. Daily pays once per day. Hourly gives steady small payments; daily gives larger, less frequent ones. Both modes suit all playstyles.]]></en>
-            <de><![CDATA[StÃ¼ndlich: 24 Zahlungen pro Tag. TÃ¤glich: einmal pro Tag. StÃ¼ndlich bietet gleichmÃ¤ÃŸige kleine Zahlungen; tÃ¤glich grÃ¶ÃŸere, seltenere. Beide Modi sind fÃ¼r alle Spielstile geeignet.]]></de>
-            <fr><![CDATA[Horaire : 24 paiements par jour. Quotidien : une fois par jour. Horaire donne des petits paiements rÃ©guliers ; quotidien des paiements plus grands et moins frÃ©quents.]]></fr>
-            <pl><![CDATA[Godzinowy: 24 pÅ‚atnoÅ›ci na dzieÅ„. Dzienny: raz na dzieÅ„. Godzinowy daje maÅ‚e, regularne pÅ‚atnoÅ›ci; dzienny â€” wiÄ™ksze, rzadsze. Oba tryby pasujÄ… do kaÅ¼dego stylu gry.]]></pl>
-            <es><![CDATA[Horario: 24 pagos por dÃ­a. Diario: una vez al dÃ­a. Horario da pagos pequeÃ±os regulares; diario da pagos mÃ¡s grandes y menos frecuentes. Ambos modos se adaptan a todos los estilos.]]></es>
-            <it><![CDATA[Orario: 24 pagamenti al giorno. Giornaliero: una volta al giorno. Orario dÃ  pagamenti piccoli regolari; giornaliero dÃ  pagamenti piÃ¹ grandi e meno frequenti.]]></it>
-            <cz><![CDATA[HodinovÄ›: 24 plateb za den. DennÄ›: jednou za den. HodinovÄ› pÅ™inÃ¡Å¡Ã­ pravidelnÃ© malÃ© platby; dennÄ› vÄ›tÅ¡Ã­, mÃ©nÄ› ÄastÃ©. Oba reÅ¾imy se hodÃ­ pro vÅ¡echny styly hry.]]></cz>
-            <br><![CDATA[Por hora: 24 pagamentos por dia. DiÃ¡rio: uma vez ao dia. Por hora dÃ¡ pagamentos pequenos e regulares; diÃ¡rio dÃ¡ pagamentos maiores e menos frequentes.]]></br>
-            <uk><![CDATA[ÐŸÐ¾Ð³Ð¾Ð´Ð¸Ð½Ð½Ð¾: 24 Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ð¸ Ð½Ð° Ð´ÐµÐ½ÑŒ. Ð©Ð¾Ð´ÐµÐ½Ð½Ð¾: Ñ€Ð°Ð· Ð½Ð° Ð´ÐµÐ½ÑŒ. ÐŸÐ¾Ð³Ð¾Ð´Ð¸Ð½Ð½Ð¾ Ð´Ð°Ñ” Ð½ÐµÐ²ÐµÐ»Ð¸ÐºÑ– Ñ€ÐµÐ³ÑƒÐ»ÑÑ€Ð½Ñ– Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ð¸; Ñ‰Ð¾Ð´ÐµÐ½Ð½Ð¾ â€” Ð±Ñ–Ð»ÑŒÑˆÑ–, Ð°Ð»Ðµ Ñ€Ñ–Ð´ÑˆÑ–. ÐžÐ±Ð¸Ð´Ð²Ð° Ñ€ÐµÐ¶Ð¸Ð¼Ð¸ Ð¿Ñ–Ð´Ñ…Ð¾Ð´ÑÑ‚ÑŒ Ð´Ð»Ñ Ð±ÑƒÐ´ÑŒ-ÑÐºÐ¾Ð³Ð¾ ÑÑ‚Ð¸Ð»ÑŽ Ð³Ñ€Ð¸.]]></uk>
-            <ru><![CDATA[ÐŸÐ¾Ñ‡Ð°ÑÐ¾Ð²Ð¾: 24 Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñ‹ Ð² Ð´ÐµÐ½ÑŒ. Ð•Ð¶ÐµÐ´Ð½ÐµÐ²Ð½Ð¾: Ñ€Ð°Ð· Ð² Ð´ÐµÐ½ÑŒ. ÐŸÐ¾Ñ‡Ð°ÑÐ¾Ð²Ð¾ Ð´Ð°Ñ‘Ñ‚ Ð½ÐµÐ±Ð¾Ð»ÑŒÑˆÐ¸Ðµ Ñ€ÐµÐ³ÑƒÐ»ÑÑ€Ð½Ñ‹Ðµ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñ‹; ÐµÐ¶ÐµÐ´Ð½ÐµÐ²Ð½Ð¾ â€” Ð±Ð¾Ð»ÑŒÑˆÐ¸Ðµ, Ð½Ð¾ Ñ€ÐµÐ´ÐºÐ¸Ðµ. ÐžÐ±Ð° Ñ€ÐµÐ¶Ð¸Ð¼Ð° Ð¿Ð¾Ð´Ñ…Ð¾Ð´ÑÑ‚ Ð´Ð»Ñ Ð»ÑŽÐ±Ð¾Ð³Ð¾ ÑÑ‚Ð¸Ð»Ñ Ð¸Ð³Ñ€Ñ‹.]]></ru>
-            <da><![CDATA[Timevis: 24 betalinger pr. in-game time. Dagligt: en betaling ved starten af hver in-game dag. Skift nÃ¥r som helst via ESC â†’ Indstillinger â†’ Income Mod.]]></da>
+            <de><![CDATA[St├â┬╝ndlich: 24 Zahlungen pro Tag. T├â┬ñglich: einmal pro Tag. St├â┬╝ndlich bietet gleichm├â┬ñ├â┼©ige kleine Zahlungen; t├â┬ñglich gr├â┬Â├â┼©ere, seltenere. Beide Modi sind f├â┬╝r alle Spielstile geeignet.]]></de>
+            <fr><![CDATA[Horaire : 24 paiements par jour. Quotidien : une fois par jour. Horaire donne des petits paiements r├â┬®guliers ; quotidien des paiements plus grands et moins fr├â┬®quents.]]></fr>
+            <pl><![CDATA[Godzinowy: 24 p├àÔÇÜatno├àÔÇ║ci na dzie├àÔÇ×. Dzienny: raz na dzie├àÔÇ×. Godzinowy daje ma├àÔÇÜe, regularne p├àÔÇÜatno├àÔÇ║ci; dzienny ├óÔé¼ÔÇØ wi├äÔäóksze, rzadsze. Oba tryby pasuj├äÔÇª do ka├à┬╝dego stylu gry.]]></pl>
+            <es><![CDATA[Horario: 24 pagos por d├â┬¡a. Diario: una vez al d├â┬¡a. Horario da pagos peque├â┬▒os regulares; diario da pagos m├â┬ís grandes y menos frecuentes. Ambos modos se adaptan a todos los estilos.]]></es>
+            <it><![CDATA[Orario: 24 pagamenti al giorno. Giornaliero: una volta al giorno. Orario d├â┬á pagamenti piccoli regolari; giornaliero d├â┬á pagamenti pi├â┬╣ grandi e meno frequenti.]]></it>
+            <cz><![CDATA[Hodinov├äÔÇ║: 24 plateb za den. Denn├äÔÇ║: jednou za den. Hodinov├äÔÇ║ p├àÔäóin├â┬í├à┬í├â┬¡ pravideln├â┬® mal├â┬® platby; denn├äÔÇ║ v├äÔÇ║t├à┬í├â┬¡, m├â┬®n├äÔÇ║ ├ä┬ìast├â┬®. Oba re├à┬¥imy se hod├â┬¡ pro v├à┬íechny styly hry.]]></cz>
+            <br><![CDATA[Por hora: 24 pagamentos por dia. Di├â┬írio: uma vez ao dia. Por hora d├â┬í pagamentos pequenos e regulares; di├â┬írio d├â┬í pagamentos maiores e menos frequentes.]]></br>
+            <uk><![CDATA[├É┼©├É┬¥├É┬│├É┬¥├É┬┤├É┬©├É┬¢├É┬¢├É┬¥: 24 ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬© ├É┬¢├É┬░ ├É┬┤├É┬Á├É┬¢├æ┼Æ. ├É┬®├É┬¥├É┬┤├É┬Á├É┬¢├É┬¢├É┬¥: ├æÔé¼├É┬░├É┬À ├É┬¢├É┬░ ├É┬┤├É┬Á├É┬¢├æ┼Æ. ├É┼©├É┬¥├É┬│├É┬¥├É┬┤├É┬©├É┬¢├É┬¢├É┬¥ ├É┬┤├É┬░├æÔÇØ ├É┬¢├É┬Á├É┬▓├É┬Á├É┬╗├É┬©├É┬║├æÔÇô ├æÔé¼├É┬Á├É┬│├æãÆ├É┬╗├æ┬Å├æÔé¼├É┬¢├æÔÇô ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬©; ├æÔÇ░├É┬¥├É┬┤├É┬Á├É┬¢├É┬¢├É┬¥ ├óÔé¼ÔÇØ ├É┬▒├æÔÇô├É┬╗├æ┼Æ├æ╦å├æÔÇô, ├É┬░├É┬╗├É┬Á ├æÔé¼├æÔÇô├É┬┤├æ╦å├æÔÇô. ├É┼¥├É┬▒├É┬©├É┬┤├É┬▓├É┬░ ├æÔé¼├É┬Á├É┬Â├É┬©├É┬╝├É┬© ├É┬┐├æÔÇô├É┬┤├æÔÇª├É┬¥├É┬┤├æ┬Å├æÔÇÜ├æ┼Æ ├É┬┤├É┬╗├æ┬Å ├É┬▒├æãÆ├É┬┤├æ┼Æ-├æ┬Å├É┬║├É┬¥├É┬│├É┬¥ ├æ┬ü├æÔÇÜ├É┬©├É┬╗├æ┼¢ ├É┬│├æÔé¼├É┬©.]]></uk>
+            <ru><![CDATA[├É┼©├É┬¥├æÔÇí├É┬░├æ┬ü├É┬¥├É┬▓├É┬¥: 24 ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æÔÇ╣ ├É┬▓ ├É┬┤├É┬Á├É┬¢├æ┼Æ. ├ÉÔÇó├É┬Â├É┬Á├É┬┤├É┬¢├É┬Á├É┬▓├É┬¢├É┬¥: ├æÔé¼├É┬░├É┬À ├É┬▓ ├É┬┤├É┬Á├É┬¢├æ┼Æ. ├É┼©├É┬¥├æÔÇí├É┬░├æ┬ü├É┬¥├É┬▓├É┬¥ ├É┬┤├É┬░├æÔÇÿ├æÔÇÜ ├É┬¢├É┬Á├É┬▒├É┬¥├É┬╗├æ┼Æ├æ╦å├É┬©├É┬Á ├æÔé¼├É┬Á├É┬│├æãÆ├É┬╗├æ┬Å├æÔé¼├É┬¢├æÔÇ╣├É┬Á ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æÔÇ╣; ├É┬Á├É┬Â├É┬Á├É┬┤├É┬¢├É┬Á├É┬▓├É┬¢├É┬¥ ├óÔé¼ÔÇØ ├É┬▒├É┬¥├É┬╗├æ┼Æ├æ╦å├É┬©├É┬Á, ├É┬¢├É┬¥ ├æÔé¼├É┬Á├É┬┤├É┬║├É┬©├É┬Á. ├É┼¥├É┬▒├É┬░ ├æÔé¼├É┬Á├É┬Â├É┬©├É┬╝├É┬░ ├É┬┐├É┬¥├É┬┤├æÔÇª├É┬¥├É┬┤├æ┬Å├æÔÇÜ ├É┬┤├É┬╗├æ┬Å ├É┬╗├æ┼¢├É┬▒├É┬¥├É┬│├É┬¥ ├æ┬ü├æÔÇÜ├É┬©├É┬╗├æ┬Å ├É┬©├É┬│├æÔé¼├æÔÇ╣.]]></ru>
+            <da><![CDATA[Timevis: 24 betalinger pr. in-game time. Dagligt: en betaling ved starten af hver in-game dag. Skift n├â┬Ñr som helst via ESC ├óÔÇáÔÇÖ Indstillinger ├óÔÇáÔÇÖ Income Mod.]]></da>
         </text>
 
         <text name="im_help_s1_diff_title">
             <en><![CDATA[Difficulty]]></en>
             <de><![CDATA[Schwierigkeit]]></de>
-            <fr><![CDATA[DifficultÃ©]]></fr>
-            <pl><![CDATA[TrudnoÅ›Ä‡]]></pl>
+            <fr><![CDATA[Difficult├â┬®]]></fr>
+            <pl><![CDATA[Trudno├àÔÇ║├äÔÇí]]></pl>
             <es><![CDATA[Dificultad]]></es>
-            <it><![CDATA[DifficoltÃ ]]></it>
-            <cz><![CDATA[ObtÃ­Å¾nost]]></cz>
+            <it><![CDATA[Difficolt├â┬á]]></it>
+            <cz><![CDATA[Obt├â┬¡├à┬¥nost]]></cz>
             <br><![CDATA[Dificuldade]]></br>
-            <uk><![CDATA[Ð¡ÐºÐ»Ð°Ð´Ð½Ñ–ÑÑ‚ÑŒ]]></uk>
-            <ru><![CDATA[Ð¡Ð»Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒ]]></ru>
-            <da><![CDATA[SvÃ¦rhedsgrad]]></da>
+            <uk><![CDATA[├É┬í├É┬║├É┬╗├É┬░├É┬┤├É┬¢├æÔÇô├æ┬ü├æÔÇÜ├æ┼Æ]]></uk>
+            <ru><![CDATA[├É┬í├É┬╗├É┬¥├É┬Â├É┬¢├É┬¥├æ┬ü├æÔÇÜ├æ┼Æ]]></ru>
+            <da><![CDATA[Sv├â┬ªrhedsgrad]]></da>
         </text>
 
         <text name="im_help_s1_diff_text">
             <en><![CDATA[Sets the base income per payment. Easy: $5,000. Normal: $2,400. Hard: $1,100. These are base amounts before any multiplier or seasonal modifier is applied.]]></en>
-            <de><![CDATA[Legt den Basiseinkommensbetrag fest. Einfach: 5.000$. Normal: 2.400$. Schwer: 1.100$. Das sind GrundbetrÃ¤ge vor jeglichem Multiplikator oder saisonalem Modifikator.]]></de>
-            <fr><![CDATA[DÃ©finit le revenu de base par paiement. Facile : 5 000$. Normal : 2 400$. Difficile : 1 100$. Ce sont des montants de base avant tout multiplicateur ou modificateur saisonnier.]]></fr>
-            <pl><![CDATA[Ustawia podstawowÄ… kwotÄ™ za pÅ‚atnoÅ›Ä‡. Åatwy: 5 000$. Normalny: 2 400$. Trudny: 1 100$. SÄ… to kwoty bazowe przed zastosowaniem mnoÅ¼nika lub modyfikatora sezonowego.]]></pl>
-            <es><![CDATA[Define el ingreso base por pago. FÃ¡cil: $5.000. Normal: $2.400. DifÃ­cil: $1.100. Estos son montos base antes de cualquier multiplicador o modificador estacional.]]></es>
+            <de><![CDATA[Legt den Basiseinkommensbetrag fest. Einfach: 5.000$. Normal: 2.400$. Schwer: 1.100$. Das sind Grundbetr├â┬ñge vor jeglichem Multiplikator oder saisonalem Modifikator.]]></de>
+            <fr><![CDATA[D├â┬®finit le revenu de base par paiement. Facile : 5 000$. Normal : 2 400$. Difficile : 1 100$. Ce sont des montants de base avant tout multiplicateur ou modificateur saisonnier.]]></fr>
+            <pl><![CDATA[Ustawia podstawow├äÔÇª kwot├äÔäó za p├àÔÇÜatno├àÔÇ║├äÔÇí. ├à┬üatwy: 5 000$. Normalny: 2 400$. Trudny: 1 100$. S├äÔÇª to kwoty bazowe przed zastosowaniem mno├à┬╝nika lub modyfikatora sezonowego.]]></pl>
+            <es><![CDATA[Define el ingreso base por pago. F├â┬ícil: $5.000. Normal: $2.400. Dif├â┬¡cil: $1.100. Estos son montos base antes de cualquier multiplicador o modificador estacional.]]></es>
             <it><![CDATA[Imposta il reddito base per pagamento. Facile: $5.000. Normale: $2.400. Difficile: $1.100. Sono importi base prima di qualsiasi moltiplicatore o modificatore stagionale.]]></it>
-            <cz><![CDATA[Nastavuje zÃ¡kladnÃ­ pÅ™Ã­jem za platbu. SnadnÃ©: 5 000$. NormÃ¡lnÃ­: 2 400$. TÄ›Å¾kÃ©: 1 100$. Jde o zÃ¡kladnÃ­ ÄÃ¡stky pÅ™ed jakÃ½mkoli multiplikÃ¡torem nebo sezÃ³nnÃ­m modifikÃ¡torem.]]></cz>
-            <br><![CDATA[Define a renda base por pagamento. FÃ¡cil: $5.000. Normal: $2.400. DifÃ­cil: $1.100. SÃ£o valores base antes de qualquer multiplicador ou modificador sazonal.]]></br>
-            <uk><![CDATA[Ð’ÑÑ‚Ð°Ð½Ð¾Ð²Ð»ÑŽÑ” Ð±Ð°Ð·Ð¾Ð²Ð¸Ð¹ Ð´Ð¾Ñ…Ñ–Ð´ Ð·Ð° Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ñƒ. Ð›ÐµÐ³ÐºÐ¾: $5 000. ÐÐ¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¾: $2 400. Ð’Ð°Ð¶ÐºÐ¾: $1 100. Ð¦Ðµ Ð±Ð°Ð·Ð¾Ð²Ñ– ÑÑƒÐ¼Ð¸ Ð´Ð¾ Ð·Ð°ÑÑ‚Ð¾ÑÑƒÐ²Ð°Ð½Ð½Ñ Ð±ÑƒÐ´ÑŒ-ÑÐºÐ¾Ð³Ð¾ Ð¼Ð½Ð¾Ð¶Ð½Ð¸ÐºÐ° Ð°Ð±Ð¾ ÑÐµÐ·Ð¾Ð½Ð½Ð¾Ð³Ð¾ Ð¼Ð¾Ð´Ð¸Ñ„Ñ–ÐºÐ°Ñ‚Ð¾Ñ€Ð°.]]></uk>
-            <ru><![CDATA[Ð£ÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÑ‚ Ð±Ð°Ð·Ð¾Ð²Ñ‹Ð¹ Ð´Ð¾Ñ…Ð¾Ð´ Ð·Ð° Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñƒ. Ð›ÐµÐ³ÐºÐ¾: $5 000. ÐžÐ±Ñ‹Ñ‡Ð½Ð¾: $2 400. Ð¡Ð»Ð¾Ð¶Ð½Ð¾: $1 100. Ð­Ñ‚Ð¾ Ð±Ð°Ð·Ð¾Ð²Ñ‹Ðµ ÑÑƒÐ¼Ð¼Ñ‹ Ð´Ð¾ Ð¿Ñ€Ð¸Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ Ð¼Ð½Ð¾Ð¶Ð¸Ñ‚ÐµÐ»Ñ Ð¸Ð»Ð¸ ÑÐµÐ·Ð¾Ð½Ð½Ð¾Ð³Ð¾ Ð¼Ð¾Ð´Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€Ð°.]]></ru>
-            <da><![CDATA[Indstiller den grundlÃ¦ggende indkomst pr. betaling. Let: $5.000. Normal: $2.400. SvÃ¦r: $1.100. Dette er grundbelÃ¸b fÃ¸r nogen multiplikator eller sÃ¦sonmÃ¦ssig modifikator anvendes.]]></da>
+            <cz><![CDATA[Nastavuje z├â┬íkladn├â┬¡ p├àÔäó├â┬¡jem za platbu. Snadn├â┬®: 5 000$. Norm├â┬íln├â┬¡: 2 400$. T├äÔÇ║├à┬¥k├â┬®: 1 100$. Jde o z├â┬íkladn├â┬¡ ├ä┬ì├â┬ístky p├àÔäóed jak├â┬¢mkoli multiplik├â┬ítorem nebo sez├â┬│nn├â┬¡m modifik├â┬ítorem.]]></cz>
+            <br><![CDATA[Define a renda base por pagamento. F├â┬ícil: $5.000. Normal: $2.400. Dif├â┬¡cil: $1.100. S├â┬úo valores base antes de qualquer multiplicador ou modificador sazonal.]]></br>
+            <uk><![CDATA[├ÉÔÇÖ├æ┬ü├æÔÇÜ├É┬░├É┬¢├É┬¥├É┬▓├É┬╗├æ┼¢├æÔÇØ ├É┬▒├É┬░├É┬À├É┬¥├É┬▓├É┬©├É┬╣ ├É┬┤├É┬¥├æÔÇª├æÔÇô├É┬┤ ├É┬À├É┬░ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ. ├ÉÔÇ║├É┬Á├É┬│├É┬║├É┬¥: $5 000. ├É┬Ø├É┬¥├æÔé¼├É┬╝├É┬░├É┬╗├æ┼Æ├É┬¢├É┬¥: $2 400. ├ÉÔÇÖ├É┬░├É┬Â├É┬║├É┬¥: $1 100. ├É┬ª├É┬Á ├É┬▒├É┬░├É┬À├É┬¥├É┬▓├æÔÇô ├æ┬ü├æãÆ├É┬╝├É┬© ├É┬┤├É┬¥ ├É┬À├É┬░├æ┬ü├æÔÇÜ├É┬¥├æ┬ü├æãÆ├É┬▓├É┬░├É┬¢├É┬¢├æ┬Å ├É┬▒├æãÆ├É┬┤├æ┼Æ-├æ┬Å├É┬║├É┬¥├É┬│├É┬¥ ├É┬╝├É┬¢├É┬¥├É┬Â├É┬¢├É┬©├É┬║├É┬░ ├É┬░├É┬▒├É┬¥ ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├É┬¥├É┬│├É┬¥ ├É┬╝├É┬¥├É┬┤├É┬©├æÔÇ×├æÔÇô├É┬║├É┬░├æÔÇÜ├É┬¥├æÔé¼├É┬░.]]></uk>
+            <ru><![CDATA[├É┬ú├æ┬ü├æÔÇÜ├É┬░├É┬¢├É┬░├É┬▓├É┬╗├É┬©├É┬▓├É┬░├É┬Á├æÔÇÜ ├É┬▒├É┬░├É┬À├É┬¥├É┬▓├æÔÇ╣├É┬╣ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤ ├É┬À├É┬░ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ. ├ÉÔÇ║├É┬Á├É┬│├É┬║├É┬¥: $5 000. ├É┼¥├É┬▒├æÔÇ╣├æÔÇí├É┬¢├É┬¥: $2 400. ├É┬í├É┬╗├É┬¥├É┬Â├É┬¢├É┬¥: $1 100. ├É┬¡├æÔÇÜ├É┬¥ ├É┬▒├É┬░├É┬À├É┬¥├É┬▓├æÔÇ╣├É┬Á ├æ┬ü├æãÆ├É┬╝├É┬╝├æÔÇ╣ ├É┬┤├É┬¥ ├É┬┐├æÔé¼├É┬©├É┬╝├É┬Á├É┬¢├É┬Á├É┬¢├É┬©├æ┬Å ├É┬╝├É┬¢├É┬¥├É┬Â├É┬©├æÔÇÜ├É┬Á├É┬╗├æ┬Å ├É┬©├É┬╗├É┬© ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├É┬¥├É┬│├É┬¥ ├É┬╝├É┬¥├É┬┤├É┬©├æÔÇ×├É┬©├É┬║├É┬░├æÔÇÜ├É┬¥├æÔé¼├É┬░.]]></ru>
+            <da><![CDATA[Indstiller den grundl├â┬ªggende indkomst pr. betaling. Let: $5.000. Normal: $2.400. Sv├â┬ªr: $1.100. Dette er grundbel├â┬©b f├â┬©r nogen multiplikator eller s├â┬ªsonm├â┬ªssig modifikator anvendes.]]></da>
         </text>
 
-        <!-- â”€â”€ Help Lines: Page 4 â€” Advanced Settings â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+        <!-- ├óÔÇØÔé¼├óÔÇØÔé¼ Help Lines: Page 4 ├óÔé¼ÔÇØ Advanced Settings ├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼ -->
         <text name="im_help_s2_mult_title">
             <en><![CDATA[Income Multiplier]]></en>
             <de><![CDATA[Einkommensmultiplikator]]></de>
             <fr><![CDATA[Multiplicateur de revenu]]></fr>
-            <pl><![CDATA[MnoÅ¼nik dochodu]]></pl>
+            <pl><![CDATA[Mno├à┬╝nik dochodu]]></pl>
             <es><![CDATA[Multiplicador de ingresos]]></es>
             <it><![CDATA[Moltiplicatore reddito]]></it>
-            <cz><![CDATA[PÅ™Ã­jmovÃ½ multiplikÃ¡tor]]></cz>
+            <cz><![CDATA[P├àÔäó├â┬¡jmov├â┬¢ multiplik├â┬ítor]]></cz>
             <br><![CDATA[Multiplicador de renda]]></br>
-            <uk><![CDATA[ÐœÐ½Ð¾Ð¶Ð½Ð¸Ðº Ð´Ð¾Ñ…Ð¾Ð´Ñƒ]]></uk>
-            <ru><![CDATA[ÐœÐ½Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒ Ð´Ð¾Ñ…Ð¾Ð´Ð°]]></ru>
+            <uk><![CDATA[├É┼ô├É┬¢├É┬¥├É┬Â├É┬¢├É┬©├É┬║ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ]]></uk>
+            <ru><![CDATA[├É┼ô├É┬¢├É┬¥├É┬Â├É┬©├æÔÇÜ├É┬Á├É┬╗├æ┼Æ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░]]></ru>
             <da><![CDATA[Indkomstmultiplikator]]></da>
         </text>
 
         <text name="im_help_s2_mult_text">
-            <en><![CDATA[Scales all income by 1x, 2x, 5x, or 10x. Applied after difficulty, before seasonal. Example: Normal ($2,400) Ã— 5x = $12,000 per payment. Great for creative or boosted playthroughs.]]></en>
-            <de><![CDATA[Skaliert alle Einnahmen um 1x, 2x, 5x oder 10x. Wird nach Schwierigkeit, vor Saison angewendet. Beispiel: Normal (2.400$) Ã— 5x = 12.000$ pro Zahlung.]]></de>
-            <fr><![CDATA[Multiplie tous les revenus par 1x, 2x, 5x ou 10x. AppliquÃ© aprÃ¨s la difficultÃ©, avant le saisonnier. Exemple : Normal (2 400$) Ã— 5x = 12 000$ par paiement.]]></fr>
-            <pl><![CDATA[Skaluje wszystkie dochody 1x, 2x, 5x lub 10x. Stosowany po trudnoÅ›ci, przed sezonem. PrzykÅ‚ad: Normalny (2 400$) Ã— 5x = 12 000$ za pÅ‚atnoÅ›Ä‡.]]></pl>
-            <es><![CDATA[Escala los ingresos por 1x, 2x, 5x o 10x. Aplicado tras la dificultad, antes del estacional. Ejemplo: Normal ($2.400) Ã— 5x = $12.000 por pago.]]></es>
-            <it><![CDATA[Moltiplica il reddito per 1x, 2x, 5x o 10x. Applicato dopo la difficoltÃ , prima del stagionale. Esempio: Normale ($2.400) Ã— 5x = $12.000 per pagamento.]]></it>
-            <cz><![CDATA[Å kÃ¡luje pÅ™Ã­jmy 1x, 2x, 5x nebo 10x. Aplikuje se po obtÃ­Å¾nosti, pÅ™ed sezÃ³nou. PÅ™Ã­klad: NormÃ¡lnÃ­ (2 400$) Ã— 5x = 12 000$ za platbu.]]></cz>
-            <br><![CDATA[Escala a renda em 1x, 2x, 5x ou 10x. Aplicado apÃ³s a dificuldade, antes do sazonal. Exemplo: Normal ($2.400) Ã— 5x = $12.000 por pagamento.]]></br>
-            <uk><![CDATA[ÐœÐ°ÑÑˆÑ‚Ð°Ð±ÑƒÑ” Ð²ÐµÑÑŒ Ð´Ð¾Ñ…Ñ–Ð´ Ð½Ð° 1x, 2x, 5x Ð°Ð±Ð¾ 10x. Ð—Ð°ÑÑ‚Ð¾ÑÐ¾Ð²ÑƒÑ”Ñ‚ÑŒÑÑ Ð¿Ñ–ÑÐ»Ñ ÑÐºÐ»Ð°Ð´Ð½Ð¾ÑÑ‚Ñ–, Ð¿ÐµÑ€ÐµÐ´ ÑÐµÐ·Ð¾Ð½Ð½Ð¸Ð¼. ÐŸÑ€Ð¸ÐºÐ»Ð°Ð´: ÐÐ¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¾ ($2 400) Ã— 5x = $12 000 Ð·Ð° Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ñƒ.]]></uk>
-            <ru><![CDATA[ÐœÐ°ÑÑˆÑ‚Ð°Ð±Ð¸Ñ€ÑƒÐµÑ‚ Ð²ÐµÑÑŒ Ð´Ð¾Ñ…Ð¾Ð´ Ð½Ð° 1x, 2x, 5x Ð¸Ð»Ð¸ 10x. ÐŸÑ€Ð¸Ð¼ÐµÐ½ÑÐµÑ‚ÑÑ Ð¿Ð¾ÑÐ»Ðµ ÑÐ»Ð¾Ð¶Ð½Ð¾ÑÑ‚Ð¸, Ð´Ð¾ ÑÐµÐ·Ð¾Ð½Ð½Ð¾Ð³Ð¾. ÐŸÑ€Ð¸Ð¼ÐµÑ€: ÐžÐ±Ñ‹Ñ‡Ð½Ð¾ ($2 400) Ã— 5x = $12 000 Ð·Ð° Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñƒ.]]></ru>
-            <da><![CDATA[Skalerer al indkomst med 1x, 2x, 5x eller 10x. Anvendes efter svÃ¦rhedsgrad, fÃ¸r sÃ¦son. Eksempel: Normal ($2.400) Ã— 5x = $12.000 pr. betaling.]]></da>
+            <en><![CDATA[Scales all income by 1x, 2x, 5x, or 10x. Applied after difficulty, before seasonal. Example: Normal ($2,400) ├âÔÇö 5x = $12,000 per payment. Great for creative or boosted playthroughs.]]></en>
+            <de><![CDATA[Skaliert alle Einnahmen um 1x, 2x, 5x oder 10x. Wird nach Schwierigkeit, vor Saison angewendet. Beispiel: Normal (2.400$) ├âÔÇö 5x = 12.000$ pro Zahlung.]]></de>
+            <fr><![CDATA[Multiplie tous les revenus par 1x, 2x, 5x ou 10x. Appliqu├â┬® apr├â┬¿s la difficult├â┬®, avant le saisonnier. Exemple : Normal (2 400$) ├âÔÇö 5x = 12 000$ par paiement.]]></fr>
+            <pl><![CDATA[Skaluje wszystkie dochody 1x, 2x, 5x lub 10x. Stosowany po trudno├àÔÇ║ci, przed sezonem. Przyk├àÔÇÜad: Normalny (2 400$) ├âÔÇö 5x = 12 000$ za p├àÔÇÜatno├àÔÇ║├äÔÇí.]]></pl>
+            <es><![CDATA[Escala los ingresos por 1x, 2x, 5x o 10x. Aplicado tras la dificultad, antes del estacional. Ejemplo: Normal ($2.400) ├âÔÇö 5x = $12.000 por pago.]]></es>
+            <it><![CDATA[Moltiplica il reddito per 1x, 2x, 5x o 10x. Applicato dopo la difficolt├â┬á, prima del stagionale. Esempio: Normale ($2.400) ├âÔÇö 5x = $12.000 per pagamento.]]></it>
+            <cz><![CDATA[├à┬ák├â┬íluje p├àÔäó├â┬¡jmy 1x, 2x, 5x nebo 10x. Aplikuje se po obt├â┬¡├à┬¥nosti, p├àÔäóed sez├â┬│nou. P├àÔäó├â┬¡klad: Norm├â┬íln├â┬¡ (2 400$) ├âÔÇö 5x = 12 000$ za platbu.]]></cz>
+            <br><![CDATA[Escala a renda em 1x, 2x, 5x ou 10x. Aplicado ap├â┬│s a dificuldade, antes do sazonal. Exemplo: Normal ($2.400) ├âÔÇö 5x = $12.000 por pagamento.]]></br>
+            <uk><![CDATA[├É┼ô├É┬░├æ┬ü├æ╦å├æÔÇÜ├É┬░├É┬▒├æãÆ├æÔÇØ ├É┬▓├É┬Á├æ┬ü├æ┼Æ ├É┬┤├É┬¥├æÔÇª├æÔÇô├É┬┤ ├É┬¢├É┬░ 1x, 2x, 5x ├É┬░├É┬▒├É┬¥ 10x. ├ÉÔÇö├É┬░├æ┬ü├æÔÇÜ├É┬¥├æ┬ü├É┬¥├É┬▓├æãÆ├æÔÇØ├æÔÇÜ├æ┼Æ├æ┬ü├æ┬Å ├É┬┐├æÔÇô├æ┬ü├É┬╗├æ┬Å ├æ┬ü├É┬║├É┬╗├É┬░├É┬┤├É┬¢├É┬¥├æ┬ü├æÔÇÜ├æÔÇô, ├É┬┐├É┬Á├æÔé¼├É┬Á├É┬┤ ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├É┬©├É┬╝. ├É┼©├æÔé¼├É┬©├É┬║├É┬╗├É┬░├É┬┤: ├É┬Ø├É┬¥├æÔé¼├É┬╝├É┬░├É┬╗├æ┼Æ├É┬¢├É┬¥ ($2 400) ├âÔÇö 5x = $12 000 ├É┬À├É┬░ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ.]]></uk>
+            <ru><![CDATA[├É┼ô├É┬░├æ┬ü├æ╦å├æÔÇÜ├É┬░├É┬▒├É┬©├æÔé¼├æãÆ├É┬Á├æÔÇÜ ├É┬▓├É┬Á├æ┬ü├æ┼Æ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤ ├É┬¢├É┬░ 1x, 2x, 5x ├É┬©├É┬╗├É┬© 10x. ├É┼©├æÔé¼├É┬©├É┬╝├É┬Á├É┬¢├æ┬Å├É┬Á├æÔÇÜ├æ┬ü├æ┬Å ├É┬┐├É┬¥├æ┬ü├É┬╗├É┬Á ├æ┬ü├É┬╗├É┬¥├É┬Â├É┬¢├É┬¥├æ┬ü├æÔÇÜ├É┬©, ├É┬┤├É┬¥ ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├É┬¥├É┬│├É┬¥. ├É┼©├æÔé¼├É┬©├É┬╝├É┬Á├æÔé¼: ├É┼¥├É┬▒├æÔÇ╣├æÔÇí├É┬¢├É┬¥ ($2 400) ├âÔÇö 5x = $12 000 ├É┬À├É┬░ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ.]]></ru>
+            <da><![CDATA[Skalerer al indkomst med 1x, 2x, 5x eller 10x. Anvendes efter sv├â┬ªrhedsgrad, f├â┬©r s├â┬ªson. Eksempel: Normal ($2.400) ├âÔÇö 5x = $12.000 pr. betaling.]]></da>
         </text>
 
         <text name="im_help_s2_seasonal_title">
@@ -1148,56 +1148,56 @@
             <pl><![CDATA[Efekty sezonowe]]></pl>
             <es><![CDATA[Efectos estacionales]]></es>
             <it><![CDATA[Effetti stagionali]]></it>
-            <cz><![CDATA[SezÃ³nnÃ­ efekty]]></cz>
+            <cz><![CDATA[Sez├â┬│nn├â┬¡ efekty]]></cz>
             <br><![CDATA[Efeitos sazonais]]></br>
-            <uk><![CDATA[Ð¡ÐµÐ·Ð¾Ð½Ð½Ñ– ÐµÑ„ÐµÐºÑ‚Ð¸]]></uk>
-            <ru><![CDATA[Ð¡ÐµÐ·Ð¾Ð½Ð½Ñ‹Ðµ ÑÑ„Ñ„ÐµÐºÑ‚Ñ‹]]></ru>
-            <da><![CDATA[SÃ¦sonale effekter]]></da>
+            <uk><![CDATA[├É┬í├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├æÔÇô ├É┬Á├æÔÇ×├É┬Á├É┬║├æÔÇÜ├É┬©]]></uk>
+            <ru><![CDATA[├É┬í├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├æÔÇ╣├É┬Á ├æ┬ì├æÔÇ×├æÔÇ×├É┬Á├É┬║├æÔÇÜ├æÔÇ╣]]></ru>
+            <da><![CDATA[S├â┬ªsonale effekter]]></da>
         </text>
 
         <text name="im_help_s2_seasonal_text">
             <en><![CDATA[When enabled, a seasonal modifier is applied. Spring: 0.8x. Summer: 1.0x. Autumn: 1.2x (peak). Winter: 0.7x (off-season). Disabled by default.]]></en>
-            <de><![CDATA[Wenn aktiviert, wird ein saisonaler Modifikator angewendet. FrÃ¼hling: 0,8x. Sommer: 1,0x. Herbst: 1,2x (HÃ¶hepunkt). Winter: 0,7x. StandardmÃ¤ÃŸig deaktiviert.]]></de>
-            <fr><![CDATA[Quand activÃ©, un modificateur saisonnier est appliquÃ©. Printemps : 0,8x. Ã‰tÃ© : 1,0x. Automne : 1,2x (pic). Hiver : 0,7x (hors-saison). DÃ©sactivÃ© par dÃ©faut.]]></fr>
-            <pl><![CDATA[Po wÅ‚Ä…czeniu stosowany jest modyfikator sezonowy. Wiosna: 0,8x. Lato: 1,0x. JesieÅ„: 1,2x (szczyt). Zima: 0,7x. DomyÅ›lnie wyÅ‚Ä…czone.]]></pl>
-            <es><![CDATA[Cuando estÃ¡ habilitado se aplica un modificador estacional. Primavera: 0,8x. Verano: 1,0x. OtoÃ±o: 1,2x (pico). Invierno: 0,7x. Desactivado por defecto.]]></es>
+            <de><![CDATA[Wenn aktiviert, wird ein saisonaler Modifikator angewendet. Fr├â┬╝hling: 0,8x. Sommer: 1,0x. Herbst: 1,2x (H├â┬Âhepunkt). Winter: 0,7x. Standardm├â┬ñ├â┼©ig deaktiviert.]]></de>
+            <fr><![CDATA[Quand activ├â┬®, un modificateur saisonnier est appliqu├â┬®. Printemps : 0,8x. ├âÔÇ░t├â┬® : 1,0x. Automne : 1,2x (pic). Hiver : 0,7x (hors-saison). D├â┬®sactiv├â┬® par d├â┬®faut.]]></fr>
+            <pl><![CDATA[Po w├àÔÇÜ├äÔÇªczeniu stosowany jest modyfikator sezonowy. Wiosna: 0,8x. Lato: 1,0x. Jesie├àÔÇ×: 1,2x (szczyt). Zima: 0,7x. Domy├àÔÇ║lnie wy├àÔÇÜ├äÔÇªczone.]]></pl>
+            <es><![CDATA[Cuando est├â┬í habilitado se aplica un modificador estacional. Primavera: 0,8x. Verano: 1,0x. Oto├â┬▒o: 1,2x (pico). Invierno: 0,7x. Desactivado por defecto.]]></es>
             <it><![CDATA[Quando abilitato, viene applicato un modificatore stagionale. Primavera: 0,8x. Estate: 1,0x. Autunno: 1,2x (picco). Inverno: 0,7x. Disabilitato per default.]]></it>
-            <cz><![CDATA[KdyÅ¾ je povoleno, pouÅ¾ije se sezÃ³nnÃ­ modifikÃ¡tor. Jaro: 0,8x. LÃ©to: 1,0x. Podzim: 1,2x (vrchol). Zima: 0,7x. Ve vÃ½chozÃ­m nastavenÃ­ zakÃ¡zÃ¡no.]]></cz>
-            <br><![CDATA[Quando ativado, um modificador sazonal Ã© aplicado. Primavera: 0,8x. VerÃ£o: 1,0x. Outono: 1,2x (pico). Inverno: 0,7x. Desativado por padrÃ£o.]]></br>
-            <uk><![CDATA[ÐšÐ¾Ð»Ð¸ ÑƒÐ²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð¾, Ð·Ð°ÑÑ‚Ð¾ÑÐ¾Ð²ÑƒÑ”Ñ‚ÑŒÑÑ ÑÐµÐ·Ð¾Ð½Ð½Ð¸Ð¹ Ð¼Ð¾Ð´Ð¸Ñ„Ñ–ÐºÐ°Ñ‚Ð¾Ñ€. Ð’ÐµÑÐ½Ð°: 0,8x. Ð›Ñ–Ñ‚Ð¾: 1,0x. ÐžÑÑ–Ð½ÑŒ: 1,2x (Ð¿Ñ–Ðº). Ð—Ð¸Ð¼Ð°: 0,7x. Ð—Ð° Ð·Ð°Ð¼Ð¾Ð²Ñ‡ÑƒÐ²Ð°Ð½Ð½ÑÐ¼ Ð²Ð¸Ð¼ÐºÐ½ÐµÐ½Ð¾.]]></uk>
-            <ru><![CDATA[ÐšÐ¾Ð³Ð´Ð° Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾, Ð¿Ñ€Ð¸Ð¼ÐµÐ½ÑÐµÑ‚ÑÑ ÑÐµÐ·Ð¾Ð½Ð½Ñ‹Ð¹ Ð¼Ð¾Ð´Ð¸Ñ„Ð¸ÐºÐ°Ñ‚Ð¾Ñ€. Ð’ÐµÑÐ½Ð°: 0,8x. Ð›ÐµÑ‚Ð¾: 1,0x. ÐžÑÐµÐ½ÑŒ: 1,2x (Ð¿Ð¸Ðº). Ð—Ð¸Ð¼Ð°: 0,7x. ÐŸÐ¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾.]]></ru>
-            <da><![CDATA[NÃ¥r aktiveret, anvendes en sÃ¦sonmÃ¦ssig modifikator. ForÃ¥r: 0,8x. Sommer: 1,0x. EfterÃ¥r: 1,2x (top). Vinter: 0,7x. Deaktiveret som standard.]]></da>
+            <cz><![CDATA[Kdy├à┬¥ je povoleno, pou├à┬¥ije se sez├â┬│nn├â┬¡ modifik├â┬ítor. Jaro: 0,8x. L├â┬®to: 1,0x. Podzim: 1,2x (vrchol). Zima: 0,7x. Ve v├â┬¢choz├â┬¡m nastaven├â┬¡ zak├â┬íz├â┬íno.]]></cz>
+            <br><![CDATA[Quando ativado, um modificador sazonal ├â┬® aplicado. Primavera: 0,8x. Ver├â┬úo: 1,0x. Outono: 1,2x (pico). Inverno: 0,7x. Desativado por padr├â┬úo.]]></br>
+            <uk><![CDATA[├É┼í├É┬¥├É┬╗├É┬© ├æãÆ├É┬▓├æÔÇô├É┬╝├É┬║├É┬¢├É┬Á├É┬¢├É┬¥, ├É┬À├É┬░├æ┬ü├æÔÇÜ├É┬¥├æ┬ü├É┬¥├É┬▓├æãÆ├æÔÇØ├æÔÇÜ├æ┼Æ├æ┬ü├æ┬Å ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├É┬©├É┬╣ ├É┬╝├É┬¥├É┬┤├É┬©├æÔÇ×├æÔÇô├É┬║├É┬░├æÔÇÜ├É┬¥├æÔé¼. ├ÉÔÇÖ├É┬Á├æ┬ü├É┬¢├É┬░: 0,8x. ├ÉÔÇ║├æÔÇô├æÔÇÜ├É┬¥: 1,0x. ├É┼¥├æ┬ü├æÔÇô├É┬¢├æ┼Æ: 1,2x (├É┬┐├æÔÇô├É┬║). ├ÉÔÇö├É┬©├É┬╝├É┬░: 0,7x. ├ÉÔÇö├É┬░ ├É┬À├É┬░├É┬╝├É┬¥├É┬▓├æÔÇí├æãÆ├É┬▓├É┬░├É┬¢├É┬¢├æ┬Å├É┬╝ ├É┬▓├É┬©├É┬╝├É┬║├É┬¢├É┬Á├É┬¢├É┬¥.]]></uk>
+            <ru><![CDATA[├É┼í├É┬¥├É┬│├É┬┤├É┬░ ├É┬▓├É┬║├É┬╗├æ┼¢├æÔÇí├É┬Á├É┬¢├É┬¥, ├É┬┐├æÔé¼├É┬©├É┬╝├É┬Á├É┬¢├æ┬Å├É┬Á├æÔÇÜ├æ┬ü├æ┬Å ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├æÔÇ╣├É┬╣ ├É┬╝├É┬¥├É┬┤├É┬©├æÔÇ×├É┬©├É┬║├É┬░├æÔÇÜ├É┬¥├æÔé¼. ├ÉÔÇÖ├É┬Á├æ┬ü├É┬¢├É┬░: 0,8x. ├ÉÔÇ║├É┬Á├æÔÇÜ├É┬¥: 1,0x. ├É┼¥├æ┬ü├É┬Á├É┬¢├æ┼Æ: 1,2x (├É┬┐├É┬©├É┬║). ├ÉÔÇö├É┬©├É┬╝├É┬░: 0,7x. ├É┼©├É┬¥ ├æãÆ├É┬╝├É┬¥├É┬╗├æÔÇí├É┬░├É┬¢├É┬©├æ┼¢ ├É┬¥├æÔÇÜ├É┬║├É┬╗├æ┼¢├æÔÇí├É┬Á├É┬¢├É┬¥.]]></ru>
+            <da><![CDATA[N├â┬Ñr aktiveret, anvendes en s├â┬ªsonm├â┬ªssig modifikator. For├â┬Ñr: 0,8x. Sommer: 1,0x. Efter├â┬Ñr: 1,2x (top). Vinter: 0,7x. Deaktiveret som standard.]]></da>
         </text>
 
         <text name="im_help_s2_custom_title">
             <en><![CDATA[Custom Amount]]></en>
             <de><![CDATA[Benutzerdefinierter Betrag]]></de>
-            <fr><![CDATA[Montant personnalisÃ©]]></fr>
+            <fr><![CDATA[Montant personnalis├â┬®]]></fr>
             <pl><![CDATA[Niestandardowa kwota]]></pl>
             <es><![CDATA[Cantidad personalizada]]></es>
             <it><![CDATA[Importo personalizzato]]></it>
-            <cz><![CDATA[VlastnÃ­ ÄÃ¡stka]]></cz>
+            <cz><![CDATA[Vlastn├â┬¡ ├ä┬ì├â┬ístka]]></cz>
             <br><![CDATA[Valor personalizado]]></br>
-            <uk><![CDATA[Ð’Ð»Ð°ÑÐ½Ð° ÑÑƒÐ¼Ð°]]></uk>
-            <ru><![CDATA[ÐŸÐ¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÐµÐ»ÑŒÑÐºÐ°Ñ ÑÑƒÐ¼Ð¼Ð°]]></ru>
-            <da><![CDATA[Brugerdefineret belÃ¸b]]></da>
+            <uk><![CDATA[├ÉÔÇÖ├É┬╗├É┬░├æ┬ü├É┬¢├É┬░ ├æ┬ü├æãÆ├É┬╝├É┬░]]></uk>
+            <ru><![CDATA[├É┼©├É┬¥├É┬╗├æ┼Æ├É┬À├É┬¥├É┬▓├É┬░├æÔÇÜ├É┬Á├É┬╗├æ┼Æ├æ┬ü├É┬║├É┬░├æ┬Å ├æ┬ü├æãÆ├É┬╝├É┬╝├É┬░]]></ru>
+            <da><![CDATA[Brugerdefineret bel├â┬©b]]></da>
         </text>
 
         <text name="im_help_s2_custom_text">
             <en><![CDATA[Override the difficulty amount with a fixed value via console: IncomeSetCustomAmount 3000. Set to 0 to return to the difficulty-based amount. The multiplier still applies on top.]]></en>
-            <de><![CDATA[Ãœberschreibt den Schwierigkeitsbetrag per Konsole: IncomeSetCustomAmount 3000. Auf 0 setzen, um zur schwierigkeitsbezogenen Menge zurÃ¼ckzukehren. Der Multiplikator gilt weiterhin.]]></de>
-            <fr><![CDATA[Remplace le montant de difficultÃ© via console : IncomeSetCustomAmount 3000. Mettre 0 pour revenir au montant de difficultÃ©. Le multiplicateur s'applique toujours par-dessus.]]></fr>
-            <pl><![CDATA[ZastÄ™puje kwotÄ™ trudnoÅ›ci przez konsolÄ™: IncomeSetCustomAmount 3000. Ustaw 0, aby wrÃ³ciÄ‡ do kwoty opartej na trudnoÅ›ci. MnoÅ¼nik nadal obowiÄ…zuje.]]></pl>
-            <es><![CDATA[Anula el monto de dificultad via consola: IncomeSetCustomAmount 3000. Establece 0 para volver al monto por dificultad. El multiplicador aÃºn se aplica encima.]]></es>
-            <it><![CDATA[Sostituisce l'importo di difficoltÃ  via console: IncomeSetCustomAmount 3000. Imposta 0 per tornare all'importo basato sulla difficoltÃ . Il moltiplicatore si applica comunque.]]></it>
-            <cz><![CDATA[PÅ™epÃ­Å¡e obtÃ­Å¾nostnÃ­ ÄÃ¡stku pÅ™es konzoli: IncomeSetCustomAmount 3000. Nastavte 0 pro nÃ¡vrat k obtÃ­Å¾nostnÃ­ ÄÃ¡stce. MultiplikÃ¡tor se stÃ¡le pouÅ¾ije.]]></cz>
+            <de><![CDATA[├â┼ôberschreibt den Schwierigkeitsbetrag per Konsole: IncomeSetCustomAmount 3000. Auf 0 setzen, um zur schwierigkeitsbezogenen Menge zur├â┬╝ckzukehren. Der Multiplikator gilt weiterhin.]]></de>
+            <fr><![CDATA[Remplace le montant de difficult├â┬® via console : IncomeSetCustomAmount 3000. Mettre 0 pour revenir au montant de difficult├â┬®. Le multiplicateur s'applique toujours par-dessus.]]></fr>
+            <pl><![CDATA[Zast├äÔäópuje kwot├äÔäó trudno├àÔÇ║ci przez konsol├äÔäó: IncomeSetCustomAmount 3000. Ustaw 0, aby wr├â┬│ci├äÔÇí do kwoty opartej na trudno├àÔÇ║ci. Mno├à┬╝nik nadal obowi├äÔÇªzuje.]]></pl>
+            <es><![CDATA[Anula el monto de dificultad via consola: IncomeSetCustomAmount 3000. Establece 0 para volver al monto por dificultad. El multiplicador a├â┬║n se aplica encima.]]></es>
+            <it><![CDATA[Sostituisce l'importo di difficolt├â┬á via console: IncomeSetCustomAmount 3000. Imposta 0 per tornare all'importo basato sulla difficolt├â┬á. Il moltiplicatore si applica comunque.]]></it>
+            <cz><![CDATA[P├àÔäóep├â┬¡├à┬íe obt├â┬¡├à┬¥nostn├â┬¡ ├ä┬ì├â┬ístku p├àÔäóes konzoli: IncomeSetCustomAmount 3000. Nastavte 0 pro n├â┬ívrat k obt├â┬¡├à┬¥nostn├â┬¡ ├ä┬ì├â┬ístce. Multiplik├â┬ítor se st├â┬íle pou├à┬¥ije.]]></cz>
             <br><![CDATA[Substitui o valor de dificuldade via console: IncomeSetCustomAmount 3000. Defina 0 para voltar ao valor de dificuldade. O multiplicador ainda se aplica.]]></br>
-            <uk><![CDATA[Ð—Ð°Ð¼Ñ–Ð½ÑŽÑ” ÑÑƒÐ¼Ñƒ ÑÐºÐ»Ð°Ð´Ð½Ð¾ÑÑ‚Ñ– Ñ‡ÐµÑ€ÐµÐ· ÐºÐ¾Ð½ÑÐ¾Ð»ÑŒ: IncomeSetCustomAmount 3000. Ð’ÑÑ‚Ð°Ð½Ð¾Ð²Ñ–Ñ‚ÑŒ 0 Ð´Ð»Ñ Ð¿Ð¾Ð²ÐµÑ€Ð½ÐµÐ½Ð½Ñ Ð´Ð¾ ÑÑƒÐ¼Ð¸ Ð½Ð° Ð¾ÑÐ½Ð¾Ð²Ñ– ÑÐºÐ»Ð°Ð´Ð½Ð¾ÑÑ‚Ñ–. ÐœÐ½Ð¾Ð¶Ð½Ð¸Ðº Ð²ÑÐµ Ð¾Ð´Ð½Ð¾ Ð·Ð°ÑÑ‚Ð¾ÑÐ¾Ð²ÑƒÑ”Ñ‚ÑŒÑÑ.]]></uk>
-            <ru><![CDATA[Ð—Ð°Ð¼ÐµÐ½ÑÐµÑ‚ ÑÑƒÐ¼Ð¼Ñƒ ÑÐ»Ð¾Ð¶Ð½Ð¾ÑÑ‚Ð¸ Ñ‡ÐµÑ€ÐµÐ· ÐºÐ¾Ð½ÑÐ¾Ð»ÑŒ: IncomeSetCustomAmount 3000. Ð£ÑÑ‚Ð°Ð½Ð¾Ð²Ð¸Ñ‚Ðµ 0 Ð´Ð»Ñ Ð²Ð¾Ð·Ð²Ñ€Ð°Ñ‚Ð° Ðº ÑÑƒÐ¼Ð¼Ðµ ÑÐ»Ð¾Ð¶Ð½Ð¾ÑÑ‚Ð¸. ÐœÐ½Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒ Ð²ÑÑ‘ Ñ€Ð°Ð²Ð½Ð¾ Ð¿Ñ€Ð¸Ð¼ÐµÐ½ÑÐµÑ‚ÑÑ.]]></ru>
-            <da><![CDATA[Erstatter svÃ¦rhedsgradsbelÃ¸bet via konsol: IncomeSetCustomAmount 3000. Indstil 0 for at vende tilbage til svÃ¦rhedsgradsbelÃ¸bet. Multiplikatoren anvendes stadig.]]></da>
+            <uk><![CDATA[├ÉÔÇö├É┬░├É┬╝├æÔÇô├É┬¢├æ┼¢├æÔÇØ ├æ┬ü├æãÆ├É┬╝├æãÆ ├æ┬ü├É┬║├É┬╗├É┬░├É┬┤├É┬¢├É┬¥├æ┬ü├æÔÇÜ├æÔÇô ├æÔÇí├É┬Á├æÔé¼├É┬Á├É┬À ├É┬║├É┬¥├É┬¢├æ┬ü├É┬¥├É┬╗├æ┼Æ: IncomeSetCustomAmount 3000. ├ÉÔÇÖ├æ┬ü├æÔÇÜ├É┬░├É┬¢├É┬¥├É┬▓├æÔÇô├æÔÇÜ├æ┼Æ 0 ├É┬┤├É┬╗├æ┬Å ├É┬┐├É┬¥├É┬▓├É┬Á├æÔé¼├É┬¢├É┬Á├É┬¢├É┬¢├æ┬Å ├É┬┤├É┬¥ ├æ┬ü├æãÆ├É┬╝├É┬© ├É┬¢├É┬░ ├É┬¥├æ┬ü├É┬¢├É┬¥├É┬▓├æÔÇô ├æ┬ü├É┬║├É┬╗├É┬░├É┬┤├É┬¢├É┬¥├æ┬ü├æÔÇÜ├æÔÇô. ├É┼ô├É┬¢├É┬¥├É┬Â├É┬¢├É┬©├É┬║ ├É┬▓├æ┬ü├É┬Á ├É┬¥├É┬┤├É┬¢├É┬¥ ├É┬À├É┬░├æ┬ü├æÔÇÜ├É┬¥├æ┬ü├É┬¥├É┬▓├æãÆ├æÔÇØ├æÔÇÜ├æ┼Æ├æ┬ü├æ┬Å.]]></uk>
+            <ru><![CDATA[├ÉÔÇö├É┬░├É┬╝├É┬Á├É┬¢├æ┬Å├É┬Á├æÔÇÜ ├æ┬ü├æãÆ├É┬╝├É┬╝├æãÆ ├æ┬ü├É┬╗├É┬¥├É┬Â├É┬¢├É┬¥├æ┬ü├æÔÇÜ├É┬© ├æÔÇí├É┬Á├æÔé¼├É┬Á├É┬À ├É┬║├É┬¥├É┬¢├æ┬ü├É┬¥├É┬╗├æ┼Æ: IncomeSetCustomAmount 3000. ├É┬ú├æ┬ü├æÔÇÜ├É┬░├É┬¢├É┬¥├É┬▓├É┬©├æÔÇÜ├É┬Á 0 ├É┬┤├É┬╗├æ┬Å ├É┬▓├É┬¥├É┬À├É┬▓├æÔé¼├É┬░├æÔÇÜ├É┬░ ├É┬║ ├æ┬ü├æãÆ├É┬╝├É┬╝├É┬Á ├æ┬ü├É┬╗├É┬¥├É┬Â├É┬¢├É┬¥├æ┬ü├æÔÇÜ├É┬©. ├É┼ô├É┬¢├É┬¥├É┬Â├É┬©├æÔÇÜ├É┬Á├É┬╗├æ┼Æ ├É┬▓├æ┬ü├æÔÇÿ ├æÔé¼├É┬░├É┬▓├É┬¢├É┬¥ ├É┬┐├æÔé¼├É┬©├É┬╝├É┬Á├É┬¢├æ┬Å├É┬Á├æÔÇÜ├æ┬ü├æ┬Å.]]></ru>
+            <da><![CDATA[Erstatter sv├â┬ªrhedsgradsbel├â┬©bet via konsol: IncomeSetCustomAmount 3000. Indstil 0 for at vende tilbage til sv├â┬ªrhedsgradsbel├â┬©bet. Multiplikatoren anvendes stadig.]]></da>
         </text>
 
-        <!-- â”€â”€ Help Lines: Page 5 â€” Display & Reset â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+        <!-- ├óÔÇØÔé¼├óÔÇØÔé¼ Help Lines: Page 5 ├óÔé¼ÔÇØ Display & Reset ├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼ -->
         <text name="im_help_s3_hud_title">
             <en><![CDATA[Income HUD]]></en>
             <de><![CDATA[Einkommens-HUD]]></de>
@@ -1205,25 +1205,25 @@
             <pl><![CDATA[HUD dochodu]]></pl>
             <es><![CDATA[HUD de ingresos]]></es>
             <it><![CDATA[HUD reddito]]></it>
-            <cz><![CDATA[HUD pÅ™Ã­jmÅ¯]]></cz>
+            <cz><![CDATA[HUD p├àÔäó├â┬¡jm├à┬»]]></cz>
             <br><![CDATA[HUD de renda]]></br>
-            <uk><![CDATA[HUD Ð´Ð¾Ñ…Ð¾Ð´Ñƒ]]></uk>
-            <ru><![CDATA[HUD Ð´Ð¾Ñ…Ð¾Ð´Ð°]]></ru>
+            <uk><![CDATA[HUD ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ]]></uk>
+            <ru><![CDATA[HUD ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░]]></ru>
             <da><![CDATA[Indkomst-HUD]]></da>
         </text>
 
         <text name="im_help_s3_hud_text">
             <en><![CDATA[Shows your income rate, mode, difficulty, multiplier, seasonal status, next payment time, and last 5 payments. Toggle with the I key or disable permanently in Settings.]]></en>
-            <de><![CDATA[Zeigt EinkommenshÃ¶he, Modus, Schwierigkeit, Multiplikator, Saisonstatus, nÃ¤chste Zahlung und die letzten 5 Zahlungen. Mit I umschalten oder in Einstellungen dauerhaft deaktivieren.]]></de>
-            <fr><![CDATA[Affiche revenu, mode, difficultÃ©, multiplicateur, Ã©tat saisonnier, prochain paiement et 5 derniers paiements. Touche I pour basculer ou dÃ©sactiver dans ParamÃ¨tres.]]></fr>
-            <pl><![CDATA[Pokazuje dochÃ³d, tryb, trudnoÅ›Ä‡, mnoÅ¼nik, status sezonowy, nastÄ™pnÄ… pÅ‚atnoÅ›Ä‡ i 5 ostatnich pÅ‚atnoÅ›ci. PrzeÅ‚Ä…cz klawiszem I lub wyÅ‚Ä…cz w ustawieniach.]]></pl>
-            <es><![CDATA[Muestra ingreso, modo, dificultad, multiplicador, estado estacional, prÃ³ximo pago y Ãºltimos 5 pagos. Tecla I para alternar o desactivar en Ajustes.]]></es>
-            <it><![CDATA[Mostra reddito, modalitÃ , difficoltÃ , moltiplicatore, stato stagionale, prossimo pagamento e ultimi 5 pagamenti. Tasto I per alternare o disabilitare nelle Impostazioni.]]></it>
-            <cz><![CDATA[Zobrazuje pÅ™Ã­jem, reÅ¾im, obtÃ­Å¾nost, multiplikÃ¡tor, sezÃ³nnÃ­ stav, pÅ™Ã­Å¡tÃ­ platbu a poslednÃ­ch 5 plateb. KlÃ¡vesou I pÅ™epnÄ›te nebo trvale zakaÅ¾te v NastavenÃ­.]]></cz>
-            <br><![CDATA[Mostra renda, modo, dificuldade, multiplicador, status sazonal, prÃ³ximo pagamento e Ãºltimos 5 pagamentos. Tecla I para alternar ou desativar nas ConfiguraÃ§Ãµes.]]></br>
-            <uk><![CDATA[ÐŸÐ¾ÐºÐ°Ð·ÑƒÑ” Ð´Ð¾Ñ…Ñ–Ð´, Ñ€ÐµÐ¶Ð¸Ð¼, ÑÐºÐ»Ð°Ð´Ð½Ñ–ÑÑ‚ÑŒ, Ð¼Ð½Ð¾Ð¶Ð½Ð¸Ðº, ÑÐµÐ·Ð¾Ð½Ð½Ð¸Ð¹ ÑÑ‚Ð°Ñ‚ÑƒÑ, Ð½Ð°ÑÑ‚ÑƒÐ¿Ð½Ñƒ Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ñƒ Ñ‚Ð° 5 Ð¾ÑÑ‚Ð°Ð½Ð½Ñ–Ñ… Ð²Ð¸Ð¿Ð»Ð°Ñ‚. ÐšÐ»Ð°Ð²Ñ–ÑˆÐ° I Ð´Ð»Ñ Ð¿ÐµÑ€ÐµÐ¼Ð¸ÐºÐ°Ð½Ð½Ñ Ð°Ð±Ð¾ Ð²Ð¸Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð² ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½ÑÑ….]]></uk>
-            <ru><![CDATA[ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÑ‚ Ð´Ð¾Ñ…Ð¾Ð´, Ñ€ÐµÐ¶Ð¸Ð¼, ÑÐ»Ð¾Ð¶Ð½Ð¾ÑÑ‚ÑŒ, Ð¼Ð½Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒ, ÑÐµÐ·Ð¾Ð½Ð½Ñ‹Ð¹ ÑÑ‚Ð°Ñ‚ÑƒÑ, ÑÐ»ÐµÐ´ÑƒÑŽÑ‰ÑƒÑŽ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñƒ Ð¸ Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ðµ 5 Ð²Ñ‹Ð¿Ð»Ð°Ñ‚. ÐšÐ»Ð°Ð²Ð¸ÑˆÐ° I Ð´Ð»Ñ Ð¿ÐµÑ€ÐµÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ Ð¸Ð»Ð¸ Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒ Ð² ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°Ñ….]]></ru>
-            <da><![CDATA[Viser indkomst, tilstand, svÃ¦rhedsgrad, multiplikator, sÃ¦sonstatus, nÃ¦ste betaling og de sidste 5 betalinger. Tasten I for at skifte eller deaktivere i Indstillinger.]]></da>
+            <de><![CDATA[Zeigt Einkommensh├â┬Âhe, Modus, Schwierigkeit, Multiplikator, Saisonstatus, n├â┬ñchste Zahlung und die letzten 5 Zahlungen. Mit I umschalten oder in Einstellungen dauerhaft deaktivieren.]]></de>
+            <fr><![CDATA[Affiche revenu, mode, difficult├â┬®, multiplicateur, ├â┬®tat saisonnier, prochain paiement et 5 derniers paiements. Touche I pour basculer ou d├â┬®sactiver dans Param├â┬¿tres.]]></fr>
+            <pl><![CDATA[Pokazuje doch├â┬│d, tryb, trudno├àÔÇ║├äÔÇí, mno├à┬╝nik, status sezonowy, nast├äÔäópn├äÔÇª p├àÔÇÜatno├àÔÇ║├äÔÇí i 5 ostatnich p├àÔÇÜatno├àÔÇ║ci. Prze├àÔÇÜ├äÔÇªcz klawiszem I lub wy├àÔÇÜ├äÔÇªcz w ustawieniach.]]></pl>
+            <es><![CDATA[Muestra ingreso, modo, dificultad, multiplicador, estado estacional, pr├â┬│ximo pago y ├â┬║ltimos 5 pagos. Tecla I para alternar o desactivar en Ajustes.]]></es>
+            <it><![CDATA[Mostra reddito, modalit├â┬á, difficolt├â┬á, moltiplicatore, stato stagionale, prossimo pagamento e ultimi 5 pagamenti. Tasto I per alternare o disabilitare nelle Impostazioni.]]></it>
+            <cz><![CDATA[Zobrazuje p├àÔäó├â┬¡jem, re├à┬¥im, obt├â┬¡├à┬¥nost, multiplik├â┬ítor, sez├â┬│nn├â┬¡ stav, p├àÔäó├â┬¡├à┬ít├â┬¡ platbu a posledn├â┬¡ch 5 plateb. Kl├â┬ívesou I p├àÔäóepn├äÔÇ║te nebo trvale zaka├à┬¥te v Nastaven├â┬¡.]]></cz>
+            <br><![CDATA[Mostra renda, modo, dificuldade, multiplicador, status sazonal, pr├â┬│ximo pagamento e ├â┬║ltimos 5 pagamentos. Tecla I para alternar ou desativar nas Configura├â┬º├â┬Áes.]]></br>
+            <uk><![CDATA[├É┼©├É┬¥├É┬║├É┬░├É┬À├æãÆ├æÔÇØ ├É┬┤├É┬¥├æÔÇª├æÔÇô├É┬┤, ├æÔé¼├É┬Á├É┬Â├É┬©├É┬╝, ├æ┬ü├É┬║├É┬╗├É┬░├É┬┤├É┬¢├æÔÇô├æ┬ü├æÔÇÜ├æ┼Æ, ├É┬╝├É┬¢├É┬¥├É┬Â├É┬¢├É┬©├É┬║, ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├É┬©├É┬╣ ├æ┬ü├æÔÇÜ├É┬░├æÔÇÜ├æãÆ├æ┬ü, ├É┬¢├É┬░├æ┬ü├æÔÇÜ├æãÆ├É┬┐├É┬¢├æãÆ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ ├æÔÇÜ├É┬░ 5 ├É┬¥├æ┬ü├æÔÇÜ├É┬░├É┬¢├É┬¢├æÔÇô├æÔÇª ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ. ├É┼í├É┬╗├É┬░├É┬▓├æÔÇô├æ╦å├É┬░ I ├É┬┤├É┬╗├æ┬Å ├É┬┐├É┬Á├æÔé¼├É┬Á├É┬╝├É┬©├É┬║├É┬░├É┬¢├É┬¢├æ┬Å ├É┬░├É┬▒├É┬¥ ├É┬▓├É┬©├É┬╝├É┬║├É┬¢├æãÆ├æÔÇÜ├É┬© ├É┬▓ ├É┬Ø├É┬░├É┬╗├É┬░├æ╦å├æÔÇÜ├æãÆ├É┬▓├É┬░├É┬¢├É┬¢├æ┬Å├æÔÇª.]]></uk>
+            <ru><![CDATA[├É┼©├É┬¥├É┬║├É┬░├É┬À├æÔÇ╣├É┬▓├É┬░├É┬Á├æÔÇÜ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤, ├æÔé¼├É┬Á├É┬Â├É┬©├É┬╝, ├æ┬ü├É┬╗├É┬¥├É┬Â├É┬¢├É┬¥├æ┬ü├æÔÇÜ├æ┼Æ, ├É┬╝├É┬¢├É┬¥├É┬Â├É┬©├æÔÇÜ├É┬Á├É┬╗├æ┼Æ, ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├æÔÇ╣├É┬╣ ├æ┬ü├æÔÇÜ├É┬░├æÔÇÜ├æãÆ├æ┬ü, ├æ┬ü├É┬╗├É┬Á├É┬┤├æãÆ├æ┼¢├æÔÇ░├æãÆ├æ┼¢ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ ├É┬© ├É┬┐├É┬¥├æ┬ü├É┬╗├É┬Á├É┬┤├É┬¢├É┬©├É┬Á 5 ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ. ├É┼í├É┬╗├É┬░├É┬▓├É┬©├æ╦å├É┬░ I ├É┬┤├É┬╗├æ┬Å ├É┬┐├É┬Á├æÔé¼├É┬Á├É┬║├É┬╗├æ┼¢├æÔÇí├É┬Á├É┬¢├É┬©├æ┬Å ├É┬©├É┬╗├É┬© ├É┬¥├æÔÇÜ├É┬║├É┬╗├æ┼¢├æÔÇí├É┬©├æÔÇÜ├æ┼Æ ├É┬▓ ├É┬Ø├É┬░├æ┬ü├æÔÇÜ├æÔé¼├É┬¥├É┬╣├É┬║├É┬░├æÔÇª.]]></ru>
+            <da><![CDATA[Viser indkomst, tilstand, sv├â┬ªrhedsgrad, multiplikator, s├â┬ªsonstatus, n├â┬ªste betaling og de sidste 5 betalinger. Tasten I for at skifte eller deaktivere i Indstillinger.]]></da>
         </text>
 
         <text name="im_help_s3_notify_title">
@@ -1233,196 +1233,196 @@
             <pl><![CDATA[Powiadomienia]]></pl>
             <es><![CDATA[Notificaciones]]></es>
             <it><![CDATA[Notifiche]]></it>
-            <cz><![CDATA[UpozornÄ›nÃ­]]></cz>
-            <br><![CDATA[NotificaÃ§Ãµes]]></br>
-            <uk><![CDATA[Ð¡Ð¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ]]></uk>
-            <ru><![CDATA[Ð£Ð²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ñ]]></ru>
+            <cz><![CDATA[Upozorn├äÔÇ║n├â┬¡]]></cz>
+            <br><![CDATA[Notifica├â┬º├â┬Áes]]></br>
+            <uk><![CDATA[├É┬í├É┬┐├É┬¥├É┬▓├æÔÇô├æÔÇ░├É┬Á├É┬¢├É┬¢├æ┬Å]]></uk>
+            <ru><![CDATA[├É┬ú├É┬▓├É┬Á├É┬┤├É┬¥├É┬╝├É┬╗├É┬Á├É┬¢├É┬©├æ┬Å]]></ru>
             <da><![CDATA[Notifikationer]]></da>
         </text>
 
         <text name="im_help_s3_notify_text">
             <en><![CDATA[When enabled, a pop-up appears each time income is paid showing the amount received. Disable if you prefer a quieter experience without payment alerts.]]></en>
-            <de><![CDATA[Wenn aktiviert, erscheint bei jeder Zahlung ein Pop-up mit dem erhaltenen Betrag. Deaktivieren fÃ¼r eine ruhigere Spielerfahrung ohne Zahlungsbenachrichtigungen.]]></de>
-            <fr><![CDATA[Quand activÃ©, un pop-up apparaÃ®t Ã  chaque paiement avec le montant reÃ§u. DÃ©sactiver pour une expÃ©rience plus calme sans alertes de paiement.]]></fr>
-            <pl><![CDATA[Po wÅ‚Ä…czeniu pojawia siÄ™ powiadomienie pop-up przy kaÅ¼dej pÅ‚atnoÅ›ci z kwotÄ…. WyÅ‚Ä…cz dla spokojniejszej rozgrywki bez alertÃ³w pÅ‚atnoÅ›ci.]]></pl>
-            <es><![CDATA[Cuando estÃ¡ habilitado, aparece un pop-up con cada pago mostrando el monto recibido. Desactiva para una experiencia sin alertas de pago.]]></es>
-            <it><![CDATA[Quando abilitato, appare un pop-up ad ogni pagamento con l'importo ricevuto. Disabilita per un'esperienza piÃ¹ silenziosa senza avvisi di pagamento.]]></it>
-            <cz><![CDATA[KdyÅ¾ je povoleno, pÅ™i kaÅ¾dÃ© platbÄ› se zobrazÃ­ pop-up s pÅ™ijatou ÄÃ¡stkou. ZakaÅ¾te pro klidnÄ›jÅ¡Ã­ hernÃ­ zÃ¡Å¾itek bez platebnÃ­ch upozornÄ›nÃ­.]]></cz>
-            <br><![CDATA[Quando ativado, um pop-up aparece a cada pagamento mostrando o valor recebido. Desative para uma experiÃªncia mais tranquila sem alertas de pagamento.]]></br>
-            <uk><![CDATA[ÐšÐ¾Ð»Ð¸ ÑƒÐ²Ñ–Ð¼ÐºÐ½ÐµÐ½Ð¾, Ð¿Ñ€Ð¸ ÐºÐ¾Ð¶Ð½Ñ–Ð¹ Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ñ– Ð·'ÑÐ²Ð»ÑÑ”Ñ‚ÑŒÑÑ ÑÐ¿Ð»Ð¸Ð²Ð°ÑŽÑ‡Ðµ ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½Ð½Ñ Ð· Ð¾Ñ‚Ñ€Ð¸Ð¼Ð°Ð½Ð¾ÑŽ ÑÑƒÐ¼Ð¾ÑŽ. Ð’Ð¸Ð¼ÐºÐ½Ñ–Ñ‚ÑŒ Ð´Ð»Ñ ÑÐ¿Ð¾ÐºÑ–Ð¹Ð½Ñ–ÑˆÐ¾Ð³Ð¾ Ñ–Ð³Ñ€Ð¾Ð²Ð¾Ð³Ð¾ Ð´Ð¾ÑÐ²Ñ–Ð´Ñƒ Ð±ÐµÐ· ÑÐ¿Ð¾Ð²Ñ–Ñ‰ÐµÐ½ÑŒ.]]></uk>
-            <ru><![CDATA[ÐšÐ¾Ð³Ð´Ð° Ð²ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¾, Ð¿Ñ€Ð¸ ÐºÐ°Ð¶Ð´Ð¾Ð¹ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ðµ Ð¿Ð¾ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð²ÑÐ¿Ð»Ñ‹Ð²Ð°ÑŽÑ‰ÐµÐµ ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ðµ Ñ ÑÑƒÐ¼Ð¼Ð¾Ð¹. ÐžÑ‚ÐºÐ»ÑŽÑ‡Ð¸Ñ‚Ðµ Ð´Ð»Ñ ÑÐ¿Ð¾ÐºÐ¾Ð¹Ð½Ð¾Ð³Ð¾ Ð¸Ð³Ñ€Ð¾Ð²Ð¾Ð³Ð¾ Ð¾Ð¿Ñ‹Ñ‚Ð° Ð±ÐµÐ· ÑƒÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ð¹ Ð¾ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ð°Ñ….]]></ru>
-            <da><![CDATA[NÃ¥r aktiveret, vises et pop-up ved hver betaling med det modtagne belÃ¸b. Deaktiver for en roligere oplevelse uden betalingsbeskeder.]]></da>
+            <de><![CDATA[Wenn aktiviert, erscheint bei jeder Zahlung ein Pop-up mit dem erhaltenen Betrag. Deaktivieren f├â┬╝r eine ruhigere Spielerfahrung ohne Zahlungsbenachrichtigungen.]]></de>
+            <fr><![CDATA[Quand activ├â┬®, un pop-up appara├â┬«t ├â┬á chaque paiement avec le montant re├â┬ºu. D├â┬®sactiver pour une exp├â┬®rience plus calme sans alertes de paiement.]]></fr>
+            <pl><![CDATA[Po w├àÔÇÜ├äÔÇªczeniu pojawia si├äÔäó powiadomienie pop-up przy ka├à┬╝dej p├àÔÇÜatno├àÔÇ║ci z kwot├äÔÇª. Wy├àÔÇÜ├äÔÇªcz dla spokojniejszej rozgrywki bez alert├â┬│w p├àÔÇÜatno├àÔÇ║ci.]]></pl>
+            <es><![CDATA[Cuando est├â┬í habilitado, aparece un pop-up con cada pago mostrando el monto recibido. Desactiva para una experiencia sin alertas de pago.]]></es>
+            <it><![CDATA[Quando abilitato, appare un pop-up ad ogni pagamento con l'importo ricevuto. Disabilita per un'esperienza pi├â┬╣ silenziosa senza avvisi di pagamento.]]></it>
+            <cz><![CDATA[Kdy├à┬¥ je povoleno, p├àÔäói ka├à┬¥d├â┬® platb├äÔÇ║ se zobraz├â┬¡ pop-up s p├àÔäóijatou ├ä┬ì├â┬ístkou. Zaka├à┬¥te pro klidn├äÔÇ║j├à┬í├â┬¡ hern├â┬¡ z├â┬í├à┬¥itek bez platebn├â┬¡ch upozorn├äÔÇ║n├â┬¡.]]></cz>
+            <br><![CDATA[Quando ativado, um pop-up aparece a cada pagamento mostrando o valor recebido. Desative para uma experi├â┬¬ncia mais tranquila sem alertas de pagamento.]]></br>
+            <uk><![CDATA[├É┼í├É┬¥├É┬╗├É┬© ├æãÆ├É┬▓├æÔÇô├É┬╝├É┬║├É┬¢├É┬Á├É┬¢├É┬¥, ├É┬┐├æÔé¼├É┬© ├É┬║├É┬¥├É┬Â├É┬¢├æÔÇô├É┬╣ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├æÔÇô ├É┬À'├æ┬Å├É┬▓├É┬╗├æ┬Å├æÔÇØ├æÔÇÜ├æ┼Æ├æ┬ü├æ┬Å ├æ┬ü├É┬┐├É┬╗├É┬©├É┬▓├É┬░├æ┼¢├æÔÇí├É┬Á ├æ┬ü├É┬┐├É┬¥├É┬▓├æÔÇô├æÔÇ░├É┬Á├É┬¢├É┬¢├æ┬Å ├É┬À ├É┬¥├æÔÇÜ├æÔé¼├É┬©├É┬╝├É┬░├É┬¢├É┬¥├æ┼¢ ├æ┬ü├æãÆ├É┬╝├É┬¥├æ┼¢. ├ÉÔÇÖ├É┬©├É┬╝├É┬║├É┬¢├æÔÇô├æÔÇÜ├æ┼Æ ├É┬┤├É┬╗├æ┬Å ├æ┬ü├É┬┐├É┬¥├É┬║├æÔÇô├É┬╣├É┬¢├æÔÇô├æ╦å├É┬¥├É┬│├É┬¥ ├æÔÇô├É┬│├æÔé¼├É┬¥├É┬▓├É┬¥├É┬│├É┬¥ ├É┬┤├É┬¥├æ┬ü├É┬▓├æÔÇô├É┬┤├æãÆ ├É┬▒├É┬Á├É┬À ├æ┬ü├É┬┐├É┬¥├É┬▓├æÔÇô├æÔÇ░├É┬Á├É┬¢├æ┼Æ.]]></uk>
+            <ru><![CDATA[├É┼í├É┬¥├É┬│├É┬┤├É┬░ ├É┬▓├É┬║├É┬╗├æ┼¢├æÔÇí├É┬Á├É┬¢├É┬¥, ├É┬┐├æÔé¼├É┬© ├É┬║├É┬░├É┬Â├É┬┤├É┬¥├É┬╣ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬Á ├É┬┐├É┬¥├æ┬Å├É┬▓├É┬╗├æ┬Å├É┬Á├æÔÇÜ├æ┬ü├æ┬Å ├É┬▓├æ┬ü├É┬┐├É┬╗├æÔÇ╣├É┬▓├É┬░├æ┼¢├æÔÇ░├É┬Á├É┬Á ├æãÆ├É┬▓├É┬Á├É┬┤├É┬¥├É┬╝├É┬╗├É┬Á├É┬¢├É┬©├É┬Á ├æ┬ü ├æ┬ü├æãÆ├É┬╝├É┬╝├É┬¥├É┬╣. ├É┼¥├æÔÇÜ├É┬║├É┬╗├æ┼¢├æÔÇí├É┬©├æÔÇÜ├É┬Á ├É┬┤├É┬╗├æ┬Å ├æ┬ü├É┬┐├É┬¥├É┬║├É┬¥├É┬╣├É┬¢├É┬¥├É┬│├É┬¥ ├É┬©├É┬│├æÔé¼├É┬¥├É┬▓├É┬¥├É┬│├É┬¥ ├É┬¥├É┬┐├æÔÇ╣├æÔÇÜ├É┬░ ├É┬▒├É┬Á├É┬À ├æãÆ├É┬▓├É┬Á├É┬┤├É┬¥├É┬╝├É┬╗├É┬Á├É┬¢├É┬©├É┬╣ ├É┬¥ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├É┬░├æÔÇª.]]></ru>
+            <da><![CDATA[N├â┬Ñr aktiveret, vises et pop-up ved hver betaling med det modtagne bel├â┬©b. Deaktiver for en roligere oplevelse uden betalingsbeskeder.]]></da>
         </text>
 
         <text name="im_help_s3_reset_title">
             <en><![CDATA[Reset Settings]]></en>
-            <de><![CDATA[Einstellungen zurÃ¼cksetzen]]></de>
-            <fr><![CDATA[RÃ©initialiser les paramÃ¨tres]]></fr>
+            <de><![CDATA[Einstellungen zur├â┬╝cksetzen]]></de>
+            <fr><![CDATA[R├â┬®initialiser les param├â┬¿tres]]></fr>
             <pl><![CDATA[Resetuj ustawienia]]></pl>
             <es><![CDATA[Restablecer ajustes]]></es>
             <it><![CDATA[Ripristina impostazioni]]></it>
-            <cz><![CDATA[Resetovat nastavenÃ­]]></cz>
-            <br><![CDATA[Redefinir configuraÃ§Ãµes]]></br>
-            <uk><![CDATA[Ð¡ÐºÐ¸Ð½ÑƒÑ‚Ð¸ Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ]]></uk>
-            <ru><![CDATA[Ð¡Ð±Ñ€Ð¾ÑÐ¸Ñ‚ÑŒ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸]]></ru>
+            <cz><![CDATA[Resetovat nastaven├â┬¡]]></cz>
+            <br><![CDATA[Redefinir configura├â┬º├â┬Áes]]></br>
+            <uk><![CDATA[├É┬í├É┬║├É┬©├É┬¢├æãÆ├æÔÇÜ├É┬© ├É┬¢├É┬░├É┬╗├É┬░├æ╦å├æÔÇÜ├æãÆ├É┬▓├É┬░├É┬¢├É┬¢├æ┬Å]]></uk>
+            <ru><![CDATA[├É┬í├É┬▒├æÔé¼├É┬¥├æ┬ü├É┬©├æÔÇÜ├æ┼Æ ├É┬¢├É┬░├æ┬ü├æÔÇÜ├æÔé¼├É┬¥├É┬╣├É┬║├É┬©]]></ru>
             <da><![CDATA[Nulstil indstillinger]]></da>
         </text>
 
         <text name="im_help_s3_reset_text">
             <en><![CDATA[Press the X key while on the Settings page to reset all Income Mod settings to defaults. Useful if settings become inconsistent. This action cannot be undone.]]></en>
-            <de><![CDATA[DrÃ¼cken Sie X auf der Einstellungsseite, um alle Income-Mod-Einstellungen zurÃ¼ckzusetzen. NÃ¼tzlich bei inkonsistenten Einstellungen. Kann nicht rÃ¼ckgÃ¤ngig gemacht werden.]]></de>
-            <fr><![CDATA[Appuyez sur X dans ParamÃ¨tres pour rÃ©initialiser tous les paramÃ¨tres d'Income Mod. Utile si les paramÃ¨tres deviennent incohÃ©rents. Cette action est irrÃ©versible.]]></fr>
-            <pl><![CDATA[NaciÅ›nij X na stronie UstawieÅ„, aby zresetowaÄ‡ wszystkie ustawienia Income Mod do domyÅ›lnych. Tej akcji nie moÅ¼na cofnÄ…Ä‡.]]></pl>
-            <es><![CDATA[Pulsa X en la pÃ¡gina de Ajustes para restablecer todos los ajustes de Income Mod. Esta acciÃ³n no se puede deshacer.]]></es>
-            <it><![CDATA[Premi X nella pagina Impostazioni per ripristinare tutte le impostazioni di Income Mod ai valori predefiniti. Questa azione non puÃ² essere annullata.]]></it>
-            <cz><![CDATA[StisknÄ›te X na strÃ¡nce NastavenÃ­ pro reset vÅ¡ech nastavenÃ­ Income Modu. Tuto akci nelze vrÃ¡tit zpÄ›t.]]></cz>
-            <br><![CDATA[Pressione X nas ConfiguraÃ§Ãµes para redefinir todas as configuraÃ§Ãµes do Income Mod. Esta aÃ§Ã£o nÃ£o pode ser desfeita.]]></br>
-            <uk><![CDATA[ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ X Ð½Ð° ÑÑ‚Ð¾Ñ€Ñ–Ð½Ñ†Ñ– ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½ÑŒ, Ñ‰Ð¾Ð± ÑÐºÐ¸Ð½ÑƒÑ‚Ð¸ Ð²ÑÑ– Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Income Mod Ð´Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½ÑŒ Ð·Ð° Ð·Ð°Ð¼Ð¾Ð²Ñ‡ÑƒÐ²Ð°Ð½Ð½ÑÐ¼. Ð¦ÑŽ Ð´Ñ–ÑŽ Ð½Ðµ Ð¼Ð¾Ð¶Ð½Ð° ÑÐºÐ°ÑÑƒÐ²Ð°Ñ‚Ð¸.]]></uk>
-            <ru><![CDATA[ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ X Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ðµ ÐÐ°ÑÑ‚Ñ€Ð¾ÐµÐº, Ñ‡Ñ‚Ð¾Ð±Ñ‹ ÑÐ±Ñ€Ð¾ÑÐ¸Ñ‚ÑŒ Ð²ÑÐµ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ Income Mod Ð´Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ð¹ Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ. Ð­Ñ‚Ð¾ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ Ð½ÐµÐ»ÑŒÐ·Ñ Ð¾Ñ‚Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ.]]></ru>
-            <da><![CDATA[Tryk pÃ¥ X pÃ¥ siden Indstillinger for at nulstille alle Income Mod indstillinger til standard. Denne handling kan ikke fortrydes.]]></da>
+            <de><![CDATA[Dr├â┬╝cken Sie X auf der Einstellungsseite, um alle Income-Mod-Einstellungen zur├â┬╝ckzusetzen. N├â┬╝tzlich bei inkonsistenten Einstellungen. Kann nicht r├â┬╝ckg├â┬ñngig gemacht werden.]]></de>
+            <fr><![CDATA[Appuyez sur X dans Param├â┬¿tres pour r├â┬®initialiser tous les param├â┬¿tres d'Income Mod. Utile si les param├â┬¿tres deviennent incoh├â┬®rents. Cette action est irr├â┬®versible.]]></fr>
+            <pl><![CDATA[Naci├àÔÇ║nij X na stronie Ustawie├àÔÇ×, aby zresetowa├äÔÇí wszystkie ustawienia Income Mod do domy├àÔÇ║lnych. Tej akcji nie mo├à┬╝na cofn├äÔÇª├äÔÇí.]]></pl>
+            <es><![CDATA[Pulsa X en la p├â┬ígina de Ajustes para restablecer todos los ajustes de Income Mod. Esta acci├â┬│n no se puede deshacer.]]></es>
+            <it><![CDATA[Premi X nella pagina Impostazioni per ripristinare tutte le impostazioni di Income Mod ai valori predefiniti. Questa azione non pu├â┬▓ essere annullata.]]></it>
+            <cz><![CDATA[Stiskn├äÔÇ║te X na str├â┬ínce Nastaven├â┬¡ pro reset v├à┬íech nastaven├â┬¡ Income Modu. Tuto akci nelze vr├â┬ítit zp├äÔÇ║t.]]></cz>
+            <br><![CDATA[Pressione X nas Configura├â┬º├â┬Áes para redefinir todas as configura├â┬º├â┬Áes do Income Mod. Esta a├â┬º├â┬úo n├â┬úo pode ser desfeita.]]></br>
+            <uk><![CDATA[├É┬Ø├É┬░├æÔÇÜ├É┬©├æ┬ü├É┬¢├æÔÇô├æÔÇÜ├æ┼Æ X ├É┬¢├É┬░ ├æ┬ü├æÔÇÜ├É┬¥├æÔé¼├æÔÇô├É┬¢├æÔÇá├æÔÇô ├É┬Ø├É┬░├É┬╗├É┬░├æ╦å├æÔÇÜ├æãÆ├É┬▓├É┬░├É┬¢├æ┼Æ, ├æÔÇ░├É┬¥├É┬▒ ├æ┬ü├É┬║├É┬©├É┬¢├æãÆ├æÔÇÜ├É┬© ├É┬▓├æ┬ü├æÔÇô ├É┬¢├É┬░├É┬╗├É┬░├æ╦å├æÔÇÜ├æãÆ├É┬▓├É┬░├É┬¢├É┬¢├æ┬Å Income Mod ├É┬┤├É┬¥ ├É┬À├É┬¢├É┬░├æÔÇí├É┬Á├É┬¢├æ┼Æ ├É┬À├É┬░ ├É┬À├É┬░├É┬╝├É┬¥├É┬▓├æÔÇí├æãÆ├É┬▓├É┬░├É┬¢├É┬¢├æ┬Å├É┬╝. ├É┬ª├æ┼¢ ├É┬┤├æÔÇô├æ┼¢ ├É┬¢├É┬Á ├É┬╝├É┬¥├É┬Â├É┬¢├É┬░ ├æ┬ü├É┬║├É┬░├æ┬ü├æãÆ├É┬▓├É┬░├æÔÇÜ├É┬©.]]></uk>
+            <ru><![CDATA[├É┬Ø├É┬░├É┬Â├É┬╝├É┬©├æÔÇÜ├É┬Á X ├É┬¢├É┬░ ├æ┬ü├æÔÇÜ├æÔé¼├É┬░├É┬¢├É┬©├æÔÇá├É┬Á ├É┬Ø├É┬░├æ┬ü├æÔÇÜ├æÔé¼├É┬¥├É┬Á├É┬║, ├æÔÇí├æÔÇÜ├É┬¥├É┬▒├æÔÇ╣ ├æ┬ü├É┬▒├æÔé¼├É┬¥├æ┬ü├É┬©├æÔÇÜ├æ┼Æ ├É┬▓├æ┬ü├É┬Á ├É┬¢├É┬░├æ┬ü├æÔÇÜ├æÔé¼├É┬¥├É┬╣├É┬║├É┬© Income Mod ├É┬┤├É┬¥ ├É┬À├É┬¢├É┬░├æÔÇí├É┬Á├É┬¢├É┬©├É┬╣ ├É┬┐├É┬¥ ├æãÆ├É┬╝├É┬¥├É┬╗├æÔÇí├É┬░├É┬¢├É┬©├æ┼¢. ├É┬¡├æÔÇÜ├É┬¥ ├É┬┤├É┬Á├É┬╣├æ┬ü├æÔÇÜ├É┬▓├É┬©├É┬Á ├É┬¢├É┬Á├É┬╗├æ┼Æ├É┬À├æ┬Å ├É┬¥├æÔÇÜ├É┬╝├É┬Á├É┬¢├É┬©├æÔÇÜ├æ┼Æ.]]></ru>
+            <da><![CDATA[Tryk p├â┬Ñ X p├â┬Ñ siden Indstillinger for at nulstille alle Income Mod indstillinger til standard. Denne handling kan ikke fortrydes.]]></da>
         </text>
 
-        <!-- â”€â”€ Help Lines: Page 6 â€” HUD & Income Report â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+        <!-- ├óÔÇØÔé¼├óÔÇØÔé¼ Help Lines: Page 6 ├óÔé¼ÔÇØ HUD & Income Report ├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼ -->
         <text name="im_help_t1_hud_title">
-            <en><![CDATA[Income HUD â€” I Key]]></en>
-            <de><![CDATA[Einkommens-HUD â€” Taste I]]></de>
-            <fr><![CDATA[HUD de revenu â€” Touche I]]></fr>
-            <pl><![CDATA[HUD dochodu â€” Klawisz I]]></pl>
-            <es><![CDATA[HUD de ingresos â€” Tecla I]]></es>
-            <it><![CDATA[HUD reddito â€” Tasto I]]></it>
-            <cz><![CDATA[HUD pÅ™Ã­jmÅ¯ â€” KlÃ¡vesa I]]></cz>
-            <br><![CDATA[HUD de renda â€” Tecla I]]></br>
-            <uk><![CDATA[HUD Ð´Ð¾Ñ…Ð¾Ð´Ñƒ â€” ÐšÐ»Ð°Ð²Ñ–ÑˆÐ° I]]></uk>
-            <ru><![CDATA[HUD Ð´Ð¾Ñ…Ð¾Ð´Ð° â€” ÐšÐ»Ð°Ð²Ð¸ÑˆÐ° I]]></ru>
-            <da><![CDATA[Indkomst-HUD â€” Tasten I]]></da>
+            <en><![CDATA[Income HUD ├óÔé¼ÔÇØ I Key]]></en>
+            <de><![CDATA[Einkommens-HUD ├óÔé¼ÔÇØ Taste I]]></de>
+            <fr><![CDATA[HUD de revenu ├óÔé¼ÔÇØ Touche I]]></fr>
+            <pl><![CDATA[HUD dochodu ├óÔé¼ÔÇØ Klawisz I]]></pl>
+            <es><![CDATA[HUD de ingresos ├óÔé¼ÔÇØ Tecla I]]></es>
+            <it><![CDATA[HUD reddito ├óÔé¼ÔÇØ Tasto I]]></it>
+            <cz><![CDATA[HUD p├àÔäó├â┬¡jm├à┬» ├óÔé¼ÔÇØ Kl├â┬ívesa I]]></cz>
+            <br><![CDATA[HUD de renda ├óÔé¼ÔÇØ Tecla I]]></br>
+            <uk><![CDATA[HUD ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ ├óÔé¼ÔÇØ ├É┼í├É┬╗├É┬░├É┬▓├æÔÇô├æ╦å├É┬░ I]]></uk>
+            <ru><![CDATA[HUD ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░ ├óÔé¼ÔÇØ ├É┼í├É┬╗├É┬░├É┬▓├É┬©├æ╦å├É┬░ I]]></ru>
+            <da><![CDATA[Indkomst-HUD ├óÔé¼ÔÇØ Tasten I]]></da>
         </text>
 
         <text name="im_help_t1_hud_text">
             <en><![CDATA[Press I during gameplay to toggle the income HUD on or off. It shows your income, payment mode, next payment time, and recent history. The HUD setting persists between sessions.]]></en>
-            <de><![CDATA[DrÃ¼cken Sie I wÃ¤hrend des Spiels, um das Einkommens-HUD ein- oder auszublenden. Es zeigt Einkommen, Zahlungsmodus, nÃ¤chste Zahlung und den Verlauf. Die Einstellung bleibt erhalten.]]></de>
-            <fr><![CDATA[Appuyez sur I pendant le jeu pour afficher ou masquer le HUD. Il affiche revenu, mode de paiement, prochain paiement et historique rÃ©cent. Le rÃ©glage persiste entre sessions.]]></fr>
-            <pl><![CDATA[NaciÅ›nij I podczas gry, aby wÅ‚Ä…czyÄ‡ lub wyÅ‚Ä…czyÄ‡ HUD dochodu. Pokazuje dochÃ³d, tryb pÅ‚atnoÅ›ci, nastÄ™pnÄ… pÅ‚atnoÅ›Ä‡ i historiÄ™. Ustawienie jest zachowywane miÄ™dzy sesjami.]]></pl>
-            <es><![CDATA[Pulsa I durante el juego para activar o desactivar el HUD. Muestra ingreso, modo de pago, prÃ³ximo pago e historial reciente. El ajuste persiste entre sesiones.]]></es>
-            <it><![CDATA[Premi I durante il gioco per attivare o disattivare il HUD. Mostra reddito, modalitÃ  di pagamento, prossimo pagamento e cronologia recente. L'impostazione persiste tra sessioni.]]></it>
-            <cz><![CDATA[StisknÄ›te I pÅ™i hÅ™e pro pÅ™epnutÃ­ HUD. Zobrazuje pÅ™Ã­jem, platebnÃ­ reÅ¾im, pÅ™Ã­Å¡tÃ­ platbu a historii. NastavenÃ­ se uchovÃ¡vÃ¡ mezi sezenÃ­mi.]]></cz>
-            <br><![CDATA[Pressione I durante o jogo para alternar o HUD. Mostra renda, modo de pagamento, prÃ³ximo pagamento e histÃ³rico recente. O ajuste persiste entre sessÃµes.]]></br>
-            <uk><![CDATA[ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ I Ð¿Ñ–Ð´ Ñ‡Ð°Ñ Ð³Ñ€Ð¸, Ñ‰Ð¾Ð± ÑƒÐ²Ñ–Ð¼ÐºÐ½ÑƒÑ‚Ð¸ Ð°Ð±Ð¾ Ð²Ð¸Ð¼ÐºÐ½ÑƒÑ‚Ð¸ HUD. ÐŸÐ¾ÐºÐ°Ð·ÑƒÑ” Ð´Ð¾Ñ…Ñ–Ð´, Ñ€ÐµÐ¶Ð¸Ð¼ Ð²Ð¸Ð¿Ð»Ð°Ñ‚, Ð½Ð°ÑÑ‚ÑƒÐ¿Ð½Ñƒ Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ñƒ Ñ‚Ð° Ð½ÐµÑ‰Ð¾Ð´Ð°Ð²Ð½ÑŽ Ñ–ÑÑ‚Ð¾Ñ€Ñ–ÑŽ. ÐÐ°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð·Ð±ÐµÑ€Ñ–Ð³Ð°Ñ”Ñ‚ÑŒÑÑ Ð¼Ñ–Ð¶ ÑÐµÑÑ–ÑÐ¼Ð¸.]]></uk>
-            <ru><![CDATA[ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ I Ð²Ð¾ Ð²Ñ€ÐµÐ¼Ñ Ð¸Ð³Ñ€Ñ‹ Ð´Ð»Ñ Ð¿ÐµÑ€ÐµÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ HUD. ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÑ‚ Ð´Ð¾Ñ…Ð¾Ð´, Ñ€ÐµÐ¶Ð¸Ð¼ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚, ÑÐ»ÐµÐ´ÑƒÑŽÑ‰ÑƒÑŽ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñƒ Ð¸ Ð½ÐµÐ´Ð°Ð²Ð½ÑŽÑŽ Ð¸ÑÑ‚Ð¾Ñ€Ð¸ÑŽ. ÐÐ°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ° ÑÐ¾Ñ…Ñ€Ð°Ð½ÑÐµÑ‚ÑÑ Ð¼ÐµÐ¶Ð´Ñƒ ÑÐµÑÑÐ¸ÑÐ¼Ð¸.]]></ru>
-            <da><![CDATA[Tryk pÃ¥ I under spil for at skifte HUD. Viser indkomst, betalingsmÃ¥de, nÃ¦ste betaling og nylig historie. Indstillingen bevares mellem sessioner.]]></da>
+            <de><![CDATA[Dr├â┬╝cken Sie I w├â┬ñhrend des Spiels, um das Einkommens-HUD ein- oder auszublenden. Es zeigt Einkommen, Zahlungsmodus, n├â┬ñchste Zahlung und den Verlauf. Die Einstellung bleibt erhalten.]]></de>
+            <fr><![CDATA[Appuyez sur I pendant le jeu pour afficher ou masquer le HUD. Il affiche revenu, mode de paiement, prochain paiement et historique r├â┬®cent. Le r├â┬®glage persiste entre sessions.]]></fr>
+            <pl><![CDATA[Naci├àÔÇ║nij I podczas gry, aby w├àÔÇÜ├äÔÇªczy├äÔÇí lub wy├àÔÇÜ├äÔÇªczy├äÔÇí HUD dochodu. Pokazuje doch├â┬│d, tryb p├àÔÇÜatno├àÔÇ║ci, nast├äÔäópn├äÔÇª p├àÔÇÜatno├àÔÇ║├äÔÇí i histori├äÔäó. Ustawienie jest zachowywane mi├äÔäódzy sesjami.]]></pl>
+            <es><![CDATA[Pulsa I durante el juego para activar o desactivar el HUD. Muestra ingreso, modo de pago, pr├â┬│ximo pago e historial reciente. El ajuste persiste entre sesiones.]]></es>
+            <it><![CDATA[Premi I durante il gioco per attivare o disattivare il HUD. Mostra reddito, modalit├â┬á di pagamento, prossimo pagamento e cronologia recente. L'impostazione persiste tra sessioni.]]></it>
+            <cz><![CDATA[Stiskn├äÔÇ║te I p├àÔäói h├àÔäóe pro p├àÔäóepnut├â┬¡ HUD. Zobrazuje p├àÔäó├â┬¡jem, platebn├â┬¡ re├à┬¥im, p├àÔäó├â┬¡├à┬ít├â┬¡ platbu a historii. Nastaven├â┬¡ se uchov├â┬ív├â┬í mezi sezen├â┬¡mi.]]></cz>
+            <br><![CDATA[Pressione I durante o jogo para alternar o HUD. Mostra renda, modo de pagamento, pr├â┬│ximo pagamento e hist├â┬│rico recente. O ajuste persiste entre sess├â┬Áes.]]></br>
+            <uk><![CDATA[├É┬Ø├É┬░├æÔÇÜ├É┬©├æ┬ü├É┬¢├æÔÇô├æÔÇÜ├æ┼Æ I ├É┬┐├æÔÇô├É┬┤ ├æÔÇí├É┬░├æ┬ü ├É┬│├æÔé¼├É┬©, ├æÔÇ░├É┬¥├É┬▒ ├æãÆ├É┬▓├æÔÇô├É┬╝├É┬║├É┬¢├æãÆ├æÔÇÜ├É┬© ├É┬░├É┬▒├É┬¥ ├É┬▓├É┬©├É┬╝├É┬║├É┬¢├æãÆ├æÔÇÜ├É┬© HUD. ├É┼©├É┬¥├É┬║├É┬░├É┬À├æãÆ├æÔÇØ ├É┬┤├É┬¥├æÔÇª├æÔÇô├É┬┤, ├æÔé¼├É┬Á├É┬Â├É┬©├É┬╝ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ, ├É┬¢├É┬░├æ┬ü├æÔÇÜ├æãÆ├É┬┐├É┬¢├æãÆ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ ├æÔÇÜ├É┬░ ├É┬¢├É┬Á├æÔÇ░├É┬¥├É┬┤├É┬░├É┬▓├É┬¢├æ┼¢ ├æÔÇô├æ┬ü├æÔÇÜ├É┬¥├æÔé¼├æÔÇô├æ┼¢. ├É┬Ø├É┬░├É┬╗├É┬░├æ╦å├æÔÇÜ├æãÆ├É┬▓├É┬░├É┬¢├É┬¢├æ┬Å ├É┬À├É┬▒├É┬Á├æÔé¼├æÔÇô├É┬│├É┬░├æÔÇØ├æÔÇÜ├æ┼Æ├æ┬ü├æ┬Å ├É┬╝├æÔÇô├É┬Â ├æ┬ü├É┬Á├æ┬ü├æÔÇô├æ┬Å├É┬╝├É┬©.]]></uk>
+            <ru><![CDATA[├É┬Ø├É┬░├É┬Â├É┬╝├É┬©├æÔÇÜ├É┬Á I ├É┬▓├É┬¥ ├É┬▓├æÔé¼├É┬Á├É┬╝├æ┬Å ├É┬©├É┬│├æÔé¼├æÔÇ╣ ├É┬┤├É┬╗├æ┬Å ├É┬┐├É┬Á├æÔé¼├É┬Á├É┬║├É┬╗├æ┼¢├æÔÇí├É┬Á├É┬¢├É┬©├æ┬Å HUD. ├É┼©├É┬¥├É┬║├É┬░├É┬À├æÔÇ╣├É┬▓├É┬░├É┬Á├æÔÇÜ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤, ├æÔé¼├É┬Á├É┬Â├É┬©├É┬╝ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ, ├æ┬ü├É┬╗├É┬Á├É┬┤├æãÆ├æ┼¢├æÔÇ░├æãÆ├æ┼¢ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ ├É┬© ├É┬¢├É┬Á├É┬┤├É┬░├É┬▓├É┬¢├æ┼¢├æ┼¢ ├É┬©├æ┬ü├æÔÇÜ├É┬¥├æÔé¼├É┬©├æ┼¢. ├É┬Ø├É┬░├æ┬ü├æÔÇÜ├æÔé¼├É┬¥├É┬╣├É┬║├É┬░ ├æ┬ü├É┬¥├æÔÇª├æÔé¼├É┬░├É┬¢├æ┬Å├É┬Á├æÔÇÜ├æ┬ü├æ┬Å ├É┬╝├É┬Á├É┬Â├É┬┤├æãÆ ├æ┬ü├É┬Á├æ┬ü├æ┬ü├É┬©├æ┬Å├É┬╝├É┬©.]]></ru>
+            <da><![CDATA[Tryk p├â┬Ñ I under spil for at skifte HUD. Viser indkomst, betalingsm├â┬Ñde, n├â┬ªste betaling og nylig historie. Indstillingen bevares mellem sessioner.]]></da>
         </text>
 
         <text name="im_help_t1_report_title">
-            <en><![CDATA[Income Report â€” U Key]]></en>
-            <de><![CDATA[Einkommensbericht â€” Taste U]]></de>
-            <fr><![CDATA[Rapport de revenu â€” Touche U]]></fr>
-            <pl><![CDATA[Raport dochodu â€” Klawisz U]]></pl>
-            <es><![CDATA[Informe de ingresos â€” Tecla U]]></es>
-            <it><![CDATA[Rapporto reddito â€” Tasto U]]></it>
-            <cz><![CDATA[PÅ™ehled pÅ™Ã­jmÅ¯ â€” KlÃ¡vesa U]]></cz>
-            <br><![CDATA[RelatÃ³rio de renda â€” Tecla U]]></br>
-            <uk><![CDATA[Ð—Ð²Ñ–Ñ‚ Ð¿Ñ€Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ð¸ â€” ÐšÐ»Ð°Ð²Ñ–ÑˆÐ° U]]></uk>
-            <ru><![CDATA[ÐžÑ‚Ñ‡Ñ‘Ñ‚ Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ð°Ñ… â€” ÐšÐ»Ð°Ð²Ð¸ÑˆÐ° U]]></ru>
-            <da><![CDATA[Indkomstrapport â€” Tasten U]]></da>
+            <en><![CDATA[Income Report ├óÔé¼ÔÇØ U Key]]></en>
+            <de><![CDATA[Einkommensbericht ├óÔé¼ÔÇØ Taste U]]></de>
+            <fr><![CDATA[Rapport de revenu ├óÔé¼ÔÇØ Touche U]]></fr>
+            <pl><![CDATA[Raport dochodu ├óÔé¼ÔÇØ Klawisz U]]></pl>
+            <es><![CDATA[Informe de ingresos ├óÔé¼ÔÇØ Tecla U]]></es>
+            <it><![CDATA[Rapporto reddito ├óÔé¼ÔÇØ Tasto U]]></it>
+            <cz><![CDATA[P├àÔäóehled p├àÔäó├â┬¡jm├à┬» ├óÔé¼ÔÇØ Kl├â┬ívesa U]]></cz>
+            <br><![CDATA[Relat├â┬│rio de renda ├óÔé¼ÔÇØ Tecla U]]></br>
+            <uk><![CDATA[├ÉÔÇö├É┬▓├æÔÇô├æÔÇÜ ├É┬┐├æÔé¼├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬© ├óÔé¼ÔÇØ ├É┼í├É┬╗├É┬░├É┬▓├æÔÇô├æ╦å├É┬░ U]]></uk>
+            <ru><![CDATA[├É┼¥├æÔÇÜ├æÔÇí├æÔÇÿ├æÔÇÜ ├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░├æÔÇª ├óÔé¼ÔÇØ ├É┼í├É┬╗├É┬░├É┬▓├É┬©├æ╦å├É┬░ U]]></ru>
+            <da><![CDATA[Indkomstrapport ├óÔé¼ÔÇØ Tasten U]]></da>
         </text>
 
         <text name="im_help_t1_report_text">
             <en><![CDATA[Press U to open the Income Report dialog. Shows configuration, total earnings (last 10 payments), average per payment, next scheduled payment, and a full detailed payment history table.]]></en>
-            <de><![CDATA[DrÃ¼cken Sie U, um den Einkommensbericht zu Ã¶ffnen. Zeigt Konfiguration, Gesamteinnahmen (letzte 10), Durchschnitt, nÃ¤chste Zahlung und detaillierte Verlaufstabelle.]]></de>
-            <fr><![CDATA[Appuyez sur U pour ouvrir le rapport. Affiche configuration, gains totaux (10 derniers), moyenne par paiement, prochain paiement et tableau historique dÃ©taillÃ©.]]></fr>
-            <pl><![CDATA[NaciÅ›nij U, aby otworzyÄ‡ raport dochodu. Pokazuje konfiguracjÄ™, Å‚Ä…czne zarobki (ostatnie 10), Å›redniÄ…, nastÄ™pnÄ… pÅ‚atnoÅ›Ä‡ i szczegÃ³Å‚owÄ… tabelÄ™ historii.]]></pl>
-            <es><![CDATA[Pulsa U para abrir el informe de ingresos. Muestra configuraciÃ³n, ganancias totales (Ãºltimos 10), promedio, prÃ³ximo pago y tabla de historial detallada.]]></es>
+            <de><![CDATA[Dr├â┬╝cken Sie U, um den Einkommensbericht zu ├â┬Âffnen. Zeigt Konfiguration, Gesamteinnahmen (letzte 10), Durchschnitt, n├â┬ñchste Zahlung und detaillierte Verlaufstabelle.]]></de>
+            <fr><![CDATA[Appuyez sur U pour ouvrir le rapport. Affiche configuration, gains totaux (10 derniers), moyenne par paiement, prochain paiement et tableau historique d├â┬®taill├â┬®.]]></fr>
+            <pl><![CDATA[Naci├àÔÇ║nij U, aby otworzy├äÔÇí raport dochodu. Pokazuje konfiguracj├äÔäó, ├àÔÇÜ├äÔÇªczne zarobki (ostatnie 10), ├àÔÇ║redni├äÔÇª, nast├äÔäópn├äÔÇª p├àÔÇÜatno├àÔÇ║├äÔÇí i szczeg├â┬│├àÔÇÜow├äÔÇª tabel├äÔäó historii.]]></pl>
+            <es><![CDATA[Pulsa U para abrir el informe de ingresos. Muestra configuraci├â┬│n, ganancias totales (├â┬║ltimos 10), promedio, pr├â┬│ximo pago y tabla de historial detallada.]]></es>
             <it><![CDATA[Premi U per aprire il rapporto. Mostra configurazione, guadagni totali (ultimi 10), media per pagamento, prossimo pagamento e tabella cronologia dettagliata.]]></it>
-            <cz><![CDATA[StisknÄ›te U pro otevÅ™enÃ­ pÅ™ehledu pÅ™Ã­jmÅ¯. Zobrazuje konfiguraci, celkovÃ© vÃ½dÄ›lky (poslednÃ­ch 10), prÅ¯mÄ›r, pÅ™Ã­Å¡tÃ­ platbu a podrobnou historii.]]></cz>
-            <br><![CDATA[Pressione U para abrir o relatÃ³rio de renda. Mostra configuraÃ§Ã£o, ganhos totais (Ãºltimos 10), mÃ©dia, prÃ³ximo pagamento e tabela de histÃ³rico detalhado.]]></br>
-            <uk><![CDATA[ÐÐ°Ñ‚Ð¸ÑÐ½Ñ–Ñ‚ÑŒ U, Ñ‰Ð¾Ð± Ð²Ñ–Ð´ÐºÑ€Ð¸Ñ‚Ð¸ Ð·Ð²Ñ–Ñ‚ Ð¿Ñ€Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ð¸. ÐŸÐ¾ÐºÐ°Ð·ÑƒÑ” ÐºÐ¾Ð½Ñ„Ñ–Ð³ÑƒÑ€Ð°Ñ†Ñ–ÑŽ, Ð·Ð°Ð³Ð°Ð»ÑŒÐ½Ð¸Ð¹ Ð·Ð°Ñ€Ð¾Ð±Ñ–Ñ‚Ð¾Ðº (Ð¾ÑÑ‚Ð°Ð½Ð½Ñ– 10), ÑÐµÑ€ÐµÐ´Ð½Ñ”, Ð½Ð°ÑÑ‚ÑƒÐ¿Ð½Ñƒ Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ñƒ Ñ‚Ð° Ð´ÐµÑ‚Ð°Ð»ÑŒÐ½Ñƒ Ñ‚Ð°Ð±Ð»Ð¸Ñ†ÑŽ Ñ–ÑÑ‚Ð¾Ñ€Ñ–Ñ—.]]></uk>
-            <ru><![CDATA[ÐÐ°Ð¶Ð¼Ð¸Ñ‚Ðµ U Ð´Ð»Ñ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¸Ñ Ð¾Ñ‚Ñ‡Ñ‘Ñ‚Ð° Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ð°Ñ…. ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°ÐµÑ‚ ÐºÐ¾Ð½Ñ„Ð¸Ð³ÑƒÑ€Ð°Ñ†Ð¸ÑŽ, Ð¾Ð±Ñ‰Ð¸Ð¹ Ð·Ð°Ñ€Ð°Ð±Ð¾Ñ‚Ð¾Ðº (Ð¿Ð¾ÑÐ»ÐµÐ´Ð½Ð¸Ðµ 10), ÑÑ€ÐµÐ´Ð½ÐµÐµ, ÑÐ»ÐµÐ´ÑƒÑŽÑ‰ÑƒÑŽ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñƒ Ð¸ Ð¿Ð¾Ð´Ñ€Ð¾Ð±Ð½ÑƒÑŽ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñƒ Ð¸ÑÑ‚Ð¾Ñ€Ð¸Ð¸.]]></ru>
-            <da><![CDATA[Tryk pÃ¥ U for at Ã¥bne indkomstrapporten. Viser konfiguration, samlede indtÃ¦gter (sidste 10), gennemsnit, nÃ¦ste betaling og en detaljeret historietabel.]]></da>
+            <cz><![CDATA[Stiskn├äÔÇ║te U pro otev├àÔäóen├â┬¡ p├àÔäóehledu p├àÔäó├â┬¡jm├à┬». Zobrazuje konfiguraci, celkov├â┬® v├â┬¢d├äÔÇ║lky (posledn├â┬¡ch 10), pr├à┬»m├äÔÇ║r, p├àÔäó├â┬¡├à┬ít├â┬¡ platbu a podrobnou historii.]]></cz>
+            <br><![CDATA[Pressione U para abrir o relat├â┬│rio de renda. Mostra configura├â┬º├â┬úo, ganhos totais (├â┬║ltimos 10), m├â┬®dia, pr├â┬│ximo pagamento e tabela de hist├â┬│rico detalhado.]]></br>
+            <uk><![CDATA[├É┬Ø├É┬░├æÔÇÜ├É┬©├æ┬ü├É┬¢├æÔÇô├æÔÇÜ├æ┼Æ U, ├æÔÇ░├É┬¥├É┬▒ ├É┬▓├æÔÇô├É┬┤├É┬║├æÔé¼├É┬©├æÔÇÜ├É┬© ├É┬À├É┬▓├æÔÇô├æÔÇÜ ├É┬┐├æÔé¼├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬©. ├É┼©├É┬¥├É┬║├É┬░├É┬À├æãÆ├æÔÇØ ├É┬║├É┬¥├É┬¢├æÔÇ×├æÔÇô├É┬│├æãÆ├æÔé¼├É┬░├æÔÇá├æÔÇô├æ┼¢, ├É┬À├É┬░├É┬│├É┬░├É┬╗├æ┼Æ├É┬¢├É┬©├É┬╣ ├É┬À├É┬░├æÔé¼├É┬¥├É┬▒├æÔÇô├æÔÇÜ├É┬¥├É┬║ (├É┬¥├æ┬ü├æÔÇÜ├É┬░├É┬¢├É┬¢├æÔÇô 10), ├æ┬ü├É┬Á├æÔé¼├É┬Á├É┬┤├É┬¢├æÔÇØ, ├É┬¢├É┬░├æ┬ü├æÔÇÜ├æãÆ├É┬┐├É┬¢├æãÆ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ ├æÔÇÜ├É┬░ ├É┬┤├É┬Á├æÔÇÜ├É┬░├É┬╗├æ┼Æ├É┬¢├æãÆ ├æÔÇÜ├É┬░├É┬▒├É┬╗├É┬©├æÔÇá├æ┼¢ ├æÔÇô├æ┬ü├æÔÇÜ├É┬¥├æÔé¼├æÔÇô├æÔÇö.]]></uk>
+            <ru><![CDATA[├É┬Ø├É┬░├É┬Â├É┬╝├É┬©├æÔÇÜ├É┬Á U ├É┬┤├É┬╗├æ┬Å ├É┬¥├æÔÇÜ├É┬║├æÔé¼├æÔÇ╣├æÔÇÜ├É┬©├æ┬Å ├É┬¥├æÔÇÜ├æÔÇí├æÔÇÿ├æÔÇÜ├É┬░ ├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░├æÔÇª. ├É┼©├É┬¥├É┬║├É┬░├É┬À├æÔÇ╣├É┬▓├É┬░├É┬Á├æÔÇÜ ├É┬║├É┬¥├É┬¢├æÔÇ×├É┬©├É┬│├æãÆ├æÔé¼├É┬░├æÔÇá├É┬©├æ┼¢, ├É┬¥├É┬▒├æÔÇ░├É┬©├É┬╣ ├É┬À├É┬░├æÔé¼├É┬░├É┬▒├É┬¥├æÔÇÜ├É┬¥├É┬║ (├É┬┐├É┬¥├æ┬ü├É┬╗├É┬Á├É┬┤├É┬¢├É┬©├É┬Á 10), ├æ┬ü├æÔé¼├É┬Á├É┬┤├É┬¢├É┬Á├É┬Á, ├æ┬ü├É┬╗├É┬Á├É┬┤├æãÆ├æ┼¢├æÔÇ░├æãÆ├æ┼¢ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ ├É┬© ├É┬┐├É┬¥├É┬┤├æÔé¼├É┬¥├É┬▒├É┬¢├æãÆ├æ┼¢ ├æÔÇÜ├É┬░├É┬▒├É┬╗├É┬©├æÔÇá├æãÆ ├É┬©├æ┬ü├æÔÇÜ├É┬¥├æÔé¼├É┬©├É┬©.]]></ru>
+            <da><![CDATA[Tryk p├â┬Ñ U for at ├â┬Ñbne indkomstrapporten. Viser konfiguration, samlede indt├â┬ªgter (sidste 10), gennemsnit, n├â┬ªste betaling og en detaljeret historietabel.]]></da>
         </text>
 
-        <!-- â”€â”€ Help Lines: Page 7 â€” Income Tips â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+        <!-- ├óÔÇØÔé¼├óÔÇØÔé¼ Help Lines: Page 7 ├óÔé¼ÔÇØ Income Tips ├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼ -->
         <text name="im_help_t2_season_title">
             <en><![CDATA[Best Season for Income]]></en>
-            <de><![CDATA[Beste Saison fÃ¼r Einkommen]]></de>
+            <de><![CDATA[Beste Saison f├â┬╝r Einkommen]]></de>
             <fr><![CDATA[Meilleure saison pour les revenus]]></fr>
-            <pl><![CDATA[Najlepsza pora roku na dochÃ³d]]></pl>
+            <pl><![CDATA[Najlepsza pora roku na doch├â┬│d]]></pl>
             <es><![CDATA[Mejor temporada para ingresos]]></es>
             <it><![CDATA[Stagione migliore per il reddito]]></it>
-            <cz><![CDATA[NejlepÅ¡Ã­ sezÃ³na pro pÅ™Ã­jem]]></cz>
-            <br><![CDATA[Melhor estaÃ§Ã£o para renda]]></br>
-            <uk><![CDATA[ÐÐ°Ð¹ÐºÑ€Ð°Ñ‰Ð¸Ð¹ ÑÐµÐ·Ð¾Ð½ Ð´Ð»Ñ Ð´Ð¾Ñ…Ð¾Ð´Ñƒ]]></uk>
-            <ru><![CDATA[Ð›ÑƒÑ‡ÑˆÐ¸Ð¹ ÑÐµÐ·Ð¾Ð½ Ð´Ð»Ñ Ð´Ð¾Ñ…Ð¾Ð´Ð°]]></ru>
-            <da><![CDATA[Bedste sÃ¦son for indkomst]]></da>
+            <cz><![CDATA[Nejlep├à┬í├â┬¡ sez├â┬│na pro p├àÔäó├â┬¡jem]]></cz>
+            <br><![CDATA[Melhor esta├â┬º├â┬úo para renda]]></br>
+            <uk><![CDATA[├É┬Ø├É┬░├É┬╣├É┬║├æÔé¼├É┬░├æÔÇ░├É┬©├É┬╣ ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢ ├É┬┤├É┬╗├æ┬Å ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ]]></uk>
+            <ru><![CDATA[├ÉÔÇ║├æãÆ├æÔÇí├æ╦å├É┬©├É┬╣ ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢ ├É┬┤├É┬╗├æ┬Å ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░]]></ru>
+            <da><![CDATA[Bedste s├â┬ªson for indkomst]]></da>
         </text>
 
         <text name="im_help_t2_season_text">
-            <en><![CDATA[With Seasonal Effects on, Autumn gives 1.2x income â€” the season peak. Winter is lowest at 0.7x. Consider enabling a high multiplier during Autumn for maximum combined income.]]></en>
-            <de><![CDATA[Mit saisonalen Effekten bietet Herbst 1,2x Einkommen â€” der saisonale HÃ¶hepunkt. Winter ist mit 0,7x am niedrigsten. Aktivieren Sie einen hohen Multiplikator im Herbst fÃ¼r maximales Einkommen.]]></de>
-            <fr><![CDATA[Avec les effets saisonniers, l'automne donne 1,2x â€” le pic saisonnier. L'hiver est le plus bas Ã  0,7x. Envisagez un grand multiplicateur en automne pour un revenu maximum.]]></fr>
-            <pl><![CDATA[Przy efektach sezonowych jesieÅ„ daje 1,2x â€” sezonowy szczyt. Zima jest najniÅ¼sza (0,7x). RozwaÅ¼ wysoki mnoÅ¼nik jesieniÄ… dla maksymalnego Å‚Ä…czonego dochodu.]]></pl>
-            <es><![CDATA[Con efectos estacionales, el otoÃ±o da 1,2x â€” el pico estacional. El invierno es el mÃ¡s bajo con 0,7x. Considera usar un multiplicador alto en otoÃ±o para ingreso mÃ¡ximo combinado.]]></es>
-            <it><![CDATA[Con gli effetti stagionali, l'autunno dÃ  1,2x â€” il picco stagionale. L'inverno Ã¨ il piÃ¹ basso con 0,7x. Considera un moltiplicatore alto in autunno per il massimo reddito combinato.]]></it>
-            <cz><![CDATA[Se sezÃ³nnÃ­mi efekty pÅ™inÃ¡Å¡Ã­ podzim 1,2x â€” sezÃ³nnÃ­ vrchol. Zima je nejniÅ¾Å¡Ã­ (0,7x). ZvaÅ¾te vysokÃ½ multiplikÃ¡tor na podzim pro maximÃ¡lnÃ­ kombinovanÃ½ pÅ™Ã­jem.]]></cz>
-            <br><![CDATA[Com efeitos sazonais, o outono dÃ¡ 1,2x â€” o pico sazonal. O inverno Ã© o mais baixo com 0,7x. Considere usar um multiplicador alto no outono para renda mÃ¡xima combinada.]]></br>
-            <uk><![CDATA[ÐŸÑ€Ð¸ ÑÐµÐ·Ð¾Ð½Ð½Ð¸Ñ… ÐµÑ„ÐµÐºÑ‚Ð°Ñ… ÐžÑÑ–Ð½ÑŒ Ð´Ð°Ñ” 1,2x â€” Ð¿Ñ–Ðº ÑÐµÐ·Ð¾Ð½Ñƒ. Ð—Ð¸Ð¼Ð° Ð½Ð°Ð¹Ð½Ð¸Ð¶Ñ‡Ð° â€” 0,7x. Ð Ð¾Ð·Ð³Ð»ÑÐ½ÑŒÑ‚Ðµ Ð²ÐµÐ»Ð¸ÐºÐ¸Ð¹ Ð¼Ð½Ð¾Ð¶Ð½Ð¸Ðº Ð²Ð¾ÑÐµÐ½Ð¸ Ð´Ð»Ñ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ð³Ð¾ ÑÑƒÐºÑƒÐ¿Ð½Ð¾Ð³Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ñƒ.]]></uk>
-            <ru><![CDATA[ÐŸÑ€Ð¸ ÑÐµÐ·Ð¾Ð½Ð½Ñ‹Ñ… ÑÑ„Ñ„ÐµÐºÑ‚Ð°Ñ… ÐžÑÐµÐ½ÑŒ Ð´Ð°Ñ‘Ñ‚ 1,2x â€” Ð¿Ð¸Ðº ÑÐµÐ·Ð¾Ð½Ð°. Ð—Ð¸Ð¼Ð° Ð½Ð°Ð¸Ð¼ÐµÐ½ÑŒÑˆÐ°Ñ â€” 0,7x. Ð Ð°ÑÑÐ¼Ð¾Ñ‚Ñ€Ð¸Ñ‚Ðµ Ð±Ð¾Ð»ÑŒÑˆÐ¾Ð¹ Ð¼Ð½Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒ Ð¾ÑÐµÐ½ÑŒÑŽ Ð´Ð»Ñ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ð³Ð¾ ÑÐ¾Ð²Ð¾ÐºÑƒÐ¿Ð½Ð¾Ð³Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ð°.]]></ru>
-            <da><![CDATA[Med sÃ¦sonale effekter giver efterÃ¥ret 1,2x â€” sÃ¦sonens top. Vinter er lavest pÃ¥ 0,7x. Overvej at aktivere en hÃ¸j multiplikator om efterÃ¥ret for maksimal kombineret indkomst.]]></da>
+            <en><![CDATA[With Seasonal Effects on, Autumn gives 1.2x income ├óÔé¼ÔÇØ the season peak. Winter is lowest at 0.7x. Consider enabling a high multiplier during Autumn for maximum combined income.]]></en>
+            <de><![CDATA[Mit saisonalen Effekten bietet Herbst 1,2x Einkommen ├óÔé¼ÔÇØ der saisonale H├â┬Âhepunkt. Winter ist mit 0,7x am niedrigsten. Aktivieren Sie einen hohen Multiplikator im Herbst f├â┬╝r maximales Einkommen.]]></de>
+            <fr><![CDATA[Avec les effets saisonniers, l'automne donne 1,2x ├óÔé¼ÔÇØ le pic saisonnier. L'hiver est le plus bas ├â┬á 0,7x. Envisagez un grand multiplicateur en automne pour un revenu maximum.]]></fr>
+            <pl><![CDATA[Przy efektach sezonowych jesie├àÔÇ× daje 1,2x ├óÔé¼ÔÇØ sezonowy szczyt. Zima jest najni├à┬╝sza (0,7x). Rozwa├à┬╝ wysoki mno├à┬╝nik jesieni├äÔÇª dla maksymalnego ├àÔÇÜ├äÔÇªczonego dochodu.]]></pl>
+            <es><![CDATA[Con efectos estacionales, el oto├â┬▒o da 1,2x ├óÔé¼ÔÇØ el pico estacional. El invierno es el m├â┬ís bajo con 0,7x. Considera usar un multiplicador alto en oto├â┬▒o para ingreso m├â┬íximo combinado.]]></es>
+            <it><![CDATA[Con gli effetti stagionali, l'autunno d├â┬á 1,2x ├óÔé¼ÔÇØ il picco stagionale. L'inverno ├â┬¿ il pi├â┬╣ basso con 0,7x. Considera un moltiplicatore alto in autunno per il massimo reddito combinato.]]></it>
+            <cz><![CDATA[Se sez├â┬│nn├â┬¡mi efekty p├àÔäóin├â┬í├à┬í├â┬¡ podzim 1,2x ├óÔé¼ÔÇØ sez├â┬│nn├â┬¡ vrchol. Zima je nejni├à┬¥├à┬í├â┬¡ (0,7x). Zva├à┬¥te vysok├â┬¢ multiplik├â┬ítor na podzim pro maxim├â┬íln├â┬¡ kombinovan├â┬¢ p├àÔäó├â┬¡jem.]]></cz>
+            <br><![CDATA[Com efeitos sazonais, o outono d├â┬í 1,2x ├óÔé¼ÔÇØ o pico sazonal. O inverno ├â┬® o mais baixo com 0,7x. Considere usar um multiplicador alto no outono para renda m├â┬íxima combinada.]]></br>
+            <uk><![CDATA[├É┼©├æÔé¼├É┬© ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├É┬©├æÔÇª ├É┬Á├æÔÇ×├É┬Á├É┬║├æÔÇÜ├É┬░├æÔÇª ├É┼¥├æ┬ü├æÔÇô├É┬¢├æ┼Æ ├É┬┤├É┬░├æÔÇØ 1,2x ├óÔé¼ÔÇØ ├É┬┐├æÔÇô├É┬║ ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├æãÆ. ├ÉÔÇö├É┬©├É┬╝├É┬░ ├É┬¢├É┬░├É┬╣├É┬¢├É┬©├É┬Â├æÔÇí├É┬░ ├óÔé¼ÔÇØ 0,7x. ├É┬á├É┬¥├É┬À├É┬│├É┬╗├æ┬Å├É┬¢├æ┼Æ├æÔÇÜ├É┬Á ├É┬▓├É┬Á├É┬╗├É┬©├É┬║├É┬©├É┬╣ ├É┬╝├É┬¢├É┬¥├É┬Â├É┬¢├É┬©├É┬║ ├É┬▓├É┬¥├æ┬ü├É┬Á├É┬¢├É┬© ├É┬┤├É┬╗├æ┬Å ├É┬╝├É┬░├É┬║├æ┬ü├É┬©├É┬╝├É┬░├É┬╗├æ┼Æ├É┬¢├É┬¥├É┬│├É┬¥ ├æ┬ü├æãÆ├É┬║├æãÆ├É┬┐├É┬¢├É┬¥├É┬│├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ.]]></uk>
+            <ru><![CDATA[├É┼©├æÔé¼├É┬© ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├É┬¢├æÔÇ╣├æÔÇª ├æ┬ì├æÔÇ×├æÔÇ×├É┬Á├É┬║├æÔÇÜ├É┬░├æÔÇª ├É┼¥├æ┬ü├É┬Á├É┬¢├æ┼Æ ├É┬┤├É┬░├æÔÇÿ├æÔÇÜ 1,2x ├óÔé¼ÔÇØ ├É┬┐├É┬©├É┬║ ├æ┬ü├É┬Á├É┬À├É┬¥├É┬¢├É┬░. ├ÉÔÇö├É┬©├É┬╝├É┬░ ├É┬¢├É┬░├É┬©├É┬╝├É┬Á├É┬¢├æ┼Æ├æ╦å├É┬░├æ┬Å ├óÔé¼ÔÇØ 0,7x. ├É┬á├É┬░├æ┬ü├æ┬ü├É┬╝├É┬¥├æÔÇÜ├æÔé¼├É┬©├æÔÇÜ├É┬Á ├É┬▒├É┬¥├É┬╗├æ┼Æ├æ╦å├É┬¥├É┬╣ ├É┬╝├É┬¢├É┬¥├É┬Â├É┬©├æÔÇÜ├É┬Á├É┬╗├æ┼Æ ├É┬¥├æ┬ü├É┬Á├É┬¢├æ┼Æ├æ┼¢ ├É┬┤├É┬╗├æ┬Å ├É┬╝├É┬░├É┬║├æ┬ü├É┬©├É┬╝├É┬░├É┬╗├æ┼Æ├É┬¢├É┬¥├É┬│├É┬¥ ├æ┬ü├É┬¥├É┬▓├É┬¥├É┬║├æãÆ├É┬┐├É┬¢├É┬¥├É┬│├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░.]]></ru>
+            <da><![CDATA[Med s├â┬ªsonale effekter giver efter├â┬Ñret 1,2x ├óÔé¼ÔÇØ s├â┬ªsonens top. Vinter er lavest p├â┬Ñ 0,7x. Overvej at aktivere en h├â┬©j multiplikator om efter├â┬Ñret for maksimal kombineret indkomst.]]></da>
         </text>
 
         <text name="im_help_t2_calc_title">
             <en><![CDATA[Income Formula]]></en>
             <de><![CDATA[Einkommensformel]]></de>
             <fr><![CDATA[Formule de revenu]]></fr>
-            <pl><![CDATA[WzÃ³r dochodu]]></pl>
-            <es><![CDATA[FÃ³rmula de ingresos]]></es>
+            <pl><![CDATA[Wz├â┬│r dochodu]]></pl>
+            <es><![CDATA[F├â┬│rmula de ingresos]]></es>
             <it><![CDATA[Formula del reddito]]></it>
-            <cz><![CDATA[Vzorec pÅ™Ã­jmu]]></cz>
-            <br><![CDATA[FÃ³rmula de renda]]></br>
-            <uk><![CDATA[Ð¤Ð¾Ñ€Ð¼ÑƒÐ»Ð° Ð´Ð¾Ñ…Ð¾Ð´Ñƒ]]></uk>
-            <ru><![CDATA[Ð¤Ð¾Ñ€Ð¼ÑƒÐ»Ð° Ð´Ð¾Ñ…Ð¾Ð´Ð°]]></ru>
+            <cz><![CDATA[Vzorec p├àÔäó├â┬¡jmu]]></cz>
+            <br><![CDATA[F├â┬│rmula de renda]]></br>
+            <uk><![CDATA[├É┬ñ├É┬¥├æÔé¼├É┬╝├æãÆ├É┬╗├É┬░ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ]]></uk>
+            <ru><![CDATA[├É┬ñ├É┬¥├æÔé¼├É┬╝├æãÆ├É┬╗├É┬░ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░]]></ru>
             <da><![CDATA[Indkomstformel]]></da>
         </text>
 
         <text name="im_help_t2_calc_text">
-            <en><![CDATA[Final = Base Ã— Multiplier Ã— Seasonal. Example: Hard ($1,100) Ã— 10x Ã— Autumn (1.2x) = $13,200 per period. Use the IncomeNext console command to preview your next scheduled payout.]]></en>
-            <de><![CDATA[Endwert = Basis Ã— Multiplikator Ã— Saisonfaktor. Beispiel: Schwer (1.100$) Ã— 10x Ã— Herbst (1,2x) = 13.200$ pro Zeitraum. IncomeNext in der Konsole zeigt die nÃ¤chste Zahlung.]]></de>
-            <fr><![CDATA[Final = Base Ã— Multiplicateur Ã— Saisonnier. Exemple : Difficile (1 100$) Ã— 10x Ã— Automne (1,2x) = 13 200$ par pÃ©riode. Utilisez IncomeNext en console pour voir la prochaine Ã©chÃ©ance.]]></fr>
-            <pl><![CDATA[KoÅ„cowy = Podstawa Ã— MnoÅ¼nik Ã— Sezon. PrzykÅ‚ad: Trudny (1 100$) Ã— 10x Ã— JesieÅ„ (1,2x) = 13 200$ za okres. UÅ¼yj IncomeNext w konsoli, aby zobaczyÄ‡ nastÄ™pnÄ… pÅ‚atnoÅ›Ä‡.]]></pl>
-            <es><![CDATA[Final = Base Ã— Multiplicador Ã— Estacional. Ejemplo: DifÃ­cil ($1.100) Ã— 10x Ã— OtoÃ±o (1,2x) = $13.200 por perÃ­odo. Usa IncomeNext en consola para ver el prÃ³ximo pago programado.]]></es>
-            <it><![CDATA[Finale = Base Ã— Moltiplicatore Ã— Stagionale. Esempio: Difficile ($1.100) Ã— 10x Ã— Autunno (1,2x) = $13.200 per periodo. Usa IncomeNext in console per il prossimo pagamento.]]></it>
-            <cz><![CDATA[VÃ½sledek = ZÃ¡klad Ã— MultiplikÃ¡tor Ã— SezÃ³na. PÅ™Ã­klad: TÄ›Å¾kÃ© (1 100$) Ã— 10x Ã— Podzim (1,2x) = 13 200$ za obdobÃ­. IncomeNext v konzoli ukÃ¡Å¾e pÅ™Ã­Å¡tÃ­ platbu.]]></cz>
-            <br><![CDATA[Final = Base Ã— Multiplicador Ã— Sazonal. Exemplo: DifÃ­cil ($1.100) Ã— 10x Ã— Outono (1,2x) = $13.200 por perÃ­odo. Use IncomeNext no console para ver o prÃ³ximo pagamento.]]></br>
-            <uk><![CDATA[ÐŸÑ–Ð´ÑÑƒÐ¼Ð¾Ðº = Ð‘Ð°Ð·Ð° Ã— ÐœÐ½Ð¾Ð¶Ð½Ð¸Ðº Ã— Ð¡ÐµÐ·Ð¾Ð½. ÐŸÑ€Ð¸ÐºÐ»Ð°Ð´: Ð’Ð°Ð¶ÐºÐ¾ ($1 100) Ã— 10x Ã— ÐžÑÑ–Ð½ÑŒ (1,2x) = $13 200 Ð·Ð° Ð¿ÐµÑ€Ñ–Ð¾Ð´. IncomeNext Ñƒ ÐºÐ¾Ð½ÑÐ¾Ð»Ñ– Ð¿Ð¾ÐºÐ°Ð¶Ðµ Ð½Ð°ÑÑ‚ÑƒÐ¿Ð½Ñƒ Ð²Ð¸Ð¿Ð»Ð°Ñ‚Ñƒ.]]></uk>
-            <ru><![CDATA[Ð˜Ñ‚Ð¾Ð³ = Ð‘Ð°Ð·Ð° Ã— ÐœÐ½Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒ Ã— Ð¡ÐµÐ·Ð¾Ð½. ÐŸÑ€Ð¸Ð¼ÐµÑ€: Ð¡Ð»Ð¾Ð¶Ð½Ð¾ ($1 100) Ã— 10x Ã— ÐžÑÐµÐ½ÑŒ (1,2x) = $13 200 Ð·Ð° Ð¿ÐµÑ€Ð¸Ð¾Ð´. IncomeNext Ð² ÐºÐ¾Ð½ÑÐ¾Ð»Ð¸ Ð¿Ð¾ÐºÐ°Ð¶ÐµÑ‚ ÑÐ»ÐµÐ´ÑƒÑŽÑ‰ÑƒÑŽ Ð²Ñ‹Ð¿Ð»Ð°Ñ‚Ñƒ.]]></ru>
-            <da><![CDATA[Endelig = Base Ã— Multiplikator Ã— SÃ¦son. Eksempel: SvÃ¦r ($1.100) Ã— 10x Ã— EfterÃ¥r (1,2x) = $13.200 pr. periode. Brug IncomeNext konsolkommandoen for at forhÃ¥ndsvise din nÃ¦ste planlagte udbetaling.]]></da>
+            <en><![CDATA[Final = Base ├âÔÇö Multiplier ├âÔÇö Seasonal. Example: Hard ($1,100) ├âÔÇö 10x ├âÔÇö Autumn (1.2x) = $13,200 per period. Use the IncomeNext console command to preview your next scheduled payout.]]></en>
+            <de><![CDATA[Endwert = Basis ├âÔÇö Multiplikator ├âÔÇö Saisonfaktor. Beispiel: Schwer (1.100$) ├âÔÇö 10x ├âÔÇö Herbst (1,2x) = 13.200$ pro Zeitraum. IncomeNext in der Konsole zeigt die n├â┬ñchste Zahlung.]]></de>
+            <fr><![CDATA[Final = Base ├âÔÇö Multiplicateur ├âÔÇö Saisonnier. Exemple : Difficile (1 100$) ├âÔÇö 10x ├âÔÇö Automne (1,2x) = 13 200$ par p├â┬®riode. Utilisez IncomeNext en console pour voir la prochaine ├â┬®ch├â┬®ance.]]></fr>
+            <pl><![CDATA[Ko├àÔÇ×cowy = Podstawa ├âÔÇö Mno├à┬╝nik ├âÔÇö Sezon. Przyk├àÔÇÜad: Trudny (1 100$) ├âÔÇö 10x ├âÔÇö Jesie├àÔÇ× (1,2x) = 13 200$ za okres. U├à┬╝yj IncomeNext w konsoli, aby zobaczy├äÔÇí nast├äÔäópn├äÔÇª p├àÔÇÜatno├àÔÇ║├äÔÇí.]]></pl>
+            <es><![CDATA[Final = Base ├âÔÇö Multiplicador ├âÔÇö Estacional. Ejemplo: Dif├â┬¡cil ($1.100) ├âÔÇö 10x ├âÔÇö Oto├â┬▒o (1,2x) = $13.200 por per├â┬¡odo. Usa IncomeNext en consola para ver el pr├â┬│ximo pago programado.]]></es>
+            <it><![CDATA[Finale = Base ├âÔÇö Moltiplicatore ├âÔÇö Stagionale. Esempio: Difficile ($1.100) ├âÔÇö 10x ├âÔÇö Autunno (1,2x) = $13.200 per periodo. Usa IncomeNext in console per il prossimo pagamento.]]></it>
+            <cz><![CDATA[V├â┬¢sledek = Z├â┬íklad ├âÔÇö Multiplik├â┬ítor ├âÔÇö Sez├â┬│na. P├àÔäó├â┬¡klad: T├äÔÇ║├à┬¥k├â┬® (1 100$) ├âÔÇö 10x ├âÔÇö Podzim (1,2x) = 13 200$ za obdob├â┬¡. IncomeNext v konzoli uk├â┬í├à┬¥e p├àÔäó├â┬¡├à┬ít├â┬¡ platbu.]]></cz>
+            <br><![CDATA[Final = Base ├âÔÇö Multiplicador ├âÔÇö Sazonal. Exemplo: Dif├â┬¡cil ($1.100) ├âÔÇö 10x ├âÔÇö Outono (1,2x) = $13.200 por per├â┬¡odo. Use IncomeNext no console para ver o pr├â┬│ximo pagamento.]]></br>
+            <uk><![CDATA[├É┼©├æÔÇô├É┬┤├æ┬ü├æãÆ├É┬╝├É┬¥├É┬║ = ├ÉÔÇÿ├É┬░├É┬À├É┬░ ├âÔÇö ├É┼ô├É┬¢├É┬¥├É┬Â├É┬¢├É┬©├É┬║ ├âÔÇö ├É┬í├É┬Á├É┬À├É┬¥├É┬¢. ├É┼©├æÔé¼├É┬©├É┬║├É┬╗├É┬░├É┬┤: ├ÉÔÇÖ├É┬░├É┬Â├É┬║├É┬¥ ($1 100) ├âÔÇö 10x ├âÔÇö ├É┼¥├æ┬ü├æÔÇô├É┬¢├æ┼Æ (1,2x) = $13 200 ├É┬À├É┬░ ├É┬┐├É┬Á├æÔé¼├æÔÇô├É┬¥├É┬┤. IncomeNext ├æãÆ ├É┬║├É┬¥├É┬¢├æ┬ü├É┬¥├É┬╗├æÔÇô ├É┬┐├É┬¥├É┬║├É┬░├É┬Â├É┬Á ├É┬¢├É┬░├æ┬ü├æÔÇÜ├æãÆ├É┬┐├É┬¢├æãÆ ├É┬▓├É┬©├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ.]]></uk>
+            <ru><![CDATA[├É╦£├æÔÇÜ├É┬¥├É┬│ = ├ÉÔÇÿ├É┬░├É┬À├É┬░ ├âÔÇö ├É┼ô├É┬¢├É┬¥├É┬Â├É┬©├æÔÇÜ├É┬Á├É┬╗├æ┼Æ ├âÔÇö ├É┬í├É┬Á├É┬À├É┬¥├É┬¢. ├É┼©├æÔé¼├É┬©├É┬╝├É┬Á├æÔé¼: ├É┬í├É┬╗├É┬¥├É┬Â├É┬¢├É┬¥ ($1 100) ├âÔÇö 10x ├âÔÇö ├É┼¥├æ┬ü├É┬Á├É┬¢├æ┼Æ (1,2x) = $13 200 ├É┬À├É┬░ ├É┬┐├É┬Á├æÔé¼├É┬©├É┬¥├É┬┤. IncomeNext ├É┬▓ ├É┬║├É┬¥├É┬¢├æ┬ü├É┬¥├É┬╗├É┬© ├É┬┐├É┬¥├É┬║├É┬░├É┬Â├É┬Á├æÔÇÜ ├æ┬ü├É┬╗├É┬Á├É┬┤├æãÆ├æ┼¢├æÔÇ░├æãÆ├æ┼¢ ├É┬▓├æÔÇ╣├É┬┐├É┬╗├É┬░├æÔÇÜ├æãÆ.]]></ru>
+            <da><![CDATA[Endelig = Base ├âÔÇö Multiplikator ├âÔÇö S├â┬ªson. Eksempel: Sv├â┬ªr ($1.100) ├âÔÇö 10x ├âÔÇö Efter├â┬Ñr (1,2x) = $13.200 pr. periode. Brug IncomeNext konsolkommandoen for at forh├â┬Ñndsvise din n├â┬ªste planlagte udbetaling.]]></da>
         </text>
 
-        <!-- â”€â”€ Help Lines: Page 8 â€” About â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+        <!-- ├óÔÇØÔé¼├óÔÇØÔé¼ Help Lines: Page 8 ├óÔé¼ÔÇØ About ├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼ -->
         <text name="im_help_i1_about_title">
             <en><![CDATA[About This Mod]]></en>
-            <de><![CDATA[Ãœber diesen Mod]]></de>
-            <fr><![CDATA[Ã€ propos de ce mod]]></fr>
+            <de><![CDATA[├â┼ôber diesen Mod]]></de>
+            <fr><![CDATA[├âÔé¼ propos de ce mod]]></fr>
             <pl><![CDATA[O tym modzie]]></pl>
             <es><![CDATA[Acerca de este mod]]></es>
             <it><![CDATA[Informazioni su questo mod]]></it>
             <cz><![CDATA[O tomto modu]]></cz>
             <br><![CDATA[Sobre este mod]]></br>
-            <uk><![CDATA[ÐŸÑ€Ð¾ Ñ†ÐµÐ¹ Ð¼Ð¾Ð´]]></uk>
-            <ru><![CDATA[ÐžÐ± ÑÑ‚Ð¾Ð¼ Ð¼Ð¾Ð´Ðµ]]></ru>
+            <uk><![CDATA[├É┼©├æÔé¼├É┬¥ ├æÔÇá├É┬Á├É┬╣ ├É┬╝├É┬¥├É┬┤]]></uk>
+            <ru><![CDATA[├É┼¥├É┬▒ ├æ┬ì├æÔÇÜ├É┬¥├É┬╝ ├É┬╝├É┬¥├É┬┤├É┬Á]]></ru>
             <da><![CDATA[Om denne mod]]></da>
         </text>
 
         <text name="im_help_i1_about_text">
             <en><![CDATA[Income Mod v2.0 adds a fully configurable passive income system to FS25. All settings persist per savegame. Compatible with multiplayer and other mods.]]></en>
-            <de><![CDATA[Einkommens-Mod v2.0 fÃ¼gt FS25 ein vollstÃ¤ndig konfigurierbares passives Einkommenssystem hinzu. Alle Einstellungen werden pro Spielstand gespeichert. Multiplayer-kompatibel.]]></de>
-            <fr><![CDATA[Income Mod v2.0 ajoute un systÃ¨me de revenus passifs entiÃ¨rement configurable Ã  FS25. Tous les paramÃ¨tres persistent par sauvegarde. Compatible multijoueur et autres mods.]]></fr>
-            <pl><![CDATA[Income Mod v2.0 dodaje do FS25 w peÅ‚ni konfigurowalny system pasywnych dochodÃ³w. Wszystkie ustawienia sÄ… zachowywane dla kaÅ¼dego zapisu. Kompatybilny z wieloosobowym.]]></pl>
-            <es><![CDATA[Income Mod v2.0 aÃ±ade un sistema de ingresos pasivos totalmente configurable a FS25. Todos los ajustes persisten por guardado. Compatible con multijugador y otros mods.]]></es>
+            <de><![CDATA[Einkommens-Mod v2.0 f├â┬╝gt FS25 ein vollst├â┬ñndig konfigurierbares passives Einkommenssystem hinzu. Alle Einstellungen werden pro Spielstand gespeichert. Multiplayer-kompatibel.]]></de>
+            <fr><![CDATA[Income Mod v2.0 ajoute un syst├â┬¿me de revenus passifs enti├â┬¿rement configurable ├â┬á FS25. Tous les param├â┬¿tres persistent par sauvegarde. Compatible multijoueur et autres mods.]]></fr>
+            <pl><![CDATA[Income Mod v2.0 dodaje do FS25 w pe├àÔÇÜni konfigurowalny system pasywnych dochod├â┬│w. Wszystkie ustawienia s├äÔÇª zachowywane dla ka├à┬╝dego zapisu. Kompatybilny z wieloosobowym.]]></pl>
+            <es><![CDATA[Income Mod v2.0 a├â┬▒ade un sistema de ingresos pasivos totalmente configurable a FS25. Todos los ajustes persisten por guardado. Compatible con multijugador y otros mods.]]></es>
             <it><![CDATA[Income Mod v2.0 aggiunge un sistema di reddito passivo completamente configurabile a FS25. Tutte le impostazioni persistono per salvataggio. Compatibile con multigiocatore e altri mod.]]></it>
-            <cz><![CDATA[Income Mod v2.0 pÅ™idÃ¡vÃ¡ do FS25 plnÄ› konfigurovatelnÃ½ systÃ©m pasivnÃ­ho pÅ™Ã­jmu. VÅ¡echna nastavenÃ­ jsou zachovÃ¡na pro kaÅ¾dÃ½ uloÅ¾enÃ½ stav. KompatibilnÃ­ s vÃ­ce hrÃ¡Äi.]]></cz>
-            <br><![CDATA[O Income Mod v2.0 adiciona um sistema de renda passiva totalmente configurÃ¡vel ao FS25. Todas as configuraÃ§Ãµes persistem por salvamento. CompatÃ­vel com multiplayer e outros mods.]]></br>
-            <uk><![CDATA[Income Mod v2.0 Ð´Ð¾Ð´Ð°Ñ” Ð´Ð¾ FS25 Ð¿Ð¾Ð²Ð½Ñ–ÑÑ‚ÑŽ Ð½Ð°Ð»Ð°ÑˆÑ‚Ð¾Ð²ÑƒÐ²Ð°Ð½Ñƒ ÑÐ¸ÑÑ‚ÐµÐ¼Ñƒ Ð¿Ð°ÑÐ¸Ð²Ð½Ð¾Ð³Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ñƒ. Ð’ÑÑ– Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð·Ð±ÐµÑ€Ñ–Ð³Ð°ÑŽÑ‚ÑŒÑÑ Ð´Ð»Ñ ÐºÐ¾Ð¶Ð½Ð¾Ð³Ð¾ Ð·Ð±ÐµÑ€ÐµÐ¶ÐµÐ½Ð½Ñ. Ð¡ÑƒÐ¼Ñ–ÑÐ½Ð¸Ð¹ Ð· Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð¿Ð»ÐµÑ”Ñ€Ð¾Ð¼.]]></uk>
-            <ru><![CDATA[Income Mod v2.0 Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÑ‚ Ð² FS25 Ð¿Ð¾Ð»Ð½Ð¾ÑÑ‚ÑŒÑŽ Ð½Ð°ÑÑ‚Ñ€Ð°Ð¸Ð²Ð°ÐµÐ¼ÑƒÑŽ ÑÐ¸ÑÑ‚ÐµÐ¼Ñƒ Ð¿Ð°ÑÑÐ¸Ð²Ð½Ð¾Ð³Ð¾ Ð´Ð¾Ñ…Ð¾Ð´Ð°. Ð’ÑÐµ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ¸ ÑÐ¾Ñ…Ñ€Ð°Ð½ÑÑŽÑ‚ÑÑ Ð´Ð»Ñ ÐºÐ°Ð¶Ð´Ð¾Ð³Ð¾ ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ñ. Ð¡Ð¾Ð²Ð¼ÐµÑÑ‚Ð¸Ð¼ Ñ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð¿Ð»ÐµÐµÑ€Ð¾Ð¼.]]></ru>
-            <da><![CDATA[Income Mod v2.0 tilfÃ¸jer et fuldt konfigurerbart passivt indkomstsystem til FS25. Alle indstillinger bevares pr. gemt spil. Kompatibel med multiplayer og andre mods.]]></da>
+            <cz><![CDATA[Income Mod v2.0 p├àÔäóid├â┬ív├â┬í do FS25 pln├äÔÇ║ konfigurovateln├â┬¢ syst├â┬®m pasivn├â┬¡ho p├àÔäó├â┬¡jmu. V├à┬íechna nastaven├â┬¡ jsou zachov├â┬ína pro ka├à┬¥d├â┬¢ ulo├à┬¥en├â┬¢ stav. Kompatibiln├â┬¡ s v├â┬¡ce hr├â┬í├ä┬ìi.]]></cz>
+            <br><![CDATA[O Income Mod v2.0 adiciona um sistema de renda passiva totalmente configur├â┬ível ao FS25. Todas as configura├â┬º├â┬Áes persistem por salvamento. Compat├â┬¡vel com multiplayer e outros mods.]]></br>
+            <uk><![CDATA[Income Mod v2.0 ├É┬┤├É┬¥├É┬┤├É┬░├æÔÇØ ├É┬┤├É┬¥ FS25 ├É┬┐├É┬¥├É┬▓├É┬¢├æÔÇô├æ┬ü├æÔÇÜ├æ┼¢ ├É┬¢├É┬░├É┬╗├É┬░├æ╦å├æÔÇÜ├É┬¥├É┬▓├æãÆ├É┬▓├É┬░├É┬¢├æãÆ ├æ┬ü├É┬©├æ┬ü├æÔÇÜ├É┬Á├É┬╝├æãÆ ├É┬┐├É┬░├æ┬ü├É┬©├É┬▓├É┬¢├É┬¥├É┬│├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├æãÆ. ├ÉÔÇÖ├æ┬ü├æÔÇô ├É┬¢├É┬░├É┬╗├É┬░├æ╦å├æÔÇÜ├æãÆ├É┬▓├É┬░├É┬¢├É┬¢├æ┬Å ├É┬À├É┬▒├É┬Á├æÔé¼├æÔÇô├É┬│├É┬░├æ┼¢├æÔÇÜ├æ┼Æ├æ┬ü├æ┬Å ├É┬┤├É┬╗├æ┬Å ├É┬║├É┬¥├É┬Â├É┬¢├É┬¥├É┬│├É┬¥ ├É┬À├É┬▒├É┬Á├æÔé¼├É┬Á├É┬Â├É┬Á├É┬¢├É┬¢├æ┬Å. ├É┬í├æãÆ├É┬╝├æÔÇô├æ┬ü├É┬¢├É┬©├É┬╣ ├É┬À ├É┬╝├æãÆ├É┬╗├æ┼Æ├æÔÇÜ├É┬©├É┬┐├É┬╗├É┬Á├æÔÇØ├æÔé¼├É┬¥├É┬╝.]]></uk>
+            <ru><![CDATA[Income Mod v2.0 ├É┬┤├É┬¥├É┬▒├É┬░├É┬▓├É┬╗├æ┬Å├É┬Á├æÔÇÜ ├É┬▓ FS25 ├É┬┐├É┬¥├É┬╗├É┬¢├É┬¥├æ┬ü├æÔÇÜ├æ┼Æ├æ┼¢ ├É┬¢├É┬░├æ┬ü├æÔÇÜ├æÔé¼├É┬░├É┬©├É┬▓├É┬░├É┬Á├É┬╝├æãÆ├æ┼¢ ├æ┬ü├É┬©├æ┬ü├æÔÇÜ├É┬Á├É┬╝├æãÆ ├É┬┐├É┬░├æ┬ü├æ┬ü├É┬©├É┬▓├É┬¢├É┬¥├É┬│├É┬¥ ├É┬┤├É┬¥├æÔÇª├É┬¥├É┬┤├É┬░. ├ÉÔÇÖ├æ┬ü├É┬Á ├É┬¢├É┬░├æ┬ü├æÔÇÜ├æÔé¼├É┬¥├É┬╣├É┬║├É┬© ├æ┬ü├É┬¥├æÔÇª├æÔé¼├É┬░├É┬¢├æ┬Å├æ┼¢├æÔÇÜ├æ┬ü├æ┬Å ├É┬┤├É┬╗├æ┬Å ├É┬║├É┬░├É┬Â├É┬┤├É┬¥├É┬│├É┬¥ ├æ┬ü├É┬¥├æÔÇª├æÔé¼├É┬░├É┬¢├É┬Á├É┬¢├É┬©├æ┬Å. ├É┬í├É┬¥├É┬▓├É┬╝├É┬Á├æ┬ü├æÔÇÜ├É┬©├É┬╝ ├æ┬ü ├É┬╝├æãÆ├É┬╗├æ┼Æ├æÔÇÜ├É┬©├É┬┐├É┬╗├É┬Á├É┬Á├æÔé¼├É┬¥├É┬╝.]]></ru>
+            <da><![CDATA[Income Mod v2.0 tilf├â┬©jer et fuldt konfigurerbart passivt indkomstsystem til FS25. Alle indstillinger bevares pr. gemt spil. Kompatibel med multiplayer og andre mods.]]></da>
         </text>
 
         <text name="im_help_i1_cmd_title">
@@ -1432,25 +1432,25 @@
             <pl><![CDATA[Komendy konsoli]]></pl>
             <es><![CDATA[Comandos de consola]]></es>
             <it><![CDATA[Comandi console]]></it>
-            <cz><![CDATA[PÅ™Ã­kazy konzole]]></cz>
+            <cz><![CDATA[P├àÔäó├â┬¡kazy konzole]]></cz>
             <br><![CDATA[Comandos do console]]></br>
-            <uk><![CDATA[ÐšÐ¾Ð½ÑÐ¾Ð»ÑŒÐ½Ñ– ÐºÐ¾Ð¼Ð°Ð½Ð´Ð¸]]></uk>
-            <ru><![CDATA[ÐšÐ¾Ð½ÑÐ¾Ð»ÑŒÐ½Ñ‹Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´Ñ‹]]></ru>
+            <uk><![CDATA[├É┼í├É┬¥├É┬¢├æ┬ü├É┬¥├É┬╗├æ┼Æ├É┬¢├æÔÇô ├É┬║├É┬¥├É┬╝├É┬░├É┬¢├É┬┤├É┬©]]></uk>
+            <ru><![CDATA[├É┼í├É┬¥├É┬¢├æ┬ü├É┬¥├É┬╗├æ┼Æ├É┬¢├æÔÇ╣├É┬Á ├É┬║├É┬¥├É┬╝├É┬░├É┬¢├É┬┤├æÔÇ╣]]></ru>
             <da><![CDATA[Konsolkommandoer]]></da>
         </text>
 
         <text name="im_help_i1_cmd_text">
             <en><![CDATA[Open the developer console (~) and type 'income' for the full list. Key commands: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></en>
-            <de><![CDATA[Entwicklerkonsole (~) Ã¶ffnen und 'income' eingeben. Wichtige Befehle: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></de>
-            <fr><![CDATA[Ouvrez la console (~) et tapez 'income' pour la liste. Commandes clÃ©s : IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></fr>
-            <pl><![CDATA[OtwÃ³rz konsolÄ™ (~) i wpisz 'income'. Kluczowe: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></pl>
+            <de><![CDATA[Entwicklerkonsole (~) ├â┬Âffnen und 'income' eingeben. Wichtige Befehle: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></de>
+            <fr><![CDATA[Ouvrez la console (~) et tapez 'income' pour la liste. Commandes cl├â┬®s : IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></fr>
+            <pl><![CDATA[Otw├â┬│rz konsol├äÔäó (~) i wpisz 'income'. Kluczowe: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></pl>
             <es><![CDATA[Abre la consola (~) y escribe 'income'. Comandos clave: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></es>
             <it><![CDATA[Apri la console (~) e digita 'income'. Comandi chiave: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></it>
-            <cz><![CDATA[OtevÅ™ete konzoli (~) a zadejte 'income'. KlÃ­ÄovÃ©: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></cz>
+            <cz><![CDATA[Otev├àÔäóete konzoli (~) a zadejte 'income'. Kl├â┬¡├ä┬ìov├â┬®: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></cz>
             <br><![CDATA[Abra o console (~) e digite 'income'. Principais: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></br>
-            <uk><![CDATA[Ð’Ñ–Ð´ÐºÑ€Ð¸Ð¹Ñ‚Ðµ ÐºÐ¾Ð½ÑÐ¾Ð»ÑŒ (~) Ñ– Ð²Ð²ÐµÐ´Ñ–Ñ‚ÑŒ 'income'. ÐšÐ»ÑŽÑ‡Ð¾Ð²Ñ–: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></uk>
-            <ru><![CDATA[ÐžÑ‚ÐºÑ€Ð¾Ð¹Ñ‚Ðµ ÐºÐ¾Ð½ÑÐ¾Ð»ÑŒ (~) Ð¸ Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ 'income'. ÐšÐ»ÑŽÑ‡ÐµÐ²Ñ‹Ðµ: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></ru>
-            <da><![CDATA[Ã…bn udviklerkonsollen (~) og skriv 'income' for den fulde liste. NÃ¸glekommandoer: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></da>
+            <uk><![CDATA[├ÉÔÇÖ├æÔÇô├É┬┤├É┬║├æÔé¼├É┬©├É┬╣├æÔÇÜ├É┬Á ├É┬║├É┬¥├É┬¢├æ┬ü├É┬¥├É┬╗├æ┼Æ (~) ├æÔÇô ├É┬▓├É┬▓├É┬Á├É┬┤├æÔÇô├æÔÇÜ├æ┼Æ 'income'. ├É┼í├É┬╗├æ┼¢├æÔÇí├É┬¥├É┬▓├æÔÇô: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></uk>
+            <ru><![CDATA[├É┼¥├æÔÇÜ├É┬║├æÔé¼├É┬¥├É┬╣├æÔÇÜ├É┬Á ├É┬║├É┬¥├É┬¢├æ┬ü├É┬¥├É┬╗├æ┼Æ (~) ├É┬© ├É┬▓├É┬▓├É┬Á├É┬┤├É┬©├æÔÇÜ├É┬Á 'income'. ├É┼í├É┬╗├æ┼¢├æÔÇí├É┬Á├É┬▓├æÔÇ╣├É┬Á: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></ru>
+            <da><![CDATA[├âÔÇªbn udviklerkonsollen (~) og skriv 'income' for den fulde liste. N├â┬©glekommandoer: IncomeShowSettings, IncomeHistory, IncomeNext, IncomeTestPayment, IncomeSetDifficulty 1|2|3, IncomeResetSettings.]]></da>
         </text>
     
 
@@ -2088,12 +2088,12 @@
     </l10n>
 
     <!--
-        Help pages accessible in-game via: Pause Menu â†’ Help.
+        Help pages accessible in-game via: Pause Menu ├óÔÇáÔÇÖ Help.
         Four categories: Overview, Settings, Tips & Tricks, About.
     -->
     <helpLines>
 
-        <!-- â”€â”€ Category 1: Overview â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+        <!-- ├óÔÇØÔé¼├óÔÇØÔé¼ Category 1: Overview ├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼ -->
         <category title="$l10n_im_help_cat_overview">
 
             <page title="$l10n_im_help_p1_title" iconSliceId="icon_info">
@@ -2120,7 +2120,7 @@
 
         </category>
 
-        <!-- â”€â”€ Category 2: Settings â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+        <!-- ├óÔÇØÔé¼├óÔÇØÔé¼ Category 2: Settings ├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼ -->
         <category title="$l10n_im_help_cat_settings">
 
             <page title="$l10n_im_help_s1_title" iconSliceId="icon_info">
@@ -2170,7 +2170,7 @@
 
         </category>
 
-        <!-- â”€â”€ Category 3: Tips & Tricks â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+        <!-- ├óÔÇØÔé¼├óÔÇØÔé¼ Category 3: Tips & Tricks ├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼ -->
         <category title="$l10n_im_help_cat_tips">
 
             <page title="$l10n_im_help_t1_title" iconSliceId="icon_info">
@@ -2197,7 +2197,7 @@
 
         </category>
 
-        <!-- â”€â”€ Category 4: About â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
+        <!-- ├óÔÇØÔé¼├óÔÇØÔé¼ Category 4: About ├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼├óÔÇØÔé¼ -->
         <category title="$l10n_im_help_cat_info">
 
             <page title="$l10n_im_help_i1_title" iconSliceId="icon_info">

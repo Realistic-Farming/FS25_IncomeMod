@@ -31,7 +31,7 @@
 -- Author: TisonK
 -- =========================================================
 
-EmergencyLoan = {}
+EmergencyLoan = EmergencyLoan or {}
 
 -- =========================================================
 -- Locked numbers (C5). These ride the Economy dial when it builds; until then
