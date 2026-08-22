@@ -12,8 +12,15 @@
 -- Original author: TisonK
 -- =========================================================
 
-local modDirectory = g_currentModDirectory
-local modName      = g_currentModName
+-- Hot-reload latch (FuelCosts reference): g_currentModDirectory and
+-- g_currentModName are nil on a live re-source, so they are latched into
+-- module globals on first load, with a g_modsDirectory loose-folder fallback.
+IncomeModModDirectory = IncomeModModDirectory
+    or g_currentModDirectory
+    or (g_modsDirectory ~= nil and (g_modsDirectory .. "FS25_IncomeMod/") or nil)
+IncomeModModName = IncomeModModName or g_currentModName or "FS25_IncomeMod"
+local modDirectory = IncomeModModDirectory
+local modName = IncomeModModName
 
 -- Load order matters: Settings before UI, UI before Core
 source(modDirectory .. "src/integrations/OptionScalingResolver.lua")
@@ -34,11 +41,11 @@ source(modDirectory .. "src/IncomeSystem.lua")
 source(modDirectory .. "src/IncomeManager.lua")
 
 -- Esc RF PDA framework joiner (NO-HOST).
-source(g_currentModDirectory .. "src/gui/RfEscModules.lua")
-source(g_currentModDirectory .. "src/gui/RfPdaMenuPage.lua")
-source(g_currentModDirectory .. "src/gui/RfEscBootstrap.lua")
-source(g_currentModDirectory .. "src/gui/RfEscUiDebugger.lua")
-source(g_currentModDirectory .. "src/gui/ImRfPdaGuest.lua")
+source((IncomeModModDirectory or g_currentModDirectory) .. "src/gui/RfEscModules.lua")
+source((IncomeModModDirectory or g_currentModDirectory) .. "src/gui/RfPdaMenuPage.lua")
+source((IncomeModModDirectory or g_currentModDirectory) .. "src/gui/RfEscBootstrap.lua")
+source((IncomeModModDirectory or g_currentModDirectory) .. "src/gui/RfEscUiDebugger.lua")
+source((IncomeModModDirectory or g_currentModDirectory) .. "src/gui/ImRfPdaGuest.lua")
 
 local im  -- local handle, also exposed as g_IncomeManager
 

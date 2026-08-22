@@ -10,7 +10,7 @@
 -- =========================================================
 
 ---@class SettingsGUI
-SettingsGUI = {}
+SettingsGUI = SettingsGUI or {}
 local SettingsGUI_mt = Class(SettingsGUI)
 
 function SettingsGUI.new()

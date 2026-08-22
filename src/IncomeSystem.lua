@@ -10,7 +10,7 @@
 -- =========================================================
 
 ---@class IncomeSystem
-IncomeSystem = {}
+IncomeSystem = IncomeSystem or {}
 local IncomeSystem_mt = Class(IncomeSystem)
 
 IncomeSystem.MAX_HISTORY = 10

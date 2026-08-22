@@ -10,7 +10,7 @@
 -- =========================================================
 
 ---@class IncomeManager
-IncomeManager = {}
+IncomeManager = IncomeManager or {}
 local IncomeManager_mt = Class(IncomeManager)
 
 function IncomeManager.new(mission, modDirectory, modName)

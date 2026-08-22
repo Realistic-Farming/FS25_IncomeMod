@@ -38,7 +38,7 @@
 -- The cross-mod handle is g_currentMission.stateLedger (published in Mission00.load).
 -- =========================================================
 
-IncomeStateLedgerBridge = {}
+IncomeStateLedgerBridge = IncomeStateLedgerBridge or {}
 
 -- LOCKED persistence key. Never renamed after first persist.
 IncomeStateLedgerBridge.MODULE_ID = "IncomeMod_State"

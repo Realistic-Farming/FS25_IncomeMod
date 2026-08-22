@@ -5,10 +5,10 @@
 -- Read-only; no money writes. History ring capped at 10; Esc paints 8.
 -- =========================================================
 
-ImRfPdaGuest = {}
+ImRfPdaGuest = ImRfPdaGuest or {}
 
-local MOD_DIR = g_currentModDirectory
-local MOD_NAME = g_currentModName
+local MOD_DIR = (IncomeModModDirectory or g_currentModDirectory)
+local MOD_NAME = (IncomeModModName or g_currentModName)
 local PANEL_ID = "income"
 local PANEL_ORDER = 50
 local MAX_ROWS = 8

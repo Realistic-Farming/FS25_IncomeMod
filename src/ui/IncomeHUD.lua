@@ -48,8 +48,8 @@ function IncomeHUD.new(incomeSystem, settings)
     -- keeping the gap above Soil's top at ~0.709. Saved hudLayout XML still wins.
     -- Wizard 2026-08-21: factory home is the suite layout Wizard arranged
     -- in-game (bottom-left lane). A saved hudLayout XML still wins on load.
-    self.posX       = 0.213021
-    self.posY       = 0.979074
+    self.posX       = 0.191667
+    self.posY       = 0.980000
     self.panelWidth = 0.20
 
     -- Base layout constants (at scale 1.0 — multiplied by self.scale at draw time)
@@ -60,7 +60,7 @@ function IncomeHUD.new(incomeSystem, settings)
     self.TEXT_SMALL  = 0.0095
 
     -- Scale & edit state (NPCFavor / SoilHUD pattern)
-    self.scale            = 1.083220   -- factory suite layout (Wizard 2026-08-21)
+    self.scale            = 1.471906   -- factory suite layout (Wizard 2026-08-22)
     self.editMode         = false
     self.dragging         = false
     self.resizing         = false
@@ -73,7 +73,7 @@ function IncomeHUD.new(incomeSystem, settings)
     self.animTimer        = 0
 
     -- Width state (edge-drag, NPCFavor/Workplace pattern)
-    self.widthMult          = 0.759375   -- factory suite layout (Wizard 2026-08-21)
+    self.widthMult          = 0.700000   -- factory suite layout (Wizard 2026-08-22)
     self.edgeDragging       = nil   -- nil | "left" | "right"
     self.edgeDragStartX     = 0
     self.edgeDragStartWidth = 1.0
