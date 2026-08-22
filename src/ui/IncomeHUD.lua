@@ -10,13 +10,27 @@
 -- =========================================================
 
 ---@class IncomeHUD
-IncomeHUD = {}
+-- BUILD 17:57 (Wizard hot-reload law 2026-08-21, FS25-HotReload-Guide.md Part 1):
+-- reuse the existing class table on Ctrl+R reload so updated methods land on the
+-- table live metatables already reference, instead of orphaning it.
+IncomeHUD = IncomeHUD or {}
 local IncomeHUD_mt = Class(IncomeHUD)
 
 IncomeHUD.MAX_HISTORY_ROWS  = 5
 IncomeHUD.MIN_SCALE         = 0.60
 IncomeHUD.MAX_SCALE         = 1.80
 IncomeHUD.RESIZE_HANDLE_SIZE = 0.008
+-- Wizard 2026-08-21 width wave: left/right edge drag adjusts a width multiplier,
+-- independent of corner-scale (NPCFavor/Workplace pattern, suite-wide).
+IncomeHUD.MIN_WIDTH_MULT = 0.7
+IncomeHUD.MAX_WIDTH_MULT = 2.5
+IncomeHUD.EDGE_BAND_W    = 0.008
+IncomeHUD.EDGE_SENS      = 3.0
+
+local function getBaseGameRenderer()
+    local hud = (g_currentMission ~= nil and g_currentMission.masterHUD) or g_masterHUD
+    return hud ~= nil and hud.renderer or nil
+end
 
 function IncomeHUD.new(incomeSystem, settings)
     local self = setmetatable({}, IncomeHUD_mt)
@@ -28,9 +42,15 @@ function IncomeHUD.new(incomeSystem, settings)
     self.visible = true
 
     -- Panel anchor: top-left of content area (text starts here)
-    self.posX       = 0.77
-    self.posY       = 0.90
-    self.panelWidth = 0.21
+    -- BUILD 17:10 (Sam DESIGN 17:08): factory home splits Income off the WE box -
+    -- both mods shipped (0.77, 0.90) and stacked. Income sits under WE in the
+    -- 0.550-0.750 band (posY is the panel TOP edge per the clamp below): 0.73-0.84,
+    -- keeping the gap above Soil's top at ~0.709. Saved hudLayout XML still wins.
+    -- Wizard 2026-08-21: factory home is the suite layout Wizard arranged
+    -- in-game (bottom-left lane). A saved hudLayout XML still wins on load.
+    self.posX       = 0.213021
+    self.posY       = 0.979074
+    self.panelWidth = 0.20
 
     -- Base layout constants (at scale 1.0 — multiplied by self.scale at draw time)
     self.LINE_H      = 0.017
@@ -40,7 +60,7 @@ function IncomeHUD.new(incomeSystem, settings)
     self.TEXT_SMALL  = 0.0095
 
     -- Scale & edit state (NPCFavor / SoilHUD pattern)
-    self.scale            = 1.0
+    self.scale            = 1.083220   -- factory suite layout (Wizard 2026-08-21)
     self.editMode         = false
     self.dragging         = false
     self.resizing         = false
@@ -51,6 +71,12 @@ function IncomeHUD.new(incomeSystem, settings)
     self.resizeStartScale = 1.0
     self.hoverCorner      = nil
     self.animTimer        = 0
+
+    -- Width state (edge-drag, NPCFavor/Workplace pattern)
+    self.widthMult          = 0.759375   -- factory suite layout (Wizard 2026-08-21)
+    self.edgeDragging       = nil   -- nil | "left" | "right"
+    self.edgeDragStartX     = 0
+    self.edgeDragStartWidth = 1.0
 
     -- Camera freeze (NPCFavor pattern)
     self.savedCamRotX = nil
@@ -137,10 +163,11 @@ function IncomeHUD:enterEditMode()
 end
 
 function IncomeHUD:exitEditMode()
-    self.editMode    = false
-    self.dragging    = false
-    self.resizing    = false
-    self.hoverCorner = nil
+    self.editMode     = false
+    self.dragging     = false
+    self.resizing     = false
+    self.edgeDragging = nil
+    self.hoverCorner  = nil
     self.savedCamRotX, self.savedCamRotY, self.savedCamRotZ = nil, nil, nil
     if g_inputBinding and g_inputBinding.setShowMouseCursor then
         g_inputBinding:setShowMouseCursor(false)
@@ -166,6 +193,7 @@ function IncomeHUD:saveLayout()
         xml:setFloat("hudLayout.posX",   self.posX)
         xml:setFloat("hudLayout.posY",   self.posY)
         xml:setFloat("hudLayout.scale",  self.scale)
+        xml:setFloat("hudLayout.widthMult", self.widthMult or 1.0)
         xml:setBool("hudLayout.visible", self.visible)
         xml:save()
         xml:delete()
@@ -180,6 +208,8 @@ function IncomeHUD:loadLayout()
         self.posX    = xml:getFloat("hudLayout.posX",   self.posX)
         self.posY    = xml:getFloat("hudLayout.posY",   self.posY)
         self.scale   = xml:getFloat("hudLayout.scale",  self.scale)
+        self.widthMult = math.max(IncomeHUD.MIN_WIDTH_MULT, math.min(IncomeHUD.MAX_WIDTH_MULT,
+            xml:getFloat("hudLayout.widthMult", self.widthMult or 1.0)))
         self.visible = xml:getBool("hudLayout.visible", self.visible)
         xml:delete()
     end
@@ -211,6 +241,16 @@ function IncomeHUD:hitTestCorner(posX, posY)
         and posY >= r.y and posY <= r.y + r.h then
             return key
         end
+    end
+    return nil
+end
+
+function IncomeHUD:hitTestEdge(posX, posY)
+    local band = IncomeHUD.EDGE_BAND_W
+    local bx, by, bw, bh = self.lastBgX, self.lastBgY, self.lastBgW, self.lastBgH
+    if posY >= by and posY <= by + bh then
+        if posX >= bx - band / 2 and posX <= bx + band / 2 then return "left" end
+        if posX >= bx + bw - band / 2 and posX <= bx + bw + band / 2 then return "right" end
     end
     return nil
 end
@@ -247,20 +287,31 @@ function IncomeHUD:onMouseEvent(posX, posY, isDown, isUp, button, eventUsed)
 
     if not self.editMode then return false end
 
-    -- LMB down: corner resize or body drag
+    -- LMB down: corner resize, edge width, or body drag
     if isDown and button == Input.MOUSE_BUTTON_LEFT then
         local corner = self:hitTestCorner(posX, posY)
         if corner then
             self.resizing         = true
             self.dragging         = false
+            self.edgeDragging     = nil
             self.resizeStartX     = posX
             self.resizeStartY     = posY
             self.resizeStartScale = self.scale
             return true
         end
+        local edge = self:hitTestEdge(posX, posY)
+        if edge then
+            self.edgeDragging       = edge
+            self.dragging           = false
+            self.resizing           = false
+            self.edgeDragStartX     = posX
+            self.edgeDragStartWidth = self.widthMult or 1.0
+            return true
+        end
         if self:isPointerOverHUD(posX, posY) then
             self.dragging    = true
             self.resizing    = false
+            self.edgeDragging = nil
             -- offset from panel text anchor
             self.dragOffsetX = posX - self.posX
             self.dragOffsetY = posY - self.posY
@@ -269,11 +320,12 @@ function IncomeHUD:onMouseEvent(posX, posY, isDown, isUp, button, eventUsed)
         return false
     end
 
-    -- LMB up: end drag/resize
+    -- LMB up: end drag/resize/edge
     if isUp and button == Input.MOUSE_BUTTON_LEFT then
-        if self.dragging or self.resizing then
-            self.dragging = false
-            self.resizing = false
+        if self.dragging or self.resizing or self.edgeDragging then
+            self.dragging     = false
+            self.resizing     = false
+            self.edgeDragging = nil
             self:clampPosition()
             return true
         end
@@ -302,8 +354,19 @@ function IncomeHUD:onMouseEvent(posX, posY, isDown, isUp, button, eventUsed)
         handled = true
     end
 
+    -- Edge width drag: dx scaled by EDGE_SENS, left edge inverted so pulling
+    -- outward always widens (NPCFavor/Workplace pattern).
+    if self.edgeDragging then
+        local dx = posX - self.edgeDragStartX
+        if self.edgeDragging == "left" then dx = -dx end
+        self.widthMult = math.max(IncomeHUD.MIN_WIDTH_MULT,
+            math.min(IncomeHUD.MAX_WIDTH_MULT, self.edgeDragStartWidth + dx * IncomeHUD.EDGE_SENS))
+        self:clampPosition()
+        handled = true
+    end
+
     -- Hover detection for corner handles
-    if not self.dragging and not self.resizing then
+    if not self.dragging and not self.resizing and not self.edgeDragging then
         self.hoverCorner = self:hitTestCorner(posX, posY)
         if self.hoverCorner then
             handled = true
@@ -374,9 +437,9 @@ function IncomeHUD:drawPanel()
     local s   = self.settings
     local sys = self.incomeSystem
 
-    -- Scaled layout values
+    -- Scaled layout values (width also carries the edge-drag multiplier)
     local x   = self.posX
-    local w   = self.panelWidth * sc
+    local w   = self.panelWidth * (self.widthMult or 1.0) * sc
     local pad = self.PAD * sc
     local lh  = self.LINE_H * sc
 
@@ -401,18 +464,18 @@ function IncomeHUD:drawPanel()
     self.lastBgW = bgW
     self.lastBgH = bgH
 
-    -- Drop shadow
-    self:rect(bgX + 0.002, bgY - 0.002, bgW, bgH, self.COLORS.SHADOW)
-
-    -- Background
-    self:rect(bgX, bgY, bgW, bgH, self.COLORS.BG)
-
-    -- Permanent border
-    local bw = 0.0012
-    self:rect(bgX,           bgY + bgH - bw, bgW, bw, self.COLORS.BORDER)
-    self:rect(bgX,           bgY,            bgW, bw, self.COLORS.BORDER)
-    self:rect(bgX,           bgY,            bw, bgH, self.COLORS.BORDER)
-    self:rect(bgX + bgW - bw, bgY,           bw, bgH, self.COLORS.BORDER)
+    local renderer = getBaseGameRenderer()
+    local usedNativePanel = renderer ~= nil and renderer.renderPanel ~= nil
+        and renderer:renderPanel(bgX, bgY, bgW, bgH, self.COLORS.BG[4])
+    if not usedNativePanel then
+        self:rect(bgX + 0.002, bgY - 0.002, bgW, bgH, self.COLORS.SHADOW)
+        self:rect(bgX, bgY, bgW, bgH, self.COLORS.BG)
+        local bw = 0.0012
+        self:rect(bgX,           bgY + bgH - bw, bgW, bw, self.COLORS.BORDER)
+        self:rect(bgX,           bgY,            bgW, bw, self.COLORS.BORDER)
+        self:rect(bgX,           bgY,            bw, bgH, self.COLORS.BORDER)
+        self:rect(bgX + bgW - bw, bgY,           bw, bgH, self.COLORS.BORDER)
+    end
 
     -- Edit mode chrome
     if self.editMode then
@@ -428,6 +491,14 @@ function IncomeHUD:drawPanel()
             local isHover = (self.hoverCorner == key)
             self:rectA(r.x, r.y, r.w, r.h, self.COLORS.EDIT_HANDLE, isHover and 1.0 or 0.65)
         end
+
+        -- Left/right edge width handles (suite width vocabulary)
+        local ehW   = 0.004
+        local inset = bgH * 0.15
+        self:rectA(bgX - ehW / 2,       bgY + inset, ehW, bgH - inset * 2,
+            self.COLORS.EDIT_HANDLE, self.edgeDragging == "left" and 1.0 or 0.65)
+        self:rectA(bgX + bgW - ehW / 2, bgY + inset, ehW, bgH - inset * 2,
+            self.COLORS.EDIT_HANDLE, self.edgeDragging == "right" and 1.0 or 0.65)
     end
 
     -- ── Content rows ──────────────────────────────────────
@@ -451,7 +522,7 @@ function IncomeHUD:drawPanel()
     cy = cy - lh
 
     -- Divider
-    self:divider(bgX, cy + lh * 0.35, bgW, sc)
+    self:divider(bgX, cy, bgW, sc)
     cy = cy - 0.004 * sc
 
     -- Mode | Difficulty | Amount
@@ -501,7 +572,7 @@ function IncomeHUD:drawPanel()
     cy = cy - lh
 
     -- Divider
-    self:divider(bgX, cy + lh * 0.35, bgW, sc)
+    self:divider(bgX, cy, bgW, sc)
     cy = cy - 0.004 * sc
 
     -- History header
@@ -539,7 +610,7 @@ function IncomeHUD:drawPanel()
     end
 
     -- Divider
-    self:divider(bgX, cy + lh * 0.35, bgW, sc)
+    self:divider(bgX, cy, bgW, sc)
     cy = cy - 0.004 * sc
 
     -- Hint row
@@ -591,6 +662,41 @@ function IncomeHUD:rectA(rx, ry, rw, rh, color, alpha)
     renderOverlay(self.bgOverlay, rx, ry, rw, rh)
 end
 
-function IncomeHUD:divider(dx, dy, dw, sc)
-    self:rect(dx, dy, dw, 0.001 * (sc or 1.0), self.COLORS.DIVIDER)
+function IncomeHUD:divider(dx, bandTopY, dw, sc)
+    local dividerH = g_pixelSizeY or (1 / 1080)
+    local bandH = 0.004 * (sc or 1.0)
+    self:rect(dx, bandTopY - (bandH + dividerH) * 0.5,
+        dw, dividerH, self.COLORS.DIVIDER)
+end
+
+-- =========================================================
+
+-- BUILD 17:57 (Wizard hot-reload law, FS25-HotReload-Guide.md Part 2): after a
+
+-- Ctrl+R reload the metatable chain does not reliably deliver updated methods to
+
+-- live instances, so copy them on directly. The live instance lives on the
+
+-- mission handle published by src/main.lua (mission.incomeManager), holding the
+
+-- HUD as .incomeHUD (IncomeManager.lua). Functions only; state fields untouched.
+
+if g_currentMission ~= nil and g_currentMission.incomeManager ~= nil
+    and g_currentMission.incomeManager.incomeHUD ~= nil then
+    local inst = g_currentMission.incomeManager.incomeHUD
+    for k, v in pairs(IncomeHUD) do
+        if type(v) == "function" then
+            inst[k] = v
+        end
+    end
+    -- Constructor-owned state is not replaced by method patching. Reset the old
+    -- live-refresh proof colour so an already-running panel gets the finished
+    -- base-game white heading as well.
+    if inst.COLORS ~= nil then
+        inst.COLORS.HEADER = {1.00, 1.00, 1.00, 1.00}
+    end
+    -- Fields new in the width wave that a pre-wave live instance lacks.
+    if inst.widthMult == nil then inst.widthMult = 1.0 end
+    -- Delivery proof in log.txt (Wizard 2026-08-21).
+    print("[IncomeMod] IncomeHUD hot-patched onto live instance")
 end
