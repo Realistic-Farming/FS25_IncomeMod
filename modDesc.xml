@@ -2085,6 +2085,9 @@
             <vi><![CDATA[[EN] Seasonal]]></vi>
         </text>
 
+        <text name="input_IM_HUD_EDIT">
+            <en><![CDATA[Move Income HUD]]></en>
+        </text>
     </l10n>
 
     <!--
@@ -2216,12 +2219,18 @@
     </helpLines>
 
     <actions>
-        <action name="IM_TOGGLE_HUD"    category="ONFOOT" />
+        <action name="IM_TOGGLE_HUD" category="ONFOOT VEHICLE" />
         <action name="IM_INCOME_REPORT" category="ONFOOT" />
+        <action name="IM_HUD_EDIT" category="ONFOOT VEHICLE" />
     </actions>
 
     <inputBinding>
-        <actionBinding action="IM_TOGGLE_HUD" />
         <actionBinding action="IM_INCOME_REPORT" />
+        <actionBinding action="IM_TOGGLE_HUD">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_rshift KEY_i" />
+        </actionBinding>
+        <actionBinding action="IM_HUD_EDIT">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_rshift KEY_j" />
+        </actionBinding>
     </inputBinding>
 </modDesc>
