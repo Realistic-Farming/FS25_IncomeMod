@@ -2573,7 +2573,7 @@
     {
       "referrer": "github.com",
       "count": 63,
-      "uniques": 40
+      "uniques": 38
     },
     {
       "referrer": "Google",
@@ -2581,9 +2581,19 @@
       "uniques": 3
     },
     {
+      "referrer": "search.brave.com",
+      "count": 3,
+      "uniques": 2
+    },
+    {
       "referrer": "realisticfarming.com",
       "count": 2,
       "uniques": 2
+    },
+    {
+      "referrer": "Bing",
+      "count": 1,
+      "uniques": 1
     },
     {
       "referrer": "kingmods.net",
