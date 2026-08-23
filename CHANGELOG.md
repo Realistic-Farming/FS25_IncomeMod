@@ -1,4 +1,4 @@
-# Changelog
+﻿# Changelog
 
 All notable changes to FS25_IncomeMod will be documented in this file.
 
@@ -15,6 +15,7 @@ the repo's git history and README.
 
 ### Added
 - Changelog file established (suite ruling 2026-08-22).
+- Control Center action: IM_INCOME_REPORT opens the income report from the suite Control Center (requires SettingsHub).
 
 ## [2.1.7.34] - 2026-08-22
 
