@@ -129,27 +129,10 @@ end
 -- Payment Amount
 -- =========================================================
 
-Settings.SPINE_INCOME_SCALE = {
-    id    = "im_incomeScale",
-    dial  = "economy",
-    base  = 1.0,
-    curve = { at0 = 1.6, at1 = 1.0, at2 = 0.5 },
-}
-
----@return number  final base payment (difficulty or custom) times multiplier, scaled by spine
+---@return number  final base payment (difficulty or custom) times multiplier
 function Settings:getPaymentAmount()
     local base = self.customAmount > 0 and self.customAmount or self:getDifficultyAmount()
-    local amount = base * self:getMultiplierValue()
-
-    if OptionScalingResolver ~= nil then
-        local hub = (g_currentMission ~= nil and g_currentMission.settingsHub) or g_settingsHub
-        local profile = OptionScalingResolver.readProfile(hub)
-        if profile ~= nil then
-            amount = amount * OptionScalingResolver.resolve(Settings.SPINE_INCOME_SCALE, profile)
-        end
-    end
-
-    return amount
+    return base * self:getMultiplierValue()
 end
 
 -- =========================================================

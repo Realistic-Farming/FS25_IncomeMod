@@ -81,6 +81,33 @@ end
 
 Mission00.load              = Utils.prependedFunction(Mission00.load, load)
 Mission00.loadMission00Finished = Utils.appendedFunction(Mission00.loadMission00Finished, loadedMission)
+
+-- ---------------------------------------------------------
+-- Realistic Farming Control Center: publish a runnable delegate.
+--
+-- IM_TOGGLE_HUD and IM_HUD_EDIT are deliberately absent: MasterHUD owns the
+-- suite HUD keys. Both keep their directory row and live key readout.
+-- ---------------------------------------------------------
+local function registerControlCenterActions()
+    local registry = g_currentMission ~= nil and g_currentMission.rfActionRegistry or nil
+    if registry == nil then return end
+
+    registry.registerAction({
+        action     = "IM_INCOME_REPORT",
+        button     = "Open",
+        -- The report is a dialog of its own and cannot open behind this one.
+        closeFirst = true,
+        run = function()
+            local mgr = g_IncomeManager
+            if mgr ~= nil and mgr.onIncomeReportInput ~= nil then
+                mgr:onIncomeReportInput()
+            end
+        end,
+    })
+end
+
+Mission00.loadMission00Finished = Utils.appendedFunction(
+    Mission00.loadMission00Finished, registerControlCenterActions)
 FSBaseMission.delete        = Utils.appendedFunction(FSBaseMission.delete, unload)
 
 -- Per-frame update

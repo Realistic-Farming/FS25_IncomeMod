@@ -1,3 +1,12 @@
+-- 2026-08-22 (Wizard): with MasterHUD installed this mod's own HUD hide/move keys must not
+-- merely be inert, they must not REGISTER at all - that is what removes their rows from the
+-- F1 legend and the Controls list. Probed on TaxMod first: skipping registration does remove
+-- the row, so the pattern is used suite-wide. Only HUD hide/move actions are gated; every
+-- other action this mod registers is untouched.
+local function __rfMhOwnsHudKeys()
+    return ((g_currentMission ~= nil and g_currentMission.masterHUD) or g_masterHUD) ~= nil
+end
+
 -- =========================================================
 -- FS25 Income Mod (version 2.1.5.0)
 -- =========================================================
@@ -72,23 +81,45 @@ function IncomeManager.new(mission, modDirectory, modName)
                 g_inputBinding:beginActionEventsModification(PlayerInputComponent.INPUT_CONTEXT_NAME)
 
                 -- HUD toggle: I key
-                local hudOk, hudId = g_inputBinding:registerActionEvent(
-                    InputAction.IM_TOGGLE_HUD,
-                    g_IncomeManager,
-                    g_IncomeManager.onToggleHUDInput,
-                    false,  -- triggerUp
-                    true,   -- triggerDown
-                    false,  -- triggerAlways
-                    true    -- startActive
-                )
+                local hudOk, hudId = false, nil
+                if not __rfMhOwnsHudKeys() then
+                    local hudOk, hudId = g_inputBinding:registerActionEvent(
+                        InputAction.IM_TOGGLE_HUD,
+                        g_IncomeManager,
+                        g_IncomeManager.onToggleHUDInput,
+                        false,  -- triggerUp
+                        true,   -- triggerDown
+                        false,  -- triggerAlways
+                        true    -- startActive
+                    )
+                end
                 if hudOk and hudId then
                     g_IncomeManager.toggleHUDEventId = hudId
-                    Logging.info("Income Mod: HUD toggle (I) registered")
+                    Logging.info("Income Mod: HUD toggle registered")
                 else
-                    Logging.warning("Income Mod: HUD toggle (I) registration failed")
+                    Logging.warning("Income Mod: HUD toggle registration failed")
                 end
 
-                -- Income Report: U key
+                -- HUD move/edit. Registered here, not only through the MasterHUD bridge,
+                -- so a standalone install (no MasterHUD) can still reposition the panel.
+                -- The callback stands down by itself when MasterHUD is present.
+                local edOk, edId = false, nil
+                if not __rfMhOwnsHudKeys() then
+                    local edOk, edId = g_inputBinding:registerActionEvent(
+                        InputAction.IM_HUD_EDIT,
+                        g_IncomeManager,
+                        g_IncomeManager.onHUDEditInput,
+                        false, true, false, true
+                    )
+                end
+                if edOk and edId then
+                    g_IncomeManager.hudEditEventId = edId
+                    g_inputBinding:setActionEventText(edId,
+                        (g_i18n ~= nil and g_i18n:getText("input_IM_HUD_EDIT")) or "Move Income HUD")
+                    Logging.info("Income Mod: HUD move/edit registered")
+                end
+
+                -- Income Report
                 local repOk, repId = g_inputBinding:registerActionEvent(
                     InputAction.IM_INCOME_REPORT,
                     g_IncomeManager,
@@ -177,7 +208,25 @@ end
 -- Key Action Callback
 -- =========================================================
 
+function IncomeManager:onHUDEditInput()
+    -- MasterHUD takeover: with MasterHUD installed it owns the suite-wide hide/move
+    -- binds, so this per-mod key is deliberately inert. Standalone, it runs.
+    if ((g_currentMission ~= nil and g_currentMission.masterHUD) or g_masterHUD) ~= nil then
+        return
+    end
+    local hud = self.incomeHUD
+    if hud == nil then return end
+    if hud.editMode then hud:exitEditMode() else hud:enterEditMode() end
+end
+
 function IncomeManager:onToggleHUDInput()
+    -- 2026-08-22 (Wizard): MasterHUD takeover. When MasterHUD is installed it owns the
+    -- suite-wide hide/move binds, so this mod's own per-mod key is deliberately inert:
+    -- one surface, one way to reach it. Standalone (no MasterHUD) this runs normally.
+    -- Canonical presence check, the same expression the suite's MasterHUD bridges use.
+    if ((g_currentMission ~= nil and g_currentMission.masterHUD) or g_masterHUD) ~= nil then
+        return
+    end
     if self.incomeHUD then
         self.incomeHUD:toggleVisibility()
     end
