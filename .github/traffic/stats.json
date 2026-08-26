@@ -26589,26 +26589,26 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-08-26T06:24:39Z",
+    "timestamp": "2026-08-26T12:22:51Z",
     "date": "2026-08-26",
     "views": {
-      "count": 179,
-      "uniques": 61
+      "count": 178,
+      "uniques": 58
     },
     "clones": {
-      "count": 467,
-      "uniques": 86
+      "count": 462,
+      "uniques": 83
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 72,
-        "uniques": 41
+        "count": 69,
+        "uniques": 38
       },
       {
         "referrer": "Google",
-        "count": 3,
-        "uniques": 3
+        "count": 4,
+        "uniques": 4
       },
       {
         "referrer": "search.brave.com",
@@ -26630,8 +26630,8 @@
       {
         "path": "/Realistic-Farming/FS25_IncomeMod",
         "title": "Overview",
-        "count": 71,
-        "uniques": 54
+        "count": 69,
+        "uniques": 51
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases",
@@ -26642,8 +26642,14 @@
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.7.0",
         "title": "/releases/tag/v2.1.7.0",
-        "count": 13,
-        "uniques": 12
+        "count": 12,
+        "uniques": 11
+      },
+      {
+        "path": "/Realistic-Farming/FS25_IncomeMod/pull/34",
+        "title": "/pull/34",
+        "count": 8,
+        "uniques": 3
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/pull/35",
@@ -26679,12 +26685,6 @@
         "path": "/Realistic-Farming/FS25_IncomeMod/pull/38",
         "title": "/pull/38",
         "count": 7,
-        "uniques": 3
-      },
-      {
-        "path": "/Realistic-Farming/FS25_IncomeMod/pull/34",
-        "title": "/pull/34",
-        "count": 6,
         "uniques": 3
       }
     ],
