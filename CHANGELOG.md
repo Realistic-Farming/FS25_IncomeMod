@@ -13,6 +13,8 @@ the repo's git history and README.
 
 ## [Unreleased]
 
+## [2.1.8.0] - 2026-08-26
+
 ### Added
 - Changelog file established (suite ruling 2026-08-22).
 - Playtest fixes: IM_TOGGLE_HUD (RShift+I) and IM_HUD_EDIT (RShift+J) chords, HUD/settings alignment, IM_INCOME_REPORT in Control Center.
