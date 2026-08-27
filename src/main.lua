@@ -85,8 +85,12 @@ Mission00.loadMission00Finished = Utils.appendedFunction(Mission00.loadMission00
 -- ---------------------------------------------------------
 -- Realistic Farming Control Center: publish a runnable delegate.
 --
--- IM_TOGGLE_HUD and IM_HUD_EDIT are deliberately absent: MasterHUD owns the
--- suite HUD keys. Both keep their directory row and live key readout.
+-- MasterHUD owns the physical suite HUD keys, so the per-mod hide/move keys stay
+-- gated (no native binding). IM_TOGGLE_HUD is surfaced here instead as a Control
+-- Center delegate: the # key hides the whole suite at once, this button hides or
+-- shows only the Income HUD, so a player can disable just this mod. IM_HUD_EDIT
+-- stays a directory row only - moving the panel needs the in-world drag, not a
+-- dialog button.
 -- ---------------------------------------------------------
 local function registerControlCenterActions()
     local registry = g_currentMission ~= nil and g_currentMission.rfActionRegistry or nil
@@ -101,6 +105,27 @@ local function registerControlCenterActions()
             local mgr = g_IncomeManager
             if mgr ~= nil and mgr.onIncomeReportInput ~= nil then
                 mgr:onIncomeReportInput()
+            end
+        end,
+    })
+
+    -- Per-mod HUD hide/show. Calls the HUD directly rather than onToggleHUDInput,
+    -- which deliberately stands down while MasterHUD owns the physical key. The
+    -- draw path honours self.visible under both MasterHUD and standalone, so the
+    -- panel actually appears/disappears; it composes with the suite-wide # hide.
+    registry.registerAction({
+        action = "IM_TOGGLE_HUD",
+        -- Live caption: reflects the panel's current state so the row reads "Hide"
+        -- when shown and "Show" when hidden, flipping in place on each click.
+        button = function()
+            local hud = g_IncomeManager ~= nil and g_IncomeManager.incomeHUD or nil
+            return (hud ~= nil and hud.visible) and "Hide" or "Show"
+        end,
+        run = function()
+            local hud = g_IncomeManager ~= nil and g_IncomeManager.incomeHUD or nil
+            if hud ~= nil and hud.toggleVisibility ~= nil then
+                hud:toggleVisibility()
+                return hud.visible and "Income HUD shown" or "Income HUD hidden"
             end
         end,
     })
