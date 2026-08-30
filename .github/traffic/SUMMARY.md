@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-08-30T00:50:26Z
-**Days tracked:** 140 | **Download snapshots:** 446 (hourly)
+**Last updated:** 2026-08-30T18:52:47Z
+**Days tracked:** 140 | **Download snapshots:** 449 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 209 | 66 |
-| Git Clones | 452 | 82 |
+| Page Views | 202 | 66 |
+| Git Clones | 417 | 80 |
 
-> **Engagement:** 3.1 pages per visitor (14-day avg)
+> **Engagement:** 3.0 pages per visitor (14-day avg)
 
 ---
 
@@ -32,7 +32,7 @@
 
 > **14-day conversion:** 322 of 66 visitors cloned or downloaded (**487.8%**)
 >
-> Unique cloners: 82 | Release downloads: 240
+> Unique cloners: 80 | Release downloads: 242
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 240 |
-| Git Clones (14-day) | 452 |
-| **Total Acquisitions** | **692** |
+| Zip Downloads | 242 |
+| Git Clones (14-day) | 417 |
+| **Total Acquisitions** | **659** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 79 | 41 |
-| Google | 5 | 5 |
+| github.com | 80 | 38 |
+| Google | 9 | 9 |
 | search.brave.com | 3 | 2 |
 | realisticfarming.com | 2 | 2 |
 | Bing | 1 | 1 |
@@ -79,15 +79,15 @@
 | Page | Views | Unique |
 |------|-------|--------|
 | `/Realistic-Farming/FS25_IncomeMod` | 80 | 58 |
-| `/Realistic-Farming/FS25_IncomeMod/releases` | 15 | 11 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.7.0` | 12 | 11 |
-| `/Realistic-Farming/FS25_IncomeMod/pull/35` | 9 | 3 |
-| `/Realistic-Farming/FS25_IncomeMod/pull/42` | 9 | 3 |
-| `/Realistic-Farming/FS25_IncomeMod/pull/43` | 9 | 3 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.8.0` | 8 | 7 |
+| `/Realistic-Farming/FS25_IncomeMod/releases` | 14 | 10 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.7.0` | 11 | 11 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.8.0` | 11 | 10 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/34` | 8 | 3 |
-| `/Realistic-Farming/FS25_IncomeMod/pull/36` | 8 | 3 |
-| `/Realistic-Farming/FS25_IncomeMod/pull/39` | 8 | 3 |
+| `/Realistic-Farming/FS25_IncomeMod/pull/42` | 7 | 3 |
+| `/Realistic-Farming/FS25_IncomeMod/pull/43` | 7 | 3 |
+| `/Realistic-Farming/FS25_IncomeMod/pull/35` | 7 | 2 |
+| `/Realistic-Farming/FS25_IncomeMod/pull/39` | 7 | 2 |
+| `/Realistic-Farming/FS25_IncomeMod/pull/36` | 6 | 3 |
 
 ---
 

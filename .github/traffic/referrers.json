@@ -2690,13 +2690,13 @@
   "2026-08-30": [
     {
       "referrer": "github.com",
-      "count": 79,
-      "uniques": 41
+      "count": 80,
+      "uniques": 38
     },
     {
       "referrer": "Google",
-      "count": 5,
-      "uniques": 5
+      "count": 9,
+      "uniques": 9
     },
     {
       "referrer": "search.brave.com",
