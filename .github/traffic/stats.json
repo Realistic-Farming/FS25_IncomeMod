@@ -27327,21 +27327,21 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-09-02T00:36:57Z",
+    "timestamp": "2026-09-02T18:11:02Z",
     "date": "2026-09-02",
     "views": {
-      "count": 194,
-      "uniques": 69
+      "count": 183,
+      "uniques": 67
     },
     "clones": {
-      "count": 389,
-      "uniques": 89
+      "count": 367,
+      "uniques": 88
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 89,
-        "uniques": 39
+        "count": 86,
+        "uniques": 37
       },
       {
         "referrer": "Google",
@@ -27354,12 +27354,12 @@
         "uniques": 2
       },
       {
-        "referrer": "Bing",
-        "count": 1,
-        "uniques": 1
+        "referrer": "kingmods.net",
+        "count": 2,
+        "uniques": 2
       },
       {
-        "referrer": "kingmods.net",
+        "referrer": "Bing",
         "count": 1,
         "uniques": 1
       },
@@ -27373,38 +27373,26 @@
       {
         "path": "/Realistic-Farming/FS25_IncomeMod",
         "title": "Overview",
-        "count": 83,
-        "uniques": 61
+        "count": 82,
+        "uniques": 58
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.8.0",
         "title": "/releases/tag/v2.1.8.0",
-        "count": 15,
-        "uniques": 13
+        "count": 19,
+        "uniques": 17
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases",
         "title": "/releases",
-        "count": 13,
+        "count": 11,
         "uniques": 10
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.7.0",
         "title": "/releases/tag/v2.1.7.0",
-        "count": 9,
-        "uniques": 9
-      },
-      {
-        "path": "/Realistic-Farming/FS25_IncomeMod/pull/38",
-        "title": "/pull/38",
         "count": 6,
-        "uniques": 3
-      },
-      {
-        "path": "/Realistic-Farming/FS25_IncomeMod/pull/34",
-        "title": "/pull/34",
-        "count": 5,
-        "uniques": 3
+        "uniques": 6
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/pull/36",
@@ -27413,15 +27401,21 @@
         "uniques": 3
       },
       {
+        "path": "/Realistic-Farming/FS25_IncomeMod/pull/38",
+        "title": "/pull/38",
+        "count": 4,
+        "uniques": 3
+      },
+      {
         "path": "/Realistic-Farming/FS25_IncomeMod/pull/42",
         "title": "/pull/42",
-        "count": 5,
+        "count": 4,
         "uniques": 3
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/pull/43",
         "title": "/pull/43",
-        "count": 5,
+        "count": 4,
         "uniques": 3
       },
       {
@@ -27429,6 +27423,12 @@
         "title": "/releases/tag/v2.1.7.34-pre",
         "count": 4,
         "uniques": 3
+      },
+      {
+        "path": "/Realistic-Farming/FS25_IncomeMod/pull/35",
+        "title": "/pull/35",
+        "count": 4,
+        "uniques": 2
       }
     ],
     "releases": [
