@@ -45,6 +45,7 @@ source((IncomeModModDirectory or g_currentModDirectory) .. "src/gui/RfEscModules
 source((IncomeModModDirectory or g_currentModDirectory) .. "src/gui/RfPdaMenuPage.lua")
 source((IncomeModModDirectory or g_currentModDirectory) .. "src/gui/RfEscBootstrap.lua")
 source((IncomeModModDirectory or g_currentModDirectory) .. "src/gui/RfEscUiDebugger.lua")
+source((IncomeModModDirectory or g_currentModDirectory) .. "src/gui/ImGuideDialog.lua")
 source((IncomeModModDirectory or g_currentModDirectory) .. "src/gui/ImRfPdaGuest.lua")
 
 local im  -- local handle, also exposed as g_IncomeManager
