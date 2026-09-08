@@ -2907,5 +2907,27 @@
       "count": 2,
       "uniques": 1
     }
+  ],
+  "2026-09-08": [
+    {
+      "referrer": "github.com",
+      "count": 82,
+      "uniques": 38
+    },
+    {
+      "referrer": "Google",
+      "count": 11,
+      "uniques": 11
+    },
+    {
+      "referrer": "kingmods.net",
+      "count": 2,
+      "uniques": 2
+    },
+    {
+      "referrer": "chatgpt.com",
+      "count": 2,
+      "uniques": 1
+    }
   ]
 }
