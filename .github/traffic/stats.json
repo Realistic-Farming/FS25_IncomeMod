@@ -29070,26 +29070,26 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-09-09T00:46:50Z",
+    "timestamp": "2026-09-09T18:04:31Z",
     "date": "2026-09-09",
     "views": {
       "count": 139,
-      "uniques": 66
+      "uniques": 68
     },
     "clones": {
-      "count": 325,
-      "uniques": 108
+      "count": 318,
+      "uniques": 114
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 73,
-        "uniques": 36
+        "count": 76,
+        "uniques": 38
       },
       {
         "referrer": "Google",
-        "count": 18,
-        "uniques": 13
+        "count": 17,
+        "uniques": 12
       },
       {
         "referrer": "kingmods.net",
@@ -29106,14 +29106,14 @@
       {
         "path": "/Realistic-Farming/FS25_IncomeMod",
         "title": "Overview",
-        "count": 76,
-        "uniques": 59
+        "count": 77,
+        "uniques": 60
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.8.0",
         "title": "/releases/tag/v2.1.8.0",
-        "count": 27,
-        "uniques": 24
+        "count": 28,
+        "uniques": 25
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases",
@@ -29124,12 +29124,6 @@
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/issues",
         "title": "/issues",
-        "count": 2,
-        "uniques": 2
-      },
-      {
-        "path": "/Realistic-Farming/FS25_IncomeMod/pull/34",
-        "title": "/pull/34",
         "count": 2,
         "uniques": 2
       },
@@ -29162,13 +29156,19 @@
         "title": "/commit/813fe4f4f259defd152187d57d6182c4b3b00f22",
         "count": 1,
         "uniques": 1
+      },
+      {
+        "path": "/Realistic-Farming/FS25_IncomeMod/commit/832272ff4b390b0026b1ab3cb41220ecf45e9f0b",
+        "title": "/commit/832272ff4b390b0026b1ab3cb41220ecf45e9f0b",
+        "count": 1,
+        "uniques": 1
       }
     ],
     "releases": [
       {
         "assets": [
           {
-            "downloads": 33,
+            "downloads": 36,
             "name": "FS25_IncomeMod.zip"
           }
         ],
