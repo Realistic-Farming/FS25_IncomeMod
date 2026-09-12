@@ -37,6 +37,8 @@ source(modDirectory .. "src/integrations/IncomeMasterHUDBridge.lua")    -- bedro
 source(modDirectory .. "src/ui/IncomeHUD.lua")
 source(modDirectory .. "src/ui/IncomeReportDialog.lua")
 source(modDirectory .. "src/EmergencyLoan.lua")
+source(modDirectory .. "src/EmergencyLoanDebtStorage.lua")  -- [C3/F130] own debt XML (standalone persistence)
+source(modDirectory .. "src/EmergencyLoanEvent.lua")        -- [C3/F130] owner request/reply Event + controller
 source(modDirectory .. "src/IncomeSystem.lua")
 source(modDirectory .. "src/IncomeManager.lua")
 
@@ -172,6 +174,12 @@ Mission00.saveToXMLFile = Utils.appendedFunction(Mission00.saveToXMLFile, functi
         im:save()
         if im.incomeHUD then im.incomeHUD:saveLayout() end
     end
+end)
+
+-- [C3/F130] Persist the emergency debt to its isolated XML in the active career-save
+-- window (preserving the timer/settings/HUD work above). Server-only inside the method.
+FSCareerMissionInfo.saveToXMLFile = Utils.appendedFunction(FSCareerMissionInfo.saveToXMLFile, function(missionInfo)
+    if im then im:saveEmergencyDebt(missionInfo) end
 end)
 
 -- =========================================================

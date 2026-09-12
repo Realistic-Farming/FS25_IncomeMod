@@ -159,10 +159,18 @@
             <!-- No History Message -->
             <Text profile="irNoData" id="noHistoryText" position="0px -300px" visible="false" text="$l10n_im_report_no_history"/>
 
+            <!-- ===== [C3/F130] EMERGENCY LOAN BAND ===== -->
+            <GuiElement profile="irSectionContainer" position="0px -434px">
+                <Bitmap profile="irLoanBg" position="0px 0px"/>
+                <Text profile="irLoanText" id="loanStatusText" position="0px -8px" text="$l10n_im_loan_none"/>
+            </GuiElement>
+
         </GuiElement>
 
         <BoxLayout profile="fs25_dialogButtonBox">
             <Button profile="buttonBack" id="closeButton" text="$l10n_button_close" onClick="onCloseDialog"/>
+            <Button profile="buttonOK" id="loanBorrowButton" text="$l10n_im_loan_borrow" onClick="onClickBorrow" visible="false"/>
+            <Button profile="buttonOK" id="loanPayoffButton" text="$l10n_im_loan_payoff" onClick="onClickPayoff" visible="false"/>
         </BoxLayout>
 
     </GuiElement>
@@ -246,6 +254,19 @@
             <size value="700px 30px"/>
             <textSize value="14px"/>
             <textColor value="0.6 0.6 0.6 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+
+        <!-- [C3/F130] Emergency loan band -->
+        <Profile name="irLoanBg" extends="baseReference" with="anchorTopCenter">
+            <size value="700px 30px"/>
+            <imageColor value="0.16 0.10 0.10 0.9"/>
+        </Profile>
+        <Profile name="irLoanText" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="700px 20px"/>
+            <textSize value="13px"/>
+            <textBold value="true"/>
+            <textColor value="1.0 0.85 0.5 1"/>
             <textAlignment value="center"/>
         </Profile>
     </GUIProfiles>

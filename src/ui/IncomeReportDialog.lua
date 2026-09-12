@@ -93,6 +93,49 @@ function IncomeReportDialog:updateDisplay()
     self:updateSummary()
     self:updateStats()
     self:updateHistoryRows()
+    self:updateLoanSection()
+end
+
+--- [C3/F130] Populate the emergency-loan band + borrow/payoff buttons from the owner
+--- view. On a listen host the view is the rich authoritative one; on a pure client it
+--- is the compact cached reply (outstanding/offer/canBorrow/canRepay), so fields are
+--- guarded. Buttons show only for a farm manager with a valid borrow/repay decision.
+function IncomeReportDialog:updateLoanSection()
+    local statusEl  = self.loanStatusText
+    if statusEl == nil then return end
+    local borrowBtn = self.loanBorrowButton
+    local payoffBtn = self.loanPayoffButton
+    local function setBtn(btn, vis) if btn and btn.setVisible then btn:setVisible(vis == true) end end
+
+    local mgr = g_IncomeManager
+    local view = (mgr and mgr.getEmergencyLoanView) and mgr:getEmergencyLoanView(nil) or nil
+    if type(view) ~= "table" then
+        statusEl:setText(g_i18n:getText("im_loan_none"))
+        setBtn(borrowBtn, false); setBtn(payoffBtn, false)
+        return
+    end
+
+    local function money(v)
+        if g_i18n and g_i18n.formatMoney then return g_i18n:formatMoney(v or 0, 0, true, true) end
+        return "$" .. tostring(math.floor((v or 0) + 0.5))
+    end
+    local outstanding = view.outstanding or 0
+    if outstanding and outstanding > 0 then
+        local principal = view.principal or outstanding
+        local interest  = view.accruedInterest or (outstanding - (view.principal or outstanding))
+        local ratePct   = (view.effectiveMonthlyRate or 0) * 100
+        statusEl:setText(string.format("%s %s   (%s %s · %s %s)   %.1f%%/mo",
+            g_i18n:getText("im_loan_outstanding"), money(outstanding),
+            g_i18n:getText("im_loan_principal"), money(principal),
+            g_i18n:getText("im_loan_interest"), money(interest), ratePct))
+    elseif view.canBorrow == true then
+        statusEl:setText(string.format("%s %s",
+            g_i18n:getText("im_loan_offer_available"), money(view.offer)))
+    else
+        statusEl:setText(g_i18n:getText("im_loan_none"))
+    end
+    setBtn(borrowBtn, view.canBorrow == true)
+    setBtn(payoffBtn, view.canRepay == true and outstanding > 0)
 end
 
 --- Fill the three summary rows with live settings values.
@@ -249,6 +292,21 @@ end
 
 function IncomeReportDialog:onClickBack()
     g_gui:closeDialogByName("IncomeReportDialog")
+end
+
+-- [C3/F130] Borrow / payoff. Routed through the owner (server re-checks manager rights,
+-- acting farm, cash and the quote revision before any money moves). The button is the
+-- player's explicit confirmation of intent; the host re-quotes and accepts atomically.
+function IncomeReportDialog:onClickBorrow()
+    local mgr = g_IncomeManager
+    if mgr and mgr.uiBorrow then mgr:uiBorrow() end
+    self:updateDisplay()
+end
+
+function IncomeReportDialog:onClickPayoff()
+    local mgr = g_IncomeManager
+    if mgr and mgr.uiPayoff then mgr:uiPayoff() end
+    self:updateDisplay()
 end
 
 -- =========================================================
