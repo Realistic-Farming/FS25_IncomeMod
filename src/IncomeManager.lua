@@ -176,6 +176,13 @@ function IncomeManager:onMissionLoaded()
         IncomeEmergencyLoanBridge.register(self)
     end
 
+    -- [C3/F130] Select and install the authoritative debt snapshot, apply any native
+    -- MP->SP conversion once, and re-register the interest accrual for restored debt.
+    -- Server-only (the loan is server-authoritative; clients receive views via the Event).
+    if self.emergencyLoan and g_currentMission and g_currentMission:getIsServer() then
+        self:loadEmergencyDebt()
+    end
+
     -- MasterHUD (bedrock, delegate-when-present): when installed, the income HUD draw
     -- folds into MasterHUD's single suspend-aware loop and our own FSBaseMission.draw
     -- hook stands down. No-ops when MasterHUD is absent (own hook draws it).
@@ -299,6 +306,298 @@ function IncomeManager:loadState()
             self.incomeSystem:loadState(state)
         end
     end
+end
+
+-- =========================================================
+-- [C3/F130] Emergency loan: persistence, public view, owner Event
+-- =========================================================
+
+--- Select and install the authoritative debt snapshot (StateLedger primary, own-XML
+--- fallback), apply the native MP->SP conversion once, and re-register interest accrual
+--- for restored positive debt. Server-only. Runs once in onMissionLoaded.
+function IncomeManager:loadEmergencyDebt()
+    local loan = self.emergencyLoan
+    if loan == nil then return end
+
+    local installed = false
+    -- Prefer a StateLedger-delivered non-nil block; an explicit nil delivery (new save)
+    -- falls through to the own-XML fallback below.
+    if IncomeEmergencyLoanBridge and IncomeEmergencyLoanBridge.hasState() then
+        installed = loan:deserialize(IncomeEmergencyLoanBridge.pendingState) == true
+    end
+
+    if not installed then
+        local mi = g_currentMission and g_currentMission.missionInfo
+        local snap = EmergencyLoanDebtStorage.load(mi)
+        if snap == false then
+            -- Malformed/unsupported primary: retain file, expose UNAVAILABLE, block mutation.
+            loan:setReadiness(EmergencyLoan.READINESS.UNAVAILABLE)
+            Logging.warning("Income Mod: emergency debt file malformed; loan marked UNAVAILABLE")
+            return
+        elseif type(snap) == "table" then
+            loan:deserialize(snap)  -- valid (a new-format empty snapshot is authoritative empty)
+        else
+            loan:setReadiness(EmergencyLoan.READINESS.READY)  -- no file: brand-new / pre-C3 save
+        end
+    end
+
+    -- Native MP->SP farm conversion, once, before use (mergedFarms is populated during
+    -- FarmManager load, before this loadMission00Finished handler).
+    local fm = g_farmManager
+    if fm ~= nil and type(fm.mergedFarms) == "table" and next(fm.mergedFarms) ~= nil then
+        loan:remapMergedFarms(fm.mergedFarms)
+    end
+
+    -- Re-register the month-cadence accrual for restored positive debt.
+    for farmId, d in pairs(loan.debts) do
+        if d.active and ((d.principal or 0) + (d.accruedInterest or 0)) > 0 then
+            loan:registerInterestAccrual(farmId)
+        end
+    end
+end
+
+--- Persist the debt to its isolated XML (server-only). Called from the active career
+--- save window (FSCareerMissionInfo.saveToXMLFile), preserving timer/settings/HUD work.
+function IncomeManager:saveEmergencyDebt(missionInfo)
+    if self.emergencyLoan == nil then return end
+    if g_currentMission == nil or not g_currentMission:getIsServer() then return end
+    EmergencyLoanDebtStorage.save(self.emergencyLoan,
+        missionInfo or (g_currentMission and g_currentMission.missionInfo))
+end
+
+-- Per-connection owner session (highest sequence, last result, outstanding quotes).
+function IncomeManager:_loanSession(connection)
+    self._loanSessions = self._loanSessions or {}
+    local key = connection or "local"
+    local s = self._loanSessions[key]
+    if s == nil then
+        s = { id = tostring(key), highest = 0, quotes = {}, quoteSeq = 0 }
+        self._loanSessions[key] = s
+    end
+    return s
+end
+
+function IncomeManager:_nextLoanSequence()
+    self._loanSeq = (self._loanSeq or 0) + 1
+    if self._loanSeq > EmergencyLoanController.MAX_SEQUENCE then self._loanSeq = 1 end
+    return self._loanSeq
+end
+
+function IncomeManager:_mintQuote(session, quote)
+    session.quoteSeq = (session.quoteSeq or 0) + 1
+    local token = string.format("q%d", session.quoteSeq)
+    session.quotes[token] = quote
+    return token
+end
+
+-- Compact a rich view into the Event reply payload (the wire + the client cache shape).
+function IncomeManager:_viewReply(v, sequence, statusOverride)
+    return {
+        version      = EmergencyLoan.VIEW_VERSION,
+        status       = statusOverride or (v and v.forecastStatus) or "UNAVAILABLE",
+        sequence     = sequence or 0,
+        readiness    = v and v.readiness,
+        cash         = v and v.cash,
+        outstanding  = v and v.outstanding,
+        nativeLoan   = v and v.nativeLoan,
+        offer        = v and v.offer,
+        canBorrow    = v and v.canBorrow,
+        canRepay     = v and v.canRepay,
+        borrowReason = v and v.borrowReason,
+        repayReason  = v and v.repayReason,
+    }
+end
+
+--- getEmergencyLoanView(farmId?): on the server a pure authoritative sample (no actor
+--- rights => NO_ACTOR_CONTEXT); nil keeps the local farm. On a client, only the local
+--- farm's last authoritative reply (a different supplied farmId refuses).
+function IncomeManager:getEmergencyLoanView(farmId)
+    local loan = self.emergencyLoan
+    if loan == nil then return nil, "NO_LOAN" end
+    local isServer = g_currentMission and g_currentMission.getIsServer and g_currentMission:getIsServer()
+    local localFarmId = nil
+    pcall(function()
+        if g_currentMission and g_currentMission.getFarmId then localFarmId = g_currentMission:getFarmId() end
+    end)
+    if isServer then
+        local target = farmId
+        if target == nil then target = localFarmId end
+        if type(target) ~= "number" then return nil, "NO_FARM" end
+        return loan:getView(target, nil)  -- pure sample: canBorrow/canRepay false, NO_ACTOR_CONTEXT
+    end
+    if farmId ~= nil and localFarmId ~= nil and farmId ~= localFarmId then return nil, "OTHER_FARM" end
+    if self._emergencyView == nil then return nil, "NO_VIEW_YET" end
+    return self._emergencyView
+end
+
+--- Ask the host for the current view without moving money.
+function IncomeManager:refreshEmergencyLoanView()
+    if g_currentMission and g_currentMission.getIsServer and g_currentMission:getIsServer() then
+        local v = self:getEmergencyLoanView(nil)
+        if v then self._emergencyView = self:_viewReply(v, 0) end
+        return true
+    end
+    if g_client and g_client.getServerConnection and EmergencyLoanEvent then
+        local ok = pcall(function()
+            g_client:getServerConnection():sendEvent(
+                EmergencyLoanEvent.newRequest(self:_nextLoanSequence(), EmergencyLoanController.OP.VIEW))
+        end)
+        return ok
+    end
+    return false
+end
+
+--- Open IncomeMod's own report (navigation only; never accepts a loan). Returns true
+--- only when the registered dialog root actually entered g_gui.dialogs (show() returns
+--- nil whether refused or shown, so its nil proves nothing).
+function IncomeManager:openEmergencyLoanReport()
+    if g_gui == nil then return false, "NO_GUI" end
+    if g_gui.currentGui ~= nil then return false, "GUI_BUSY" end
+    if self.incomeReportDialog == nil or g_IncomeManager == nil or g_IncomeManager.incomeSystem == nil then
+        return false, "NO_HOST"
+    end
+    pcall(function() self.incomeReportDialog:show() end)
+    local root = g_gui.guis and g_gui.guis["IncomeReportDialog"]
+    for _, d in pairs(g_gui.dialogs or {}) do
+        if d == root and root ~= nil then return true end
+    end
+    return false, "OPEN_REFUSED"
+end
+
+--- Client: cache a reply as the local farm's last authoritative view. If a UI action
+--- is mid-flight and the reply carries a fresh quote token, accept it (the two-step
+--- quote->accept the owner Event requires on a pure client).
+function IncomeManager:onEmergencyLoanReply(payload)
+    if type(payload) ~= "table" then return end
+    self._emergencyView = payload
+    if self._pendingAccept and payload.token ~= nil and payload.token ~= ""
+        and g_client and g_client.getServerConnection then
+        self._pendingAccept = false
+        pcall(function()
+            g_client:getServerConnection():sendEvent(
+                EmergencyLoanEvent.newRequest(self:_nextLoanSequence(),
+                    EmergencyLoanController.OP.ACCEPT_QUOTE, nil, payload.token))
+        end)
+    end
+end
+
+-- UI entry points: borrow / payoff. Each is a quote-then-accept. On a listen host (or SP)
+-- both steps run locally and synchronously; on a pure client the quote request goes over
+-- the Event and onEmergencyLoanReply accepts the returned token. The server always
+-- re-checks manager rights, acting farm, cash and the quote revision before moving money.
+function IncomeManager:uiBorrow() self:_uiQuoteThenAccept(EmergencyLoanController.OP.BORROW_QUOTE) end
+function IncomeManager:uiPayoff() self:_uiQuoteThenAccept(EmergencyLoanController.OP.PAYOFF_QUOTE) end
+function IncomeManager:uiManualRepay(amountText)
+    self:_uiQuoteThenAccept(EmergencyLoanController.OP.MANUAL_AMOUNT_QUOTE, amountText)
+end
+
+function IncomeManager:_uiQuoteThenAccept(quoteOp, amountText)
+    local isServer = g_currentMission and g_currentMission.getIsServer and g_currentMission:getIsServer()
+    if isServer then
+        local quote = self:handleEmergencyLoanRequest(
+            EmergencyLoanEvent.newRequest(self:_nextLoanSequence(), quoteOp, amountText), nil)
+        self:onEmergencyLoanReply(quote)
+        if quote and quote.token ~= nil and quote.token ~= "" then
+            local accepted = self:handleEmergencyLoanRequest(
+                EmergencyLoanEvent.newRequest(self:_nextLoanSequence(),
+                    EmergencyLoanController.OP.ACCEPT_QUOTE, nil, quote.token), nil)
+            self._emergencyView = accepted
+        end
+        return true
+    end
+    if g_client and g_client.getServerConnection and EmergencyLoanEvent then
+        self._pendingAccept = true
+        return pcall(function()
+            g_client:getServerConnection():sendEvent(
+                EmergencyLoanEvent.newRequest(self:_nextLoanSequence(), quoteOp, amountText))
+        end)
+    end
+    return false
+end
+
+--- Server: handle one owner request from a connection and return the reply payload.
+--- VIEW is view-only; quotes require farm-manager rights; ACCEPT_QUOTE consumes a minted
+--- quote once and re-checks revision/cash before moving money. Replies go only to the
+--- requesting connection (the caller sends it).
+function IncomeManager:handleEmergencyLoanRequest(event, connection)
+    local loan = self.emergencyLoan
+    local seq = event and event.sequence or 0
+    if loan == nil then return { status = "UNAVAILABLE", sequence = seq } end
+
+    local actor, reason = EmergencyLoanController.resolveActor(connection)
+    if actor == nil then return { status = reason or "NO_ACTOR", sequence = seq } end
+    local farmId = actor.farmId
+    local session = self:_loanSession(connection)
+    local op = event.operation
+
+    if op == EmergencyLoanController.OP.VIEW then
+        return self:_viewReply(loan:getView(farmId, { isManager = actor.isManager }), seq)
+    end
+
+    -- All quote/accept operations require farm-manager rights on the acting farm.
+    if actor.isManager ~= true then
+        return self:_viewReply(loan:getView(farmId, { isManager = false }), seq, "NOT_MANAGER")
+    end
+    if loan:getReadiness() == EmergencyLoan.READINESS.UNAVAILABLE then
+        return self:_viewReply(loan:getView(farmId, { isManager = true }), seq, "UNAVAILABLE")
+    end
+
+    if op == EmergencyLoanController.OP.BORROW_QUOTE then
+        local offer = loan:computeOffer(farmId)
+        local view = loan:getView(farmId, { isManager = true })
+        if not offer or offer <= 0 then return self:_viewReply(view, seq, "NO_SHORTFALL") end
+        local token = self:_mintQuote(session, { op = "borrow", farmId = farmId, amount = offer,
+            revision = (loan.debts[farmId] and loan.debts[farmId].revision) or 0 })
+        local reply = self:_viewReply(view, seq); reply.token = token; reply.offer = offer
+        return reply
+    elseif op == EmergencyLoanController.OP.MANUAL_AMOUNT_QUOTE or op == EmergencyLoanController.OP.PAYOFF_QUOTE then
+        local debt = loan.debts[farmId]
+        local view = loan:getView(farmId, { isManager = true })
+        if not debt or not debt.active then return self:_viewReply(view, seq, "NO_DEBT") end
+        local amount
+        if op == EmergencyLoanController.OP.PAYOFF_QUOTE then
+            amount = loan:payoffAmount(farmId)
+        else
+            amount = EmergencyLoanController.parseAmount(event.amountText)
+            if not amount or amount <= 0 then return self:_viewReply(view, seq, "INVALID_AMOUNT") end
+            local cash = loan:getBalance(farmId)
+            amount = math.min(amount, loan:getOutstanding(farmId))
+            if cash ~= nil and cash > 0 then amount = math.min(amount, cash) end
+        end
+        local token = self:_mintQuote(session, { op = "repay", farmId = farmId, amount = amount,
+            revision = debt.revision })
+        local reply = self:_viewReply(view, seq); reply.token = token
+        return reply
+    elseif op == EmergencyLoanController.OP.ACCEPT_QUOTE then
+        local quote = session.quotes[event.token or ""]
+        local view = loan:getView(farmId, { isManager = true })
+        if quote == nil or quote.farmId ~= farmId then
+            return self:_viewReply(view, seq, "STALE_QUOTE")
+        end
+        session.quotes[event.token] = nil  -- consume once
+        local status
+        if quote.op == "borrow" then
+            local rev = (loan.debts[farmId] and loan.debts[farmId].revision) or 0
+            if rev ~= quote.revision then status = "STALE_QUOTE"
+            else
+                local ok = (loan.debts[farmId] and loan.debts[farmId].active) and loan:redraw(farmId) or loan:grant(farmId)
+                status = ok and "ACCEPTED" or "REFUSED"
+            end
+        else
+            local debt = loan.debts[farmId]
+            local cash = loan:getBalance(farmId)
+            if not debt or not debt.active then status = "NO_DEBT"
+            elseif debt.revision ~= quote.revision then status = "STALE_QUOTE"
+            elseif cash == nil or quote.amount > cash then status = "INSUFFICIENT_CASH"
+            else status = (loan:applyManualPayment(farmId, quote.amount) > 0) and "ACCEPTED" or "REFUSED" end
+        end
+        if status == "ACCEPTED" then self:saveEmergencyDebt() end
+        local reply = self:_viewReply(loan:getView(farmId, { isManager = true }), seq)
+        reply.status = status
+        return reply
+    end
+
+    return { status = "UNKNOWN_OP", sequence = seq }
 end
 
 -- =========================================================

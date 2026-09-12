@@ -2088,6 +2088,16 @@
         <text name="input_IM_HUD_EDIT">
             <en><![CDATA[Move Income HUD]]></en>
         </text>
+        <!-- [C3/F130] Emergency loan report band + actions. English authored; FS25 falls
+             back to <en> for every language without an entry, so all 26 codes render in
+             English until a translation pass. -->
+        <text name="im_loan_none"><en><![CDATA[No emergency loan]]></en></text>
+        <text name="im_loan_offer_available"><en><![CDATA[Emergency loan available:]]></en></text>
+        <text name="im_loan_borrow"><en><![CDATA[Borrow]]></en></text>
+        <text name="im_loan_payoff"><en><![CDATA[Pay Off]]></en></text>
+        <text name="im_loan_principal"><en><![CDATA[Principal]]></en></text>
+        <text name="im_loan_interest"><en><![CDATA[Interest]]></en></text>
+        <text name="im_loan_outstanding"><en><![CDATA[Outstanding]]></en></text>
     </l10n>
 
     <!--
