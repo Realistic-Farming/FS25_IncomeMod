@@ -515,6 +515,14 @@ function IncomeManager:uiManualRepayQuote(amountText, onQuote)
     return self:_uiQuoteOnly(EmergencyLoanController.OP.MANUAL_AMOUNT_QUOTE, amountText, onQuote)
 end
 
+--- Quote a full payoff WITHOUT accepting it. The server binds the exact outstanding
+--- (principal + all accrued interest) and returns it with a one-shot token; the player
+--- confirms THAT sum and only uiAcceptQuote moves money. Replaces the one-step uiPayoff
+--- for the report, whose button was the only "confirmation" the payoff ever had.
+function IncomeManager:uiPayoffQuote(onQuote)
+    return self:_uiQuoteOnly(EmergencyLoanController.OP.PAYOFF_QUOTE, nil, onQuote)
+end
+
 function IncomeManager:_uiQuoteOnly(quoteOp, amountText, onQuote)
     local function deliver(reply) if onQuote ~= nil then onQuote(reply) end end
     if g_currentMission and g_currentMission.getIsServer and g_currentMission:getIsServer() then
