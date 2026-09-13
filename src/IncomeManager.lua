@@ -408,9 +408,12 @@ function IncomeManager:_viewReply(v, sequence, statusOverride)
     }
 end
 
---- getEmergencyLoanView(farmId?): on the server a pure authoritative sample (no actor
---- rights => NO_ACTOR_CONTEXT); nil keeps the local farm. On a client, only the local
---- farm's last authoritative reply (a different supplied farmId refuses).
+--- getEmergencyLoanView(farmId?): on the server, nil is the LOCAL PLAYER's view: the
+--- host resolves its own actor (farm + manager rights) exactly as it would for a remote
+--- connection, so the report can offer Borrow/Pay Off to the host player. An explicit
+--- farmId is a pure authoritative sample with no actor rights (NO_ACTOR_CONTEXT); a
+--- dedicated server with no local player also falls back to that sample. On a client,
+--- only the local farm's last authoritative reply (a different supplied farmId refuses).
 function IncomeManager:getEmergencyLoanView(farmId)
     local loan = self.emergencyLoan
     if loan == nil then return nil, "NO_LOAN" end
@@ -420,6 +423,12 @@ function IncomeManager:getEmergencyLoanView(farmId)
         if g_currentMission and g_currentMission.getFarmId then localFarmId = g_currentMission:getFarmId() end
     end)
     if isServer then
+        if farmId == nil then
+            local actor = EmergencyLoanController.resolveActor(nil)
+            if actor ~= nil then
+                return loan:getView(actor.farmId, { isManager = actor.isManager })
+            end
+        end
         local target = farmId
         if target == nil then target = localFarmId end
         if type(target) ~= "number" then return nil, "NO_FARM" end
@@ -470,6 +479,12 @@ end
 function IncomeManager:onEmergencyLoanReply(payload)
     if type(payload) ~= "table" then return end
     self._emergencyView = payload
+    -- A pure client's report opened on "no view yet"; now that the host has answered,
+    -- redraw the loan band so the buttons appear without the player reopening it.
+    local dlg = self.incomeReportDialog
+    if dlg ~= nil and dlg.onLoanViewArrived ~= nil then
+        pcall(function() dlg:onLoanViewArrived() end)
+    end
 
     -- A reply the confirming UI is waiting on belongs to that UI, matched by the exact
     -- sequence it sent. An older/foreign reply never resolves a pending confirmation.

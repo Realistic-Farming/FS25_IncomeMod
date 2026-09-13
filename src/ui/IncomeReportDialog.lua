@@ -82,7 +82,24 @@ function IncomeReportDialog:onOpen()
     IncomeReportDialog:superClass().onOpen(self)
     if g_IncomeManager and g_IncomeManager.incomeSystem then
         self:updateDisplay()
+        self:requestLoanView()
     end
+end
+
+--- [C3/F130] Ask the host for this farm's loan view. On SP / a listen host the manager
+--- answers locally and the band is already current; on a pure client the VIEW request
+--- goes over the owner Event and onLoanViewArrived redraws the band when it returns.
+--- Without this a client only ever saw "no loan" because nothing asked.
+function IncomeReportDialog:requestLoanView()
+    local mgr = g_IncomeManager
+    if mgr == nil or mgr.refreshEmergencyLoanView == nil then return end
+    pcall(function() mgr:refreshEmergencyLoanView() end)
+end
+
+--- Called by the manager when an authoritative reply lands while this report is open.
+function IncomeReportDialog:onLoanViewArrived()
+    if self.isOpen == false then return end
+    self:updateLoanSection()
 end
 
 -- =========================================================
