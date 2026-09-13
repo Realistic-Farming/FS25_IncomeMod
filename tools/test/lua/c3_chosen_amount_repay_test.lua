@@ -86,36 +86,29 @@ do
         token = "q1", quoteAmount = 500 })
     out:writeStream(s, nil)
 
+    -- Read through the REAL readStream so write and read order are proven symmetric
+    -- (run() is a no-op here: no manager is installed to dispatch to).
+    g_IncomeManager = nil
     local back = EmergencyLoanEvent.emptyNew()
-    back.isReply = streamReadBool(s)
-    back.payload = {
-        status      = streamReadString(s),
-        sequence    = streamReadUIntN(s, 31),
-        cash        = tonumber(streamReadString(s)),
-        outstanding = tonumber(streamReadString(s)),
-        offer       = tonumber(streamReadString(s)),
-        canBorrow   = streamReadBool(s),
-        canRepay    = streamReadBool(s),
-        token       = streamReadString(s),
-        quoteAmount = EmergencyLoanController.parseAmount(streamReadString(s)),
-    }
+    back:readStream(s, nil)
     T.eq("wire: no type mismatch", s.typeErrors, 0)
     T.eq("wire: no underflow (write and read agree on the field count)", s.underflows, 0)
     T.eq("wire: the queue drained exactly", s.r, #s.q + 1)
+    T.eq("wire: it is a reply", back.isReply, true)
+    T.eq("wire: status survives", back.payload.status, "OK")
+    T.eq("wire: sequence survives", back.payload.sequence, 12)
+    T.near("wire: cash survives", back.payload.cash, 500, 1e-6)
+    T.eq("wire: canRepay survives", back.payload.canRepay, true)
     T.eq("wire: token survives", back.payload.token, "q1")
     T.near("wire: the bound amount survives", back.payload.quoteAmount, 500, 1e-6)
 
     local s2 = _sfMockStream()
     EmergencyLoanEvent.newReply({ status = "OK", token = "" }):writeStream(s2, nil)
-    streamReadBool(s2)                       -- isReply
-    streamReadString(s2)                     -- status
-    streamReadUIntN(s2, 31)                  -- sequence
-    streamReadString(s2); streamReadString(s2); streamReadString(s2)  -- cash/outstanding/offer
-    streamReadBool(s2); streamReadBool(s2)   -- canBorrow/canRepay
-    streamReadString(s2)                     -- token
-    T.eq("wire: a reply with no quote reads back nil, not 0",
-        EmergencyLoanController.parseAmount(streamReadString(s2)), nil)
+    local back2 = EmergencyLoanEvent.emptyNew()
+    back2:readStream(s2, nil)
+    T.eq("wire: a reply with no quote reads back nil, not 0", back2.payload.quoteAmount, nil)
     T.eq("wire: reading the unquoted reply stayed in step", s2.typeErrors, 0)
+    T.eq("wire: the unquoted reply drained exactly", s2.r, #s2.q + 1)
 end
 
 -- ── the server binds ITS amount: clamped to cash ─────────────────────────────

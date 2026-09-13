@@ -31,6 +31,10 @@ for name, code in pairs(EmergencyLoanController.OP) do EmergencyLoanController.O
 EmergencyLoanController.MAX_SEQUENCE = 2147483647  -- positive 31-bit
 EmergencyLoanController.MAX_TOKEN_LEN = 64
 EmergencyLoanController.MAX_AMOUNT_LEN = 32
+-- [C3/F130] bounds for the forecast part of the reply wire.
+EmergencyLoanController.MAX_CODE_LEN     = 32   -- status / reason / basis / sourceId text
+EmergencyLoanController.MAX_COST_ENTRIES = 8    -- known or estimated cost rows per reply
+EmergencyLoanController.MAX_MISSING_LEN  = 255  -- comma-joined missingInputs codes
 
 local function finite(v)
     return type(v) == "number" and v == v and v ~= math.huge and v ~= -math.huge
@@ -55,6 +59,48 @@ function EmergencyLoanController.encodeAmount(v)
     local text = string.format("%.6f", n)
     if #text > EmergencyLoanController.MAX_AMOUNT_LEN then return "" end
     return text
+end
+
+--- Bounded code text for the wire ("" carries nil).
+function EmergencyLoanController.encodeCode(v)
+    if v == nil then return "" end
+    return tostring(v):sub(1, EmergencyLoanController.MAX_CODE_LEN)
+end
+
+--- "" reads back as nil (unknown), never as an empty reason.
+function EmergencyLoanController.decodeCode(text)
+    if type(text) ~= "string" or text == "" then return nil end
+    return text
+end
+
+--- Non-negative whole day/ms values; -1 carries nil so unknown never reads as day 0.
+function EmergencyLoanController.encodeOptInt(v)
+    local n = tonumber(v)
+    if n == nil or n ~= n or n < 0 or n > EmergencyLoanController.MAX_SEQUENCE then return -1 end
+    return math.floor(n)
+end
+
+function EmergencyLoanController.decodeOptInt(n)
+    if type(n) ~= "number" or n < 0 then return nil end
+    return n
+end
+
+--- missingInputs as one bounded comma-joined string (codes are [A-Z_] words).
+function EmergencyLoanController.encodeMissing(list)
+    if type(list) ~= "table" then return "" end
+    local parts = {}
+    for _, code in ipairs(list) do
+        local c = tostring(code):gsub("[^%w_]", "")
+        if c ~= "" then parts[#parts + 1] = c end
+    end
+    return table.concat(parts, ","):sub(1, EmergencyLoanController.MAX_MISSING_LEN)
+end
+
+function EmergencyLoanController.decodeMissing(text)
+    local list = {}
+    if type(text) ~= "string" then return list end
+    for code in text:gmatch("[^,]+") do list[#list + 1] = code end
+    return list
 end
 
 --- Core money-safety decision for a manual repay/payoff command against one account.
@@ -235,7 +281,107 @@ function EmergencyLoanEvent:writeStream(streamId, connection)
         -- The EXACT amount this quote binds, so the client confirms the server's sum
         -- rather than the one the player typed. "" when no quote is attached.
         streamWriteString(streamId, EmergencyLoanController.encodeAmount(p.quoteAmount))
+        EmergencyLoanEvent.writeForecast(streamId, p)
     end
+end
+
+-- [C3/F130] The forecast/debt detail of the version-1 view, appended AFTER the compact
+-- fields above so the read side stays in step. Money is nil-preserving decimal text
+-- (encodeAmount), codes are bounded strings, day counters carry -1 for unknown, and
+-- the two cost lists are capped at MAX_COST_ENTRIES rows. Read order mirrors write order.
+function EmergencyLoanEvent.writeForecast(streamId, p)
+    local C = EmergencyLoanController
+    streamWriteUInt8(streamId, math.max(0, math.min(tonumber(p.version) or 0, 255)))
+    streamWriteUInt8(streamId, math.max(0, math.min(tonumber(p.farmId) or 0, 255)))
+    streamWriteUIntN(streamId, math.max(0, math.min(tonumber(p.revision) or 0, C.MAX_SEQUENCE)), 31)
+    streamWriteString(streamId, C.encodeCode(p.readiness))
+    streamWriteString(streamId, C.encodeAmount(p.principal))
+    streamWriteString(streamId, C.encodeAmount(p.accruedInterest))
+    streamWriteString(streamId, C.encodeAmount(p.nativeLoan))
+    streamWriteUInt8(streamId, math.max(0, math.min(tonumber(p.drawCount) or 0, 255)))
+    streamWriteString(streamId, C.encodeAmount(p.effectiveMonthlyRate))
+    streamWriteString(streamId, C.encodeCode(p.costLockReason))
+    streamWriteString(streamId, C.encodeAmount(p.automaticRepaymentShare))
+    streamWriteString(streamId, C.encodeCode(p.forecastStatus))
+    streamWriteInt32(streamId, C.encodeOptInt(type(p.asOf) == "table" and p.asOf.monotonicDay or nil))
+    streamWriteInt32(streamId, C.encodeOptInt(type(p.horizonEnd) == "table" and p.horizonEnd.monotonicDay or nil))
+    streamWriteString(streamId, C.encodeAmount(p.minimumBalance))
+    streamWriteString(streamId, C.encodeAmount(p.shortfall))
+    streamWriteString(streamId, C.encodeAmount(p.expectedGrossIncome))
+    streamWriteString(streamId, C.encodeAmount(p.expectedNetIncome))
+    streamWriteString(streamId, C.encodeCode(p.workingCashBasis))
+    streamWriteString(streamId, C.encodeAmount(p.workingCashAmount))
+    EmergencyLoanEvent.writeCostList(streamId, p.knownCosts)
+    EmergencyLoanEvent.writeCostList(streamId, p.estimatedCosts)
+    streamWriteString(streamId, C.encodeMissing(p.missingInputs))
+    streamWriteString(streamId, C.encodeCode(p.borrowReason))
+    streamWriteString(streamId, C.encodeCode(p.repayReason))
+end
+
+function EmergencyLoanEvent.readForecast(streamId, p)
+    local C = EmergencyLoanController
+    p.version                 = streamReadUInt8(streamId)
+    local farmId              = streamReadUInt8(streamId)
+    p.farmId                  = (farmId ~= nil and farmId > 0) and farmId or nil
+    p.revision                = streamReadUIntN(streamId, 31)
+    p.readiness               = C.decodeCode(streamReadString(streamId))
+    p.principal               = C.parseAmount(streamReadString(streamId))
+    p.accruedInterest         = C.parseAmount(streamReadString(streamId))
+    p.nativeLoan              = C.parseAmount(streamReadString(streamId))
+    p.drawCount               = streamReadUInt8(streamId)
+    p.effectiveMonthlyRate    = C.parseAmount(streamReadString(streamId))
+    p.costLockReason          = C.decodeCode(streamReadString(streamId))
+    p.automaticRepaymentShare = C.parseAmount(streamReadString(streamId))
+    p.forecastStatus          = C.decodeCode(streamReadString(streamId))
+    local asOfDay             = C.decodeOptInt(streamReadInt32(streamId))
+    local horizonDay          = C.decodeOptInt(streamReadInt32(streamId))
+    p.asOf                    = asOfDay and { monotonicDay = asOfDay } or nil
+    p.horizonEnd              = horizonDay and { monotonicDay = horizonDay } or nil
+    p.minimumBalance          = C.parseAmount(streamReadString(streamId))
+    p.shortfall               = C.parseAmount(streamReadString(streamId))
+    p.expectedGrossIncome     = C.parseAmount(streamReadString(streamId))
+    p.expectedNetIncome       = C.parseAmount(streamReadString(streamId))
+    p.workingCashBasis        = C.decodeCode(streamReadString(streamId))
+    p.workingCashAmount       = C.parseAmount(streamReadString(streamId))
+    p.knownCosts              = EmergencyLoanEvent.readCostList(streamId)
+    p.estimatedCosts          = EmergencyLoanEvent.readCostList(streamId)
+    p.missingInputs           = C.decodeMissing(streamReadString(streamId))
+    p.borrowReason            = C.decodeCode(streamReadString(streamId))
+    p.repayReason             = C.decodeCode(streamReadString(streamId))
+    return p
+end
+
+--- A bounded list of { sourceId, amount, basis, dueDay, dueTimeMs } rows. A nil list
+--- writes 0 rows; the reader always returns a table so the band can sum it.
+function EmergencyLoanEvent.writeCostList(streamId, list)
+    local C = EmergencyLoanController
+    local n = 0
+    if type(list) == "table" then n = math.min(#list, C.MAX_COST_ENTRIES) end
+    streamWriteUInt8(streamId, n)
+    for i = 1, n do
+        local e = type(list[i]) == "table" and list[i] or {}
+        streamWriteString(streamId, C.encodeCode(e.sourceId))
+        streamWriteString(streamId, C.encodeAmount(e.amount))
+        streamWriteString(streamId, C.encodeCode(e.basis))
+        streamWriteInt32(streamId, C.encodeOptInt(e.dueDay))
+        streamWriteInt32(streamId, C.encodeOptInt(e.dueTimeMs))
+    end
+end
+
+function EmergencyLoanEvent.readCostList(streamId)
+    local C = EmergencyLoanController
+    local n = streamReadUInt8(streamId) or 0
+    local list = {}
+    for i = 1, n do
+        list[i] = {
+            sourceId  = C.decodeCode(streamReadString(streamId)),
+            amount    = C.parseAmount(streamReadString(streamId)),
+            basis     = C.decodeCode(streamReadString(streamId)),
+            dueDay    = C.decodeOptInt(streamReadInt32(streamId)),
+            dueTimeMs = C.decodeOptInt(streamReadInt32(streamId)),
+        }
+    end
+    return list
 end
 
 function EmergencyLoanEvent:readStream(streamId, connection)
@@ -257,6 +403,7 @@ function EmergencyLoanEvent:readStream(streamId, connection)
             token       = streamReadString(streamId),
             quoteAmount = EmergencyLoanController.parseAmount(streamReadString(streamId)),
         }
+        EmergencyLoanEvent.readForecast(streamId, self.payload)
     end
     self:run(connection)
 end

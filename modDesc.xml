@@ -2679,6 +2679,762 @@
             <tr><![CDATA[Tutar değişti. Bakiyeyi kontrol edip tekrar deneyin.]]></tr>
             <vi><![CDATA[Số tiền đã thay đổi. Hãy kiểm tra số dư và thử lại.]]></vi>
         </text>
+        <text name="im_loan_fc_income">
+            <en><![CDATA[Expected regular income]]></en>
+            <de><![CDATA[Erwartetes regelmäßiges Einkommen]]></de>
+            <fr><![CDATA[Revenu régulier attendu]]></fr>
+            <pl><![CDATA[Oczekiwany regularny dochód]]></pl>
+            <es><![CDATA[Ingresos regulares previstos]]></es>
+            <it><![CDATA[Reddito regolare previsto]]></it>
+            <cz><![CDATA[Očekávaný pravidelný příjem]]></cz>
+            <br><![CDATA[Renda regular esperada]]></br>
+            <uk><![CDATA[Очікуваний регулярний дохід]]></uk>
+            <ru><![CDATA[Ожидаемый регулярный доход]]></ru>
+            <da><![CDATA[Forventet fast indkomst]]></da>
+            <ct><![CDATA[預期定期收入]]></ct>
+            <ea><![CDATA[Ingresos regulares previstos]]></ea>
+            <fc><![CDATA[Revenu régulier prévu]]></fc>
+            <fi><![CDATA[Odotettu säännöllinen tulo]]></fi>
+            <hu><![CDATA[Várható rendszeres bevétel]]></hu>
+            <id><![CDATA[Pendapatan rutin yang diharapkan]]></id>
+            <jp><![CDATA[見込み定期収入]]></jp>
+            <kr><![CDATA[예상 정기 수입]]></kr>
+            <nl><![CDATA[Verwacht regulier inkomen]]></nl>
+            <no><![CDATA[Forventet fast inntekt]]></no>
+            <pt><![CDATA[Rendimento regular previsto]]></pt>
+            <ro><![CDATA[Venit regulat estimat]]></ro>
+            <sv><![CDATA[Förväntad regelbunden inkomst]]></sv>
+            <tr><![CDATA[Beklenen düzenli gelir]]></tr>
+            <vi><![CDATA[Thu nhập định kỳ dự kiến]]></vi>
+        </text>
+        <text name="im_loan_fc_net">
+            <en><![CDATA[net]]></en>
+            <de><![CDATA[netto]]></de>
+            <fr><![CDATA[net]]></fr>
+            <pl><![CDATA[netto]]></pl>
+            <es><![CDATA[neto]]></es>
+            <it><![CDATA[netto]]></it>
+            <cz><![CDATA[čistý]]></cz>
+            <br><![CDATA[líquido]]></br>
+            <uk><![CDATA[чистий]]></uk>
+            <ru><![CDATA[чистый]]></ru>
+            <da><![CDATA[netto]]></da>
+            <ct><![CDATA[淨額]]></ct>
+            <ea><![CDATA[neto]]></ea>
+            <fc><![CDATA[net]]></fc>
+            <fi><![CDATA[netto]]></fi>
+            <hu><![CDATA[nettó]]></hu>
+            <id><![CDATA[bersih]]></id>
+            <jp><![CDATA[手取り]]></jp>
+            <kr><![CDATA[순수입]]></kr>
+            <nl><![CDATA[netto]]></nl>
+            <no><![CDATA[netto]]></no>
+            <pt><![CDATA[líquido]]></pt>
+            <ro><![CDATA[net]]></ro>
+            <sv><![CDATA[netto]]></sv>
+            <tr><![CDATA[net]]></tr>
+            <vi><![CDATA[ròng]]></vi>
+        </text>
+        <text name="im_loan_fc_bills">
+            <en><![CDATA[Known bills]]></en>
+            <de><![CDATA[Bekannte Rechnungen]]></de>
+            <fr><![CDATA[Factures connues]]></fr>
+            <pl><![CDATA[Znane rachunki]]></pl>
+            <es><![CDATA[Facturas conocidas]]></es>
+            <it><![CDATA[Spese note]]></it>
+            <cz><![CDATA[Známé účty]]></cz>
+            <br><![CDATA[Contas conhecidas]]></br>
+            <uk><![CDATA[Відомі рахунки]]></uk>
+            <ru><![CDATA[Известные счета]]></ru>
+            <da><![CDATA[Kendte regninger]]></da>
+            <ct><![CDATA[已知帳單]]></ct>
+            <ea><![CDATA[Facturas conocidas]]></ea>
+            <fc><![CDATA[Factures connues]]></fc>
+            <fi><![CDATA[Tiedossa olevat laskut]]></fi>
+            <hu><![CDATA[Ismert számlák]]></hu>
+            <id><![CDATA[Tagihan yang diketahui]]></id>
+            <jp><![CDATA[確定している支払い]]></jp>
+            <kr><![CDATA[확정 청구액]]></kr>
+            <nl><![CDATA[Bekende rekeningen]]></nl>
+            <no><![CDATA[Kjente regninger]]></no>
+            <pt><![CDATA[Contas conhecidas]]></pt>
+            <ro><![CDATA[Facturi cunoscute]]></ro>
+            <sv><![CDATA[Kända räkningar]]></sv>
+            <tr><![CDATA[Bilinen faturalar]]></tr>
+            <vi><![CDATA[Hóa đơn đã biết]]></vi>
+        </text>
+        <text name="im_loan_fc_estimates">
+            <en><![CDATA[Recent-spending estimate]]></en>
+            <de><![CDATA[Schätzung aus letzten Ausgaben]]></de>
+            <fr><![CDATA[Estimation des dépenses récentes]]></fr>
+            <pl><![CDATA[Szacunek z ostatnich wydatków]]></pl>
+            <es><![CDATA[Estimación de gastos recientes]]></es>
+            <it><![CDATA[Stima delle spese recenti]]></it>
+            <cz><![CDATA[Odhad z nedávných výdajů]]></cz>
+            <br><![CDATA[Estimativa de gastos recentes]]></br>
+            <uk><![CDATA[Оцінка за останніми витратами]]></uk>
+            <ru><![CDATA[Оценка по недавним расходам]]></ru>
+            <da><![CDATA[Skøn ud fra seneste udgifter]]></da>
+            <ct><![CDATA[近期支出估計]]></ct>
+            <ea><![CDATA[Estimación de gastos recientes]]></ea>
+            <fc><![CDATA[Estimation des dépenses récentes]]></fc>
+            <fi><![CDATA[Arvio viimeaikaisista menoista]]></fi>
+            <hu><![CDATA[Becslés a legutóbbi kiadásokból]]></hu>
+            <id><![CDATA[Perkiraan pengeluaran terkini]]></id>
+            <jp><![CDATA[最近の支出からの推定]]></jp>
+            <kr><![CDATA[최근 지출 추정치]]></kr>
+            <nl><![CDATA[Schatting op basis van recente uitgaven]]></nl>
+            <no><![CDATA[Anslag ut fra nylige utgifter]]></no>
+            <pt><![CDATA[Estimativa de despesas recentes]]></pt>
+            <ro><![CDATA[Estimare din cheltuielile recente]]></ro>
+            <sv><![CDATA[Uppskattning från senaste utgifter]]></sv>
+            <tr><![CDATA[Son harcamalara göre tahmin]]></tr>
+            <vi><![CDATA[Ước tính từ chi tiêu gần đây]]></vi>
+        </text>
+        <text name="im_loan_fc_minimum">
+            <en><![CDATA[Projected lowest balance]]></en>
+            <de><![CDATA[Voraussichtlich niedrigster Kontostand]]></de>
+            <fr><![CDATA[Solde minimal prévu]]></fr>
+            <pl><![CDATA[Prognozowane najniższe saldo]]></pl>
+            <es><![CDATA[Saldo mínimo previsto]]></es>
+            <it><![CDATA[Saldo minimo previsto]]></it>
+            <cz><![CDATA[Předpokládaný nejnižší zůstatek]]></cz>
+            <br><![CDATA[Menor saldo previsto]]></br>
+            <uk><![CDATA[Прогнозований найнижчий баланс]]></uk>
+            <ru><![CDATA[Прогнозируемый минимальный баланс]]></ru>
+            <da><![CDATA[Forventet laveste saldo]]></da>
+            <ct><![CDATA[預計最低餘額]]></ct>
+            <ea><![CDATA[Saldo mínimo previsto]]></ea>
+            <fc><![CDATA[Solde minimal prévu]]></fc>
+            <fi><![CDATA[Ennustettu alin saldo]]></fi>
+            <hu><![CDATA[Várható legalacsonyabb egyenleg]]></hu>
+            <id><![CDATA[Perkiraan saldo terendah]]></id>
+            <jp><![CDATA[予測最低残高]]></jp>
+            <kr><![CDATA[예상 최저 잔액]]></kr>
+            <nl><![CDATA[Verwacht laagste saldo]]></nl>
+            <no><![CDATA[Forventet laveste saldo]]></no>
+            <pt><![CDATA[Saldo mínimo previsto]]></pt>
+            <ro><![CDATA[Cel mai mic sold estimat]]></ro>
+            <sv><![CDATA[Beräknat lägsta saldo]]></sv>
+            <tr><![CDATA[Öngörülen en düşük bakiye]]></tr>
+            <vi><![CDATA[Số dư thấp nhất dự kiến]]></vi>
+        </text>
+        <text name="im_loan_fc_shortage">
+            <en><![CDATA[Shortage warning]]></en>
+            <de><![CDATA[Warnung: Engpass]]></de>
+            <fr><![CDATA[Alerte de manque de trésorerie]]></fr>
+            <pl><![CDATA[Ostrzeżenie o niedoborze]]></pl>
+            <es><![CDATA[Aviso de déficit]]></es>
+            <it><![CDATA[Avviso di carenza]]></it>
+            <cz><![CDATA[Varování před nedostatkem]]></cz>
+            <br><![CDATA[Aviso de déficit]]></br>
+            <uk><![CDATA[Попередження про нестачу]]></uk>
+            <ru><![CDATA[Предупреждение о нехватке]]></ru>
+            <da><![CDATA[Advarsel om underskud]]></da>
+            <ct><![CDATA[資金短缺警告]]></ct>
+            <ea><![CDATA[Aviso de déficit]]></ea>
+            <fc><![CDATA[Alerte de manque de fonds]]></fc>
+            <fi><![CDATA[Varoitus vajeesta]]></fi>
+            <hu><![CDATA[Hiányra figyelmeztetés]]></hu>
+            <id><![CDATA[Peringatan kekurangan]]></id>
+            <jp><![CDATA[資金不足の警告]]></jp>
+            <kr><![CDATA[부족 경고]]></kr>
+            <nl><![CDATA[Waarschuwing: tekort]]></nl>
+            <no><![CDATA[Advarsel om underskudd]]></no>
+            <pt><![CDATA[Aviso de défice]]></pt>
+            <ro><![CDATA[Avertisment de deficit]]></ro>
+            <sv><![CDATA[Varning för underskott]]></sv>
+            <tr><![CDATA[Açık uyarısı]]></tr>
+            <vi><![CDATA[Cảnh báo thiếu hụt]]></vi>
+        </text>
+        <text name="im_loan_fc_status">
+            <en><![CDATA[Forecast]]></en>
+            <de><![CDATA[Prognose]]></de>
+            <fr><![CDATA[Prévision]]></fr>
+            <pl><![CDATA[Prognoza]]></pl>
+            <es><![CDATA[Previsión]]></es>
+            <it><![CDATA[Previsione]]></it>
+            <cz><![CDATA[Prognóza]]></cz>
+            <br><![CDATA[Previsão]]></br>
+            <uk><![CDATA[Прогноз]]></uk>
+            <ru><![CDATA[Прогноз]]></ru>
+            <da><![CDATA[Prognose]]></da>
+            <ct><![CDATA[預測]]></ct>
+            <ea><![CDATA[Pronóstico]]></ea>
+            <fc><![CDATA[Prévision]]></fc>
+            <fi><![CDATA[Ennuste]]></fi>
+            <hu><![CDATA[Előrejelzés]]></hu>
+            <id><![CDATA[Prakiraan]]></id>
+            <jp><![CDATA[予測]]></jp>
+            <kr><![CDATA[예측]]></kr>
+            <nl><![CDATA[Prognose]]></nl>
+            <no><![CDATA[Prognose]]></no>
+            <pt><![CDATA[Previsão]]></pt>
+            <ro><![CDATA[Prognoză]]></ro>
+            <sv><![CDATA[Prognos]]></sv>
+            <tr><![CDATA[Tahmin]]></tr>
+            <vi><![CDATA[Dự báo]]></vi>
+        </text>
+        <text name="im_loan_fc_ok">
+            <en><![CDATA[OK]]></en>
+            <de><![CDATA[OK]]></de>
+            <fr><![CDATA[OK]]></fr>
+            <pl><![CDATA[OK]]></pl>
+            <es><![CDATA[OK]]></es>
+            <it><![CDATA[OK]]></it>
+            <cz><![CDATA[OK]]></cz>
+            <br><![CDATA[OK]]></br>
+            <uk><![CDATA[OK]]></uk>
+            <ru><![CDATA[OK]]></ru>
+            <da><![CDATA[OK]]></da>
+            <ct><![CDATA[正常]]></ct>
+            <ea><![CDATA[OK]]></ea>
+            <fc><![CDATA[OK]]></fc>
+            <fi><![CDATA[OK]]></fi>
+            <hu><![CDATA[OK]]></hu>
+            <id><![CDATA[OK]]></id>
+            <jp><![CDATA[正常]]></jp>
+            <kr><![CDATA[정상]]></kr>
+            <nl><![CDATA[OK]]></nl>
+            <no><![CDATA[OK]]></no>
+            <pt><![CDATA[OK]]></pt>
+            <ro><![CDATA[OK]]></ro>
+            <sv><![CDATA[OK]]></sv>
+            <tr><![CDATA[Tamam]]></tr>
+            <vi><![CDATA[Ổn]]></vi>
+        </text>
+        <text name="im_loan_fc_partial">
+            <en><![CDATA[Partial]]></en>
+            <de><![CDATA[Unvollständig]]></de>
+            <fr><![CDATA[Partielle]]></fr>
+            <pl><![CDATA[Częściowa]]></pl>
+            <es><![CDATA[Parcial]]></es>
+            <it><![CDATA[Parziale]]></it>
+            <cz><![CDATA[Částečná]]></cz>
+            <br><![CDATA[Parcial]]></br>
+            <uk><![CDATA[Часткова]]></uk>
+            <ru><![CDATA[Частичный]]></ru>
+            <da><![CDATA[Delvis]]></da>
+            <ct><![CDATA[部分]]></ct>
+            <ea><![CDATA[Parcial]]></ea>
+            <fc><![CDATA[Partielle]]></fc>
+            <fi><![CDATA[Osittainen]]></fi>
+            <hu><![CDATA[Részleges]]></hu>
+            <id><![CDATA[Sebagian]]></id>
+            <jp><![CDATA[一部のみ]]></jp>
+            <kr><![CDATA[부분]]></kr>
+            <nl><![CDATA[Gedeeltelijk]]></nl>
+            <no><![CDATA[Delvis]]></no>
+            <pt><![CDATA[Parcial]]></pt>
+            <ro><![CDATA[Parțială]]></ro>
+            <sv><![CDATA[Delvis]]></sv>
+            <tr><![CDATA[Kısmi]]></tr>
+            <vi><![CDATA[Một phần]]></vi>
+        </text>
+        <text name="im_loan_fc_unavailable">
+            <en><![CDATA[Unavailable]]></en>
+            <de><![CDATA[Nicht verfügbar]]></de>
+            <fr><![CDATA[Indisponible]]></fr>
+            <pl><![CDATA[Niedostępna]]></pl>
+            <es><![CDATA[No disponible]]></es>
+            <it><![CDATA[Non disponibile]]></it>
+            <cz><![CDATA[Nedostupná]]></cz>
+            <br><![CDATA[Indisponível]]></br>
+            <uk><![CDATA[Недоступний]]></uk>
+            <ru><![CDATA[Недоступен]]></ru>
+            <da><![CDATA[Ikke tilgængelig]]></da>
+            <ct><![CDATA[無法使用]]></ct>
+            <ea><![CDATA[No disponible]]></ea>
+            <fc><![CDATA[Indisponible]]></fc>
+            <fi><![CDATA[Ei saatavilla]]></fi>
+            <hu><![CDATA[Nem elérhető]]></hu>
+            <id><![CDATA[Tidak tersedia]]></id>
+            <jp><![CDATA[利用不可]]></jp>
+            <kr><![CDATA[사용 불가]]></kr>
+            <nl><![CDATA[Niet beschikbaar]]></nl>
+            <no><![CDATA[Ikke tilgjengelig]]></no>
+            <pt><![CDATA[Indisponível]]></pt>
+            <ro><![CDATA[Indisponibilă]]></ro>
+            <sv><![CDATA[Inte tillgänglig]]></sv>
+            <tr><![CDATA[Kullanılamıyor]]></tr>
+            <vi><![CDATA[Không có]]></vi>
+        </text>
+        <text name="im_loan_fc_horizon">
+            <en><![CDATA[Horizon]]></en>
+            <de><![CDATA[Zeitraum]]></de>
+            <fr><![CDATA[Horizon]]></fr>
+            <pl><![CDATA[Horyzont]]></pl>
+            <es><![CDATA[Horizonte]]></es>
+            <it><![CDATA[Orizzonte]]></it>
+            <cz><![CDATA[Horizont]]></cz>
+            <br><![CDATA[Horizonte]]></br>
+            <uk><![CDATA[Горизонт]]></uk>
+            <ru><![CDATA[Горизонт]]></ru>
+            <da><![CDATA[Horisont]]></da>
+            <ct><![CDATA[預測期間]]></ct>
+            <ea><![CDATA[Horizonte]]></ea>
+            <fc><![CDATA[Horizon]]></fc>
+            <fi><![CDATA[Aikaväli]]></fi>
+            <hu><![CDATA[Időtáv]]></hu>
+            <id><![CDATA[Jangka waktu]]></id>
+            <jp><![CDATA[予測期間]]></jp>
+            <kr><![CDATA[예측 기간]]></kr>
+            <nl><![CDATA[Horizon]]></nl>
+            <no><![CDATA[Horisont]]></no>
+            <pt><![CDATA[Horizonte]]></pt>
+            <ro><![CDATA[Orizont]]></ro>
+            <sv><![CDATA[Horisont]]></sv>
+            <tr><![CDATA[Dönem]]></tr>
+            <vi><![CDATA[Khoảng dự báo]]></vi>
+        </text>
+        <text name="im_loan_fc_days">
+            <en><![CDATA[%d days]]></en>
+            <de><![CDATA[%d Tage]]></de>
+            <fr><![CDATA[%d jours]]></fr>
+            <pl><![CDATA[%d dni]]></pl>
+            <es><![CDATA[%d días]]></es>
+            <it><![CDATA[%d giorni]]></it>
+            <cz><![CDATA[%d dní]]></cz>
+            <br><![CDATA[%d dias]]></br>
+            <uk><![CDATA[%d дн.]]></uk>
+            <ru><![CDATA[%d дн.]]></ru>
+            <da><![CDATA[%d dage]]></da>
+            <ct><![CDATA[%d 天]]></ct>
+            <ea><![CDATA[%d días]]></ea>
+            <fc><![CDATA[%d jours]]></fc>
+            <fi><![CDATA[%d päivää]]></fi>
+            <hu><![CDATA[%d nap]]></hu>
+            <id><![CDATA[%d hari]]></id>
+            <jp><![CDATA[%d日]]></jp>
+            <kr><![CDATA[%d일]]></kr>
+            <nl><![CDATA[%d dagen]]></nl>
+            <no><![CDATA[%d dager]]></no>
+            <pt><![CDATA[%d dias]]></pt>
+            <ro><![CDATA[%d zile]]></ro>
+            <sv><![CDATA[%d dagar]]></sv>
+            <tr><![CDATA[%d gün]]></tr>
+            <vi><![CDATA[%d ngày]]></vi>
+        </text>
+        <text name="im_loan_fc_missing">
+            <en><![CDATA[Not covered]]></en>
+            <de><![CDATA[Nicht abgedeckt]]></de>
+            <fr><![CDATA[Non couvert]]></fr>
+            <pl><![CDATA[Nieuwzględnione]]></pl>
+            <es><![CDATA[No cubierto]]></es>
+            <it><![CDATA[Non coperto]]></it>
+            <cz><![CDATA[Nezahrnuto]]></cz>
+            <br><![CDATA[Não coberto]]></br>
+            <uk><![CDATA[Не враховано]]></uk>
+            <ru><![CDATA[Не учтено]]></ru>
+            <da><![CDATA[Ikke dækket]]></da>
+            <ct><![CDATA[未涵蓋]]></ct>
+            <ea><![CDATA[No cubierto]]></ea>
+            <fc><![CDATA[Non couvert]]></fc>
+            <fi><![CDATA[Ei katettu]]></fi>
+            <hu><![CDATA[Nincs lefedve]]></hu>
+            <id><![CDATA[Tidak tercakup]]></id>
+            <jp><![CDATA[対象外]]></jp>
+            <kr><![CDATA[미반영]]></kr>
+            <nl><![CDATA[Niet gedekt]]></nl>
+            <no><![CDATA[Ikke dekket]]></no>
+            <pt><![CDATA[Não coberto]]></pt>
+            <ro><![CDATA[Neacoperit]]></ro>
+            <sv><![CDATA[Ej täckt]]></sv>
+            <tr><![CDATA[Kapsam dışı]]></tr>
+            <vi><![CDATA[Chưa tính]]></vi>
+        </text>
+        <text name="im_loan_fc_basis">
+            <en><![CDATA[Working cash]]></en>
+            <de><![CDATA[Betriebsreserve]]></de>
+            <fr><![CDATA[Fonds de roulement]]></fr>
+            <pl><![CDATA[Rezerwa gotówkowa]]></pl>
+            <es><![CDATA[Reserva de efectivo]]></es>
+            <it><![CDATA[Riserva di cassa]]></it>
+            <cz><![CDATA[Provozní rezerva]]></cz>
+            <br><![CDATA[Reserva de caixa]]></br>
+            <uk><![CDATA[Оборотні кошти]]></uk>
+            <ru><![CDATA[Оборотные средства]]></ru>
+            <da><![CDATA[Driftsreserve]]></da>
+            <ct><![CDATA[營運現金]]></ct>
+            <ea><![CDATA[Reserva de efectivo]]></ea>
+            <fc><![CDATA[Fonds de roulement]]></fc>
+            <fi><![CDATA[Käyttövara]]></fi>
+            <hu><![CDATA[Működési tartalék]]></hu>
+            <id><![CDATA[Kas operasional]]></id>
+            <jp><![CDATA[運転資金]]></jp>
+            <kr><![CDATA[운영 자금]]></kr>
+            <nl><![CDATA[Werkkapitaal]]></nl>
+            <no><![CDATA[Driftsreserve]]></no>
+            <pt><![CDATA[Reserva de caixa]]></pt>
+            <ro><![CDATA[Rezervă de numerar]]></ro>
+            <sv><![CDATA[Driftreserv]]></sv>
+            <tr><![CDATA[İşletme nakdi]]></tr>
+            <vi><![CDATA[Tiền dự phòng]]></vi>
+        </text>
+        <text name="im_loan_fc_basis_half">
+            <en><![CDATA[half a period's regular income]]></en>
+            <de><![CDATA[halbes regelmäßiges Periodeneinkommen]]></de>
+            <fr><![CDATA[moitié du revenu régulier d'une période]]></fr>
+            <pl><![CDATA[połowa regularnego dochodu z okresu]]></pl>
+            <es><![CDATA[mitad de los ingresos regulares de un periodo]]></es>
+            <it><![CDATA[metà del reddito regolare di un periodo]]></it>
+            <cz><![CDATA[polovina pravidelného příjmu za období]]></cz>
+            <br><![CDATA[metade da renda regular de um período]]></br>
+            <uk><![CDATA[половина регулярного доходу за період]]></uk>
+            <ru><![CDATA[половина регулярного дохода за период]]></ru>
+            <da><![CDATA[halvdelen af en periodes faste indkomst]]></da>
+            <ct><![CDATA[半個週期的定期收入]]></ct>
+            <ea><![CDATA[mitad de los ingresos regulares de un periodo]]></ea>
+            <fc><![CDATA[moitié du revenu régulier d'une période]]></fc>
+            <fi><![CDATA[puolet jakson säännöllisestä tulosta]]></fi>
+            <hu><![CDATA[egy időszak rendszeres bevételének fele]]></hu>
+            <id><![CDATA[setengah pendapatan rutin satu periode]]></id>
+            <jp><![CDATA[1期間の定期収入の半分]]></jp>
+            <kr><![CDATA[한 기간 정기 수입의 절반]]></kr>
+            <nl><![CDATA[de helft van het reguliere inkomen van een periode]]></nl>
+            <no><![CDATA[halvparten av en periodes faste inntekt]]></no>
+            <pt><![CDATA[metade do rendimento regular de um período]]></pt>
+            <ro><![CDATA[jumătate din venitul regulat al unei perioade]]></ro>
+            <sv><![CDATA[hälften av en periods regelbundna inkomst]]></sv>
+            <tr><![CDATA[bir dönemin düzenli gelirinin yarısı]]></tr>
+            <vi><![CDATA[một nửa thu nhập định kỳ của một kỳ]]></vi>
+        </text>
+        <text name="im_loan_fc_basis_fallback">
+            <en><![CDATA[10,000 fallback]]></en>
+            <de><![CDATA[Rückfallwert 10.000]]></de>
+            <fr><![CDATA[valeur par défaut de 10 000]]></fr>
+            <pl><![CDATA[wartość domyślna 10 000]]></pl>
+            <es><![CDATA[valor por defecto de 10 000]]></es>
+            <it><![CDATA[valore predefinito di 10.000]]></it>
+            <cz><![CDATA[výchozí hodnota 10 000]]></cz>
+            <br><![CDATA[valor padrão de 10.000]]></br>
+            <uk><![CDATA[резервне значення 10 000]]></uk>
+            <ru><![CDATA[резервное значение 10 000]]></ru>
+            <da><![CDATA[standardværdi 10.000]]></da>
+            <ct><![CDATA[預設值 10,000]]></ct>
+            <ea><![CDATA[valor por defecto de 10 000]]></ea>
+            <fc><![CDATA[valeur par défaut de 10 000]]></fc>
+            <fi><![CDATA[oletusarvo 10 000]]></fi>
+            <hu><![CDATA[alapértelmezett 10 000]]></hu>
+            <id><![CDATA[nilai cadangan 10.000]]></id>
+            <jp><![CDATA[既定値 10,000]]></jp>
+            <kr><![CDATA[기본값 10,000]]></kr>
+            <nl><![CDATA[standaardwaarde 10.000]]></nl>
+            <no><![CDATA[standardverdi 10 000]]></no>
+            <pt><![CDATA[valor por defeito de 10 000]]></pt>
+            <ro><![CDATA[valoare implicită de 10.000]]></ro>
+            <sv><![CDATA[standardvärde 10 000]]></sv>
+            <tr><![CDATA[varsayılan 10.000]]></tr>
+            <vi><![CDATA[mức mặc định 10.000]]></vi>
+        </text>
+        <text name="im_loan_miss_invalid_clock">
+            <en><![CDATA[game clock unavailable]]></en>
+            <de><![CDATA[Spieluhr nicht verfügbar]]></de>
+            <fr><![CDATA[horloge du jeu indisponible]]></fr>
+            <pl><![CDATA[zegar gry niedostępny]]></pl>
+            <es><![CDATA[reloj del juego no disponible]]></es>
+            <it><![CDATA[orologio di gioco non disponibile]]></it>
+            <cz><![CDATA[herní čas není k dispozici]]></cz>
+            <br><![CDATA[relógio do jogo indisponível]]></br>
+            <uk><![CDATA[ігровий годинник недоступний]]></uk>
+            <ru><![CDATA[игровые часы недоступны]]></ru>
+            <da><![CDATA[spillets ur er ikke tilgængeligt]]></da>
+            <ct><![CDATA[遊戲時鐘無法使用]]></ct>
+            <ea><![CDATA[reloj del juego no disponible]]></ea>
+            <fc><![CDATA[horloge du jeu indisponible]]></fc>
+            <fi><![CDATA[pelin kello ei saatavilla]]></fi>
+            <hu><![CDATA[a játékóra nem elérhető]]></hu>
+            <id><![CDATA[jam permainan tidak tersedia]]></id>
+            <jp><![CDATA[ゲーム内時計が利用できません]]></jp>
+            <kr><![CDATA[게임 시계를 사용할 수 없음]]></kr>
+            <nl><![CDATA[spelklok niet beschikbaar]]></nl>
+            <no><![CDATA[spillklokken er ikke tilgjengelig]]></no>
+            <pt><![CDATA[relógio do jogo indisponível]]></pt>
+            <ro><![CDATA[ceasul jocului indisponibil]]></ro>
+            <sv><![CDATA[spelklockan är inte tillgänglig]]></sv>
+            <tr><![CDATA[oyun saati kullanılamıyor]]></tr>
+            <vi><![CDATA[không có đồng hồ trò chơi]]></vi>
+        </text>
+        <text name="im_loan_miss_no_balance">
+            <en><![CDATA[farm balance unavailable]]></en>
+            <de><![CDATA[Hofkontostand nicht verfügbar]]></de>
+            <fr><![CDATA[solde de la ferme indisponible]]></fr>
+            <pl><![CDATA[saldo gospodarstwa niedostępne]]></pl>
+            <es><![CDATA[saldo de la granja no disponible]]></es>
+            <it><![CDATA[saldo della fattoria non disponibile]]></it>
+            <cz><![CDATA[zůstatek farmy není k dispozici]]></cz>
+            <br><![CDATA[saldo da fazenda indisponível]]></br>
+            <uk><![CDATA[баланс ферми недоступний]]></uk>
+            <ru><![CDATA[баланс фермы недоступен]]></ru>
+            <da><![CDATA[gårdens saldo er ikke tilgængelig]]></da>
+            <ct><![CDATA[農場餘額無法取得]]></ct>
+            <ea><![CDATA[saldo de la granja no disponible]]></ea>
+            <fc><![CDATA[solde de la ferme indisponible]]></fc>
+            <fi><![CDATA[tilan saldo ei saatavilla]]></fi>
+            <hu><![CDATA[a farm egyenlege nem elérhető]]></hu>
+            <id><![CDATA[saldo pertanian tidak tersedia]]></id>
+            <jp><![CDATA[農場残高が取得できません]]></jp>
+            <kr><![CDATA[농장 잔액을 확인할 수 없음]]></kr>
+            <nl><![CDATA[saldo van de boerderij niet beschikbaar]]></nl>
+            <no><![CDATA[gårdens saldo er ikke tilgjengelig]]></no>
+            <pt><![CDATA[saldo da quinta indisponível]]></pt>
+            <ro><![CDATA[soldul fermei indisponibil]]></ro>
+            <sv><![CDATA[gårdens saldo är inte tillgängligt]]></sv>
+            <tr><![CDATA[çiftlik bakiyesi alınamıyor]]></tr>
+            <vi><![CDATA[không có số dư nông trại]]></vi>
+        </text>
+        <text name="im_loan_miss_payroll_absent">
+            <en><![CDATA[payroll mod not installed]]></en>
+            <de><![CDATA[Lohn-Mod nicht installiert]]></de>
+            <fr><![CDATA[mod de paie non installé]]></fr>
+            <pl><![CDATA[mod wynagrodzeń nie jest zainstalowany]]></pl>
+            <es><![CDATA[mod de nóminas no instalado]]></es>
+            <it><![CDATA[mod delle paghe non installata]]></it>
+            <cz><![CDATA[mzdový mod není nainstalován]]></cz>
+            <br><![CDATA[mod de folha de pagamento não instalado]]></br>
+            <uk><![CDATA[мод зарплат не встановлено]]></uk>
+            <ru><![CDATA[мод зарплат не установлен]]></ru>
+            <da><![CDATA[løn-mod ikke installeret]]></da>
+            <ct><![CDATA[未安裝薪資模組]]></ct>
+            <ea><![CDATA[mod de nómina no instalado]]></ea>
+            <fc><![CDATA[mod de paie non installé]]></fc>
+            <fi><![CDATA[palkkamodia ei ole asennettu]]></fi>
+            <hu><![CDATA[a bérezési mod nincs telepítve]]></hu>
+            <id><![CDATA[mod penggajian tidak terpasang]]></id>
+            <jp><![CDATA[給与モッドが未導入]]></jp>
+            <kr><![CDATA[급여 모드가 설치되지 않음]]></kr>
+            <nl><![CDATA[loonmod niet geïnstalleerd]]></nl>
+            <no><![CDATA[lønnsmod ikke installert]]></no>
+            <pt><![CDATA[mod de salários não instalado]]></pt>
+            <ro><![CDATA[modul de salarii nu este instalat]]></ro>
+            <sv><![CDATA[lönemod inte installerad]]></sv>
+            <tr><![CDATA[maaş modu yüklü değil]]></tr>
+            <vi><![CDATA[chưa cài mod tiền lương]]></vi>
+        </text>
+        <text name="im_loan_miss_payroll_unavailable">
+            <en><![CDATA[payroll data unavailable]]></en>
+            <de><![CDATA[Lohndaten nicht verfügbar]]></de>
+            <fr><![CDATA[données de paie indisponibles]]></fr>
+            <pl><![CDATA[dane wynagrodzeń niedostępne]]></pl>
+            <es><![CDATA[datos de nóminas no disponibles]]></es>
+            <it><![CDATA[dati delle paghe non disponibili]]></it>
+            <cz><![CDATA[mzdová data nejsou k dispozici]]></cz>
+            <br><![CDATA[dados da folha de pagamento indisponíveis]]></br>
+            <uk><![CDATA[дані зарплат недоступні]]></uk>
+            <ru><![CDATA[данные о зарплатах недоступны]]></ru>
+            <da><![CDATA[løndata ikke tilgængelige]]></da>
+            <ct><![CDATA[薪資資料無法取得]]></ct>
+            <ea><![CDATA[datos de nómina no disponibles]]></ea>
+            <fc><![CDATA[données de paie indisponibles]]></fc>
+            <fi><![CDATA[palkkatiedot eivät ole saatavilla]]></fi>
+            <hu><![CDATA[a bérezési adatok nem elérhetők]]></hu>
+            <id><![CDATA[data penggajian tidak tersedia]]></id>
+            <jp><![CDATA[給与データが取得できません]]></jp>
+            <kr><![CDATA[급여 데이터를 확인할 수 없음]]></kr>
+            <nl><![CDATA[loongegevens niet beschikbaar]]></nl>
+            <no><![CDATA[lønnsdata ikke tilgjengelig]]></no>
+            <pt><![CDATA[dados de salários indisponíveis]]></pt>
+            <ro><![CDATA[datele de salarii indisponibile]]></ro>
+            <sv><![CDATA[lönedata inte tillgängliga]]></sv>
+            <tr><![CDATA[maaş verisi alınamıyor]]></tr>
+            <vi><![CDATA[không có dữ liệu tiền lương]]></vi>
+        </text>
+        <text name="im_loan_miss_payroll_partial">
+            <en><![CDATA[payroll partly estimated]]></en>
+            <de><![CDATA[Lohnkosten teilweise geschätzt]]></de>
+            <fr><![CDATA[paie partiellement estimée]]></fr>
+            <pl><![CDATA[wynagrodzenia częściowo oszacowane]]></pl>
+            <es><![CDATA[nóminas parcialmente estimadas]]></es>
+            <it><![CDATA[paghe stimate in parte]]></it>
+            <cz><![CDATA[mzdy částečně odhadnuty]]></cz>
+            <br><![CDATA[folha de pagamento parcialmente estimada]]></br>
+            <uk><![CDATA[зарплати частково оцінені]]></uk>
+            <ru><![CDATA[зарплаты оценены частично]]></ru>
+            <da><![CDATA[løn delvist skønnet]]></da>
+            <ct><![CDATA[薪資部分為估計值]]></ct>
+            <ea><![CDATA[nómina parcialmente estimada]]></ea>
+            <fc><![CDATA[paie partiellement estimée]]></fc>
+            <fi><![CDATA[palkat osittain arvioitu]]></fi>
+            <hu><![CDATA[a bérek részben becsültek]]></hu>
+            <id><![CDATA[penggajian sebagian diperkirakan]]></id>
+            <jp><![CDATA[給与は一部推定]]></jp>
+            <kr><![CDATA[급여 일부 추정]]></kr>
+            <nl><![CDATA[loon deels geschat]]></nl>
+            <no><![CDATA[lønn delvis anslått]]></no>
+            <pt><![CDATA[salários parcialmente estimados]]></pt>
+            <ro><![CDATA[salarii estimate parțial]]></ro>
+            <sv><![CDATA[löner delvis uppskattade]]></sv>
+            <tr><![CDATA[maaşlar kısmen tahmini]]></tr>
+            <vi><![CDATA[tiền lương ước tính một phần]]></vi>
+        </text>
+        <text name="im_loan_miss_tax_absent">
+            <en><![CDATA[tax mod not installed]]></en>
+            <de><![CDATA[Steuer-Mod nicht installiert]]></de>
+            <fr><![CDATA[mod d'impôts non installé]]></fr>
+            <pl><![CDATA[mod podatkowy nie jest zainstalowany]]></pl>
+            <es><![CDATA[mod de impuestos no instalado]]></es>
+            <it><![CDATA[mod delle tasse non installata]]></it>
+            <cz><![CDATA[daňový mod není nainstalován]]></cz>
+            <br><![CDATA[mod de impostos não instalado]]></br>
+            <uk><![CDATA[мод податків не встановлено]]></uk>
+            <ru><![CDATA[мод налогов не установлен]]></ru>
+            <da><![CDATA[skatte-mod ikke installeret]]></da>
+            <ct><![CDATA[未安裝稅務模組]]></ct>
+            <ea><![CDATA[mod de impuestos no instalado]]></ea>
+            <fc><![CDATA[mod d'impôts non installé]]></fc>
+            <fi><![CDATA[veromodia ei ole asennettu]]></fi>
+            <hu><![CDATA[az adómod nincs telepítve]]></hu>
+            <id><![CDATA[mod pajak tidak terpasang]]></id>
+            <jp><![CDATA[税金モッドが未導入]]></jp>
+            <kr><![CDATA[세금 모드가 설치되지 않음]]></kr>
+            <nl><![CDATA[belastingmod niet geïnstalleerd]]></nl>
+            <no><![CDATA[skattemod ikke installert]]></no>
+            <pt><![CDATA[mod de impostos não instalado]]></pt>
+            <ro><![CDATA[modul de taxe nu este instalat]]></ro>
+            <sv><![CDATA[skattemod inte installerad]]></sv>
+            <tr><![CDATA[vergi modu yüklü değil]]></tr>
+            <vi><![CDATA[chưa cài mod thuế]]></vi>
+        </text>
+        <text name="im_loan_miss_tax_unavailable">
+            <en><![CDATA[tax data unavailable]]></en>
+            <de><![CDATA[Steuerdaten nicht verfügbar]]></de>
+            <fr><![CDATA[données fiscales indisponibles]]></fr>
+            <pl><![CDATA[dane podatkowe niedostępne]]></pl>
+            <es><![CDATA[datos de impuestos no disponibles]]></es>
+            <it><![CDATA[dati fiscali non disponibili]]></it>
+            <cz><![CDATA[daňová data nejsou k dispozici]]></cz>
+            <br><![CDATA[dados de impostos indisponíveis]]></br>
+            <uk><![CDATA[податкові дані недоступні]]></uk>
+            <ru><![CDATA[налоговые данные недоступны]]></ru>
+            <da><![CDATA[skattedata ikke tilgængelige]]></da>
+            <ct><![CDATA[稅務資料無法取得]]></ct>
+            <ea><![CDATA[datos de impuestos no disponibles]]></ea>
+            <fc><![CDATA[données fiscales indisponibles]]></fc>
+            <fi><![CDATA[verotiedot eivät ole saatavilla]]></fi>
+            <hu><![CDATA[az adóadatok nem elérhetők]]></hu>
+            <id><![CDATA[data pajak tidak tersedia]]></id>
+            <jp><![CDATA[税金データが取得できません]]></jp>
+            <kr><![CDATA[세금 데이터를 확인할 수 없음]]></kr>
+            <nl><![CDATA[belastinggegevens niet beschikbaar]]></nl>
+            <no><![CDATA[skattedata ikke tilgjengelig]]></no>
+            <pt><![CDATA[dados de impostos indisponíveis]]></pt>
+            <ro><![CDATA[datele de taxe indisponibile]]></ro>
+            <sv><![CDATA[skattedata inte tillgängliga]]></sv>
+            <tr><![CDATA[vergi verisi alınamıyor]]></tr>
+            <vi><![CDATA[không có dữ liệu thuế]]></vi>
+        </text>
+        <text name="im_loan_miss_tax_partial">
+            <en><![CDATA[tax partly estimated]]></en>
+            <de><![CDATA[Steuern teilweise geschätzt]]></de>
+            <fr><![CDATA[impôts partiellement estimés]]></fr>
+            <pl><![CDATA[podatek częściowo oszacowany]]></pl>
+            <es><![CDATA[impuestos parcialmente estimados]]></es>
+            <it><![CDATA[tasse stimate in parte]]></it>
+            <cz><![CDATA[daň částečně odhadnuta]]></cz>
+            <br><![CDATA[impostos parcialmente estimados]]></br>
+            <uk><![CDATA[податки частково оцінені]]></uk>
+            <ru><![CDATA[налоги оценены частично]]></ru>
+            <da><![CDATA[skat delvist skønnet]]></da>
+            <ct><![CDATA[稅金部分為估計值]]></ct>
+            <ea><![CDATA[impuestos parcialmente estimados]]></ea>
+            <fc><![CDATA[impôts partiellement estimés]]></fc>
+            <fi><![CDATA[verot osittain arvioitu]]></fi>
+            <hu><![CDATA[az adó részben becsült]]></hu>
+            <id><![CDATA[pajak sebagian diperkirakan]]></id>
+            <jp><![CDATA[税金は一部推定]]></jp>
+            <kr><![CDATA[세금 일부 추정]]></kr>
+            <nl><![CDATA[belasting deels geschat]]></nl>
+            <no><![CDATA[skatt delvis anslått]]></no>
+            <pt><![CDATA[impostos parcialmente estimados]]></pt>
+            <ro><![CDATA[taxe estimate parțial]]></ro>
+            <sv><![CDATA[skatt delvis uppskattad]]></sv>
+            <tr><![CDATA[vergi kısmen tahmini]]></tr>
+            <vi><![CDATA[thuế ước tính một phần]]></vi>
+        </text>
+        <text name="im_loan_miss_no_operating_history">
+            <en><![CDATA[no operating-cost history]]></en>
+            <de><![CDATA[keine Betriebskosten-Historie]]></de>
+            <fr><![CDATA[aucun historique des coûts d'exploitation]]></fr>
+            <pl><![CDATA[brak historii kosztów operacyjnych]]></pl>
+            <es><![CDATA[sin historial de costes operativos]]></es>
+            <it><![CDATA[nessuno storico dei costi operativi]]></it>
+            <cz><![CDATA[žádná historie provozních nákladů]]></cz>
+            <br><![CDATA[sem histórico de custos operacionais]]></br>
+            <uk><![CDATA[немає історії операційних витрат]]></uk>
+            <ru><![CDATA[нет истории операционных расходов]]></ru>
+            <da><![CDATA[ingen historik over driftsomkostninger]]></da>
+            <ct><![CDATA[沒有營運成本紀錄]]></ct>
+            <ea><![CDATA[sin historial de costos operativos]]></ea>
+            <fc><![CDATA[aucun historique des coûts d'exploitation]]></fc>
+            <fi><![CDATA[ei käyttökustannushistoriaa]]></fi>
+            <hu><![CDATA[nincs működési költség előzmény]]></hu>
+            <id><![CDATA[tidak ada riwayat biaya operasional]]></id>
+            <jp><![CDATA[運営コストの履歴がありません]]></jp>
+            <kr><![CDATA[운영비 이력 없음]]></kr>
+            <nl><![CDATA[geen geschiedenis van bedrijfskosten]]></nl>
+            <no><![CDATA[ingen historikk over driftskostnader]]></no>
+            <pt><![CDATA[sem histórico de custos operacionais]]></pt>
+            <ro><![CDATA[fără istoric al costurilor de operare]]></ro>
+            <sv><![CDATA[ingen historik över driftskostnader]]></sv>
+            <tr><![CDATA[işletme maliyeti geçmişi yok]]></tr>
+            <vi><![CDATA[không có lịch sử chi phí vận hành]]></vi>
+        </text>
+        <text name="im_loan_miss_sleep_skips_regular_payments">
+            <en><![CDATA[payments skipped while sleeping are not guaranteed]]></en>
+            <de><![CDATA[beim Schlafen übersprungene Zahlungen sind nicht garantiert]]></de>
+            <fr><![CDATA[les paiements sautés pendant le sommeil ne sont pas garantis]]></fr>
+            <pl><![CDATA[płatności pominięte podczas snu nie są gwarantowane]]></pl>
+            <es><![CDATA[los pagos omitidos al dormir no están garantizados]]></es>
+            <it><![CDATA[i pagamenti saltati durante il sonno non sono garantiti]]></it>
+            <cz><![CDATA[platby vynechané během spánku nejsou zaručeny]]></cz>
+            <br><![CDATA[pagamentos pulados durante o sono não são garantidos]]></br>
+            <uk><![CDATA[платежі, пропущені під час сну, не гарантовані]]></uk>
+            <ru><![CDATA[платежи, пропущенные во время сна, не гарантированы]]></ru>
+            <da><![CDATA[betalinger sprunget over under søvn er ikke garanteret]]></da>
+            <ct><![CDATA[睡眠期間跳過的付款不保證發放]]></ct>
+            <ea><![CDATA[los pagos omitidos al dormir no están garantizados]]></ea>
+            <fc><![CDATA[les paiements sautés pendant le sommeil ne sont pas garantis]]></fc>
+            <fi><![CDATA[nukkuessa väliin jääneitä maksuja ei taata]]></fi>
+            <hu><![CDATA[az alvás alatt kimaradt kifizetések nem garantáltak]]></hu>
+            <id><![CDATA[pembayaran yang terlewat saat tidur tidak dijamin]]></id>
+            <jp><![CDATA[睡眠中に飛ばされた支払いは保証されません]]></jp>
+            <kr><![CDATA[수면 중 건너뛴 지급은 보장되지 않음]]></kr>
+            <nl><![CDATA[betalingen overgeslagen tijdens het slapen zijn niet gegarandeerd]]></nl>
+            <no><![CDATA[utbetalinger som hoppes over under søvn er ikke garantert]]></no>
+            <pt><![CDATA[pagamentos ignorados durante o sono não são garantidos]]></pt>
+            <ro><![CDATA[plățile sărite în timpul somnului nu sunt garantate]]></ro>
+            <sv><![CDATA[betalningar som hoppas över under sömn garanteras inte]]></sv>
+            <tr><![CDATA[uyku sırasında atlanan ödemeler garanti değildir]]></tr>
+            <vi><![CDATA[các khoản bị bỏ qua khi ngủ không được đảm bảo]]></vi>
+        </text>
+        <text name="im_loan_miss_income_disabled">
+            <en><![CDATA[regular income disabled]]></en>
+            <de><![CDATA[regelmäßiges Einkommen deaktiviert]]></de>
+            <fr><![CDATA[revenu régulier désactivé]]></fr>
+            <pl><![CDATA[regularny dochód wyłączony]]></pl>
+            <es><![CDATA[ingresos regulares desactivados]]></es>
+            <it><![CDATA[reddito regolare disattivato]]></it>
+            <cz><![CDATA[pravidelný příjem vypnut]]></cz>
+            <br><![CDATA[renda regular desativada]]></br>
+            <uk><![CDATA[регулярний дохід вимкнено]]></uk>
+            <ru><![CDATA[регулярный доход отключён]]></ru>
+            <da><![CDATA[fast indkomst deaktiveret]]></da>
+            <ct><![CDATA[定期收入已停用]]></ct>
+            <ea><![CDATA[ingresos regulares desactivados]]></ea>
+            <fc><![CDATA[revenu régulier désactivé]]></fc>
+            <fi><![CDATA[säännöllinen tulo pois käytöstä]]></fi>
+            <hu><![CDATA[a rendszeres bevétel ki van kapcsolva]]></hu>
+            <id><![CDATA[pendapatan rutin dinonaktifkan]]></id>
+            <jp><![CDATA[定期収入が無効]]></jp>
+            <kr><![CDATA[정기 수입 비활성화됨]]></kr>
+            <nl><![CDATA[regulier inkomen uitgeschakeld]]></nl>
+            <no><![CDATA[fast inntekt deaktivert]]></no>
+            <pt><![CDATA[rendimento regular desativado]]></pt>
+            <ro><![CDATA[venit regulat dezactivat]]></ro>
+            <sv><![CDATA[regelbunden inkomst inaktiverad]]></sv>
+            <tr><![CDATA[düzenli gelir devre dışı]]></tr>
+            <vi><![CDATA[thu nhập định kỳ đã tắt]]></vi>
+        </text>
     </l10n>
 
     <!--
