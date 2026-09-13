@@ -470,6 +470,22 @@ end
 function IncomeManager:onEmergencyLoanReply(payload)
     if type(payload) ~= "table" then return end
     self._emergencyView = payload
+
+    -- A reply the confirming UI is waiting on belongs to that UI, matched by the exact
+    -- sequence it sent. An older/foreign reply never resolves a pending confirmation.
+    local waiting = self._pendingResult
+    if waiting ~= nil and waiting.sequence == payload.sequence then
+        self._pendingResult = nil
+        if waiting.callback ~= nil then waiting.callback(payload) end
+        return
+    end
+    waiting = self._pendingQuote
+    if waiting ~= nil and waiting.sequence == payload.sequence then
+        self._pendingQuote = nil
+        if waiting.callback ~= nil then waiting.callback(payload) end
+        return  -- a quote awaiting player confirmation is NEVER auto-accepted
+    end
+
     if self._pendingAccept and payload.token ~= nil and payload.token ~= ""
         and g_client and g_client.getServerConnection then
         self._pendingAccept = false
@@ -489,6 +505,74 @@ function IncomeManager:uiBorrow() self:_uiQuoteThenAccept(EmergencyLoanControlle
 function IncomeManager:uiPayoff() self:_uiQuoteThenAccept(EmergencyLoanController.OP.PAYOFF_QUOTE) end
 function IncomeManager:uiManualRepay(amountText)
     self:_uiQuoteThenAccept(EmergencyLoanController.OP.MANUAL_AMOUNT_QUOTE, amountText)
+end
+
+--- Quote a player-chosen repayment amount WITHOUT accepting it. `amountText` is the
+--- untrusted typed value; the server validates it against current cash and debt and
+--- returns its own exact amount plus a one-shot token. onQuote receives that reply (or
+--- nil when no request could be sent). No money moves until uiAcceptQuote runs.
+function IncomeManager:uiManualRepayQuote(amountText, onQuote)
+    return self:_uiQuoteOnly(EmergencyLoanController.OP.MANUAL_AMOUNT_QUOTE, amountText, onQuote)
+end
+
+function IncomeManager:_uiQuoteOnly(quoteOp, amountText, onQuote)
+    local function deliver(reply) if onQuote ~= nil then onQuote(reply) end end
+    if g_currentMission and g_currentMission.getIsServer and g_currentMission:getIsServer() then
+        local reply = self:handleEmergencyLoanRequest(
+            EmergencyLoanEvent.newRequest(self:_nextLoanSequence(), quoteOp, amountText), nil)
+        if type(reply) == "table" then self._emergencyView = reply end
+        deliver(reply)
+        return true
+    end
+    if g_client and g_client.getServerConnection and EmergencyLoanEvent then
+        local seq = self:_nextLoanSequence()
+        self._pendingQuote = { sequence = seq, callback = onQuote }
+        local ok = pcall(function()
+            g_client:getServerConnection():sendEvent(
+                EmergencyLoanEvent.newRequest(seq, quoteOp, amountText))
+        end)
+        if not ok then self._pendingQuote = nil; deliver(nil) end
+        return ok
+    end
+    deliver(nil)
+    return false
+end
+
+--- Accept one already-minted quote by its token. The server re-checks rights, farm,
+--- cash and the debt revision before moving money, and consumes the token once, so a
+--- repeated confirmation cannot repeat a completed payment.
+function IncomeManager:uiAcceptQuote(token, onResult)
+    local function deliver(reply) if onResult ~= nil then onResult(reply) end end
+    if type(token) ~= "string" or token == "" then deliver(nil); return false end
+    if g_currentMission and g_currentMission.getIsServer and g_currentMission:getIsServer() then
+        local reply = self:handleEmergencyLoanRequest(
+            EmergencyLoanEvent.newRequest(self:_nextLoanSequence(),
+                EmergencyLoanController.OP.ACCEPT_QUOTE, nil, token), nil)
+        if type(reply) == "table" then self._emergencyView = reply end
+        deliver(reply)
+        return true
+    end
+    if g_client and g_client.getServerConnection and EmergencyLoanEvent then
+        local seq = self:_nextLoanSequence()
+        self._pendingResult = { sequence = seq, callback = onResult }
+        local ok = pcall(function()
+            g_client:getServerConnection():sendEvent(
+                EmergencyLoanEvent.newRequest(seq,
+                    EmergencyLoanController.OP.ACCEPT_QUOTE, nil, token))
+        end)
+        if not ok then self._pendingResult = nil; deliver(nil) end
+        return ok
+    end
+    deliver(nil)
+    return false
+end
+
+--- Drop owner-UI request state (teardown, farm/mission change). Waiting callbacks are
+--- released without being called: a torn-down dialog must never resolve a confirmation.
+function IncomeManager:clearEmergencyLoanUiState()
+    self._pendingQuote  = nil
+    self._pendingResult = nil
+    self._pendingAccept = false
 end
 
 function IncomeManager:_uiQuoteThenAccept(quoteOp, amountText)
@@ -549,6 +633,7 @@ function IncomeManager:handleEmergencyLoanRequest(event, connection)
         local token = self:_mintQuote(session, { op = "borrow", farmId = farmId, amount = offer,
             revision = (loan.debts[farmId] and loan.debts[farmId].revision) or 0 })
         local reply = self:_viewReply(view, seq); reply.token = token; reply.offer = offer
+        reply.quoteAmount = offer
         return reply
     elseif op == EmergencyLoanController.OP.MANUAL_AMOUNT_QUOTE or op == EmergencyLoanController.OP.PAYOFF_QUOTE then
         local debt = loan.debts[farmId]
@@ -567,6 +652,9 @@ function IncomeManager:handleEmergencyLoanRequest(event, connection)
         local token = self:_mintQuote(session, { op = "repay", farmId = farmId, amount = amount,
             revision = debt.revision })
         local reply = self:_viewReply(view, seq); reply.token = token
+        -- The amount the server actually bound, after clamping the requested value to
+        -- current cash and debt. The player confirms THIS sum, not the one typed.
+        reply.quoteAmount = amount
         return reply
     elseif op == EmergencyLoanController.OP.ACCEPT_QUOTE then
         local quote = session.quotes[event.token or ""]
@@ -605,6 +693,8 @@ end
 -- =========================================================
 
 function IncomeManager:delete()
+    self:clearEmergencyLoanUiState()
+
     -- Remove action events for I key (HUD) and U key (Report)
     if self.toggleHUDEventId and g_inputBinding then
         g_inputBinding:removeActionEvent(self.toggleHUDEventId)

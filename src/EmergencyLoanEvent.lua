@@ -45,6 +45,18 @@ function EmergencyLoanController.parseAmount(text)
     return n
 end
 
+--- Encode a money value as the same finite decimal text the wire accepts back.
+--- nil/non-finite/over-length encodes as "" so an UNKNOWN amount stays unknown on the
+--- far side instead of arriving as a confident zero. Never truncates a number to fit.
+function EmergencyLoanController.encodeAmount(v)
+    if v == nil then return "" end
+    local n = tonumber(v)
+    if not finite(n) then return "" end
+    local text = string.format("%.6f", n)
+    if #text > EmergencyLoanController.MAX_AMOUNT_LEN then return "" end
+    return text
+end
+
 --- Core money-safety decision for a manual repay/payoff command against one account.
 --- Pure: mutates only the passed `state` and `session` (which stand in for the real
 --- debt snapshot and the per-connection session cache). Mirrors the session-cache and
@@ -220,6 +232,9 @@ function EmergencyLoanEvent:writeStream(streamId, connection)
         streamWriteBool(streamId, p.canBorrow == true)
         streamWriteBool(streamId, p.canRepay == true)
         streamWriteString(streamId, tostring(p.token or ""):sub(1, EmergencyLoanController.MAX_TOKEN_LEN))
+        -- The EXACT amount this quote binds, so the client confirms the server's sum
+        -- rather than the one the player typed. "" when no quote is attached.
+        streamWriteString(streamId, EmergencyLoanController.encodeAmount(p.quoteAmount))
     end
 end
 
@@ -240,6 +255,7 @@ function EmergencyLoanEvent:readStream(streamId, connection)
             canBorrow   = streamReadBool(streamId),
             canRepay    = streamReadBool(streamId),
             token       = streamReadString(streamId),
+            quoteAmount = EmergencyLoanController.parseAmount(streamReadString(streamId)),
         }
     end
     self:run(connection)

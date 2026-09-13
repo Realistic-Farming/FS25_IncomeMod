@@ -170,6 +170,7 @@
         <BoxLayout profile="fs25_dialogButtonBox">
             <Button profile="buttonBack" id="closeButton" text="$l10n_button_close" onClick="onCloseDialog"/>
             <Button profile="buttonOK" id="loanBorrowButton" text="$l10n_im_loan_borrow" onClick="onClickBorrow" visible="false"/>
+            <Button profile="buttonOK" id="loanRepayAmountButton" text="$l10n_im_loan_repay_amount" onClick="onClickRepayAmount" visible="false"/>
             <Button profile="buttonOK" id="loanPayoffButton" text="$l10n_im_loan_payoff" onClick="onClickPayoff" visible="false"/>
         </BoxLayout>
 
