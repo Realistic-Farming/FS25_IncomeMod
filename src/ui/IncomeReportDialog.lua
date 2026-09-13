@@ -105,20 +105,25 @@ function IncomeReportDialog:updateLoanSection()
     if statusEl == nil then return end
     local borrowBtn = self.loanBorrowButton
     local payoffBtn = self.loanPayoffButton
-    local function setBtn(btn, vis) if btn and btn.setVisible then btn:setVisible(vis == true) end end
+    local amountBtn = self.loanRepayAmountButton
+    local pending   = self.loanPending == true
+    local function setBtn(btn, vis)
+        if btn == nil then return end
+        if btn.setVisible then btn:setVisible(vis == true) end
+        -- A request in flight disables every money action until the host answers, so a
+        -- second click cannot open a second confirmation over the same debt.
+        if btn.setDisabled then btn:setDisabled(pending) end
+    end
 
     local mgr = g_IncomeManager
     local view = (mgr and mgr.getEmergencyLoanView) and mgr:getEmergencyLoanView(nil) or nil
     if type(view) ~= "table" then
         statusEl:setText(g_i18n:getText("im_loan_none"))
-        setBtn(borrowBtn, false); setBtn(payoffBtn, false)
+        setBtn(borrowBtn, false); setBtn(payoffBtn, false); setBtn(amountBtn, false)
         return
     end
 
-    local function money(v)
-        if g_i18n and g_i18n.formatMoney then return g_i18n:formatMoney(v or 0, 0, true, true) end
-        return "$" .. tostring(math.floor((v or 0) + 0.5))
-    end
+    local function money(v) return self:formatLoanMoney(v) end
     local outstanding = view.outstanding or 0
     if outstanding and outstanding > 0 then
         local principal = view.principal or outstanding
@@ -136,6 +141,134 @@ function IncomeReportDialog:updateLoanSection()
     end
     setBtn(borrowBtn, view.canBorrow == true)
     setBtn(payoffBtn, view.canRepay == true and outstanding > 0)
+    setBtn(amountBtn, view.canRepay == true and outstanding > 0)
+end
+
+-- =========================================================
+-- [C3/F130] Chosen-amount repayment
+-- =========================================================
+-- The player path the host brief requires: type an amount, see the amount the SERVER
+-- bound after clamping it to real cash and debt, and confirm that exact sum. The typed
+-- value is never a money instruction; every step below re-enters the owner controller,
+-- which re-checks rights, farm, cash and the debt revision before anything moves.
+
+--- Gate every money action while one request is in flight.
+function IncomeReportDialog:setLoanPending(pending)
+    self.loanPending = pending == true
+    self:updateLoanSection()
+end
+
+local function loanText(key) return g_i18n and g_i18n:getText(key) or key end
+
+function IncomeReportDialog:formatLoanMoney(value)
+    if g_i18n and g_i18n.formatMoney then return g_i18n:formatMoney(value or 0, 0, true, true) end
+    return "$" .. tostring(math.floor((value or 0) + 0.5))
+end
+
+--- Step 1: ask for the amount. Uses the closure form of TextInputDialog (target nil),
+--- which is the branch that hands the callback the real entered text.
+function IncomeReportDialog:onClickRepayAmount()
+    if self.loanPending then return end
+    local mgr = g_IncomeManager
+    if mgr == nil or mgr.uiManualRepayQuote == nil then return end
+    if TextInputDialog == nil or TextInputDialog.show == nil then return end
+
+    local maxChars = (EmergencyLoanController and EmergencyLoanController.MAX_AMOUNT_LEN) or 32
+    TextInputDialog.show(function(enteredText, clickOk)
+        if clickOk ~= true then return end
+        self:onRepayAmountEntered(enteredText)
+    end, nil, "", loanText("im_loan_amount_prompt"), loanText("im_loan_amount_prompt"),
+        maxChars, loanText("button_ok"))
+end
+
+--- Step 2: local sanity only (the same finite decimal grammar the wire accepts), then
+--- ask the host to quote it. A malformed entry is refused here instead of travelling.
+function IncomeReportDialog:onRepayAmountEntered(enteredText)
+    local parse = EmergencyLoanController and EmergencyLoanController.parseAmount
+    local requested = parse and parse(enteredText) or nil
+    if requested == nil or requested <= 0 then
+        if InfoDialog and InfoDialog.show then
+            InfoDialog.show(loanText("im_loan_amount_invalid"))
+        end
+        return
+    end
+
+    self:setLoanPending(true)
+    self.loanRequestedAmount = requested
+    local mgr = g_IncomeManager
+    local sent = mgr:uiManualRepayQuote(enteredText, function(reply) self:onRepayQuote(reply) end)
+    if sent ~= true then self:onRepayQuote(nil) end
+end
+
+--- Step 3: confirm the SERVER's amount. When the host bound less than was asked for
+--- (only this much cash or this much debt left), the confirmation says so rather than
+--- quietly moving a different sum.
+function IncomeReportDialog:onRepayQuote(reply)
+    local token = type(reply) == "table" and reply.token or nil
+    local quoted = type(reply) == "table" and reply.quoteAmount or nil
+    if token == nil or token == "" or quoted == nil or quoted <= 0 then
+        self:setLoanPending(false)
+        self:showLoanReason(reply)
+        self:updateDisplay()
+        return
+    end
+
+    local requested = self.loanRequestedAmount
+    local message = string.format("%s %s", loanText("im_loan_confirm_text"), self:formatLoanMoney(quoted))
+    if requested ~= nil and quoted < requested then
+        message = message .. "\n" .. loanText("im_loan_confirm_clamped")
+    end
+
+    if YesNoDialog == nil or YesNoDialog.show == nil then
+        self:setLoanPending(false)
+        return
+    end
+    YesNoDialog.show(function(confirmed)
+        if confirmed ~= true then
+            self:setLoanPending(false)
+            self:updateDisplay()
+            return
+        end
+        self:acceptRepayQuote(token)
+    end, nil, message, loanText("im_loan_confirm_title"))
+end
+
+--- Step 4: accept exactly that quote. The token is consumed once by the host, so a
+--- repeated confirmation cannot repeat a completed payment.
+function IncomeReportDialog:acceptRepayQuote(token)
+    local mgr = g_IncomeManager
+    if mgr == nil or mgr.uiAcceptQuote == nil then
+        self:setLoanPending(false)
+        return
+    end
+    local sent = mgr:uiAcceptQuote(token, function(result) self:onRepayResult(result) end)
+    if sent ~= true then self:onRepayResult(nil) end
+end
+
+--- Step 5: success is shown only on the host's acknowledgement, never on the click.
+function IncomeReportDialog:onRepayResult(result)
+    self.loanRequestedAmount = nil
+    self:setLoanPending(false)
+    local status = type(result) == "table" and result.status or nil
+    if status == "ACCEPTED" then
+        if InfoDialog and InfoDialog.show then InfoDialog.show(loanText("im_loan_repaid")) end
+    else
+        self:showLoanReason(result)
+    end
+    self:updateDisplay()
+end
+
+--- Report why the host refused, using its own status code when it supplied one.
+function IncomeReportDialog:showLoanReason(reply)
+    if InfoDialog == nil or InfoDialog.show == nil then return end
+    local status = type(reply) == "table" and reply.status or nil
+    local key = "im_loan_repay_failed"
+    if status == "INSUFFICIENT_CASH" then key = "im_loan_insufficient_cash"
+    elseif status == "NOT_MANAGER" then key = "im_loan_not_manager"
+    elseif status == "NO_DEBT" then key = "im_loan_no_debt"
+    elseif status == "STALE_QUOTE" then key = "im_loan_stale_quote"
+    elseif status == "INVALID_AMOUNT" then key = "im_loan_amount_invalid" end
+    InfoDialog.show(loanText(key))
 end
 
 --- Fill the three summary rows with live settings values.
@@ -326,4 +459,10 @@ end
 
 function IncomeReportDialog:onClose()
     IncomeReportDialog:superClass().onClose(self)
+    -- Drop any in-flight confirmation with the dialog: a reply arriving after the
+    -- report is gone must not resolve a payment nobody is looking at.
+    self.loanPending = false
+    self.loanRequestedAmount = nil
+    local mgr = g_IncomeManager
+    if mgr ~= nil and mgr.clearEmergencyLoanUiState ~= nil then mgr:clearEmergencyLoanUiState() end
 end
