@@ -212,6 +212,7 @@ function IncomeReportDialog:onRepayAmountEntered(enteredText)
 
     self:setLoanPending(true)
     self.loanRequestedAmount = requested
+    self.loanQuoteKind = "amount"
     local mgr = g_IncomeManager
     local sent = mgr:uiManualRepayQuote(enteredText, function(reply) self:onRepayQuote(reply) end)
     if sent ~= true then self:onRepayQuote(nil) end
@@ -219,7 +220,8 @@ end
 
 --- Step 3: confirm the SERVER's amount. When the host bound less than was asked for
 --- (only this much cash or this much debt left), the confirmation says so rather than
---- quietly moving a different sum.
+--- quietly moving a different sum. A payoff quote confirms the exact outstanding under
+--- its own wording; it has no requested amount, so it is never "clamped".
 function IncomeReportDialog:onRepayQuote(reply)
     local token = type(reply) == "table" and reply.token or nil
     local quoted = type(reply) == "table" and reply.quoteAmount or nil
@@ -230,9 +232,12 @@ function IncomeReportDialog:onRepayQuote(reply)
         return
     end
 
+    local isPayoff = self.loanQuoteKind == "payoff"
+    local textKey  = isPayoff and "im_loan_payoff_confirm_text"  or "im_loan_confirm_text"
+    local titleKey = isPayoff and "im_loan_payoff_confirm_title" or "im_loan_confirm_title"
     local requested = self.loanRequestedAmount
-    local message = string.format("%s %s", loanText("im_loan_confirm_text"), self:formatLoanMoney(quoted))
-    if requested ~= nil and quoted < requested then
+    local message = string.format("%s %s", loanText(textKey), self:formatLoanMoney(quoted))
+    if not isPayoff and requested ~= nil and quoted < requested then
         message = message .. "\n" .. loanText("im_loan_confirm_clamped")
     end
 
@@ -247,7 +252,7 @@ function IncomeReportDialog:onRepayQuote(reply)
             return
         end
         self:acceptRepayQuote(token)
-    end, nil, message, loanText("im_loan_confirm_title"))
+    end, nil, message, loanText(titleKey))
 end
 
 --- Step 4: accept exactly that quote. The token is consumed once by the host, so a
@@ -265,6 +270,7 @@ end
 --- Step 5: success is shown only on the host's acknowledgement, never on the click.
 function IncomeReportDialog:onRepayResult(result)
     self.loanRequestedAmount = nil
+    self.loanQuoteKind = nil
     self:setLoanPending(false)
     local status = type(result) == "table" and result.status or nil
     if status == "ACCEPTED" then
@@ -444,19 +450,28 @@ function IncomeReportDialog:onClickBack()
     g_gui:closeDialogByName("IncomeReportDialog")
 end
 
--- [C3/F130] Borrow / payoff. Routed through the owner (server re-checks manager rights,
--- acting farm, cash and the quote revision before any money moves). The button is the
--- player's explicit confirmation of intent; the host re-quotes and accepts atomically.
+-- [C3/F130] Borrow. Routed through the owner (server re-checks manager rights, acting
+-- farm, cash and the quote revision before any money moves). The button is the player's
+-- explicit confirmation of intent; the host re-quotes and accepts atomically.
 function IncomeReportDialog:onClickBorrow()
     local mgr = g_IncomeManager
     if mgr and mgr.uiBorrow then mgr:uiBorrow() end
     self:updateDisplay()
 end
 
+-- [C3/F130] Pay Off is a quote-then-confirm like the chosen amount: the host binds the
+-- exact outstanding (principal + all accrued interest, which grows while the report is
+-- open) and the player confirms THAT sum before it leaves the farm. A stale figure then
+-- changes the confirmation instead of silently moving a different one.
 function IncomeReportDialog:onClickPayoff()
+    if self.loanPending then return end
     local mgr = g_IncomeManager
-    if mgr and mgr.uiPayoff then mgr:uiPayoff() end
-    self:updateDisplay()
+    if mgr == nil or mgr.uiPayoffQuote == nil then return end
+    self:setLoanPending(true)
+    self.loanRequestedAmount = nil
+    self.loanQuoteKind = "payoff"
+    local sent = mgr:uiPayoffQuote(function(reply) self:onRepayQuote(reply) end)
+    if sent ~= true then self:onRepayQuote(nil) end
 end
 
 -- =========================================================
@@ -480,6 +495,7 @@ function IncomeReportDialog:onClose()
     -- report is gone must not resolve a payment nobody is looking at.
     self.loanPending = false
     self.loanRequestedAmount = nil
+    self.loanQuoteKind = nil
     local mgr = g_IncomeManager
     if mgr ~= nil and mgr.clearEmergencyLoanUiState ~= nil then mgr:clearEmergencyLoanUiState() end
 end

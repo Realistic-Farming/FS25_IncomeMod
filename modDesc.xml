@@ -2104,6 +2104,8 @@
         <text name="im_loan_confirm_title"><en><![CDATA[Confirm repayment]]></en></text>
         <text name="im_loan_confirm_text"><en><![CDATA[Repay this amount from your farm's cash?]]></en></text>
         <text name="im_loan_confirm_clamped"><en><![CDATA[Reduced to what your cash and remaining debt allow.]]></en></text>
+        <text name="im_loan_payoff_confirm_title"><en><![CDATA[Confirm payoff]]></en></text>
+        <text name="im_loan_payoff_confirm_text"><en><![CDATA[Pay off the whole emergency loan, principal and interest, from your farm's cash?]]></en></text>
         <text name="im_loan_repaid"><en><![CDATA[Repayment applied.]]></en></text>
         <text name="im_loan_repay_failed"><en><![CDATA[The repayment could not be completed.]]></en></text>
         <text name="im_loan_insufficient_cash"><en><![CDATA[Not enough cash for that repayment.]]></en></text>
