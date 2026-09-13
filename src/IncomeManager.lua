@@ -390,7 +390,30 @@ function IncomeManager:_mintQuote(session, quote)
     return token
 end
 
+-- Copy a cost/missing-input list so the reply never aliases the loan's live tables.
+local function copyEntries(list)
+    if type(list) ~= "table" then return nil end
+    local out = {}
+    for i, e in ipairs(list) do
+        if type(e) == "table" then
+            out[i] = { sourceId = e.sourceId, amount = e.amount, basis = e.basis,
+                       dueDay = e.dueDay, dueTimeMs = e.dueTimeMs }
+        else
+            out[i] = e
+        end
+    end
+    return out
+end
+
+local function copyClock(c)
+    if type(c) ~= "table" then return nil end
+    return { monotonicDay = c.monotonicDay, timeOfDayMs = c.timeOfDayMs }
+end
+
 -- Compact a rich view into the Event reply payload (the wire + the client cache shape).
+-- Carries the whole version-1 view (debt, rate, forecast, costs, coverage) under the SAME
+-- field names as EmergencyLoan:getView, so the report band renders one shape whether it
+-- reads the host's rich view or a pure client's cached reply. nil stays nil (unknown).
 function IncomeManager:_viewReply(v, sequence, statusOverride)
     return {
         version      = EmergencyLoan.VIEW_VERSION,
@@ -405,6 +428,27 @@ function IncomeManager:_viewReply(v, sequence, statusOverride)
         canRepay     = v and v.canRepay,
         borrowReason = v and v.borrowReason,
         repayReason  = v and v.repayReason,
+        -- [C3/F130] forecast + debt detail the report's loan band shows (brief section 2).
+        farmId                  = v and v.farmId,
+        revision                = v and v.revision,
+        asOf                    = v and copyClock(v.asOf),
+        principal               = v and v.principal,
+        accruedInterest         = v and v.accruedInterest,
+        drawCount               = v and v.drawCount,
+        effectiveMonthlyRate    = v and v.effectiveMonthlyRate,
+        costLockReason          = v and v.costLockReason,
+        automaticRepaymentShare = v and v.automaticRepaymentShare,
+        forecastStatus          = v and v.forecastStatus,
+        horizonEnd              = v and copyClock(v.horizonEnd),
+        minimumBalance          = v and v.minimumBalance,
+        shortfall               = v and v.shortfall,
+        expectedGrossIncome     = v and v.expectedGrossIncome,
+        expectedNetIncome       = v and v.expectedNetIncome,
+        workingCashBasis        = v and v.workingCashBasis,
+        workingCashAmount       = v and v.workingCashAmount,
+        knownCosts              = v and copyEntries(v.knownCosts),
+        estimatedCosts          = v and copyEntries(v.estimatedCosts),
+        missingInputs           = v and copyEntries(v.missingInputs),
     }
 end
 

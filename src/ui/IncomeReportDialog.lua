@@ -137,6 +137,7 @@ function IncomeReportDialog:updateLoanSection()
     if type(view) ~= "table" then
         statusEl:setText(g_i18n:getText("im_loan_none"))
         setBtn(borrowBtn, false); setBtn(payoffBtn, false); setBtn(amountBtn, false)
+        self:updateForecastLines(nil)
         return
     end
 
@@ -151,14 +152,134 @@ function IncomeReportDialog:updateLoanSection()
             g_i18n:getText("im_loan_principal"), money(principal),
             g_i18n:getText("im_loan_interest"), money(interest), ratePct))
     elseif view.canBorrow == true then
-        statusEl:setText(string.format("%s %s",
-            g_i18n:getText("im_loan_offer_available"), money(view.offer)))
+        statusEl:setText(string.format("%s %s%s",
+            g_i18n:getText("im_loan_offer_available"), money(view.offer),
+            self:formatWorkingCashBasis(view)))
     else
         statusEl:setText(g_i18n:getText("im_loan_none"))
     end
+    self:updateForecastLines(view)
     setBtn(borrowBtn, view.canBorrow == true)
     setBtn(payoffBtn, view.canRepay == true and outstanding > 0)
     setBtn(amountBtn, view.canRepay == true and outstanding > 0)
+end
+
+-- =========================================================
+-- [C3/F130] Forecast rows of the loan band (brief section 2, minimum surface)
+-- =========================================================
+-- The band shows what the offer was computed from: expected regular income, known
+-- bills, the separately labelled recent-spending estimate, the projected lowest cash
+-- balance (negative = shortage warning), the forecast status (PARTIAL stays visible
+-- even when the minimum is non-negative), the horizon length and the localized list of
+-- inputs the forecast could not cover. nil is shown as "--", never as a confident zero.
+-- Both the host's rich view and a pure client's cached reply carry these field names.
+
+IncomeReportDialog.UNKNOWN_TEXT = "--"
+
+local function fcText(key) return g_i18n and g_i18n:getText(key) or key end
+
+--- Localize one missingInputs code through im_loan_miss_<code>; an unknown code shows
+--- itself so a new reason is never silently hidden.
+function IncomeReportDialog.missingInputText(code)
+    local key = "im_loan_miss_" .. tostring(code):lower()
+    if g_i18n == nil then return tostring(code) end
+    if g_i18n.hasText ~= nil and not g_i18n:hasText(key) then return tostring(code) end
+    local text = g_i18n:getText(key)
+    if text == nil or text == key then return tostring(code) end
+    return text
+end
+
+--- Sum of a copied cost list, or nil when the list itself is unknown.
+function IncomeReportDialog.sumCosts(list)
+    if type(list) ~= "table" then return nil end
+    local total = 0
+    for _, e in ipairs(list) do total = total + (tonumber(type(e) == "table" and e.amount or nil) or 0) end
+    return total
+end
+
+--- " (Working cash: ...)" for an offer line, or "" when the basis is unknown.
+function IncomeReportDialog:formatWorkingCashBasis(view)
+    local basis = type(view) == "table" and view.workingCashBasis or nil
+    if basis == "HALF_PERIOD_GROSS" then
+        return string.format(" (%s: %s)", fcText("im_loan_fc_basis"), fcText("im_loan_fc_basis_half"))
+    elseif basis == "FALLBACK_10000" then
+        return string.format(" (%s: %s)", fcText("im_loan_fc_basis"), fcText("im_loan_fc_basis_fallback"))
+    end
+    return ""
+end
+
+--- Pure: build the three forecast rows from a view. Returns
+--- { income = text, balance = text, missing = text, shortage = bool, status = code }.
+--- A nil view yields empty rows; unknown numbers render as UNKNOWN_TEXT.
+function IncomeReportDialog:buildForecastLines(view)
+    local U = IncomeReportDialog.UNKNOWN_TEXT
+    if type(view) ~= "table" then
+        return { income = "", balance = "", missing = "", shortage = false, status = nil }
+    end
+    local function money(v)
+        if type(v) ~= "number" or v ~= v then return U end
+        return self:formatLoanMoney(v)
+    end
+
+    -- Row 1: expected regular income (gross; net after the automatic share when a debt
+    -- makes them differ), known bills and the separately labelled estimate.
+    local gross, net = view.expectedGrossIncome, view.expectedNetIncome
+    local incomeText = money(gross)
+    if type(gross) == "number" and type(net) == "number" and net ~= gross then
+        incomeText = string.format("%s (%s %s)", incomeText, fcText("im_loan_fc_net"), money(net))
+    end
+    local income = string.format("%s: %s   %s: %s   %s: %s",
+        fcText("im_loan_fc_income"), incomeText,
+        fcText("im_loan_fc_bills"), money(IncomeReportDialog.sumCosts(view.knownCosts)),
+        fcText("im_loan_fc_estimates"), money(IncomeReportDialog.sumCosts(view.estimatedCosts)))
+
+    -- Row 2: projected lowest balance (+ shortage warning), status, horizon.
+    local minimum = view.minimumBalance
+    local shortage = type(minimum) == "number" and minimum < 0
+    local status = view.forecastStatus
+    local statusKey = "im_loan_fc_unavailable"
+    if status == "OK" then statusKey = "im_loan_fc_ok"
+    elseif status == "PARTIAL" then statusKey = "im_loan_fc_partial" end
+    local days = U
+    local asOfDay = type(view.asOf) == "table" and tonumber(view.asOf.monotonicDay) or nil
+    local endDay  = type(view.horizonEnd) == "table" and tonumber(view.horizonEnd.monotonicDay) or nil
+    if asOfDay ~= nil and endDay ~= nil and endDay >= asOfDay then
+        local ok, text = pcall(string.format, fcText("im_loan_fc_days"), math.floor(endDay - asOfDay + 0.5))
+        days = ok and text or tostring(math.floor(endDay - asOfDay + 0.5))
+    end
+    local balance = string.format("%s: %s%s   %s: %s   %s: %s",
+        fcText("im_loan_fc_minimum"), money(minimum),
+        shortage and (" (" .. fcText("im_loan_fc_shortage") .. ")") or "",
+        fcText("im_loan_fc_status"), fcText(statusKey),
+        fcText("im_loan_fc_horizon"), days)
+
+    -- Row 3: coverage the forecast could not model, localized per code.
+    local missing = ""
+    local codes = view.missingInputs
+    if type(codes) == "table" and #codes > 0 then
+        local parts = {}
+        for _, code in ipairs(codes) do parts[#parts + 1] = IncomeReportDialog.missingInputText(code) end
+        missing = string.format("%s: %s", fcText("im_loan_fc_missing"), table.concat(parts, "; "))
+    end
+
+    return { income = income, balance = balance, missing = missing, shortage = shortage, status = status }
+end
+
+--- Push the built rows into the band's Text elements (each optional so an older XML
+--- without the rows still renders the status line).
+function IncomeReportDialog:updateForecastLines(view)
+    local rows = self:buildForecastLines(view)
+    local function put(el, text)
+        if el ~= nil and el.setText ~= nil then el:setText(text or "") end
+    end
+    put(self.loanForecastIncomeText, rows.income)
+    put(self.loanForecastBalanceText, rows.balance)
+    put(self.loanForecastMissingText, rows.missing)
+    local el = self.loanForecastBalanceText
+    if el ~= nil and el.setTextColor ~= nil then
+        if rows.shortage then el:setTextColor(1.0, 0.45, 0.4, 1) else el:setTextColor(0.85, 0.85, 0.85, 1) end
+    end
+    self.loanForecastRows = rows
 end
 
 -- =========================================================
