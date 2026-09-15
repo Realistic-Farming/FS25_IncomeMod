@@ -803,8 +803,6 @@ function IncomeManager:delete()
         self.hudEditEventId = nil
     end
 
-
-
     -- Destroy HUD overlay
     if self.incomeHUD then
         self.incomeHUD:saveLayout()
