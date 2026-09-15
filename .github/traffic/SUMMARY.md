@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-09-13T12:23:25Z
-**Days tracked:** 153 | **Download snapshots:** 491 (hourly)
+**Last updated:** 2026-09-15T06:51:35Z
+**Days tracked:** 154 | **Download snapshots:** 492 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 120 | 57 |
-| Git Clones | 302 | 111 |
+| Page Views | 122 | 53 |
+| Git Clones | 381 | 136 |
 
-> **Engagement:** 2.1 pages per visitor (14-day avg)
+> **Engagement:** 2.3 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 384 of 57 visitors cloned or downloaded (**673.6%**)
+> **14-day conversion:** 409 of 53 visitors cloned or downloaded (**771.6%**)
 >
-> Unique cloners: 111 | Release downloads: 273
+> Unique cloners: 136 | Release downloads: 273
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 273 |
-| Git Clones (14-day) | 302 |
-| **Total Acquisitions** | **575** |
+| Git Clones (14-day) | 381 |
+| **Total Acquisitions** | **654** |
 
 ---
 
@@ -54,11 +54,11 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 69 | 31 |
-| Google | 16 | 10 |
-| kingmods.net | 2 | 2 |
+| github.com | 60 | 27 |
+| Google | 14 | 8 |
 | chatgpt.com | 2 | 1 |
 | Bing | 1 | 1 |
+| kingmods.net | 1 | 1 |
 | realisticfarming.com | 1 | 1 |
 
 ---
@@ -79,16 +79,16 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 71 | 52 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.8.0` | 24 | 20 |
-| `/Realistic-Farming/FS25_IncomeMod/releases` | 7 | 7 |
+| `/Realistic-Farming/FS25_IncomeMod` | 63 | 46 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.8.0` | 21 | 18 |
+| `/Realistic-Farming/FS25_IncomeMod/releases` | 8 | 7 |
+| `/Realistic-Farming/FS25_IncomeMod/pull/69` | 3 | 1 |
+| `/Realistic-Farming/FS25_IncomeMod/pull/70` | 3 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/68` | 2 | 1 |
-| `/Realistic-Farming/FS25_IncomeMod/blob/0bbb0ed3bae593f5e30d28c34e6af69699ced387/modDesc.xml` | 1 | 1 |
+| `/Realistic-Farming/FS25_IncomeMod/pull/71` | 2 | 1 |
+| `/Realistic-Farming/FS25_IncomeMod/pull/72` | 2 | 1 |
+| `/Realistic-Farming/FS25_IncomeMod/pull/73` | 2 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/blob/main/.claude/settings.local.json` | 1 | 1 |
-| `/Realistic-Farming/FS25_IncomeMod/blob/main/icon_preview.png` | 1 | 1 |
-| `/Realistic-Farming/FS25_IncomeMod/blob/main/icon_source.png` | 1 | 1 |
-| `/Realistic-Farming/FS25_IncomeMod/issues` | 1 | 1 |
-| `/Realistic-Farming/FS25_IncomeMod/pull/59` | 1 | 1 |
 
 ---
 
