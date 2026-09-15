@@ -13,6 +13,9 @@ the repo's git history and README.
 
 ## [Unreleased]
 
+### Fixed
+- RSF-F201 PLAYER-lifetime companion: the IM_TOGGLE_HUD and IM_HUD_EDIT handles are now stored (two shadowed captures fixed), the edit handle is removed on teardown, the standalone failure line no longer prints for a working control, and the wrapper installs once per session instead of being restored on every delete.
+
 ## [2.1.8.0] - 2026-08-26
 
 ### Added
