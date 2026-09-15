@@ -22,6 +22,11 @@ end
 IncomeManager = IncomeManager or {}
 local IncomeManager_mt = Class(IncomeManager)
 
+-- RSF-F201 item 12: the session-lived input-hook record, on the latched class
+-- table and outside the per-mission instance. Holds the install latch, the
+-- captured predecessor and the per-owner arming flag, nothing else.
+IncomeManager._f201Input = IncomeManager._f201Input or { installed = false, active = false, original = nil }
+
 function IncomeManager.new(mission, modDirectory, modName)
     local self = setmetatable({}, IncomeManager_mt)
 
@@ -65,79 +70,95 @@ function IncomeManager.new(mission, modDirectory, modName)
         -- Income Report Dialog (singleton; loaded once, shown on demand)
         self.incomeReportDialog = IncomeReportDialog.getInstance(self.modDirectory)
 
-        -- Register key actions via PlayerInputComponent hook (proven race-condition-safe pattern)
+        -- Register key actions via PlayerInputComponent hook (proven race-condition-safe pattern).
+        -- RSF-F201 PLAYER-lifetime companion: the wrapper is installed ONCE per loaded
+        -- script environment with its record on the IncomeManager class table, and
+        -- delete() no longer restores the captured predecessor (that can unhook a
+        -- later mod's wrapper). Item 11: the two `local` redeclarations inside the
+        -- MasterHUD gate that shadowed hudOk/hudId and edOk/edId are gone, so the
+        -- handles land in the outer locals, the toggle handle is stored, the edit
+        -- handle is stored and labelled, and the standalone failure line stops
+        -- printing for a control that works.
         if PlayerInputComponent and PlayerInputComponent.registerActionEvents then
-            local originalRegisterActionEvents = PlayerInputComponent.registerActionEvents
-            self._inputHookOriginal = originalRegisterActionEvents
-            PlayerInputComponent.registerActionEvents = function(inputComponent, ...)
-                originalRegisterActionEvents(inputComponent, ...)
+            local hook = IncomeManager._f201Input
+            if not hook.installed then
+                hook.installed = true
+                local originalRegisterActionEvents = PlayerInputComponent.registerActionEvents
+                hook.original = originalRegisterActionEvents
+                PlayerInputComponent.registerActionEvents = function(inputComponent, ...)
+                    originalRegisterActionEvents(inputComponent, ...)
+                    if not hook.active then return end
 
-                -- Only register for the local owning player, not networked players
-                if not (inputComponent.player and inputComponent.player.isOwner) then return end
-                -- Guard against double-registration on level reloads
-                if g_IncomeManager and g_IncomeManager.toggleHUDEventId then return end
-                if not g_IncomeManager or not g_IncomeManager.incomeHUD then return end
+                    -- Only register for the local owning player, not networked players
+                    if not (inputComponent.player and inputComponent.player.isOwner) then return end
+                    -- Guard against double-registration on level reloads
+                    if g_IncomeManager and g_IncomeManager.toggleHUDEventId then return end
+                    if not g_IncomeManager or not g_IncomeManager.incomeHUD then return end
 
-                g_inputBinding:beginActionEventsModification(PlayerInputComponent.INPUT_CONTEXT_NAME)
+                    g_inputBinding:beginActionEventsModification(PlayerInputComponent.INPUT_CONTEXT_NAME)
 
-                -- HUD toggle: I key
-                local hudOk, hudId = false, nil
-                if not __rfMhOwnsHudKeys() then
-                    local hudOk, hudId = g_inputBinding:registerActionEvent(
-                        InputAction.IM_TOGGLE_HUD,
+                    -- HUD toggle: I key
+                    local hudOk, hudId = false, nil
+                    if not __rfMhOwnsHudKeys() then
+                        hudOk, hudId = g_inputBinding:registerActionEvent(
+                            InputAction.IM_TOGGLE_HUD,
+                            g_IncomeManager,
+                            g_IncomeManager.onToggleHUDInput,
+                            false,  -- triggerUp
+                            true,   -- triggerDown
+                            false,  -- triggerAlways
+                            true    -- startActive
+                        )
+                    end
+                    if hudOk and hudId then
+                        g_IncomeManager.toggleHUDEventId = hudId
+                        Logging.info("Income Mod: HUD toggle registered")
+                    else
+                        Logging.warning("Income Mod: HUD toggle registration failed")
+                    end
+
+                    -- HUD move/edit. Registered here, not only through the MasterHUD bridge,
+                    -- so a standalone install (no MasterHUD) can still reposition the panel.
+                    -- The callback stands down by itself when MasterHUD is present.
+                    local edOk, edId = false, nil
+                    if not __rfMhOwnsHudKeys() then
+                        edOk, edId = g_inputBinding:registerActionEvent(
+                            InputAction.IM_HUD_EDIT,
+                            g_IncomeManager,
+                            g_IncomeManager.onHUDEditInput,
+                            false, true, false, true
+                        )
+                    end
+                    if edOk and edId then
+                        g_IncomeManager.hudEditEventId = edId
+                        g_inputBinding:setActionEventText(edId,
+                            (g_i18n ~= nil and g_i18n:getText("input_IM_HUD_EDIT")) or "Move Income HUD")
+                        Logging.info("Income Mod: HUD move/edit registered")
+                    end
+
+                    -- Income Report
+                    local repOk, repId = g_inputBinding:registerActionEvent(
+                        InputAction.IM_INCOME_REPORT,
                         g_IncomeManager,
-                        g_IncomeManager.onToggleHUDInput,
+                        g_IncomeManager.onIncomeReportInput,
                         false,  -- triggerUp
                         true,   -- triggerDown
                         false,  -- triggerAlways
                         true    -- startActive
                     )
-                end
-                if hudOk and hudId then
-                    g_IncomeManager.toggleHUDEventId = hudId
-                    Logging.info("Income Mod: HUD toggle registered")
-                else
-                    Logging.warning("Income Mod: HUD toggle registration failed")
-                end
+                    if repOk and repId then
+                        g_IncomeManager.incomeReportEventId = repId
+                        Logging.info("Income Mod: Income Report (U) registered")
+                    else
+                        Logging.warning("Income Mod: Income Report (U) registration failed")
+                    end
 
-                -- HUD move/edit. Registered here, not only through the MasterHUD bridge,
-                -- so a standalone install (no MasterHUD) can still reposition the panel.
-                -- The callback stands down by itself when MasterHUD is present.
-                local edOk, edId = false, nil
-                if not __rfMhOwnsHudKeys() then
-                    local edOk, edId = g_inputBinding:registerActionEvent(
-                        InputAction.IM_HUD_EDIT,
-                        g_IncomeManager,
-                        g_IncomeManager.onHUDEditInput,
-                        false, true, false, true
-                    )
+                    g_inputBinding:endActionEventsModification()
                 end
-                if edOk and edId then
-                    g_IncomeManager.hudEditEventId = edId
-                    g_inputBinding:setActionEventText(edId,
-                        (g_i18n ~= nil and g_i18n:getText("input_IM_HUD_EDIT")) or "Move Income HUD")
-                    Logging.info("Income Mod: HUD move/edit registered")
-                end
-
-                -- Income Report
-                local repOk, repId = g_inputBinding:registerActionEvent(
-                    InputAction.IM_INCOME_REPORT,
-                    g_IncomeManager,
-                    g_IncomeManager.onIncomeReportInput,
-                    false,  -- triggerUp
-                    true,   -- triggerDown
-                    false,  -- triggerAlways
-                    true    -- startActive
-                )
-                if repOk and repId then
-                    g_IncomeManager.incomeReportEventId = repId
-                    Logging.info("Income Mod: Income Report (U) registered")
-                else
-                    Logging.warning("Income Mod: Income Report (U) registration failed")
-                end
-
-                g_inputBinding:endActionEventsModification()
             end
+            -- Arm registration for this owner. The wrapper resolves g_IncomeManager
+            -- at callback time, so no stale manager is captured.
+            hook.active = true
         end
     end
 
@@ -760,6 +781,10 @@ end
 -- =========================================================
 
 function IncomeManager:delete()
+    -- RSF-F201: retire this owner's registration activity first. The PLAYER
+    -- wrapper itself stays installed (restoring it per mission can remove a
+    -- later mod's wrapper); the next IncomeManager.new re-arms it.
+    IncomeManager._f201Input.active = false
     self:clearEmergencyLoanUiState()
 
     -- Remove action events for I key (HUD) and U key (Report)
@@ -772,12 +797,13 @@ function IncomeManager:delete()
         g_inputBinding:removeActionEvent(self.incomeReportEventId)
         self.incomeReportEventId = nil
     end
-
-    -- Restore the PlayerInputComponent hook if we patched it
-    if self._inputHookOriginal and PlayerInputComponent then
-        PlayerInputComponent.registerActionEvents = self._inputHookOriginal
-        self._inputHookOriginal = nil
+    -- HUD move/edit handle (F201 item 11): it had no teardown arm anywhere before.
+    if self.hudEditEventId and g_inputBinding then
+        g_inputBinding:removeActionEvent(self.hudEditEventId)
+        self.hudEditEventId = nil
     end
+
+
 
     -- Destroy HUD overlay
     if self.incomeHUD then
