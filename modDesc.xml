@@ -2678,6 +2678,7 @@
             <sv><![CDATA[Beloppet har ändrats. Kontrollera saldot och försök igen.]]></sv>
             <tr><![CDATA[Tutar değişti. Bakiyeyi kontrol edip tekrar deneyin.]]></tr>
             <vi><![CDATA[Số tiền đã thay đổi. Hãy kiểm tra số dư và thử lại.]]></vi>
+        </text>
         <text name="im_loan_fc_income">
             <en><![CDATA[Expected regular income]]></en>
             <de><![CDATA[Erwartetes regelmäßiges Einkommen]]></de>
@@ -3433,7 +3434,6 @@
             <sv><![CDATA[regelbunden inkomst inaktiverad]]></sv>
             <tr><![CDATA[düzenli gelir devre dışı]]></tr>
             <vi><![CDATA[thu nhập định kỳ đã tắt]]></vi>
-        </text>
         </text>
     </l10n>
 
