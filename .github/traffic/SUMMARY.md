@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-09-16T12:53:17Z
-**Days tracked:** 155 | **Download snapshots:** 494 (hourly)
+**Last updated:** 2026-09-18T06:47:03Z
+**Days tracked:** 156 | **Download snapshots:** 496 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 112 | 52 |
-| Git Clones | 385 | 136 |
+| Page Views | 115 | 55 |
+| Git Clones | 402 | 148 |
 
-> **Engagement:** 2.1 pages per visitor (14-day avg)
+> **Engagement:** 2.0 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 409 of 52 visitors cloned or downloaded (**786.5%**)
+> **14-day conversion:** 422 of 55 visitors cloned or downloaded (**767.2%**)
 >
-> Unique cloners: 136 | Release downloads: 273
+> Unique cloners: 148 | Release downloads: 274
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 273 |
-| Git Clones (14-day) | 385 |
-| **Total Acquisitions** | **658** |
+| Zip Downloads | 274 |
+| Git Clones (14-day) | 402 |
+| **Total Acquisitions** | **676** |
 
 ---
 
@@ -54,11 +54,11 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 55 | 27 |
+| github.com | 57 | 29 |
 | Google | 14 | 8 |
-| chatgpt.com | 2 | 1 |
+| realisticfarming.com | 2 | 2 |
 | Bing | 1 | 1 |
-| realisticfarming.com | 1 | 1 |
+| DuckDuckGo | 1 | 1 |
 
 ---
 
@@ -78,9 +78,9 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 58 | 45 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.8.0` | 17 | 14 |
-| `/Realistic-Farming/FS25_IncomeMod/releases` | 7 | 6 |
+| `/Realistic-Farming/FS25_IncomeMod` | 61 | 47 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.8.0` | 16 | 13 |
+| `/Realistic-Farming/FS25_IncomeMod/releases` | 8 | 7 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/69` | 3 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/70` | 3 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/68` | 2 | 1 |
