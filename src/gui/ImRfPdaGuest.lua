@@ -130,6 +130,23 @@ local function getMgr()
     return g_IncomeManager
 end
 
+-- BUILD 21:40 (George CLOSED DESIGN 21:35 item 5): the old fixed eight-row table is dead chrome.
+-- Its rows moved into the shared SmoothList at 17:21, but the eleven hairline Bitmaps were never
+-- hidden by either sheet painter, so they stood behind the sheet as a second frame. The door now
+-- declares them visible="false"; this is the belt that also covers an older door copy, and it is
+-- what stops them coming back if any other module hands the chrome over still visible.
+local LEGACY_GRID_IDS = {
+    "rfFwRuleHead", "rfFwRuleRow1", "rfFwRuleRow2", "rfFwRuleRow3", "rfFwRuleRow4",
+    "rfFwRuleRow5", "rfFwRuleRow6", "rfFwRuleRow7",
+    "rfFwRuleCol1", "rfFwRuleCol2", "rfFwRuleCol3",
+}
+
+local function hideLegacyGrid(container)
+    for _, id in ipairs(LEGACY_GRID_IDS) do
+        setVis(findDescendant(container, id), false)
+    end
+end
+
 local function clearRows(container)
     for i = 1, MAX_ROWS do
         for _, c in ipairs({"A", "B", "C", "D"}) do
@@ -138,6 +155,61 @@ local function clearRows(container)
             setText(el, "")
         end
     end
+end
+
+-- BUILD 17:21 (George CLOSED DESIGN 14:00): the shared Esc table scrolls. Rows go into the door's one
+-- SmoothList (rfFwSheetList) instead of the eight fixed rfFwRow* lines, so a long list is reachable
+-- instead of being cut off under a footer that counted rows nobody could reach. The 32 static cells
+-- stay declared in the door because Dairy, NPC Favor and Pro Staff each hide them by id; this guest
+-- just stops writing to them.
+local _sheetRows = {}
+
+local imSheetSource = {}
+
+function imSheetSource:getNumberOfItemsInSection(list, section)
+    return #_sheetRows
+end
+
+function imSheetSource:populateCellForItemInSection(list, section, index, cell)
+    if cell == nil or type(cell.getDescendantByName) ~= "function" then return end
+    local row = _sheetRows[index]
+    if row == nil then return end
+    setText(cell:getDescendantByName("rfFwSheetA"), row[1])
+    setText(cell:getDescendantByName("rfFwSheetB"), row[2])
+    setText(cell:getDescendantByName("rfFwSheetC"), row[3])
+    setText(cell:getDescendantByName("rfFwSheetD"), row[4])
+end
+
+--- setDataSource by identity - this module's source, not whichever Table guest showed last - then
+--- setDelegate explicitly (the XML loader made the host page the delegate), and reloadData only once
+--- the engine has finished loading the list. No timer ever calls this.
+local function syncSheet(container, rows)
+    _sheetRows = rows or {}
+    local list = findDescendant(container, "rfFwSheetList")
+    local box = findDescendant(container, "rfFwSheetBox")
+    if list == nil then
+        setVis(box, false)
+        return false
+    end
+    if list.dataSource ~= imSheetSource and type(list.setDataSource) == "function" then
+        list:setDataSource(imSheetSource)
+    end
+    if type(list.setDelegate) == "function" and list.delegate ~= imSheetSource then
+        list:setDelegate(imSheetSource)
+    end
+    setVis(box, #_sheetRows > 0)
+    if list.isLoaded and type(list.reloadData) == "function" then
+        pcall(list.reloadData, list)
+    end
+    return true
+end
+
+--- BUILD 19:15 (George CLOSED DESIGN 18:55 item 2): Income shares the sheet but has no band - a
+--- payment row has nothing more to say than its four columns already say. Declared as a deliberate
+--- no-op so the host's row click resolves to something on this page instead of falling through to
+--- whatever guest published onSheetRow last.
+---@param index number
+function ImRfPdaGuest.onSheetRow(index)
 end
 
 local function paintHeaders(container)
@@ -405,6 +477,7 @@ function ImRfPdaGuest._paintShow(container, lightOnly)
     applyFwGrid(container)
     clearHostDupes(container)
     showTableMode(container)
+    hideLegacyGrid(container)
     paintSide(container, "rf_pda_side_info_income",
         "Passive income glance: on/off, pay mode, amount, next payment.\n"
         .. "Table = recent payments (last 10 kept; Esc shows 8). Esc never moves money.")
@@ -470,14 +543,12 @@ function ImRfPdaGuest._paintShow(container, lightOnly)
             tr("im_rf_pda_lbl_recent", "Recent ring"), formatMoney(total), formatMoney(avg), n, HISTORY_CAP)
     end
     moreParts[#moreParts + 1] = tr("im_rf_pda_cap_note", "System keeps last 10 payments only (true data cap).")
-    if n > MAX_ROWS then
-        moreParts[#moreParts + 1] = string.format(tr("im_rf_pda_showing_of", "Showing %d of %d"), MAX_ROWS, n)
-    end
     setText(moreEl, table.concat(moreParts, "  ·  "))
     setText(hintEl, optionalHint(s))
 
     if n == 0 then
         clearRows(container)
+        syncSheet(container, {})
         setVis(emptyEl, true)
         setText(emptyEl, tr("im_rf_pda_no_history", "no payments yet"))
         return
@@ -485,27 +556,22 @@ function ImRfPdaGuest._paintShow(container, lightOnly)
 
     setVis(emptyEl, false)
     setText(emptyEl, "")
-    local show = math.min(n, MAX_ROWS)
-    for i = 1, MAX_ROWS do
-        local a = findDescendant(container, "rfFwRow" .. i .. "A")
-        local b = findDescendant(container, "rfFwRow" .. i .. "B")
-        local c = findDescendant(container, "rfFwRow" .. i .. "C")
-        local d = findDescendant(container, "rfFwRow" .. i .. "D")
-        if i <= show then
-            local e = history[i]
-            local day = tonumber(e and e.day)
-            local hour = tonumber(e and e.hour) or 0
-            local payType = (e and e.payType) or "?"
-            setVis(a, true); setVis(b, true); setVis(c, true); setVis(d, true)
-            setText(a, day ~= nil and string.format("Day %d", day) or "--")
-            setText(b, string.format("%02d:00", hour))
-            setText(c, tostring(payType))
-            setText(d, formatMoney(e and e.amount))
-        else
-            setVis(a, false); setVis(b, false); setVis(c, false); setVis(d, false)
-            setText(a, ""); setText(b, ""); setText(c, ""); setText(d, "")
-        end
+    -- Every payment the ring holds goes into the list; the box scrolls past the eight the old
+    -- fixed sheet could show.
+    local rows = {}
+    for i = 1, n do
+        local e = history[i]
+        local day = tonumber(e and e.day)
+        local hour = tonumber(e and e.hour) or 0
+        rows[i] = {
+            day ~= nil and string.format("Day %d", day) or "--",
+            string.format("%02d:00", hour),
+            tostring((e and e.payType) or "?"),
+            formatMoney(e and e.amount),
+        }
     end
+    clearRows(container)
+    syncSheet(container, rows)
 end
 
 --- Restore the shared Table title to its XML baseline.
@@ -521,6 +587,15 @@ function ImRfPdaGuest.onHide(container)
     setElPosPx(findDescendant(container, "rfFwTableTitle"), "10px", "-8px")
 end
 
+--- BUILD 19:15: the Esc Help footer asks whichever module is showing to open its own guide, so
+--- every companion ships and owns its own help instead of borrowing Soil's.
+---@param container table|nil
+function ImRfPdaGuest.onOpenHelp(container)
+    if ImGuideDialog ~= nil and type(ImGuideDialog.show) == "function" then
+        ImGuideDialog.show()
+    end
+end
+
 function ImRfPdaGuest.tryRegister()
     if RfEscBootstrap ~= nil then
         if MOD_DIR == nil then
@@ -530,6 +605,12 @@ function ImRfPdaGuest.tryRegister()
                 profilesXml = MOD_DIR .. "xml/gui/rfEscProfiles.xml",
                 iconPath = "textures/ui/menuIcon.dds",
             })
+            -- BUILD 19:15 (George CLOSED DESIGN 18:55 item 5): load this mod's Field Guide at the
+            -- same moment the door itself loads. A GUI loaded from a mod directory later, once the
+            -- mod's own file system context has closed, fails to open.
+            if ImGuideDialog ~= nil and type(ImGuideDialog.register) == "function" then
+                pcall(ImGuideDialog.register, MOD_DIR)
+            end
             if not doorOk then print("[Income] ImRfPdaGuest: WARNING ensureDoor failed (will retry)") end
         end
     end
@@ -545,6 +626,8 @@ function ImRfPdaGuest.tryRegister()
             isAvailable = function() return getMgr() ~= nil end,
             onShow = ImRfPdaGuest.onShow,
             onHide = ImRfPdaGuest.onHide,
+            onOpenHelp = ImRfPdaGuest.onOpenHelp,
+            onSheetRow = ImRfPdaGuest.onSheetRow,
         })
         if ok then
             _registered = true

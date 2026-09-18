@@ -3,7 +3,10 @@
     <GuiElement profile="newLayer" />
     <Bitmap profile="dialogFullscreenBg" id="dialogBg" />
 
-    <GuiElement profile="dialogBg" id="dialogElement" size="760px 520px">
+    <!-- 640px tall: the content container is (height - 79px) and the button box sits
+         68px up from the bottom, so the loan band (top -434px, 120px tall, ends -554px)
+         stays inside the container (ends -565px) and clear of the buttons (-572px). -->
+    <GuiElement profile="dialogBg" id="dialogElement" size="760px 640px">
         <ThreePartBitmap profile="fs25_dialogBgMiddle" />
         <ThreePartBitmap profile="fs25_dialogBgTop" />
         <ThreePartBitmap profile="fs25_dialogBgBottom" />
@@ -159,10 +162,28 @@
             <!-- No History Message -->
             <Text profile="irNoData" id="noHistoryText" position="0px -300px" visible="false" text="$l10n_im_report_no_history"/>
 
+            <!-- ===== [C3/F130] EMERGENCY LOAN BAND =====
+                 Child extents (Y negative going down, inside the 120px band):
+                   status   -6px  + 20px = -26px
+                   income   -30px + 20px = -50px
+                   balance  -52px + 20px = -72px
+                   missing  -74px + 36px = -110px (two wrapped lines)
+                 Panels do not clip, so the band height must cover the last child. -->
+            <GuiElement profile="irLoanContainer" position="0px -434px">
+                <Bitmap profile="irLoanBg" position="0px 0px"/>
+                <Text profile="irLoanText" id="loanStatusText" position="0px -6px" text="$l10n_im_loan_none"/>
+                <Text profile="irLoanLine" id="loanForecastIncomeText" position="0px -30px" text=""/>
+                <Text profile="irLoanLine" id="loanForecastBalanceText" position="0px -52px" text=""/>
+                <Text profile="irLoanLineWrap" id="loanForecastMissingText" position="0px -74px" text=""/>
+            </GuiElement>
+
         </GuiElement>
 
         <BoxLayout profile="fs25_dialogButtonBox">
             <Button profile="buttonBack" id="closeButton" text="$l10n_button_close" onClick="onCloseDialog"/>
+            <Button profile="buttonOK" id="loanBorrowButton" text="$l10n_im_loan_borrow" onClick="onClickBorrow" visible="false"/>
+            <Button profile="buttonOK" id="loanRepayAmountButton" text="$l10n_im_loan_repay_amount" onClick="onClickRepayAmount" visible="false"/>
+            <Button profile="buttonOK" id="loanPayoffButton" text="$l10n_im_loan_payoff" onClick="onClickPayoff" visible="false"/>
         </BoxLayout>
 
     </GuiElement>
@@ -246,6 +267,35 @@
             <size value="700px 30px"/>
             <textSize value="14px"/>
             <textColor value="0.6 0.6 0.6 1"/>
+            <textAlignment value="center"/>
+        </Profile>
+
+        <!-- [C3/F130] Emergency loan band -->
+        <Profile name="irLoanContainer" extends="emptyPanel" with="anchorTopCenter">
+            <size value="700px 120px"/>
+        </Profile>
+        <Profile name="irLoanBg" extends="baseReference" with="anchorTopCenter">
+            <size value="700px 120px"/>
+            <imageColor value="0.16 0.10 0.10 0.9"/>
+        </Profile>
+        <Profile name="irLoanLine" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="680px 20px"/>
+            <textSize value="12px"/>
+            <textColor value="0.85 0.85 0.85 1"/>
+            <textAlignment value="left"/>
+        </Profile>
+        <Profile name="irLoanLineWrap" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="680px 36px"/>
+            <textSize value="11px"/>
+            <textMaxNumLines value="2"/>
+            <textColor value="0.75 0.75 0.75 1"/>
+            <textAlignment value="left"/>
+        </Profile>
+        <Profile name="irLoanText" extends="fs25_textDefault" with="anchorTopCenter">
+            <size value="700px 20px"/>
+            <textSize value="13px"/>
+            <textBold value="true"/>
+            <textColor value="1.0 0.85 0.5 1"/>
             <textAlignment value="center"/>
         </Profile>
     </GUIProfiles>

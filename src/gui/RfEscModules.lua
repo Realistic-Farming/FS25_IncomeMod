@@ -233,6 +233,11 @@ function RfEscModules:registerModule(def)
         onOpenConsultant = def.onOpenConsultant,
         onOpenSchedule = def.onOpenSchedule,
         onOpenHelp = def.onOpenHelp,
+        -- BUILD 19:15: the shared Esc sheet's row click. registerModule rebuilds the descriptor field
+        -- by field, so a handler that is not named here is silently dropped and the control is dead.
+        -- That is what happened to onOpenFullMarket, onOpenConsultant, onPivotRemote, onLightTick,
+        -- onMoverChanged and onPageStep before it.
+        onSheetRow = def.onSheetRow,
         onPaintConsultant = def.onPaintConsultant,
         -- Same trap again, BUILD 15:46: the CS guest registers onPivotRemote on
         -- its module def (CsRfPdaGuest.lua) but it was missing here, so it was
@@ -261,6 +266,11 @@ function RfEscModules:registerModule(def)
         -- MORE (1/2) button forwarded a step to nil and the roster never turned the page.
         -- The register-time warning below did name it, in a log nobody read back.
         onPageStep = def.onPageStep,
+        -- BUILD 22:42 (George CLOSED DESIGN 21:26): the Worker Costs guest registers onHire /
+        -- onFire for the Esc page Hire / Fire buttons; carried so the host forwarders reach them
+        -- through the registry (the warning below would otherwise name them as dropped).
+        onHire = def.onHire,
+        onFire = def.onFire,
     }
     -- BUILD 23:51: this whitelist has now silently eaten a handler four times, so stop
     -- letting it do that quietly. Anything a caller passed that is not carried above gets

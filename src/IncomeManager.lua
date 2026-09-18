@@ -22,6 +22,11 @@ end
 IncomeManager = IncomeManager or {}
 local IncomeManager_mt = Class(IncomeManager)
 
+-- RSF-F201 item 12: the session-lived input-hook record, on the latched class
+-- table and outside the per-mission instance. Holds the install latch, the
+-- captured predecessor and the per-owner arming flag, nothing else.
+IncomeManager._f201Input = IncomeManager._f201Input or { installed = false, active = false, original = nil }
+
 function IncomeManager.new(mission, modDirectory, modName)
     local self = setmetatable({}, IncomeManager_mt)
 
@@ -65,79 +70,95 @@ function IncomeManager.new(mission, modDirectory, modName)
         -- Income Report Dialog (singleton; loaded once, shown on demand)
         self.incomeReportDialog = IncomeReportDialog.getInstance(self.modDirectory)
 
-        -- Register key actions via PlayerInputComponent hook (proven race-condition-safe pattern)
+        -- Register key actions via PlayerInputComponent hook (proven race-condition-safe pattern).
+        -- RSF-F201 PLAYER-lifetime companion: the wrapper is installed ONCE per loaded
+        -- script environment with its record on the IncomeManager class table, and
+        -- delete() no longer restores the captured predecessor (that can unhook a
+        -- later mod's wrapper). Item 11: the two `local` redeclarations inside the
+        -- MasterHUD gate that shadowed hudOk/hudId and edOk/edId are gone, so the
+        -- handles land in the outer locals, the toggle handle is stored, the edit
+        -- handle is stored and labelled, and the standalone failure line stops
+        -- printing for a control that works.
         if PlayerInputComponent and PlayerInputComponent.registerActionEvents then
-            local originalRegisterActionEvents = PlayerInputComponent.registerActionEvents
-            self._inputHookOriginal = originalRegisterActionEvents
-            PlayerInputComponent.registerActionEvents = function(inputComponent, ...)
-                originalRegisterActionEvents(inputComponent, ...)
+            local hook = IncomeManager._f201Input
+            if not hook.installed then
+                hook.installed = true
+                local originalRegisterActionEvents = PlayerInputComponent.registerActionEvents
+                hook.original = originalRegisterActionEvents
+                PlayerInputComponent.registerActionEvents = function(inputComponent, ...)
+                    originalRegisterActionEvents(inputComponent, ...)
+                    if not hook.active then return end
 
-                -- Only register for the local owning player, not networked players
-                if not (inputComponent.player and inputComponent.player.isOwner) then return end
-                -- Guard against double-registration on level reloads
-                if g_IncomeManager and g_IncomeManager.toggleHUDEventId then return end
-                if not g_IncomeManager or not g_IncomeManager.incomeHUD then return end
+                    -- Only register for the local owning player, not networked players
+                    if not (inputComponent.player and inputComponent.player.isOwner) then return end
+                    -- Guard against double-registration on level reloads
+                    if g_IncomeManager and g_IncomeManager.toggleHUDEventId then return end
+                    if not g_IncomeManager or not g_IncomeManager.incomeHUD then return end
 
-                g_inputBinding:beginActionEventsModification(PlayerInputComponent.INPUT_CONTEXT_NAME)
+                    g_inputBinding:beginActionEventsModification(PlayerInputComponent.INPUT_CONTEXT_NAME)
 
-                -- HUD toggle: I key
-                local hudOk, hudId = false, nil
-                if not __rfMhOwnsHudKeys() then
-                    local hudOk, hudId = g_inputBinding:registerActionEvent(
-                        InputAction.IM_TOGGLE_HUD,
+                    -- HUD toggle: I key
+                    local hudOk, hudId = false, nil
+                    if not __rfMhOwnsHudKeys() then
+                        hudOk, hudId = g_inputBinding:registerActionEvent(
+                            InputAction.IM_TOGGLE_HUD,
+                            g_IncomeManager,
+                            g_IncomeManager.onToggleHUDInput,
+                            false,  -- triggerUp
+                            true,   -- triggerDown
+                            false,  -- triggerAlways
+                            true    -- startActive
+                        )
+                    end
+                    if hudOk and hudId then
+                        g_IncomeManager.toggleHUDEventId = hudId
+                        Logging.info("Income Mod: HUD toggle registered")
+                    else
+                        Logging.warning("Income Mod: HUD toggle registration failed")
+                    end
+
+                    -- HUD move/edit. Registered here, not only through the MasterHUD bridge,
+                    -- so a standalone install (no MasterHUD) can still reposition the panel.
+                    -- The callback stands down by itself when MasterHUD is present.
+                    local edOk, edId = false, nil
+                    if not __rfMhOwnsHudKeys() then
+                        edOk, edId = g_inputBinding:registerActionEvent(
+                            InputAction.IM_HUD_EDIT,
+                            g_IncomeManager,
+                            g_IncomeManager.onHUDEditInput,
+                            false, true, false, true
+                        )
+                    end
+                    if edOk and edId then
+                        g_IncomeManager.hudEditEventId = edId
+                        g_inputBinding:setActionEventText(edId,
+                            (g_i18n ~= nil and g_i18n:getText("input_IM_HUD_EDIT")) or "Move Income HUD")
+                        Logging.info("Income Mod: HUD move/edit registered")
+                    end
+
+                    -- Income Report
+                    local repOk, repId = g_inputBinding:registerActionEvent(
+                        InputAction.IM_INCOME_REPORT,
                         g_IncomeManager,
-                        g_IncomeManager.onToggleHUDInput,
+                        g_IncomeManager.onIncomeReportInput,
                         false,  -- triggerUp
                         true,   -- triggerDown
                         false,  -- triggerAlways
                         true    -- startActive
                     )
-                end
-                if hudOk and hudId then
-                    g_IncomeManager.toggleHUDEventId = hudId
-                    Logging.info("Income Mod: HUD toggle registered")
-                else
-                    Logging.warning("Income Mod: HUD toggle registration failed")
-                end
+                    if repOk and repId then
+                        g_IncomeManager.incomeReportEventId = repId
+                        Logging.info("Income Mod: Income Report (U) registered")
+                    else
+                        Logging.warning("Income Mod: Income Report (U) registration failed")
+                    end
 
-                -- HUD move/edit. Registered here, not only through the MasterHUD bridge,
-                -- so a standalone install (no MasterHUD) can still reposition the panel.
-                -- The callback stands down by itself when MasterHUD is present.
-                local edOk, edId = false, nil
-                if not __rfMhOwnsHudKeys() then
-                    local edOk, edId = g_inputBinding:registerActionEvent(
-                        InputAction.IM_HUD_EDIT,
-                        g_IncomeManager,
-                        g_IncomeManager.onHUDEditInput,
-                        false, true, false, true
-                    )
+                    g_inputBinding:endActionEventsModification()
                 end
-                if edOk and edId then
-                    g_IncomeManager.hudEditEventId = edId
-                    g_inputBinding:setActionEventText(edId,
-                        (g_i18n ~= nil and g_i18n:getText("input_IM_HUD_EDIT")) or "Move Income HUD")
-                    Logging.info("Income Mod: HUD move/edit registered")
-                end
-
-                -- Income Report
-                local repOk, repId = g_inputBinding:registerActionEvent(
-                    InputAction.IM_INCOME_REPORT,
-                    g_IncomeManager,
-                    g_IncomeManager.onIncomeReportInput,
-                    false,  -- triggerUp
-                    true,   -- triggerDown
-                    false,  -- triggerAlways
-                    true    -- startActive
-                )
-                if repOk and repId then
-                    g_IncomeManager.incomeReportEventId = repId
-                    Logging.info("Income Mod: Income Report (U) registered")
-                else
-                    Logging.warning("Income Mod: Income Report (U) registration failed")
-                end
-
-                g_inputBinding:endActionEventsModification()
             end
+            -- Arm registration for this owner. The wrapper resolves g_IncomeManager
+            -- at callback time, so no stale manager is captured.
+            hook.active = true
         end
     end
 
@@ -174,6 +195,13 @@ function IncomeManager:onMissionLoaded()
     -- then session-only, which is the graceful degrade for a recovery hatch).
     if IncomeEmergencyLoanBridge then
         IncomeEmergencyLoanBridge.register(self)
+    end
+
+    -- [C3/F130] Select and install the authoritative debt snapshot, apply any native
+    -- MP->SP conversion once, and re-register the interest accrual for restored debt.
+    -- Server-only (the loan is server-authoritative; clients receive views via the Event).
+    if self.emergencyLoan and g_currentMission and g_currentMission:getIsServer() then
+        self:loadEmergencyDebt()
     end
 
     -- MasterHUD (bedrock, delegate-when-present): when installed, the income HUD draw
@@ -302,10 +330,463 @@ function IncomeManager:loadState()
 end
 
 -- =========================================================
+-- [C3/F130] Emergency loan: persistence, public view, owner Event
+-- =========================================================
+
+--- Select and install the authoritative debt snapshot (StateLedger primary, own-XML
+--- fallback), apply the native MP->SP conversion once, and re-register interest accrual
+--- for restored positive debt. Server-only. Runs once in onMissionLoaded.
+function IncomeManager:loadEmergencyDebt()
+    local loan = self.emergencyLoan
+    if loan == nil then return end
+
+    local installed = false
+    -- Prefer a StateLedger-delivered non-nil block; an explicit nil delivery (new save)
+    -- falls through to the own-XML fallback below.
+    if IncomeEmergencyLoanBridge and IncomeEmergencyLoanBridge.hasState() then
+        installed = loan:deserialize(IncomeEmergencyLoanBridge.pendingState) == true
+    end
+
+    if not installed then
+        local mi = g_currentMission and g_currentMission.missionInfo
+        local snap = EmergencyLoanDebtStorage.load(mi)
+        if snap == false then
+            -- Malformed/unsupported primary: retain file, expose UNAVAILABLE, block mutation.
+            loan:setReadiness(EmergencyLoan.READINESS.UNAVAILABLE)
+            Logging.warning("Income Mod: emergency debt file malformed; loan marked UNAVAILABLE")
+            return
+        elseif type(snap) == "table" then
+            loan:deserialize(snap)  -- valid (a new-format empty snapshot is authoritative empty)
+        else
+            loan:setReadiness(EmergencyLoan.READINESS.READY)  -- no file: brand-new / pre-C3 save
+        end
+    end
+
+    -- Native MP->SP farm conversion, once, before use (mergedFarms is populated during
+    -- FarmManager load, before this loadMission00Finished handler).
+    local fm = g_farmManager
+    if fm ~= nil and type(fm.mergedFarms) == "table" and next(fm.mergedFarms) ~= nil then
+        loan:remapMergedFarms(fm.mergedFarms)
+    end
+
+    -- Re-register the month-cadence accrual for restored positive debt.
+    for farmId, d in pairs(loan.debts) do
+        if d.active and ((d.principal or 0) + (d.accruedInterest or 0)) > 0 then
+            loan:registerInterestAccrual(farmId)
+        end
+    end
+end
+
+--- Persist the debt to its isolated XML (server-only). Called from the active career
+--- save window (FSCareerMissionInfo.saveToXMLFile), preserving timer/settings/HUD work.
+function IncomeManager:saveEmergencyDebt(missionInfo)
+    if self.emergencyLoan == nil then return end
+    if g_currentMission == nil or not g_currentMission:getIsServer() then return end
+    EmergencyLoanDebtStorage.save(self.emergencyLoan,
+        missionInfo or (g_currentMission and g_currentMission.missionInfo))
+end
+
+-- Per-connection owner session (highest sequence, last result, outstanding quotes).
+function IncomeManager:_loanSession(connection)
+    self._loanSessions = self._loanSessions or {}
+    local key = connection or "local"
+    local s = self._loanSessions[key]
+    if s == nil then
+        s = { id = tostring(key), highest = 0, quotes = {}, quoteSeq = 0 }
+        self._loanSessions[key] = s
+    end
+    return s
+end
+
+function IncomeManager:_nextLoanSequence()
+    self._loanSeq = (self._loanSeq or 0) + 1
+    if self._loanSeq > EmergencyLoanController.MAX_SEQUENCE then self._loanSeq = 1 end
+    return self._loanSeq
+end
+
+function IncomeManager:_mintQuote(session, quote)
+    session.quoteSeq = (session.quoteSeq or 0) + 1
+    local token = string.format("q%d", session.quoteSeq)
+    session.quotes[token] = quote
+    return token
+end
+
+-- Copy a cost/missing-input list so the reply never aliases the loan's live tables.
+local function copyEntries(list)
+    if type(list) ~= "table" then return nil end
+    local out = {}
+    for i, e in ipairs(list) do
+        if type(e) == "table" then
+            out[i] = { sourceId = e.sourceId, amount = e.amount, basis = e.basis,
+                       dueDay = e.dueDay, dueTimeMs = e.dueTimeMs }
+        else
+            out[i] = e
+        end
+    end
+    return out
+end
+
+local function copyClock(c)
+    if type(c) ~= "table" then return nil end
+    return { monotonicDay = c.monotonicDay, timeOfDayMs = c.timeOfDayMs }
+end
+
+-- Compact a rich view into the Event reply payload (the wire + the client cache shape).
+-- Carries the whole version-1 view (debt, rate, forecast, costs, coverage) under the SAME
+-- field names as EmergencyLoan:getView, so the report band renders one shape whether it
+-- reads the host's rich view or a pure client's cached reply. nil stays nil (unknown).
+function IncomeManager:_viewReply(v, sequence, statusOverride)
+    return {
+        version      = EmergencyLoan.VIEW_VERSION,
+        status       = statusOverride or (v and v.forecastStatus) or "UNAVAILABLE",
+        sequence     = sequence or 0,
+        readiness    = v and v.readiness,
+        cash         = v and v.cash,
+        outstanding  = v and v.outstanding,
+        nativeLoan   = v and v.nativeLoan,
+        offer        = v and v.offer,
+        canBorrow    = v and v.canBorrow,
+        canRepay     = v and v.canRepay,
+        borrowReason = v and v.borrowReason,
+        repayReason  = v and v.repayReason,
+        -- [C3/F130] forecast + debt detail the report's loan band shows (brief section 2).
+        farmId                  = v and v.farmId,
+        revision                = v and v.revision,
+        asOf                    = v and copyClock(v.asOf),
+        principal               = v and v.principal,
+        accruedInterest         = v and v.accruedInterest,
+        drawCount               = v and v.drawCount,
+        effectiveMonthlyRate    = v and v.effectiveMonthlyRate,
+        costLockReason          = v and v.costLockReason,
+        automaticRepaymentShare = v and v.automaticRepaymentShare,
+        forecastStatus          = v and v.forecastStatus,
+        horizonEnd              = v and copyClock(v.horizonEnd),
+        minimumBalance          = v and v.minimumBalance,
+        shortfall               = v and v.shortfall,
+        expectedGrossIncome     = v and v.expectedGrossIncome,
+        expectedNetIncome       = v and v.expectedNetIncome,
+        workingCashBasis        = v and v.workingCashBasis,
+        workingCashAmount       = v and v.workingCashAmount,
+        knownCosts              = v and copyEntries(v.knownCosts),
+        estimatedCosts          = v and copyEntries(v.estimatedCosts),
+        missingInputs           = v and copyEntries(v.missingInputs),
+    }
+end
+
+--- getEmergencyLoanView(farmId?): on the server, nil is the LOCAL PLAYER's view: the
+--- host resolves its own actor (farm + manager rights) exactly as it would for a remote
+--- connection, so the report can offer Borrow/Pay Off to the host player. An explicit
+--- farmId is a pure authoritative sample with no actor rights (NO_ACTOR_CONTEXT); a
+--- dedicated server with no local player also falls back to that sample. On a client,
+--- only the local farm's last authoritative reply (a different supplied farmId refuses).
+function IncomeManager:getEmergencyLoanView(farmId)
+    local loan = self.emergencyLoan
+    if loan == nil then return nil, "NO_LOAN" end
+    local isServer = g_currentMission and g_currentMission.getIsServer and g_currentMission:getIsServer()
+    local localFarmId = nil
+    pcall(function()
+        if g_currentMission and g_currentMission.getFarmId then localFarmId = g_currentMission:getFarmId() end
+    end)
+    if isServer then
+        if farmId == nil then
+            local actor = EmergencyLoanController.resolveActor(nil)
+            if actor ~= nil then
+                return loan:getView(actor.farmId, { isManager = actor.isManager })
+            end
+        end
+        local target = farmId
+        if target == nil then target = localFarmId end
+        if type(target) ~= "number" then return nil, "NO_FARM" end
+        return loan:getView(target, nil)  -- pure sample: canBorrow/canRepay false, NO_ACTOR_CONTEXT
+    end
+    if farmId ~= nil and localFarmId ~= nil and farmId ~= localFarmId then return nil, "OTHER_FARM" end
+    if self._emergencyView == nil then return nil, "NO_VIEW_YET" end
+    return self._emergencyView
+end
+
+--- Ask the host for the current view without moving money.
+function IncomeManager:refreshEmergencyLoanView()
+    if g_currentMission and g_currentMission.getIsServer and g_currentMission:getIsServer() then
+        local v = self:getEmergencyLoanView(nil)
+        if v then self._emergencyView = self:_viewReply(v, 0) end
+        return true
+    end
+    if g_client and g_client.getServerConnection and EmergencyLoanEvent then
+        local ok = pcall(function()
+            g_client:getServerConnection():sendEvent(
+                EmergencyLoanEvent.newRequest(self:_nextLoanSequence(), EmergencyLoanController.OP.VIEW))
+        end)
+        return ok
+    end
+    return false
+end
+
+--- Open IncomeMod's own report (navigation only; never accepts a loan). Returns true
+--- only when the registered dialog root actually entered g_gui.dialogs (show() returns
+--- nil whether refused or shown, so its nil proves nothing).
+function IncomeManager:openEmergencyLoanReport()
+    if g_gui == nil then return false, "NO_GUI" end
+    if g_gui.currentGui ~= nil then return false, "GUI_BUSY" end
+    if self.incomeReportDialog == nil or g_IncomeManager == nil or g_IncomeManager.incomeSystem == nil then
+        return false, "NO_HOST"
+    end
+    pcall(function() self.incomeReportDialog:show() end)
+    local root = g_gui.guis and g_gui.guis["IncomeReportDialog"]
+    for _, d in pairs(g_gui.dialogs or {}) do
+        if d == root and root ~= nil then return true end
+    end
+    return false, "OPEN_REFUSED"
+end
+
+--- Client: cache a reply as the local farm's last authoritative view. If a UI action
+--- is mid-flight and the reply carries a fresh quote token, accept it (the two-step
+--- quote->accept the owner Event requires on a pure client).
+function IncomeManager:onEmergencyLoanReply(payload)
+    if type(payload) ~= "table" then return end
+    self._emergencyView = payload
+    -- A pure client's report opened on "no view yet"; now that the host has answered,
+    -- redraw the loan band so the buttons appear without the player reopening it.
+    local dlg = self.incomeReportDialog
+    if dlg ~= nil and dlg.onLoanViewArrived ~= nil then
+        pcall(function() dlg:onLoanViewArrived() end)
+    end
+
+    -- A reply the confirming UI is waiting on belongs to that UI, matched by the exact
+    -- sequence it sent. An older/foreign reply never resolves a pending confirmation.
+    local waiting = self._pendingResult
+    if waiting ~= nil and waiting.sequence == payload.sequence then
+        self._pendingResult = nil
+        if waiting.callback ~= nil then waiting.callback(payload) end
+        return
+    end
+    waiting = self._pendingQuote
+    if waiting ~= nil and waiting.sequence == payload.sequence then
+        self._pendingQuote = nil
+        if waiting.callback ~= nil then waiting.callback(payload) end
+        return  -- a quote awaiting player confirmation is NEVER auto-accepted
+    end
+
+    if self._pendingAccept and payload.token ~= nil and payload.token ~= ""
+        and g_client and g_client.getServerConnection then
+        self._pendingAccept = false
+        pcall(function()
+            g_client:getServerConnection():sendEvent(
+                EmergencyLoanEvent.newRequest(self:_nextLoanSequence(),
+                    EmergencyLoanController.OP.ACCEPT_QUOTE, nil, payload.token))
+        end)
+    end
+end
+
+-- UI entry points: borrow / payoff. Each is a quote-then-accept. On a listen host (or SP)
+-- both steps run locally and synchronously; on a pure client the quote request goes over
+-- the Event and onEmergencyLoanReply accepts the returned token. The server always
+-- re-checks manager rights, acting farm, cash and the quote revision before moving money.
+function IncomeManager:uiBorrow() self:_uiQuoteThenAccept(EmergencyLoanController.OP.BORROW_QUOTE) end
+function IncomeManager:uiPayoff() self:_uiQuoteThenAccept(EmergencyLoanController.OP.PAYOFF_QUOTE) end
+function IncomeManager:uiManualRepay(amountText)
+    self:_uiQuoteThenAccept(EmergencyLoanController.OP.MANUAL_AMOUNT_QUOTE, amountText)
+end
+
+--- Quote a player-chosen repayment amount WITHOUT accepting it. `amountText` is the
+--- untrusted typed value; the server validates it against current cash and debt and
+--- returns its own exact amount plus a one-shot token. onQuote receives that reply (or
+--- nil when no request could be sent). No money moves until uiAcceptQuote runs.
+function IncomeManager:uiManualRepayQuote(amountText, onQuote)
+    return self:_uiQuoteOnly(EmergencyLoanController.OP.MANUAL_AMOUNT_QUOTE, amountText, onQuote)
+end
+
+--- Quote a full payoff WITHOUT accepting it. The server binds the exact outstanding
+--- (principal + all accrued interest) and returns it with a one-shot token; the player
+--- confirms THAT sum and only uiAcceptQuote moves money. Replaces the one-step uiPayoff
+--- for the report, whose button was the only "confirmation" the payoff ever had.
+function IncomeManager:uiPayoffQuote(onQuote)
+    return self:_uiQuoteOnly(EmergencyLoanController.OP.PAYOFF_QUOTE, nil, onQuote)
+end
+
+function IncomeManager:_uiQuoteOnly(quoteOp, amountText, onQuote)
+    local function deliver(reply) if onQuote ~= nil then onQuote(reply) end end
+    if g_currentMission and g_currentMission.getIsServer and g_currentMission:getIsServer() then
+        local reply = self:handleEmergencyLoanRequest(
+            EmergencyLoanEvent.newRequest(self:_nextLoanSequence(), quoteOp, amountText), nil)
+        if type(reply) == "table" then self._emergencyView = reply end
+        deliver(reply)
+        return true
+    end
+    if g_client and g_client.getServerConnection and EmergencyLoanEvent then
+        local seq = self:_nextLoanSequence()
+        self._pendingQuote = { sequence = seq, callback = onQuote }
+        local ok = pcall(function()
+            g_client:getServerConnection():sendEvent(
+                EmergencyLoanEvent.newRequest(seq, quoteOp, amountText))
+        end)
+        if not ok then self._pendingQuote = nil; deliver(nil) end
+        return ok
+    end
+    deliver(nil)
+    return false
+end
+
+--- Accept one already-minted quote by its token. The server re-checks rights, farm,
+--- cash and the debt revision before moving money, and consumes the token once, so a
+--- repeated confirmation cannot repeat a completed payment.
+function IncomeManager:uiAcceptQuote(token, onResult)
+    local function deliver(reply) if onResult ~= nil then onResult(reply) end end
+    if type(token) ~= "string" or token == "" then deliver(nil); return false end
+    if g_currentMission and g_currentMission.getIsServer and g_currentMission:getIsServer() then
+        local reply = self:handleEmergencyLoanRequest(
+            EmergencyLoanEvent.newRequest(self:_nextLoanSequence(),
+                EmergencyLoanController.OP.ACCEPT_QUOTE, nil, token), nil)
+        if type(reply) == "table" then self._emergencyView = reply end
+        deliver(reply)
+        return true
+    end
+    if g_client and g_client.getServerConnection and EmergencyLoanEvent then
+        local seq = self:_nextLoanSequence()
+        self._pendingResult = { sequence = seq, callback = onResult }
+        local ok = pcall(function()
+            g_client:getServerConnection():sendEvent(
+                EmergencyLoanEvent.newRequest(seq,
+                    EmergencyLoanController.OP.ACCEPT_QUOTE, nil, token))
+        end)
+        if not ok then self._pendingResult = nil; deliver(nil) end
+        return ok
+    end
+    deliver(nil)
+    return false
+end
+
+--- Drop owner-UI request state (teardown, farm/mission change). Waiting callbacks are
+--- released without being called: a torn-down dialog must never resolve a confirmation.
+function IncomeManager:clearEmergencyLoanUiState()
+    self._pendingQuote  = nil
+    self._pendingResult = nil
+    self._pendingAccept = false
+end
+
+function IncomeManager:_uiQuoteThenAccept(quoteOp, amountText)
+    local isServer = g_currentMission and g_currentMission.getIsServer and g_currentMission:getIsServer()
+    if isServer then
+        local quote = self:handleEmergencyLoanRequest(
+            EmergencyLoanEvent.newRequest(self:_nextLoanSequence(), quoteOp, amountText), nil)
+        self:onEmergencyLoanReply(quote)
+        if quote and quote.token ~= nil and quote.token ~= "" then
+            local accepted = self:handleEmergencyLoanRequest(
+                EmergencyLoanEvent.newRequest(self:_nextLoanSequence(),
+                    EmergencyLoanController.OP.ACCEPT_QUOTE, nil, quote.token), nil)
+            self._emergencyView = accepted
+        end
+        return true
+    end
+    if g_client and g_client.getServerConnection and EmergencyLoanEvent then
+        self._pendingAccept = true
+        return pcall(function()
+            g_client:getServerConnection():sendEvent(
+                EmergencyLoanEvent.newRequest(self:_nextLoanSequence(), quoteOp, amountText))
+        end)
+    end
+    return false
+end
+
+--- Server: handle one owner request from a connection and return the reply payload.
+--- VIEW is view-only; quotes require farm-manager rights; ACCEPT_QUOTE consumes a minted
+--- quote once and re-checks revision/cash before moving money. Replies go only to the
+--- requesting connection (the caller sends it).
+function IncomeManager:handleEmergencyLoanRequest(event, connection)
+    local loan = self.emergencyLoan
+    local seq = event and event.sequence or 0
+    if loan == nil then return { status = "UNAVAILABLE", sequence = seq } end
+
+    local actor, reason = EmergencyLoanController.resolveActor(connection)
+    if actor == nil then return { status = reason or "NO_ACTOR", sequence = seq } end
+    local farmId = actor.farmId
+    local session = self:_loanSession(connection)
+    local op = event.operation
+
+    if op == EmergencyLoanController.OP.VIEW then
+        return self:_viewReply(loan:getView(farmId, { isManager = actor.isManager }), seq)
+    end
+
+    -- All quote/accept operations require farm-manager rights on the acting farm.
+    if actor.isManager ~= true then
+        return self:_viewReply(loan:getView(farmId, { isManager = false }), seq, "NOT_MANAGER")
+    end
+    if loan:getReadiness() == EmergencyLoan.READINESS.UNAVAILABLE then
+        return self:_viewReply(loan:getView(farmId, { isManager = true }), seq, "UNAVAILABLE")
+    end
+
+    if op == EmergencyLoanController.OP.BORROW_QUOTE then
+        local offer = loan:computeOffer(farmId)
+        local view = loan:getView(farmId, { isManager = true })
+        if not offer or offer <= 0 then return self:_viewReply(view, seq, "NO_SHORTFALL") end
+        local token = self:_mintQuote(session, { op = "borrow", farmId = farmId, amount = offer,
+            revision = (loan.debts[farmId] and loan.debts[farmId].revision) or 0 })
+        local reply = self:_viewReply(view, seq); reply.token = token; reply.offer = offer
+        reply.quoteAmount = offer
+        return reply
+    elseif op == EmergencyLoanController.OP.MANUAL_AMOUNT_QUOTE or op == EmergencyLoanController.OP.PAYOFF_QUOTE then
+        local debt = loan.debts[farmId]
+        local view = loan:getView(farmId, { isManager = true })
+        if not debt or not debt.active then return self:_viewReply(view, seq, "NO_DEBT") end
+        local amount
+        if op == EmergencyLoanController.OP.PAYOFF_QUOTE then
+            amount = loan:payoffAmount(farmId)
+        else
+            amount = EmergencyLoanController.parseAmount(event.amountText)
+            if not amount or amount <= 0 then return self:_viewReply(view, seq, "INVALID_AMOUNT") end
+            local cash = loan:getBalance(farmId)
+            amount = math.min(amount, loan:getOutstanding(farmId))
+            if cash ~= nil and cash > 0 then amount = math.min(amount, cash) end
+        end
+        local token = self:_mintQuote(session, { op = "repay", farmId = farmId, amount = amount,
+            revision = debt.revision })
+        local reply = self:_viewReply(view, seq); reply.token = token
+        -- The amount the server actually bound, after clamping the requested value to
+        -- current cash and debt. The player confirms THIS sum, not the one typed.
+        reply.quoteAmount = amount
+        return reply
+    elseif op == EmergencyLoanController.OP.ACCEPT_QUOTE then
+        local quote = session.quotes[event.token or ""]
+        local view = loan:getView(farmId, { isManager = true })
+        if quote == nil or quote.farmId ~= farmId then
+            return self:_viewReply(view, seq, "STALE_QUOTE")
+        end
+        session.quotes[event.token] = nil  -- consume once
+        local status
+        if quote.op == "borrow" then
+            local rev = (loan.debts[farmId] and loan.debts[farmId].revision) or 0
+            if rev ~= quote.revision then status = "STALE_QUOTE"
+            else
+                local ok = (loan.debts[farmId] and loan.debts[farmId].active) and loan:redraw(farmId) or loan:grant(farmId)
+                status = ok and "ACCEPTED" or "REFUSED"
+            end
+        else
+            local debt = loan.debts[farmId]
+            local cash = loan:getBalance(farmId)
+            if not debt or not debt.active then status = "NO_DEBT"
+            elseif debt.revision ~= quote.revision then status = "STALE_QUOTE"
+            elseif cash == nil or quote.amount > cash then status = "INSUFFICIENT_CASH"
+            else status = (loan:applyManualPayment(farmId, quote.amount) > 0) and "ACCEPTED" or "REFUSED" end
+        end
+        if status == "ACCEPTED" then self:saveEmergencyDebt() end
+        local reply = self:_viewReply(loan:getView(farmId, { isManager = true }), seq)
+        reply.status = status
+        return reply
+    end
+
+    return { status = "UNKNOWN_OP", sequence = seq }
+end
+
+-- =========================================================
 -- Cleanup
 -- =========================================================
 
 function IncomeManager:delete()
+    -- RSF-F201: retire this owner's registration activity first. The PLAYER
+    -- wrapper itself stays installed (restoring it per mission can remove a
+    -- later mod's wrapper); the next IncomeManager.new re-arms it.
+    IncomeManager._f201Input.active = false
+    self:clearEmergencyLoanUiState()
+
     -- Remove action events for I key (HUD) and U key (Report)
     if self.toggleHUDEventId and g_inputBinding then
         g_inputBinding:removeActionEvent(self.toggleHUDEventId)
@@ -316,11 +797,10 @@ function IncomeManager:delete()
         g_inputBinding:removeActionEvent(self.incomeReportEventId)
         self.incomeReportEventId = nil
     end
-
-    -- Restore the PlayerInputComponent hook if we patched it
-    if self._inputHookOriginal and PlayerInputComponent then
-        PlayerInputComponent.registerActionEvents = self._inputHookOriginal
-        self._inputHookOriginal = nil
+    -- HUD move/edit handle (F201 item 11): it had no teardown arm anywhere before.
+    if self.hudEditEventId and g_inputBinding then
+        g_inputBinding:removeActionEvent(self.hudEditEventId)
+        self.hudEditEventId = nil
     end
 
     -- Destroy HUD overlay

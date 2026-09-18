@@ -68,10 +68,13 @@ function IncomeEmergencyLoanBridge.register(im)
 
     IncomeEmergencyLoanBridge.active = true
 
+    -- Force the (idempotent) parse so deserialize has delivered before IncomeManager
+    -- runs its snapshot SELECTION. F130: the bridge now only CACHES the delivered block;
+    -- IncomeManager picks StateLedger-vs-own-XML and installs once (it must choose the
+    -- own-XML fallback on an explicit nil delivery), so the bridge no longer auto-applies.
     if ledger.parseFile ~= nil then
         pcall(function() ledger:parseFile() end)
     end
-    IncomeEmergencyLoanBridge.applyState(loan)
 
     Logging.info("Income Mod: Emergency loan registered with StateLedger as '%s'",
         IncomeEmergencyLoanBridge.MODULE_ID)

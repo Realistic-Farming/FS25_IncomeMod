@@ -8,6 +8,10 @@
 // A test declares which real src files to load with a header line:
 //   --!load: src/config/Constants.lua, src/SoilFertilitySystem.lua
 //
+// A test may also declare repo files it wants to READ as text (fengari has no io.open):
+//   --!text: modDesc.xml
+// Each is exposed verbatim as T.text["modDesc.xml"] before the test body runs.
+//
 // Usage:  node run-tests.mjs
 // Exit:   0 = all assertions passed, 1 = any failure or Lua load error.
 import { readFileSync, readdirSync } from "node:fs";
@@ -24,6 +28,20 @@ function parseDeps(src) {
   const m = src.match(/--!load:\s*(.+)/);
   if (!m) return [];
   return m[1].split(",").map((s) => s.trim()).filter(Boolean);
+}
+
+function parseTexts(src) {
+  const m = src.match(/--!text:\s*(.+)/);
+  if (!m) return [];
+  return m[1].split(",").map((s) => s.trim()).filter(Boolean);
+}
+
+// Embed a file's bytes as a Lua long string, picking a bracket level the content
+// cannot close early. A leading newline is added because Lua drops the first one.
+function luaLongString(text) {
+  let eq = "";
+  while (text.includes("]" + eq + "]")) eq += "=";
+  return `[${eq}[\n${text}]${eq}]`;
 }
 
 // Run one Lua program string, return { rc, out } with stdout captured.
@@ -57,8 +75,20 @@ for (const tf of testFiles) {
   const testPath = join(LUA_DIR, tf);
   const testSrc = readFileSync(testPath, "utf8");
   const deps = parseDeps(testSrc);
+  const texts = parseTexts(testSrc);
 
   const parts = [prelude];
+  if (texts.length) {
+    parts.push("T.text = T.text or {}");
+    for (const t of texts) {
+      try {
+        parts.push(`T.text[${JSON.stringify(t)}] = ${luaLongString(readFileSync(join(REPO_ROOT, t), "utf8"))}`);
+      } catch {
+        console.log(c.red(`✗ ${tf}: cannot read declared text file '${t}'`));
+        hadError = true;
+      }
+    }
+  }
   for (const d of deps) {
     try {
       parts.push(`-- <<< ${d} >>>\n` + readFileSync(join(REPO_ROOT, d), "utf8"));

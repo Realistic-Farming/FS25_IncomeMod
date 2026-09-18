@@ -55,44 +55,54 @@ local function withOptIn(optIn, fn)
 end
 
 g_server = {}
+-- F130: the cost elaboration charges only when Time Guard is present (it owns the
+-- accrual cadence) AND the release lock is opted in. Time Guard present for these.
+g_timeGuard = {}
 
 -- Opt-in OFF: the compounding interest path is locked, so no interest accrues.
 T.ok("interest settle no-ops when opt-in off", withOptIn(false, function()
     local loan = newLoan()
-    loan.debts[1] = { principal = 100000, accruedInterest = 0, drawCount = 1, lastInterestDay = 0 }
-    loan:onInterestSettle(1, { boundariesCrossed = 1, monotonicDay = 30 })
+    loan.debts[1] = { principal = 100000, accruedInterest = 0, drawCount = 1, active = true }
+    loan:onInterestSettle(1, { boundariesCrossed = 1 })
     return loan.debts[1].accruedInterest == 0
 end))
 
--- Opt-in ON: interest accrues exactly as before (8% on 100k = 8000).
+-- Opt-in ON (+ Time Guard): interest accrues (8% on 100k = 8000).
 T.near("interest settles when opt-in on", withOptIn(true, function()
     local loan = newLoan()
-    loan.debts[1] = { principal = 100000, accruedInterest = 0, drawCount = 1, lastInterestDay = 0 }
-    loan:onInterestSettle(1, { boundariesCrossed = 1, monotonicDay = 30 })
+    loan.debts[1] = { principal = 100000, accruedInterest = 0, drawCount = 1, active = true }
+    loan:onInterestSettle(1, { boundariesCrossed = 1 })
     return loan.debts[1].accruedInterest
 end), 8000, 1)
 
--- Fail-open: no manager means the gate cannot be read, so the settle behaves as
--- before the gate (the never-stuck escape must never be removed by a lock it
--- cannot read).
+-- F130 NO fail-open (repair): a lock the owner cannot read (nil manager => nil opt-in)
+-- does NOT silently charge. isReleased(nil) is false, so no new interest accrues. The
+-- never-stuck escape is preserved separately by leaving the grant/repayment reachable
+-- (below) - not by charging interest under an unreadable lock.
 local function settleWithNoManager()
+    local prev = g_IncomeManager
+    g_IncomeManager = nil
     local loan = newLoan()
-    loan.debts[1] = { principal = 100000, accruedInterest = 0, drawCount = 1, lastInterestDay = 0 }
-    loan:onInterestSettle(1, { boundariesCrossed = 1, monotonicDay = 30 })
+    loan.debts[1] = { principal = 100000, accruedInterest = 0, drawCount = 1, active = true }
+    loan:onInterestSettle(1, { boundariesCrossed = 1 })
+    g_IncomeManager = prev
     return loan.debts[1].accruedInterest
 end
-T.near("interest settles with no manager (fail-open)", settleWithNoManager(), 8000, 1)
+T.eq("no readable opt-in charges NO interest (no fail-open)", settleWithNoManager(), 0)
 
 -- The escape itself is never gated: the grant stays reachable regardless of the
--- opt-in state.
+-- opt-in state (only the cost elaboration is locked).
 T.ok("grant reachable with opt-in off", withOptIn(false, function()
-    g_currentMission = { addMoney = function() end }
+    g_currentMission = { addMoney = function() end,
+        environment = { currentMonotonicDay = 1, dayTime = 0, currentYear = 1, currentPeriod = 1, currentDayInPeriod = 1, daysPerPeriod = 3 } }
     g_farmManager = { getFarmById = function() return { money = -20000 } end }
     local loan = newLoan()
+    loan:setReadiness(EmergencyLoan.READINESS.READY)
     local ok = loan:grant(1)
     g_currentMission = {}
     g_farmManager = nil
     return ok
 end))
 
+g_timeGuard = nil
 g_server = nil
