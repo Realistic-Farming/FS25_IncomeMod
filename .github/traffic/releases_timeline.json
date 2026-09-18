@@ -83,5 +83,10 @@
     "published_at": "2026-08-26T18:53:55Z",
     "tag": "v2.1.8.0",
     "peak_downloads": 45
+  },
+  "v2.2.0.0": {
+    "published_at": "2026-09-18T09:24:01Z",
+    "tag": "v2.2.0.0",
+    "peak_downloads": 1
   }
 }
