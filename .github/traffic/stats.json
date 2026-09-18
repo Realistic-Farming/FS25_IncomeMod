@@ -30833,7 +30833,7 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-09-18T06:46:44Z",
+    "timestamp": "2026-09-18T18:41:21Z",
     "date": "2026-09-18",
     "views": {
       "count": 115,
@@ -30933,6 +30933,15 @@
       }
     ],
     "releases": [
+      {
+        "assets": [
+          {
+            "downloads": 4,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.2.0.0"
+      },
       {
         "assets": [
           {
