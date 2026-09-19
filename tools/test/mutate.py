@@ -48,6 +48,20 @@ MUTATIONS = [
     "    streamWriteUIntN(streamId, (tonumber(p.revision) or 0) + C.MAX_SEQUENCE, 31)", 1)],
   "the caller-side clamp is removed, so a value beyond the 31-bit ceiling reaches the "
   "write: the engine reports it and writes it anyway"),
+
+ ("M4-ceiling-off-by-one", EL,
+  # The mutation that proves the RANGE counter does real work here, which none of the
+  # width cases can: every UIntN width in this repo is the literal 31 on both sides,
+  # so a width drift needs a hand edit of one literal. This is the classic off-by-one
+  # in the ceiling constant instead. The clamp then permits a value one past what 31
+  # bits can carry.
+  #
+  # It only fires against a fixture AT the ceiling, which is why the boundary case in
+  # c3_chosen_amount_repay_test.lua exists. (Bob's suggestion.)
+  [("EmergencyLoanController.MAX_SEQUENCE = 2147483647",
+    "EmergencyLoanController.MAX_SEQUENCE = 2147483648", 1)],
+  "the sequence ceiling is one past what 31 bits can carry, so the clamp permits a "
+  "value the wire cannot represent"),
 ]
 
 
