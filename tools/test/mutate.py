@@ -44,10 +44,17 @@ MUTATIONS = [
   "the writer declares 32 bits where the reader takes 31"),
 
  ("M3-clamp-dropped-so-the-value-can-exceed-its-width", EL,
+  # THE REALISTIC EDIT: just remove the math.min, which is what a dropped clamp
+  # actually looks like. An earlier version wrote `(rev) + C.MAX_SEQUENCE` and so
+  # manufactured the overflow inside the mutation itself, which proved the counter
+  # could count rather than that the clamp was guarded. That version would have
+  # SURVIVED as the realistic edit, because every fixture then sent a value the
+  # clamp never had to touch. The over-ceiling fixture in c3_report_forecast_test
+  # is what makes this one fire. (Bob, PR #76 review.)
   [("    streamWriteUIntN(streamId, math.max(0, math.min(tonumber(p.revision) or 0, C.MAX_SEQUENCE)), 31)",
-    "    streamWriteUIntN(streamId, (tonumber(p.revision) or 0) + C.MAX_SEQUENCE, 31)", 1)],
-  "the caller-side clamp is removed, so a value beyond the 31-bit ceiling reaches the "
-  "write: the engine reports it and writes it anyway"),
+    "    streamWriteUIntN(streamId, math.max(0, tonumber(p.revision) or 0), 31)", 1)],
+  "the caller-side clamp is removed, so a revision beyond the 31-bit ceiling reaches "
+  "the write: the engine reports it and writes it anyway"),
 
  ("M4-ceiling-off-by-one", EL,
   # The mutation that proves the RANGE counter does real work here, which none of the

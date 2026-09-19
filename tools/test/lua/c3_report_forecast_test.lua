@@ -161,6 +161,36 @@ local function roundTrip(payload)
     return back.payload, s
 end
 
+-- ── the revision clamp, doing its actual job ─────────────────────────────────
+-- Every other fixture sends a revision the clamp never has to touch, so dropping
+-- `math.min(..., MAX_SEQUENCE)` from writeForecast would change nothing and no test
+-- would notice. The clamp was guarded by nothing.
+--
+-- This sends a revision ABOVE the 31-bit ceiling and asserts it arrives clamped TO
+-- the ceiling with no range fault. That pins the clamp as a clamp, and it is what
+-- lets the dropped-clamp mutation be the realistic edit (just remove the math.min)
+-- rather than one that manufactures its own overflow. (Bob, PR #76 review.)
+do
+    local mgr = setmetatable({}, { __index = IncomeManager })
+    local reply = mgr:_viewReply(sampleView(), 9)
+    -- 2 ^ 31 rather than MAX_SEQUENCE + 1, and the reason is a property of this
+    -- bench rather than of the mod: integer arithmetic here WRAPS AT 32 BITS.
+    -- MAX_SEQUENCE + 1000 evaluates to -2147482649, so an over-ceiling value cannot
+    -- be formed by addition at all, and a fixture built that way would send a
+    -- NEGATIVE revision while appearing to test the upper bound. `2 ^ 31` yields a
+    -- float, which does not wrap, and is genuinely one above the ceiling.
+    local overCeiling = 2 ^ 31
+    T.ok("clamp: the fixture value really is above the ceiling",
+        overCeiling > EmergencyLoanController.MAX_SEQUENCE,
+        "fixture value " .. tostring(overCeiling) .. " did not exceed the ceiling")
+    reply.revision = overCeiling
+    local got, s = roundTrip(reply)
+    T.eq("clamp: an over-ceiling revision arrives clamped to the ceiling",
+        got.revision, EmergencyLoanController.MAX_SEQUENCE)
+    T.eq("clamp: and the clamp keeps it inside its declared width", s.rangeErrors, 0)
+    T.eq("clamp: no width mismatch", s.widthErrors, 0)
+end
+
 do
     local mgr = setmetatable({}, { __index = IncomeManager })
     local reply = mgr:_viewReply(sampleView(), 9)
