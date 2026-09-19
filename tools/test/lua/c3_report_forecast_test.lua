@@ -173,12 +173,27 @@ end
 do
     local mgr = setmetatable({}, { __index = IncomeManager })
     local reply = mgr:_viewReply(sampleView(), 9)
-    -- 2 ^ 31 rather than MAX_SEQUENCE + 1, and the reason is a property of this
-    -- bench rather than of the mod: integer arithmetic here WRAPS AT 32 BITS.
-    -- MAX_SEQUENCE + 1000 evaluates to -2147482649, so an over-ceiling value cannot
-    -- be formed by addition at all, and a fixture built that way would send a
-    -- NEGATIVE revision while appearing to test the upper bound. `2 ^ 31` yields a
-    -- float, which does not wrap, and is genuinely one above the ceiling.
+    -- 2 ^ 31 rather than MAX_SEQUENCE + 1, and the reason is structural rather than a
+    -- quirk of the number chosen.
+    --
+    -- THE BENCH'S INTEGER TYPE IS 32-BIT. Probed directly in fengari: _VERSION is
+    -- Lua 5.3 but math.maxinteger is 2147483647, not standard Lua 5.3's 2^63-1. So
+    -- MAX_SEQUENCE and math.maxinteger are THE SAME NUMBER, and no integer
+    -- expression can produce a value above this mod's wire ceiling that is still
+    -- representable: MAX_SEQUENCE + 1000 evaluates to -2147482649. A fixture built
+    -- that way sends a NEGATIVE revision while appearing to test the upper bound,
+    -- and the clamp catches it on the wrong side.
+    --
+    -- Reaching over-ceiling therefore REQUIRES a float. A literal at or below
+    -- 2147483647 is an integer and wraps; above it the literal is already a float
+    -- and does not. So `MAX + n` can never work here and `2 ^ n` always can.
+    --
+    -- WHETHER THE GAME'S LUA BEHAVES THIS WAY IS UNVERIFIED. The decompiled scripts
+    -- never use math.maxinteger and never reference an integer ceiling, so this is a
+    -- property of the BENCH with no checked correspondence to the engine. Do not
+    -- read it as a statement about the game. The float sidesteps the question
+    -- entirely, since 2 ^ 31 is a float in either world, which is why it is the
+    -- right fixture regardless of how that divergence resolves.
     local overCeiling = 2 ^ 31
     T.ok("clamp: the fixture value really is above the ceiling",
         overCeiling > EmergencyLoanController.MAX_SEQUENCE,
