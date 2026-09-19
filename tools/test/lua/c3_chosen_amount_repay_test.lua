@@ -93,6 +93,11 @@ do
     back:readStream(s, nil)
     T.eq("wire: no type mismatch", s.typeErrors, 0)
     T.eq("wire: no underflow (write and read agree on the field count)", s.underflows, 0)
+    -- The sequence and revision fields ride streamWriteUIntN at 31 bits. Until
+    -- 2026-09-19 the mock took that bit count and discarded it, so a width drift
+    -- round-tripped clean; these two rows are what make the guard mean anything here.
+    T.eq("wire: no UIntN width mismatch", s.widthErrors, 0)
+    T.eq("wire: no value exceeds its declared width", s.rangeErrors, 0)
     T.eq("wire: the queue drained exactly", s.r, #s.q + 1)
     T.eq("wire: it is a reply", back.isReply, true)
     T.eq("wire: status survives", back.payload.status, "OK")
@@ -108,6 +113,7 @@ do
     back2:readStream(s2, nil)
     T.eq("wire: a reply with no quote reads back nil, not 0", back2.payload.quoteAmount, nil)
     T.eq("wire: reading the unquoted reply stayed in step", s2.typeErrors, 0)
+    T.eq("wire: the unquoted reply agreed on widths too", s2.widthErrors, 0)
     T.eq("wire: the unquoted reply drained exactly", s2.r, #s2.q + 1)
 end
 

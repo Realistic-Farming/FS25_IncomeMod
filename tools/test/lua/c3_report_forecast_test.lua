@@ -173,6 +173,8 @@ do
     local got, s = roundTrip(reply)
     T.eq("wire: no type mismatch", s.typeErrors, 0)
     T.eq("wire: no underflow", s.underflows, 0)
+    T.eq("wire: no UIntN width mismatch", s.widthErrors, 0)
+    T.eq("wire: no value exceeds its declared width", s.rangeErrors, 0)
     T.eq("wire: drained exactly", s.r, #s.q + 1)
     T.eq("wire: version", got.version, 1)
     T.eq("wire: farmId", got.farmId, FARM)
