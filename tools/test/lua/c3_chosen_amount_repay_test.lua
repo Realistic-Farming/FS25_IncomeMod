@@ -78,6 +78,35 @@ do
         EmergencyLoanController.parseAmount(enc(nil)), nil)
 end
 
+-- ── the sequence at its 31-bit ceiling ───────────────────────────────────────
+-- A boundary fixture, and the range counter is unreachable without one.
+--
+-- Every UIntN width in this repo is the literal 31 on both sides, so a width-drift
+-- mutation can only be made by editing one literal, which is a narrow class. The
+-- mutation that actually exercises the RANGE counter here is the classic off-by-one
+-- in the ceiling itself: MAX_SEQUENCE from 2^31-1 to 2^31. The clamp then permits a
+-- value one past what 31 bits can carry, and it is a realistic edit rather than a
+-- contrived one.
+--
+-- That mutation can only fire against a sequence AT the ceiling. With a comfortable
+-- value like 12 the clamp never engages and the defect is invisible, so this fixture
+-- is what makes the guard reachable at all. (Bob, PR review, SF #966 round.)
+do
+    local s = _sfMockStream()
+    local ceiling = EmergencyLoanController.MAX_SEQUENCE
+    local out = EmergencyLoanEvent.newReply({ status = "OK", sequence = ceiling, cash = 1,
+        outstanding = 0, offer = 0, canBorrow = false, canRepay = false,
+        token = "ceil", quoteAmount = 0 })
+    out:writeStream(s, nil)
+    g_IncomeManager = nil
+    local back = EmergencyLoanEvent.emptyNew()
+    back:readStream(s, nil)
+    T.eq("ceiling: the largest sequence 31 bits can carry survives the wire", back.payload.sequence, ceiling)
+    T.eq("ceiling: no value exceeds its declared width", s.rangeErrors, 0)
+    T.eq("ceiling: no UIntN width mismatch", s.widthErrors, 0)
+    T.eq("ceiling: MAX_SEQUENCE is exactly the 31-bit ceiling", ceiling, 2147483647)
+end
+
 -- ── reply wire carries the bound amount ──────────────────────────────────────
 do
     local s = _sfMockStream()
@@ -93,6 +122,11 @@ do
     back:readStream(s, nil)
     T.eq("wire: no type mismatch", s.typeErrors, 0)
     T.eq("wire: no underflow (write and read agree on the field count)", s.underflows, 0)
+    -- The sequence and revision fields ride streamWriteUIntN at 31 bits. Until
+    -- 2026-09-19 the mock took that bit count and discarded it, so a width drift
+    -- round-tripped clean; these two rows are what make the guard mean anything here.
+    T.eq("wire: no UIntN width mismatch", s.widthErrors, 0)
+    T.eq("wire: no value exceeds its declared width", s.rangeErrors, 0)
     T.eq("wire: the queue drained exactly", s.r, #s.q + 1)
     T.eq("wire: it is a reply", back.isReply, true)
     T.eq("wire: status survives", back.payload.status, "OK")
@@ -108,6 +142,7 @@ do
     back2:readStream(s2, nil)
     T.eq("wire: a reply with no quote reads back nil, not 0", back2.payload.quoteAmount, nil)
     T.eq("wire: reading the unquoted reply stayed in step", s2.typeErrors, 0)
+    T.eq("wire: the unquoted reply agreed on widths too", s2.widthErrors, 0)
     T.eq("wire: the unquoted reply drained exactly", s2.r, #s2.q + 1)
 end
 
