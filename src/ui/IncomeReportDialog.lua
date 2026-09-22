@@ -142,8 +142,14 @@ function IncomeReportDialog:updateLoanSection()
     end
 
     local function money(v) return self:formatLoanMoney(v) end
-    local outstanding = view.outstanding or 0
-    if outstanding and outstanding > 0 then
+    -- RSF-F309 item 1: an UNKNOWN amount is nil here (the wire carries "" for it,
+    -- parseAmount keeps it nil), and nil is "unavailable", never 0. A pure client
+    -- mid-load used to read "no emergency loan" and see a Pay Off button keyed on
+    -- a zero it had invented. No money button keys on an unknown amount.
+    local outstanding = view.outstanding
+    local known = type(outstanding) == "number"
+    local offerKnown = type(view.offer) == "number"
+    if known and outstanding > 0 then
         local principal = view.principal or outstanding
         local interest  = view.accruedInterest or (outstanding - (view.principal or outstanding))
         local ratePct   = (view.effectiveMonthlyRate or 0) * 100
@@ -151,7 +157,9 @@ function IncomeReportDialog:updateLoanSection()
             g_i18n:getText("im_loan_outstanding"), money(outstanding),
             g_i18n:getText("im_loan_principal"), money(principal),
             g_i18n:getText("im_loan_interest"), money(interest), ratePct))
-    elseif view.canBorrow == true then
+    elseif not known then
+        statusEl:setText(g_i18n:getText("im_loan_fc_unavailable"))
+    elseif view.canBorrow == true and offerKnown then
         statusEl:setText(string.format("%s %s%s",
             g_i18n:getText("im_loan_offer_available"), money(view.offer),
             self:formatWorkingCashBasis(view)))
@@ -159,9 +167,9 @@ function IncomeReportDialog:updateLoanSection()
         statusEl:setText(g_i18n:getText("im_loan_none"))
     end
     self:updateForecastLines(view)
-    setBtn(borrowBtn, view.canBorrow == true)
-    setBtn(payoffBtn, view.canRepay == true and outstanding > 0)
-    setBtn(amountBtn, view.canRepay == true and outstanding > 0)
+    setBtn(borrowBtn, view.canBorrow == true and offerKnown)
+    setBtn(payoffBtn, view.canRepay == true and known and outstanding > 0)
+    setBtn(amountBtn, view.canRepay == true and known and outstanding > 0)
 end
 
 -- =========================================================
