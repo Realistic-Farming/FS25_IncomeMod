@@ -507,6 +507,17 @@ do
     T.eq("E41 and does not leave the client armed", mgr._pendingAccept, false)
     T.eq("E42 nor busy", mgr:_isLoanUiBusy(), false)
 
+    -- Bob's B2 on 1923f82: the auto-accept's own send fails AFTER a token reply; the
+    -- result slot it took must be released, or the client stays BUSY
+    g_client = { getServerConnection = function() return { sendEvent = function() sentCount = sentCount + 1 end } end }
+    mgr:_uiQuoteThenAccept(OP.BORROW_QUOTE)
+    local seqA = mgr._pendingAccept
+    g_client = { getServerConnection = function() return { sendEvent = function() error("link down") end } end }
+    mgr:onEmergencyLoanReply({ status = "OK", sequence = seqA, token = "q1" })
+    T.eq("E43 the token reply disarmed the quote", mgr._pendingAccept, false)
+    T.eq("E44 the failed accept send released the result slot", mgr._pendingResult, nil)
+    T.eq("E45 so the client is not BUSY", mgr:_isLoanUiBusy(), false)
+
     -- the host path refuses at exhaustion as well
     g_currentMission.getIsServer = function() return true end
     g_client = nil

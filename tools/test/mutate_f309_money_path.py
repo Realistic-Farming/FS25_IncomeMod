@@ -117,6 +117,12 @@ MUTATIONS = [
     "", 1)],
   "the auto-accept is fire-and-forget, so a second command can go out while it is in flight"),
 
+ ("M22-failed-accept-send-keeps-the-slot", IM,
+  # Bob's B2 on 1923f82: a failed auto-accept send kept the result slot, so the client stayed BUSY
+  [("                if not ok then self._pendingResult = nil end\n",
+    "", 1)],
+  "a failed auto-accept send keeps the result slot and the client stays BUSY"),
+
  ("M14-skip-session-clear-on-disconnect", IM,
   [("    if connection == nil or self._loanSessions == nil then return end\n    self._loanSessions[connection] = nil",
     "    if connection == nil or self._loanSessions == nil then return end", 1)],
