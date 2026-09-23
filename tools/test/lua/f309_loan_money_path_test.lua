@@ -456,6 +456,22 @@ do
     T.eq("E18 after the slot clears a command sends again", ok5, true)
     T.eq("E19 two out in total", sentCount, 2)
 
+    -- a double-clicked Borrow (quote-then-accept) on a pure client: the second click is
+    -- BUSY while the first flow's auto-accept is still pending, so neither is lost
+    mgr:clearEmergencyLoanUiState()
+    local okb1 = mgr:_uiQuoteThenAccept(OP.BORROW_QUOTE)
+    T.eq("E22 the first Borrow click sends its quote", okb1, true)
+    T.eq("E23 and arms the auto-accept", mgr._pendingAccept, true)
+    local okb2, whyb2 = mgr:_uiQuoteThenAccept(OP.BORROW_QUOTE)
+    T.eq("E24 the second click is refused", okb2, false)
+    T.eq("E25 as BUSY", whyb2, "BUSY")
+    T.eq("E26 only the first quote went out", sentCount, 3)
+    local okq, whyq = mgr:_uiQuoteOnly(OP.PAYOFF_QUOTE, nil, function() end)
+    T.eq("E27 a manual quote during the armed flow is BUSY too", whyq, "BUSY")
+    T.eq("E28 nothing more went out", sentCount, 3)
+    mgr:clearEmergencyLoanUiState()
+    T.eq("E29 clearing disarms the auto-accept", mgr._pendingAccept, false)
+
     -- the host path refuses at exhaustion as well
     g_currentMission.getIsServer = function() return true end
     g_client = nil

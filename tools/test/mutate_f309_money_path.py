@@ -89,9 +89,16 @@ MUTATIONS = [
   "the client sequence wraps to 1 at MAX instead of refusing"),
 
  ("M13-second-command-not-refused", IM,
-  [("        if self._pendingQuote ~= nil or self._pendingResult ~= nil then\n            deliver(nil); return false, \"BUSY\"\n        end\n        local ev, seq = self:_newLoanRequest(EmergencyLoanController.OP.ACCEPT_QUOTE, nil, token)",
+  [("        if self:_isLoanUiBusy() then deliver(nil); return false, \"BUSY\" end\n        local ev, seq = self:_newLoanRequest(EmergencyLoanController.OP.ACCEPT_QUOTE, nil, token)",
     "        local ev, seq = self:_newLoanRequest(EmergencyLoanController.OP.ACCEPT_QUOTE, nil, token)", 1)],
   "a second owner-UI command is sent while one is in flight"),
+
+ ("M18-armed-auto-accept-not-busy", IM,
+  # Bob's MINOR on #79: a quote-then-accept flow whose auto-accept is pending did not count
+  # as busy, so a double-clicked Borrow sent two quotes and lost both
+  [("    return self._pendingQuote ~= nil or self._pendingResult ~= nil or self._pendingAccept == true",
+    "    return self._pendingQuote ~= nil or self._pendingResult ~= nil", 1)],
+  "a pending auto-accept does not make the client busy, so a double-clicked Borrow sends twice"),
 
  ("M14-skip-session-clear-on-disconnect", IM,
   [("    if connection == nil or self._loanSessions == nil then return end\n    self._loanSessions[connection] = nil",
