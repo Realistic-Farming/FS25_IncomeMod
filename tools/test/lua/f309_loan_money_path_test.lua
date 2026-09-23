@@ -263,11 +263,12 @@ do
     T.eq("C1c no money moved", moved(), before)
     T.eq("C1d the draw count did not move", loan.debts[FARM].drawCount, 1)
 
-    -- C2: cash moved between quote and accept (and with it the offer)
+    -- C2: cash IMPROVED between quote and accept, so the bound amount now exceeds the
+    -- offer recomputed from current cash (Arissani's ruling: stale, re-quote)
     local q2 = send(mgr, A, next(), OP.BORROW_QUOTE)
     world.cash = world.cash + 100
     local r2 = send(mgr, A, next(), OP.ACCEPT_QUOTE, nil, q2.token)
-    T.eq("C2a accept after cash moved is STALE_QUOTE", r2.status, "STALE_QUOTE")
+    T.eq("C2a accept after cash improved past the bound amount is STALE_QUOTE", r2.status, "STALE_QUOTE")
     T.eq("C2b no money moved", moved(), before)
     world.cash = world.cash - 100
 
@@ -568,4 +569,72 @@ do
     engineClosed.calls = 0
     FSBaseMission.onConnectionClosed(g_currentMission, B, 1)
     T.eq("F14 the engine function ran with no manager live", engineClosed.calls, 1)
+end
+
+-- ══════════════════════════════════════════════════════════════════════════════
+-- K. Arissani's ruling on item 5 (2026-09-23, tracking 17994ad): cash is revalidated for
+--    ADMISSIBILITY. A helper BUY that lowers cash between quote and accept no longer
+--    strands a Borrow; the exact bound amount is paid, never a recomputed one.
+-- ══════════════════════════════════════════════════════════════════════════════
+do
+    newWorld(-500)
+    local mgr, loan = newManager()
+    local A = connect(1)
+    local q = send(mgr, A, 1, OP.BORROW_QUOTE)
+    local bound = q.quoteAmount
+    world.cash = world.cash - 250                 -- a buying helper spent 250 meanwhile
+    local offerNow = loan:computeOffer(FARM)
+    T.ok("K1a the drift raised the current offer above the bound amount", type(offerNow) == "number" and offerNow > bound)
+    local r = send(mgr, A, 2, OP.ACCEPT_QUOTE, nil, q.token)
+    T.eq("K1b helper-BUY cash drift between quote and accept: ACCEPTED", r.status, "ACCEPTED")
+    T.eq("K1c money moved once", moved(), 1)
+    T.near("K1d the credited sum is EXACTLY the bound amount", world.moved[1].amount, bound, 1e-9)
+    T.ok("K1e never the recomputed offer", math.abs(world.moved[1].amount - offerNow) > 1e-6)
+    T.near("K1f the debt principal is the bound amount", loan.debts[FARM].principal, bound, 1e-9)
+end
+do
+    newWorld(-500)
+    local mgr, loan = newManager()
+    local A = connect(1)
+    local q = send(mgr, A, 1, OP.BORROW_QUOTE)
+    world.cash = 1000                              -- income arrived: no shortage at all
+    local r = send(mgr, A, 2, OP.ACCEPT_QUOTE, nil, q.token)
+    T.eq("K2a the shortage is gone: STALE_QUOTE", r.status, "STALE_QUOTE")
+    T.eq("K2b no money moved", moved(), 0)
+    local fresh = send(mgr, A, 3, OP.BORROW_QUOTE)
+    T.eq("K2c and a fresh quote says there is nothing to borrow", fresh.status, "NO_SHORTFALL")
+end
+do
+    newWorld(-500)
+    local mgr, loan = newManager()
+    local A = connect(1)
+    local q = send(mgr, A, 1, OP.BORROW_QUOTE)
+    world.cash = world.cash - 250                  -- drift down, admissible on cash alone
+    g_currentMission.environment.daysPerPeriod = 4 -- but a bound term changed
+    local r = send(mgr, A, 2, OP.ACCEPT_QUOTE, nil, q.token)
+    g_currentMission.environment.daysPerPeriod = 3
+    T.eq("K3a a drift does not excuse a changed term: STALE_QUOTE", r.status, "STALE_QUOTE")
+    T.eq("K3b no money moved", moved(), 0)
+end
+do
+    -- the manual path: current cash must still cover the exact bound payment
+    newWorld(-500)
+    local mgr, loan = newManager()
+    local A = connect(1)
+    local q = send(mgr, A, 1, OP.BORROW_QUOTE)
+    send(mgr, A, 2, OP.ACCEPT_QUOTE, nil, q.token)
+    local mq = send(mgr, A, 3, OP.MANUAL_AMOUNT_QUOTE, "1000")
+    T.near("K4a a manual payment of 1000 is quoted", mq.quoteAmount, 1000, 1e-9)
+    world.cash = world.cash - 200                 -- a helper spent, cash still covers 1000
+    local before = moved()
+    local r = send(mgr, A, 4, OP.ACCEPT_QUOTE, nil, mq.token)
+    T.eq("K4b cash still covers the bound payment: ACCEPTED", r.status, "ACCEPTED")
+    T.near("K4c exactly the bound 1000 was paid", world.moved[#world.moved].amount, -1000, 1e-9)
+    T.eq("K4d money moved once", moved(), before + 1)
+    local mq2 = send(mgr, A, 5, OP.MANUAL_AMOUNT_QUOTE, "1000")
+    world.cash = 500                               -- cash no longer covers it
+    before = moved()
+    local r2 = send(mgr, A, 6, OP.ACCEPT_QUOTE, nil, mq2.token)
+    T.eq("K5a cash below the bound payment is refused (re-quote)", r2.status, "INSUFFICIENT_CASH")
+    T.eq("K5b no money moved", moved(), before)
 end

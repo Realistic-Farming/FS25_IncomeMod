@@ -60,9 +60,33 @@ MUTATIONS = [
   "a refused redraw (false) falls through the and-or into grant"),
 
  ("M8-accept-skips-binding-recheck", IM,
-  [("            if not bindingMatches(quote, now, true) or offerNow ~= quote.amount then",
+  [("            if not bindingMatches(quote, now) or not borrowStillAdmissible(quote.amount, loan:computeOffer(farmId)) then",
     "            if false then", 1)],
   "ACCEPT no longer re-reads the assumptions the borrow quote bound (revision, readiness, cash, terms, offer)"),
+
+ ("M23-exact-cash-equality-restored", IM,
+  # Arissani's ruling (17994ad): cash is revalidated for admissibility, not equality
+  [("            if not bindingMatches(quote, now) or not borrowStillAdmissible(quote.amount, loan:computeOffer(farmId)) then",
+    "            if not bindingMatches(quote, now) or quote.cash ~= now.cash or not borrowStillAdmissible(quote.amount, loan:computeOffer(farmId)) then", 1)],
+  "any cash movement since the quote strands the Borrow again (a buying helper refuses every client Borrow)"),
+
+ ("M24-offer-ceiling-dropped", IM,
+  [("    return amount <= offerNow\n", "    return true\n", 1)],
+  "an amount above the offer recomputed from current cash is still paid"),
+
+ ("M25-shortage-check-dropped", IM,
+  [("    if type(offerNow) ~= \"number\" or offerNow ~= offerNow or offerNow <= 0 or offerNow == math.huge then return false end\n    return amount <= offerNow\n",
+    "    return amount <= (tonumber(offerNow) or math.huge)\n", 1)],
+  "a Borrow is paid after the shortage has gone"),
+
+ ("M26-recomputed-offer-substituted", IM,
+  [("                    ok = loan:redraw(farmId, quote.amount)", "                    ok = loan:redraw(farmId, loan:computeOffer(farmId))", 1),
+   ("                    ok = loan:grant(farmId, quote.amount)", "                    ok = loan:grant(farmId, loan:computeOffer(farmId))", 1)],
+  "the current offer is paid instead of the exact bound amount"),
+
+ ("M27-manual-cash-coverage-dropped", IM,
+  [("            elseif cash == nil or quote.amount > cash then status = \"INSUFFICIENT_CASH\"\n", "", 1)],
+  "a manual payment is taken although current cash no longer covers it"),
 
  ("M9-skip-exact-retry-check", IM,
   # item 6: same-sequence handling removed; a retry runs again (token now spent -> STALE)
