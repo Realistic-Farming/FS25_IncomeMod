@@ -621,15 +621,19 @@ end
 
 --- Grant a fresh loan (server-authoritative). A per-farm guard prevents stacking a
 --- second fresh loan; a re-draw grows the ONE line via redraw().
---- RSF-F309 item 3. A retired record's draw history is INHERITED: the new draw is
---- drawCount + 1 and revision + 1 over the retained values, never 1, so the
---- escalation reads the farm's real history.
-function EmergencyLoan:grant(farmId)
+--- RSF-F309 items 3 and 5. `boundAmount` is the sum the accepted quote bound; when
+--- given it is paid as is, never recomputed here (the handler has already verified
+--- the recomputation matches). A retired record's draw history is INHERITED: the
+--- new draw is drawCount + 1 and revision + 1 over the retained values, never 1, so
+--- the escalation reads the farm's real history.
+---@param farmId number
+---@param boundAmount number|nil
+function EmergencyLoan:grant(farmId, boundAmount)
     if g_server == nil then return false, 0 end
     if self.readiness == EmergencyLoan.READINESS.UNAVAILABLE then return false, 0 end
     if self.debts[farmId] and self.debts[farmId].active then return false, 0 end
 
-    local amount = self:computeOffer(farmId)
+    local amount = boundAmount or self:computeOffer(farmId)
     if not amount or amount <= 0 then return false, 0 end
 
     if g_currentMission and g_currentMission.addMoney then
@@ -656,12 +660,14 @@ function EmergencyLoan:grant(farmId)
 end
 
 --- Re-draw: grow the existing line (steps amount + cost). Falls back to grant if none.
-function EmergencyLoan:redraw(farmId)
+---@param farmId number
+---@param boundAmount number|nil the sum the accepted quote bound (RSF-F309 item 5)
+function EmergencyLoan:redraw(farmId, boundAmount)
     if g_server == nil then return false, 0 end
     local debt = self.debts[farmId]
-    if not debt or not debt.active then return self:grant(farmId) end
+    if not debt or not debt.active then return self:grant(farmId, boundAmount) end
 
-    local amount = self:computeOffer(farmId)
+    local amount = boundAmount or self:computeOffer(farmId)
     if not amount or amount <= 0 then return false, 0 end
 
     if g_currentMission and g_currentMission.addMoney then
@@ -772,6 +778,24 @@ function EmergencyLoan:retireDebt(farmId, d)
     d.accruedInterest = 0
     d.revision = (d.revision or 0) + 1
     self:unregisterInterestAccrual(farmId)
+end
+
+--- RSF-F309 item 5: the terms a borrow quote is bound to, beside amount, revision,
+--- readiness and cash. These are the inputs computeOffer depends on that can change
+--- between the quote and its acceptance without the debt revision moving: the period
+--- length, the difficulty (rates and the repayment share) and the income settings the
+--- basis is sized from. Opaque text: equal means the terms have not moved.
+---@return string
+function EmergencyLoan:quoteTerms()
+    local env = g_currentMission and g_currentMission.environment
+    local settings = self.incomeSystem and self.incomeSystem.settings
+    return table.concat({
+        tostring(env and env.daysPerPeriod),
+        tostring(self.settings and self.settings.difficulty),
+        tostring(settings and settings.enabled),
+        tostring(settings and settings.payMode),
+        tostring(EmergencyLoan.REPAYMENT_SHARE),
+    }, "|")
 end
 
 function EmergencyLoan:payoffAmount(farmId)

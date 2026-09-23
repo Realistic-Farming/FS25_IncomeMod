@@ -43,6 +43,8 @@ function IncomeManager.new(mission, modDirectory, modName)
     self.emergencyLoan = EmergencyLoan.new()
     self.emergencyLoan.settings     = self.settings
     self.emergencyLoan.incomeSystem = self.incomeSystem
+    -- RSF-F309 item 6: owner sessions die with their connection.
+    IncomeManager.installLoanSessionTeardown()
 
     -- UI injection and HUD: client-side only
     if mission:getIsClient() and g_gui then
@@ -386,29 +388,107 @@ function IncomeManager:saveEmergencyDebt(missionInfo)
         missionInfo or (g_currentMission and g_currentMission.missionInfo))
 end
 
--- Per-connection owner session (highest sequence, last result, outstanding quotes).
+-- Per-connection owner session: the highest command sequence processed, the last
+-- command and its result (an exact retry is answered from here, RSF-F309 item 6), and
+-- ONE outstanding quote (bounded owner state: minting a new quote drops the old token).
+-- Sessions are volatile: a closed connection drops its own (onLoanConnectionClosed),
+-- teardown drops all, and a reload starts empty while the debt revision persists.
 function IncomeManager:_loanSession(connection)
     self._loanSessions = self._loanSessions or {}
     local key = connection or "local"
     local s = self._loanSessions[key]
     if s == nil then
-        s = { id = tostring(key), highest = 0, quotes = {}, quoteSeq = 0 }
+        s = { id = tostring(key), highest = 0, lastCommand = nil, lastResult = nil,
+              quote = nil, quoteSeq = 0 }
         self._loanSessions[key] = s
     end
     return s
 end
 
+--- The next client-side request sequence, or nil when the session has used them all.
+--- RSF-F309 item 6 (C3-SDS:218): a session never wraps; at MAX_SEQUENCE it REFUSES to
+--- send another owner command and the counter stays where it is.
 function IncomeManager:_nextLoanSequence()
-    self._loanSeq = (self._loanSeq or 0) + 1
-    if self._loanSeq > EmergencyLoanController.MAX_SEQUENCE then self._loanSeq = 1 end
+    local used = self._loanSeq or 0
+    -- Compared BEFORE the increment, so the counter itself never crosses the ceiling
+    -- (an integer build would wrap negative on MAX + 1).
+    if used >= EmergencyLoanController.MAX_SEQUENCE then
+        Logging.warning("Income Mod: emergency loan request sequence exhausted for this session; no further owner commands until the next session")
+        return nil
+    end
+    self._loanSeq = used + 1
     return self._loanSeq
 end
 
+--- Build one owner request, or nil when the sequence is exhausted (never wraps).
+function IncomeManager:_newLoanRequest(op, amountText, token)
+    local seq = self:_nextLoanSequence()
+    if seq == nil then return nil, "SEQUENCE_EXHAUSTED" end
+    return EmergencyLoanEvent.newRequest(seq, op, amountText, token), seq
+end
+
+--- Mint the session's ONE outstanding quote. A previous unaccepted quote is dropped
+--- with its token: only the latest bound sum can be accepted (RSF-F309 items 5 and 6).
 function IncomeManager:_mintQuote(session, quote)
     session.quoteSeq = (session.quoteSeq or 0) + 1
     local token = string.format("q%d", session.quoteSeq)
-    session.quotes[token] = quote
+    quote.token = token
+    session.quote = quote
     return token
+end
+
+--- The assumptions a quote is bound to (RSF-F309 item 5): the debt revision, the
+--- owner's readiness, the farm's cash and the terms computeOffer depends on. ACCEPT
+--- re-reads the same set and refuses on ANY difference; it never recomputes and pays a
+--- different sum.
+function IncomeManager:_quoteBinding(loan, farmId)
+    return {
+        revision  = (loan.debts[farmId] and loan.debts[farmId].revision) or 0,
+        readiness = loan:getReadiness(),
+        cash      = loan:getBalance(farmId),
+        terms     = loan:quoteTerms(),
+    }
+end
+
+local function bindingMatches(quote, now, checkCash)
+    if quote.revision ~= now.revision then return false end
+    if quote.readiness ~= now.readiness then return false end
+    if quote.terms ~= now.terms then return false end
+    if checkCash and quote.cash ~= now.cash then return false end
+    return true
+end
+
+--- A connection that closed takes its owner session (sequence, cached result, quote)
+--- with it; a reconnecting player starts a fresh one (RSF-F309 item 6).
+function IncomeManager:onLoanConnectionClosed(connection)
+    if connection == nil or self._loanSessions == nil then return end
+    self._loanSessions[connection] = nil
+end
+
+-- RSF-F309 item 6: the session-teardown hook record, on the class table like F201's
+-- input record, so the FSBaseMission wrapper is installed ONCE per loaded script
+-- environment and routes to whichever manager is live.
+IncomeManager._f309ConnHook = IncomeManager._f309ConnHook or { installed = false }
+
+--- Append the per-connection session teardown to FSBaseMission:onConnectionClosed
+--- (FSBaseMission.lua:834; the server calls it for every closed client connection from
+--- Server.lua:298/:475/:488). Returns true when this call installed it.
+function IncomeManager.installLoanSessionTeardown()
+    local rec = IncomeManager._f309ConnHook
+    if rec.installed then return false end
+    if FSBaseMission == nil or type(FSBaseMission.onConnectionClosed) ~= "function"
+        or Utils == nil or type(Utils.appendedFunction) ~= "function" then
+        return false
+    end
+    FSBaseMission.onConnectionClosed = Utils.appendedFunction(FSBaseMission.onConnectionClosed,
+        function(_mission, connection, _reason)
+            local mgr = g_IncomeManager
+            if mgr ~= nil and mgr.onLoanConnectionClosed ~= nil then
+                mgr:onLoanConnectionClosed(connection)
+            end
+        end)
+    rec.installed = true
+    return true
 end
 
 -- Copy a cost/missing-input list so the reply never aliases the loan's live tables.
@@ -512,9 +592,10 @@ function IncomeManager:refreshEmergencyLoanView()
         return true
     end
     if g_client and g_client.getServerConnection and EmergencyLoanEvent then
+        local ev = self:_newLoanRequest(EmergencyLoanController.OP.VIEW)
+        if ev == nil then return false end
         local ok = pcall(function()
-            g_client:getServerConnection():sendEvent(
-                EmergencyLoanEvent.newRequest(self:_nextLoanSequence(), EmergencyLoanController.OP.VIEW))
+            g_client:getServerConnection():sendEvent(ev)
         end)
         return ok
     end
@@ -569,11 +650,12 @@ function IncomeManager:onEmergencyLoanReply(payload)
     if self._pendingAccept and payload.token ~= nil and payload.token ~= ""
         and g_client and g_client.getServerConnection then
         self._pendingAccept = false
-        pcall(function()
-            g_client:getServerConnection():sendEvent(
-                EmergencyLoanEvent.newRequest(self:_nextLoanSequence(),
-                    EmergencyLoanController.OP.ACCEPT_QUOTE, nil, payload.token))
-        end)
+        local ev = self:_newLoanRequest(EmergencyLoanController.OP.ACCEPT_QUOTE, nil, payload.token)
+        if ev ~= nil then
+            pcall(function()
+                g_client:getServerConnection():sendEvent(ev)
+            end)
+        end
     end
 end
 
@@ -606,18 +688,25 @@ end
 function IncomeManager:_uiQuoteOnly(quoteOp, amountText, onQuote)
     local function deliver(reply) if onQuote ~= nil then onQuote(reply) end end
     if g_currentMission and g_currentMission.getIsServer and g_currentMission:getIsServer() then
-        local reply = self:handleEmergencyLoanRequest(
-            EmergencyLoanEvent.newRequest(self:_nextLoanSequence(), quoteOp, amountText), nil)
+        local ev = self:_newLoanRequest(quoteOp, amountText)
+        if ev == nil then deliver(nil); return false, "SEQUENCE_EXHAUSTED" end
+        local reply = self:handleEmergencyLoanRequest(ev, nil)
         if type(reply) == "table" then self._emergencyView = reply end
         deliver(reply)
         return true
     end
     if g_client and g_client.getServerConnection and EmergencyLoanEvent then
-        local seq = self:_nextLoanSequence()
+        -- One outstanding owner-UI command per session (RSF-F309 item 6): a second
+        -- command while one is in flight is refused here, so the in-flight reply still
+        -- reaches the UI that is waiting for it.
+        if self._pendingQuote ~= nil or self._pendingResult ~= nil then
+            deliver(nil); return false, "BUSY"
+        end
+        local ev, seq = self:_newLoanRequest(quoteOp, amountText)
+        if ev == nil then deliver(nil); return false, "SEQUENCE_EXHAUSTED" end
         self._pendingQuote = { sequence = seq, callback = onQuote }
         local ok = pcall(function()
-            g_client:getServerConnection():sendEvent(
-                EmergencyLoanEvent.newRequest(seq, quoteOp, amountText))
+            g_client:getServerConnection():sendEvent(ev)
         end)
         if not ok then self._pendingQuote = nil; deliver(nil) end
         return ok
@@ -633,20 +722,22 @@ function IncomeManager:uiAcceptQuote(token, onResult)
     local function deliver(reply) if onResult ~= nil then onResult(reply) end end
     if type(token) ~= "string" or token == "" then deliver(nil); return false end
     if g_currentMission and g_currentMission.getIsServer and g_currentMission:getIsServer() then
-        local reply = self:handleEmergencyLoanRequest(
-            EmergencyLoanEvent.newRequest(self:_nextLoanSequence(),
-                EmergencyLoanController.OP.ACCEPT_QUOTE, nil, token), nil)
+        local ev = self:_newLoanRequest(EmergencyLoanController.OP.ACCEPT_QUOTE, nil, token)
+        if ev == nil then deliver(nil); return false, "SEQUENCE_EXHAUSTED" end
+        local reply = self:handleEmergencyLoanRequest(ev, nil)
         if type(reply) == "table" then self._emergencyView = reply end
         deliver(reply)
         return true
     end
     if g_client and g_client.getServerConnection and EmergencyLoanEvent then
-        local seq = self:_nextLoanSequence()
+        if self._pendingQuote ~= nil or self._pendingResult ~= nil then
+            deliver(nil); return false, "BUSY"
+        end
+        local ev, seq = self:_newLoanRequest(EmergencyLoanController.OP.ACCEPT_QUOTE, nil, token)
+        if ev == nil then deliver(nil); return false, "SEQUENCE_EXHAUSTED" end
         self._pendingResult = { sequence = seq, callback = onResult }
         local ok = pcall(function()
-            g_client:getServerConnection():sendEvent(
-                EmergencyLoanEvent.newRequest(seq,
-                    EmergencyLoanController.OP.ACCEPT_QUOTE, nil, token))
+            g_client:getServerConnection():sendEvent(ev)
         end)
         if not ok then self._pendingResult = nil; deliver(nil) end
         return ok
@@ -666,114 +757,170 @@ end
 function IncomeManager:_uiQuoteThenAccept(quoteOp, amountText)
     local isServer = g_currentMission and g_currentMission.getIsServer and g_currentMission:getIsServer()
     if isServer then
-        local quote = self:handleEmergencyLoanRequest(
-            EmergencyLoanEvent.newRequest(self:_nextLoanSequence(), quoteOp, amountText), nil)
+        local ev = self:_newLoanRequest(quoteOp, amountText)
+        if ev == nil then return false, "SEQUENCE_EXHAUSTED" end
+        local quote = self:handleEmergencyLoanRequest(ev, nil)
         self:onEmergencyLoanReply(quote)
         if quote and quote.token ~= nil and quote.token ~= "" then
-            local accepted = self:handleEmergencyLoanRequest(
-                EmergencyLoanEvent.newRequest(self:_nextLoanSequence(),
-                    EmergencyLoanController.OP.ACCEPT_QUOTE, nil, quote.token), nil)
+            local ev2 = self:_newLoanRequest(EmergencyLoanController.OP.ACCEPT_QUOTE, nil, quote.token)
+            if ev2 == nil then return false, "SEQUENCE_EXHAUSTED" end
+            local accepted = self:handleEmergencyLoanRequest(ev2, nil)
             self._emergencyView = accepted
         end
         return true
     end
     if g_client and g_client.getServerConnection and EmergencyLoanEvent then
+        if self._pendingQuote ~= nil or self._pendingResult ~= nil then return false, "BUSY" end
+        local ev = self:_newLoanRequest(quoteOp, amountText)
+        if ev == nil then return false, "SEQUENCE_EXHAUSTED" end
         self._pendingAccept = true
         return pcall(function()
-            g_client:getServerConnection():sendEvent(
-                EmergencyLoanEvent.newRequest(self:_nextLoanSequence(), quoteOp, amountText))
+            g_client:getServerConnection():sendEvent(ev)
         end)
     end
     return false
 end
 
 --- Server: handle one owner request from a connection and return the reply payload.
---- VIEW is view-only; quotes require farm-manager rights; ACCEPT_QUOTE consumes a minted
---- quote once and re-checks revision/cash before moving money. Replies go only to the
---- requesting connection (the caller sends it).
+--- Discipline (RSF-F309 item 6, the same order as EmergencyLoanController.evaluateManual,
+--- C3-SDS:214/218): resolve the actor, farm and rights FIRST, so nothing cached is
+--- disclosed to the wrong hands; then the session sequence (older refuses, an exact
+--- retry of the last command returns its cached result without running again, a
+--- changed payload on the same sequence refuses); then the quote token; then apply.
+--- VIEW is view-only and outside the command discipline. ACCEPT_QUOTE consumes the
+--- token once and re-reads every assumption the quote bound (revision, readiness, cash,
+--- terms, and for a borrow the recomputed offer) before moving the BOUND sum, never a
+--- recomputed one (item 5). Replies go only to the requesting connection (the caller
+--- sends it).
 function IncomeManager:handleEmergencyLoanRequest(event, connection)
+    local C = EmergencyLoanController
     local loan = self.emergencyLoan
     local seq = event and event.sequence or 0
     if loan == nil then return { status = "UNAVAILABLE", sequence = seq } end
 
-    local actor, reason = EmergencyLoanController.resolveActor(connection)
+    -- 1. actor, farm, rights
+    local actor, reason = C.resolveActor(connection)
     if actor == nil then return { status = reason or "NO_ACTOR", sequence = seq } end
     local farmId = actor.farmId
-    local session = self:_loanSession(connection)
     local op = event.operation
 
-    if op == EmergencyLoanController.OP.VIEW then
+    if op == C.OP.VIEW then
         return self:_viewReply(loan:getView(farmId, { isManager = actor.isManager }), seq)
     end
-
-    -- All quote/accept operations require farm-manager rights on the acting farm.
     if actor.isManager ~= true then
         return self:_viewReply(loan:getView(farmId, { isManager = false }), seq, "NOT_MANAGER")
     end
-    if loan:getReadiness() == EmergencyLoan.READINESS.UNAVAILABLE then
-        return self:_viewReply(loan:getView(farmId, { isManager = true }), seq, "UNAVAILABLE")
+
+    -- 2. session sequence: monotonic, exact retry cached, changed payload refused
+    local session = self:_loanSession(connection)
+    if type(seq) ~= "number" or seq ~= seq or seq < 1 or seq > C.MAX_SEQUENCE or seq ~= math.floor(seq) then
+        return self:_viewReply(loan:getView(farmId, { isManager = true }), seq, "BAD_SEQUENCE")
+    end
+    if seq < session.highest then
+        return self:_viewReply(loan:getView(farmId, { isManager = true }), seq, "OLD_SEQUENCE")
+    end
+    if seq == session.highest then
+        local last = session.lastCommand
+        if last ~= nil and last.farmId == farmId and last.operation == op
+            and last.amountText == (event.amountText or "") and last.token == (event.token or "") then
+            local cached = {}
+            for k, v in pairs(session.lastResult or {}) do cached[k] = v end
+            cached.sequence = seq
+            return cached
+        end
+        return self:_viewReply(loan:getView(farmId, { isManager = true }), seq, "CHANGED_PAYLOAD")
     end
 
-    if op == EmergencyLoanController.OP.BORROW_QUOTE then
+    -- Reserve the sequence BEFORE any money moves; record the command and its result
+    -- so an exact retry is answered from the record and never applied twice.
+    session.highest = seq
+    session.lastCommand = { farmId = farmId, operation = op,
+                            amountText = event.amountText or "", token = event.token or "" }
+    local function record(reply)
+        session.lastResult = reply
+        return reply
+    end
+
+    if loan:getReadiness() == EmergencyLoan.READINESS.UNAVAILABLE then
+        return record(self:_viewReply(loan:getView(farmId, { isManager = true }), seq, "UNAVAILABLE"))
+    end
+
+    -- 3. quotes
+    if op == C.OP.BORROW_QUOTE then
         local offer = loan:computeOffer(farmId)
         local view = loan:getView(farmId, { isManager = true })
-        if not offer or offer <= 0 then return self:_viewReply(view, seq, "NO_SHORTFALL") end
-        local token = self:_mintQuote(session, { op = "borrow", farmId = farmId, amount = offer,
-            revision = (loan.debts[farmId] and loan.debts[farmId].revision) or 0 })
+        if not offer or offer <= 0 then return record(self:_viewReply(view, seq, "NO_SHORTFALL")) end
+        local quote = self:_quoteBinding(loan, farmId)
+        quote.op = "borrow"; quote.farmId = farmId; quote.amount = offer
+        local token = self:_mintQuote(session, quote)
         local reply = self:_viewReply(view, seq); reply.token = token; reply.offer = offer
         reply.quoteAmount = offer
-        return reply
-    elseif op == EmergencyLoanController.OP.MANUAL_AMOUNT_QUOTE or op == EmergencyLoanController.OP.PAYOFF_QUOTE then
+        return record(reply)
+    elseif op == C.OP.MANUAL_AMOUNT_QUOTE or op == C.OP.PAYOFF_QUOTE then
         local debt = loan.debts[farmId]
         local view = loan:getView(farmId, { isManager = true })
-        if not debt or not debt.active then return self:_viewReply(view, seq, "NO_DEBT") end
+        if not debt or not debt.active then return record(self:_viewReply(view, seq, "NO_DEBT")) end
         local amount
-        if op == EmergencyLoanController.OP.PAYOFF_QUOTE then
+        if op == C.OP.PAYOFF_QUOTE then
             amount = loan:payoffAmount(farmId)
         else
-            amount = EmergencyLoanController.parseAmount(event.amountText)
-            if not amount or amount <= 0 then return self:_viewReply(view, seq, "INVALID_AMOUNT") end
+            amount = C.parseAmount(event.amountText)
+            if not amount or amount <= 0 then return record(self:_viewReply(view, seq, "INVALID_AMOUNT")) end
             local cash = loan:getBalance(farmId)
             amount = math.min(amount, loan:getOutstanding(farmId))
             if cash ~= nil and cash > 0 then amount = math.min(amount, cash) end
         end
-        local token = self:_mintQuote(session, { op = "repay", farmId = farmId, amount = amount,
-            revision = debt.revision })
+        local quote = self:_quoteBinding(loan, farmId)
+        quote.op = "repay"; quote.farmId = farmId; quote.amount = amount
+        local token = self:_mintQuote(session, quote)
         local reply = self:_viewReply(view, seq); reply.token = token
         -- The amount the server actually bound, after clamping the requested value to
         -- current cash and debt. The player confirms THIS sum, not the one typed.
         reply.quoteAmount = amount
-        return reply
-    elseif op == EmergencyLoanController.OP.ACCEPT_QUOTE then
-        local quote = session.quotes[event.token or ""]
+        return record(reply)
+
+    -- 4. accept: token, then every bound assumption, then the bound sum
+    elseif op == C.OP.ACCEPT_QUOTE then
+        local quote = session.quote
         local view = loan:getView(farmId, { isManager = true })
-        if quote == nil or quote.farmId ~= farmId then
-            return self:_viewReply(view, seq, "STALE_QUOTE")
+        if quote == nil or quote.token ~= (event.token or "") or quote.farmId ~= farmId then
+            return record(self:_viewReply(view, seq, "STALE_QUOTE"))
         end
-        session.quotes[event.token] = nil  -- consume once
+        session.quote = nil  -- consume once
+        local now = self:_quoteBinding(loan, farmId)
         local status
         if quote.op == "borrow" then
-            local rev = (loan.debts[farmId] and loan.debts[farmId].revision) or 0
-            if rev ~= quote.revision then status = "STALE_QUOTE"
+            local offerNow = loan:computeOffer(farmId)
+            if not bindingMatches(quote, now, true) or offerNow ~= quote.amount then
+                status = "STALE_QUOTE"
             else
-                local ok = (loan.debts[farmId] and loan.debts[farmId].active) and loan:redraw(farmId) or loan:grant(farmId)
-                status = ok and "ACCEPTED" or "REFUSED"
+                -- Explicit branch selection (item 5): an active line re-draws, a
+                -- missing or retired one is granted; a refusal is REFUSED and never
+                -- falls through into the other branch.
+                local debt = loan.debts[farmId]
+                local ok
+                if debt ~= nil and debt.active == true then
+                    ok = loan:redraw(farmId, quote.amount)
+                else
+                    ok = loan:grant(farmId, quote.amount)
+                end
+                status = (ok == true) and "ACCEPTED" or "REFUSED"
             end
         else
             local debt = loan.debts[farmId]
-            local cash = loan:getBalance(farmId)
+            local cash = now.cash
             if not debt or not debt.active then status = "NO_DEBT"
-            elseif debt.revision ~= quote.revision then status = "STALE_QUOTE"
+            elseif not bindingMatches(quote, now, false) then status = "STALE_QUOTE"
             elseif cash == nil or quote.amount > cash then status = "INSUFFICIENT_CASH"
             else status = (loan:applyManualPayment(farmId, quote.amount) > 0) and "ACCEPTED" or "REFUSED" end
         end
         if status == "ACCEPTED" then self:saveEmergencyDebt() end
         local reply = self:_viewReply(loan:getView(farmId, { isManager = true }), seq)
         reply.status = status
-        return reply
+        return record(reply)
     end
 
-    return { status = "UNKNOWN_OP", sequence = seq }
+    return record({ status = "UNKNOWN_OP", sequence = seq })
 end
 
 -- =========================================================
@@ -786,6 +933,10 @@ function IncomeManager:delete()
     -- later mod's wrapper); the next IncomeManager.new re-arms it.
     IncomeManager._f201Input.active = false
     self:clearEmergencyLoanUiState()
+    -- RSF-F309 item 6: owner sessions (sequences, cached results, quotes) are volatile
+    -- and end with the mission; the debt revision persists in the save, so a token from
+    -- before a reload can never be accepted after it.
+    self._loanSessions = nil
 
     -- Remove action events for I key (HUD) and U key (Report)
     if self.toggleHUDEventId and g_inputBinding then
