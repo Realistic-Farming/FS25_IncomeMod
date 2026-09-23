@@ -460,11 +460,13 @@ end
 
 --- One outstanding owner-UI command per session on a pure client (RSF-F309 item 6):
 --- a quote awaiting its reply, an accept awaiting its result, or a quote-then-accept
---- flow whose auto-accept has not gone out yet. A second command while any of these
---- is in flight is refused as BUSY, so the in-flight reply still reaches the UI that
---- is waiting for it (a double-clicked Borrow would otherwise lose both).
+--- flow ARMED with its quote's sequence and awaiting that reply. A second command while
+--- any of these is in flight is refused as BUSY, so the in-flight reply still reaches
+--- the UI that is waiting for it (a double-clicked Borrow would otherwise lose both).
+--- Every arm is released by the reply to its own sequence, token or not, or by a failed
+--- send, so a refused quote never leaves the client BUSY until the report is reopened.
 function IncomeManager:_isLoanUiBusy()
-    return self._pendingQuote ~= nil or self._pendingResult ~= nil or self._pendingAccept == true
+    return self._pendingQuote ~= nil or self._pendingResult ~= nil or type(self._pendingAccept) == "number"
 end
 
 --- A connection that closed takes its owner session (sequence, cached result, quote)
@@ -656,14 +658,23 @@ function IncomeManager:onEmergencyLoanReply(payload)
         return  -- a quote awaiting player confirmation is NEVER auto-accepted
     end
 
-    if self._pendingAccept and payload.token ~= nil and payload.token ~= ""
-        and g_client and g_client.getServerConnection then
+    -- The quote-then-accept flow (uiBorrow, uiPayoff) is ARMED with its quote's sequence.
+    -- The reply to THAT sequence disarms it whether or not it carries a token (a refused
+    -- quote such as NO_SHORTFALL or NOT_MANAGER has none), so a refusal never leaves the
+    -- client BUSY. Only a token is accepted, and the accept then holds the pending-result
+    -- slot until its own reply, so one command is in flight at a time.
+    local armed = self._pendingAccept
+    if type(armed) == "number" and payload.sequence == armed then
         self._pendingAccept = false
-        local ev = self:_newLoanRequest(EmergencyLoanController.OP.ACCEPT_QUOTE, nil, payload.token)
-        if ev ~= nil then
-            pcall(function()
-                g_client:getServerConnection():sendEvent(ev)
-            end)
+        if payload.token ~= nil and payload.token ~= "" and g_client and g_client.getServerConnection then
+            local ev, seq = self:_newLoanRequest(EmergencyLoanController.OP.ACCEPT_QUOTE, nil, payload.token)
+            if ev ~= nil then
+                self._pendingResult = { sequence = seq, callback = nil }
+                local ok = pcall(function()
+                    g_client:getServerConnection():sendEvent(ev)
+                end)
+                if not ok then self._pendingResult = nil end
+            end
         end
     end
 end
@@ -773,12 +784,14 @@ function IncomeManager:_uiQuoteThenAccept(quoteOp, amountText)
     end
     if g_client and g_client.getServerConnection and EmergencyLoanEvent then
         if self:_isLoanUiBusy() then return false, "BUSY" end
-        local ev = self:_newLoanRequest(quoteOp, amountText)
+        local ev, seq = self:_newLoanRequest(quoteOp, amountText)
         if ev == nil then return false, "SEQUENCE_EXHAUSTED" end
-        self._pendingAccept = true
-        return pcall(function()
+        self._pendingAccept = seq
+        local ok = pcall(function()
             g_client:getServerConnection():sendEvent(ev)
         end)
+        if not ok then self._pendingAccept = false end   -- a failed send never leaves the client BUSY
+        return ok
     end
     return false
 end

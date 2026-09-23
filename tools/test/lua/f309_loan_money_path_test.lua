@@ -461,7 +461,7 @@ do
     mgr:clearEmergencyLoanUiState()
     local okb1 = mgr:_uiQuoteThenAccept(OP.BORROW_QUOTE)
     T.eq("E22 the first Borrow click sends its quote", okb1, true)
-    T.eq("E23 and arms the auto-accept", mgr._pendingAccept, true)
+    T.eq("E23 and arms the auto-accept with the quote's sequence", mgr._pendingAccept, mgr._loanSeq)
     local okb2, whyb2 = mgr:_uiQuoteThenAccept(OP.BORROW_QUOTE)
     T.eq("E24 the second click is refused", okb2, false)
     T.eq("E25 as BUSY", whyb2, "BUSY")
@@ -471,6 +471,41 @@ do
     T.eq("E28 nothing more went out", sentCount, 3)
     mgr:clearEmergencyLoanUiState()
     T.eq("E29 clearing disarms the auto-accept", mgr._pendingAccept, false)
+
+    -- Bob's re-look on cdaef21: a refused Borrow quote carries no token and must still
+    -- disarm, or every later command on this client is BUSY until the report is reopened
+    mgr:_uiQuoteThenAccept(OP.BORROW_QUOTE)
+    local armedSeq = mgr._pendingAccept
+    T.eq("E30 armed with the quote's sequence", armedSeq, mgr._loanSeq)
+    T.eq("E30b the quote went out", sentCount, 4)
+    mgr:onEmergencyLoanReply({ status = "OK", sequence = armedSeq - 1 })          -- a foreign reply
+    T.eq("E31 a reply to another sequence does not disarm", mgr._pendingAccept, armedSeq)
+    mgr:onEmergencyLoanReply({ status = "NO_SHORTFALL", sequence = armedSeq })   -- the refusal, no token
+    T.eq("E32 the refused quote's reply disarms", mgr._pendingAccept, false)
+    T.eq("E33 nothing was auto-accepted", sentCount, 4)
+    local okp = mgr:_uiQuoteOnly(OP.PAYOFF_QUOTE, nil, function() end)
+    T.eq("E34 the next command is not BUSY", okp, true)
+    mgr:clearEmergencyLoanUiState()
+
+    -- a token reply to the armed sequence sends the accept, which holds the result slot
+    -- until its own reply arrives
+    mgr:_uiQuoteThenAccept(OP.BORROW_QUOTE)
+    local seqQ = mgr._pendingAccept
+    local beforeTok = sentCount
+    mgr:onEmergencyLoanReply({ status = "OK", sequence = seqQ, token = "q1" })
+    T.eq("E35 the token reply disarms", mgr._pendingAccept, false)
+    T.eq("E36 and sends the accept", sentCount, beforeTok + 1)
+    T.eq("E37 the accept holds the result slot with its own sequence", mgr._pendingResult and mgr._pendingResult.sequence, mgr._loanSeq)
+    T.eq("E38 so the client is busy until the accept's reply", mgr:_isLoanUiBusy(), true)
+    mgr:onEmergencyLoanReply({ status = "ACCEPTED", sequence = mgr._loanSeq })
+    T.eq("E39 the accept's reply frees the client", mgr:_isLoanUiBusy(), false)
+
+    -- a failed send disarms
+    g_client = { getServerConnection = function() return { sendEvent = function() error("link down") end } end }
+    local okf = mgr:_uiQuoteThenAccept(OP.BORROW_QUOTE)
+    T.eq("E40 a failed send reports false", okf, false)
+    T.eq("E41 and does not leave the client armed", mgr._pendingAccept, false)
+    T.eq("E42 nor busy", mgr:_isLoanUiBusy(), false)
 
     -- the host path refuses at exhaustion as well
     g_currentMission.getIsServer = function() return true end

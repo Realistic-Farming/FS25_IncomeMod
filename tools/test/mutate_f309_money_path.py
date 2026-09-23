@@ -96,9 +96,26 @@ MUTATIONS = [
  ("M18-armed-auto-accept-not-busy", IM,
   # Bob's MINOR on #79: a quote-then-accept flow whose auto-accept is pending did not count
   # as busy, so a double-clicked Borrow sent two quotes and lost both
-  [("    return self._pendingQuote ~= nil or self._pendingResult ~= nil or self._pendingAccept == true",
+  [("    return self._pendingQuote ~= nil or self._pendingResult ~= nil or type(self._pendingAccept) == \"number\"",
     "    return self._pendingQuote ~= nil or self._pendingResult ~= nil", 1)],
   "a pending auto-accept does not make the client busy, so a double-clicked Borrow sends twice"),
+
+ ("M19-disarm-only-on-token", IM,
+  # Bob's re-look on cdaef21: disarming only on a token-bearing reply leaves a refused quote
+  # (no token) armed, so every later command is BUSY until the report is reopened
+  [("    if type(armed) == \"number\" and payload.sequence == armed then\n        self._pendingAccept = false\n        if payload.token ~= nil and payload.token ~= \"\" and g_client and g_client.getServerConnection then",
+    "    if type(armed) == \"number\" and payload.sequence == armed and payload.token ~= nil and payload.token ~= \"\" then\n        self._pendingAccept = false\n        if g_client and g_client.getServerConnection then", 1)],
+  "a refused quote (no token) leaves the client armed and BUSY"),
+
+ ("M20-failed-send-stays-armed", IM,
+  [("        if not ok then self._pendingAccept = false end   -- a failed send never leaves the client BUSY\n",
+    "", 1)],
+  "a failed send leaves the client armed and BUSY"),
+
+ ("M21-accept-does-not-hold-the-slot", IM,
+  [("                self._pendingResult = { sequence = seq, callback = nil }\n",
+    "", 1)],
+  "the auto-accept is fire-and-forget, so a second command can go out while it is in flight"),
 
  ("M14-skip-session-clear-on-disconnect", IM,
   [("    if connection == nil or self._loanSessions == nil then return end\n    self._loanSessions[connection] = nil",
