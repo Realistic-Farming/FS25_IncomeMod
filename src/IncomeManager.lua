@@ -450,12 +450,26 @@ function IncomeManager:_quoteBinding(loan, farmId)
     }
 end
 
-local function bindingMatches(quote, now, checkCash)
+local function bindingMatches(quote, now)
     if quote.revision ~= now.revision then return false end
     if quote.readiness ~= now.readiness then return false end
     if quote.terms ~= now.terms then return false end
-    if checkCash and quote.cash ~= now.cash then return false end
     return true
+end
+
+--- Arissani's ruling on item 5's cash recheck (2026-09-23, tracking 17994ad): current
+--- cash is revalidated for ADMISSIBILITY, not for equality with the quote. A helper BUY
+--- spends money every frame, so between a pure client's quote and its accept the farm's
+--- cash routinely moves; that alone must not strand a safe Borrow. The exact bound amount
+--- is still payable while a supported shortage exists (the offer recomputed NOW from
+--- current cash is a positive finite number) and the amount is finite, positive and no
+--- greater than that offer. Improved cash that makes the old amount excessive, or a
+--- shortage that is gone, is STALE_QUOTE and a fresh quote; a different sum is never
+--- substituted.
+local function borrowStillAdmissible(amount, offerNow)
+    if type(amount) ~= "number" or amount ~= amount or amount <= 0 or amount == math.huge then return false end
+    if type(offerNow) ~= "number" or offerNow ~= offerNow or offerNow <= 0 or offerNow == math.huge then return false end
+    return amount <= offerNow
 end
 
 --- One outstanding owner-UI command per session on a pure client (RSF-F309 item 6):
@@ -905,8 +919,9 @@ function IncomeManager:handleEmergencyLoanRequest(event, connection)
         local now = self:_quoteBinding(loan, farmId)
         local status
         if quote.op == "borrow" then
-            local offerNow = loan:computeOffer(farmId)
-            if not bindingMatches(quote, now, true) or offerNow ~= quote.amount then
+            -- Revision, readiness and terms must be unchanged; cash only has to leave the
+            -- bound amount admissible (borrowStillAdmissible above).
+            if not bindingMatches(quote, now) or not borrowStillAdmissible(quote.amount, loan:computeOffer(farmId)) then
                 status = "STALE_QUOTE"
             else
                 -- Explicit branch selection (item 5): an active line re-draws, a
@@ -925,7 +940,7 @@ function IncomeManager:handleEmergencyLoanRequest(event, connection)
             local debt = loan.debts[farmId]
             local cash = now.cash
             if not debt or not debt.active then status = "NO_DEBT"
-            elseif not bindingMatches(quote, now, false) then status = "STALE_QUOTE"
+            elseif not bindingMatches(quote, now) then status = "STALE_QUOTE"
             elseif cash == nil or quote.amount > cash then status = "INSUFFICIENT_CASH"
             else status = (loan:applyManualPayment(farmId, quote.amount) > 0) and "ACCEPTED" or "REFUSED" end
         end
