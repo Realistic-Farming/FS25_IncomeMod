@@ -238,6 +238,36 @@ function IncomeSystem:hasMonotonicDayChanged(env)
     return monoDay ~= nil and self.lastMonotonicDay >= 0 and monoDay ~= self.lastMonotonicDay
 end
 
+-- RSF-F282: a clock set backwards inside one day is not elapsed time. The native
+-- console setter holds the monotonic day flat and only lowers the day time
+-- (Environment.lua:574-583), and the per-frame tick only ever increments that day
+-- (:356), so a lower hour on an unchanged monotonic day, or a lower monotonic day, is
+-- a rewind and never a midnight wrap. It is detected ahead of the catch-up arithmetic:
+-- nothing is paid for the span, every marker re-baselines to the new position so the
+-- next ordinary transition settles once, and the event is logged. Without the
+-- monotonic counter a negative hour movement cannot be told from a wrap, and the
+-- modulo path below stays exactly as it was for the case it was written for.
+---@return boolean  true when the clock moved backwards since the last check
+function IncomeSystem:isClockRewound(env)
+    local monoDay = env.currentMonotonicDay
+    if monoDay == nil or self.lastMonotonicDay < 0 then
+        return false
+    end
+    if monoDay < self.lastMonotonicDay then
+        return true
+    end
+    return monoDay == self.lastMonotonicDay and self.lastHour >= 0 and self.lastHour <= 23 and env.currentHour < self.lastHour
+end
+
+--- Re-baseline every marker to the new clock position and say once why nothing settled.
+function IncomeSystem:rebaselineAfterRewind(env, mode)
+    Logging.info("[Income Mod] Clock moved backwards (%s check): Day %d[%d] Hour %d back to Day %d[%d] Hour %d; nothing settled, markers re-baselined",
+        tostring(mode), self.lastDay, self.lastMonotonicDay, self.lastHour, env.currentDay, env.currentMonotonicDay, env.currentHour)
+    self.lastHour         = env.currentHour
+    self.lastDay          = env.currentDay
+    self.lastMonotonicDay = env.currentMonotonicDay
+end
+
 ---@return number  elapsed hour transitions since the last check (>= 1, clamped)
 function IncomeSystem:countElapsedHours(env)
     -- A change was already detected, so at least one transition happened
@@ -294,6 +324,10 @@ function IncomeSystem:checkHourly()
     -- The monotonic day check also catches an exact multiple-of-24h jump,
     -- where currentHour lands back on the same value
     if currentHour ~= self.lastHour or self:hasMonotonicDayChanged(env) then
+        if self:isClockRewound(env) then
+            self:rebaselineAfterRewind(env, "hourly")
+            return false
+        end
         local count = self:countElapsedHours(env)
         local isSleeping = g_sleepManager and g_sleepManager:getIsSleeping()
         self.lastHour = currentHour
@@ -318,6 +352,10 @@ function IncomeSystem:checkDaily()
     -- The monotonic day check keeps daily mode firing even if currentDay
     -- wraps back to the same value (short-month settings)
     if currentDay ~= self.lastDay or self:hasMonotonicDayChanged(env) then
+        if self:isClockRewound(env) then
+            self:rebaselineAfterRewind(env, "daily")
+            return false
+        end
         local count = self:countElapsedDays(env)
         local isSleeping = g_sleepManager and g_sleepManager:getIsSleeping()
         self.lastDay = currentDay
