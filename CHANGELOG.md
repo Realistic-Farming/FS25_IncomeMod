@@ -13,6 +13,9 @@ the repo's git history and README.
 
 ## [Unreleased]
 
+### Fixed
+- RSF-F282 follow-up: the code and test comments now say that the console setter holding the day is the design brief's reading of an engine branch that decompiles empty. No change to payments. (MAINTENANCE row 102.)
+
 ## [2.2.0.0] - 2026-09-18
 
 ### Added

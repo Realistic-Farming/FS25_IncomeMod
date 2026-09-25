@@ -9,8 +9,9 @@
 -- THE ENTRY-POINT BAR IS GROUP A: the REAL Settings and the REAL IncomeSystem,
 -- initialized from the environment as production does (IncomeSystem:initialize), then
 -- driven through IncomeSystem:update(dt) as the manager drives it each frame, against
--- the engine's own clock (f282_environment_model.lua: updateTimeValues, setEnvironmentTime
--- and consoleCommandSetDayTime verbatim from Environment.lua). No marker, count or
+-- the engine's own clock (f282_environment_model.lua: updateTimeValues and
+-- setEnvironmentTime verbatim from Environment.lua, consoleCommandSetDayTime through its
+-- arithmetic with the brief's reading of its empty lower-time branch). No marker, count or
 -- payment is written by hand; the only mocks are the mission's money sink and the
 -- log sink.
 --
