@@ -240,8 +240,8 @@ end
 
 -- RSF-F282: a clock set backwards inside one day is not elapsed time. The per-frame
 -- tick only ever increments the monotonic day (Environment.lua:356). The native console
--- setter keeps the day and the monotonic day it read (:576-577) and sets the new day
--- time (:583); its branch for a time lower than the current one (:579-581) decompiles
+-- setter keeps the day and the monotonic day it read (:577-578) and sets the new day
+-- time (:583); its branch for a time lower than the current one (:579-582) decompiles
 -- empty, so that the setter holds the day flat is the brief's reading of that branch,
 -- not something the source shows (MAINTENANCE row 102). On that reading a lower hour on
 -- an unchanged monotonic day, or a lower monotonic day, is a rewind and never a
