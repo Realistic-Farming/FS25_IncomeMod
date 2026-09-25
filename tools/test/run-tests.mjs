@@ -38,9 +38,13 @@ function parseTexts(src) {
 
 // Embed a file's bytes as a Lua long string, picking a bracket level the content
 // cannot close early. A leading newline is added because Lua drops the first one.
+// MAINTENANCE row 113 (row 87's defect, FertilizerDepot #80's line): the level is chosen
+// from the text WITH the closer's "]" appended, so a file whose last characters meet the
+// closing bracket (ending in "]" at level 0, or "]=" at level 1) cannot close the string
+// early. The bar is MAINT-113-long_string_boundary_test.lua.
 function luaLongString(text) {
   let eq = "";
-  while (text.includes("]" + eq + "]")) eq += "=";
+  while ((text + "]").includes("]" + eq + "]")) eq += "=";
   return `[${eq}[\n${text}]${eq}]`;
 }
 
