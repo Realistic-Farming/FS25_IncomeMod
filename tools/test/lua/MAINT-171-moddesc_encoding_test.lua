@@ -8,6 +8,11 @@
 -- reverse chain, only where re-encoding the result reproduced the stored bytes, replaced the
 -- em dashes the restore brought back, and rewrote the comments in ASCII.
 --
+-- The restore also made the mod manager's titles readable, which showed that nine of them
+-- (de, fr, pl, es, it, cz, br, uk, ru) had carried another mod's name, "Realistic Harvest",
+-- since v2.0.0.0 (e4758b8). Each now carries its own language's "Income Mod", the same words
+-- the mod's own help title uses (im_help_cat_overview).
+--
 -- This bar reads the SHIPPED file, which is what the game reads: nothing in it can pass
 -- while a garbled string, a dash, a lost key or a moved R17 string remains.
 --
@@ -33,12 +38,13 @@ end
 -- U+2500 to U+257F (box drawing) is E2 94 xx and E2 95 xx in UTF-8.
 local nBox, whereBox = hits("\226[\148\149]")
 T.eq("no box-drawing character anywhere (the cp850 layer)", nBox .. " " .. whereBox, "0 ")
--- A leftover cp1252 layer: U+00C2 or U+00C3 followed by a Latin-1 continuation character
+-- A leftover cp1252 layer: a UTF-8 lead byte read as cp1252 (U+00C2 or U+00C3 for Latin
+-- text, U+00D0 or U+00D1 for Cyrillic) followed by a Latin-1 continuation character
 -- (C2 80 to C2 BF) or a cp1252 punctuation or letter (E2 80 xx, C5 xx, C6 92, CB xx, E2 84 A2).
 local nMoji = 0
 local mojiWhere = ""
 for _, follow in ipairs({ "\194[\128-\191]", "\226\128", "\197", "\198\146", "\203", "\226\132\162" }) do
-    local n, w = hits("\195[\130\131]" .. follow)
+    local n, w = hits("\195[\130\131\144\145]" .. follow)
     nMoji = nMoji + n
     if w ~= "" then mojiWhere = w end
 end
@@ -55,10 +61,24 @@ end
 T.eq("German im_paymode_2 reads Täglich (the Esc pay-mode option)", value("im_paymode_2", "de"), "Täglich")
 T.eq("Russian im_paymode_2 reads clean Cyrillic", value("im_paymode_2", "ru"), "Ежедневно")
 T.eq("Ukrainian im_paymode_2 reads clean Cyrillic", value("im_paymode_2", "uk"), "Щоденно")
-local title = lf:match("<title>(.-)</title>")
-T.eq("the Ukrainian mod title in the mod manager reads clean Cyrillic",
-    title and title:match("<uk><!%[CDATA%[(.-)%]%]></uk>"), "Реалістичний збір врожаю")
-T.eq("the German mod title reads clean", title and title:match("<de><!%[CDATA%[(.-)%]%]></de>"), "Realistisches Ernten")
+-- The mod manager's title is this mod's own name in every language: the words its own help
+-- title uses before the colon ("Einkommens-Mod: Übersicht" -> "Einkommens-Mod").
+local title = lf:match("<title>(.-)</title>") or ""
+local overview = lf:match('<text name="im_help_cat_overview">(.-)</text>') or ""
+local wrong = {}
+for _, code in ipairs({ "de", "fr", "pl", "es", "it", "cz", "br", "uk", "ru" }) do
+    local got = title:match("<" .. code .. "><!%[CDATA%[(.-)%]%]></" .. code .. ">")
+    local help = overview:match("<" .. code .. "><!%[CDATA%[(.-)%]%]></" .. code .. ">")
+    local want = help and help:match("^(.-)%s*:") or nil
+    if got == nil or want == nil or got ~= want then wrong[#wrong + 1] = code .. "=" .. tostring(got) end
+end
+T.eq("the nine translated mod titles are Income Mod's own name, as its help title says", table.concat(wrong, " "), "")
+T.eq("the German and Ukrainian titles read as expected", (title:match("<de><!%[CDATA%[(.-)%]%]></de>") or "") .. " | "
+    .. (title:match("<uk><!%[CDATA%[(.-)%]%]></uk>") or ""), "Einkommens-Mod | Мод доходу")
+T.eq("English and Danish keep their titles", (title:match("<en><!%[CDATA%[(.-)%]%]></en>") or "") .. " | "
+    .. (title:match("<da><!%[CDATA%[(.-)%]%]></da>") or ""), "Income Mod | Indkomst Mod")
+T.ok("no title carries another mod's name", not title:find("Realist", 1, true) and not title:find("Реалі", 1, true)
+    and not title:find("Реали", 1, true), title)
 
 -- The repair changed values, never keys or codes: the counts measured on the file before it.
 local keys, entries = 0, 0

@@ -5,15 +5,15 @@
     <modName>FS25_IncomeMod</modName>
     <title>
         <en><![CDATA[Income Mod]]></en>
-        <de><![CDATA[Realistisches Ernten]]></de>
-        <fr><![CDATA[Récolte Réaliste]]></fr>
-        <pl><![CDATA[Realistyczne Żniwa]]></pl>
-        <es><![CDATA[Cosecha Realista]]></es>
-        <it><![CDATA[Raccolta Realistica]]></it>
-        <cz><![CDATA[Realistická Sklizeň]]></cz>
-        <br><![CDATA[Colheita Realista]]></br>
-        <uk><![CDATA[Реалістичний збір врожаю]]></uk>
-        <ru><![CDATA[Реалистичный сбор урожая]]></ru>
+        <de><![CDATA[Einkommens-Mod]]></de>
+        <fr><![CDATA[Mod de revenu]]></fr>
+        <pl><![CDATA[Mod dochodów]]></pl>
+        <es><![CDATA[Mod de ingresos]]></es>
+        <it><![CDATA[Mod reddito]]></it>
+        <cz><![CDATA[Příjmový mod]]></cz>
+        <br><![CDATA[Mod de renda]]></br>
+        <uk><![CDATA[Мод доходу]]></uk>
+        <ru><![CDATA[Мод дохода]]></ru>
         <da><![CDATA[Indkomst Mod]]></da>
     </title>
     <description>
