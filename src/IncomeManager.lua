@@ -1097,6 +1097,10 @@ local function viewSignature(v)
         tostring(v.payment), tostring(v.paymentThisSeason), tostring(v.daysThisMonth),
         tostring(v.paymentsThisMonth), tostring(v.monthEstimate), tostring(v.paymentState),
         tostring(v.legacyOverCap),
+        -- The reader fields (IM-6 PR B): a change that moves only one of them (seasonal
+        -- effects toggled at a 1.0 factor, say) must still reach every client's readers.
+        tostring(v.enabled), tostring(v.difficulty), tostring(v.incomeMultiplier),
+        tostring(v.seasonalEffects), tostring(v.seasonFactor),
     }, "|")
 end
 

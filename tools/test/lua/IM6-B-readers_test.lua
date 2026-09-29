@@ -20,7 +20,7 @@
 --
 -- Groups:
 --   A  the view carries what the readers show; a disabled schedule with an unknown month is
---      DISABLED with no estimate
+--      DISABLED with no estimate; a host change that moves only a reader field is republished
 --   B  HUD: WAITING, then the host's values; the current seasonal adjustment, never a season
 --      name; next payment from the host's mode; the every-farm row only when released
 --   C  report: WAITING, then the host's summary and next payment; the gated estimate line
@@ -140,6 +140,29 @@ do
     local v = c.mgr:getIncomeScheduleView()
     T.eq("A5 income off with an unknown month: DISABLED, and no estimate crosses as 0",
         v.paymentState .. " " .. tostring(v.daysThisMonth) .. " " .. tostring(v.monthEstimate), "DISABLED nil nil")
+end
+
+-- A host change that moves only a reader field still reaches the clients (Bob's MAJOR on
+-- cbc134e): seasonal effects switched on through SettingsHub in summer, whose factor is
+-- 1.0, moves no payment, count or estimate.
+do
+    W.newHost({ payMode = DAILY, customAmount = 1000, seasonalEffects = false }, { season = 1 })
+    local c = W.newClient("c", true)
+    W.pump(c)
+    W.asHost()
+    W.host.mgr:update(1000)
+    W.deliverBroadcasts()
+    W.asClient(c)
+    T.eq("A6 [world] the client holds seasonal effects off", tostring(c.mgr:getIncomeScheduleView().seasonalEffects), "false")
+    W.asHost()
+    W.hubModules.IncomeMod.onChange("seasonalEffects", true, 1)
+    local before = #W.broadcasts
+    W.host.mgr:update(1000)
+    T.eq("A7 the host republishes a view whose only move is a reader field", #W.broadcasts - before, 1)
+    W.deliverBroadcasts()
+    W.asClient(c)
+    local v = c.mgr:getIncomeScheduleView()
+    T.eq("A8 and the client's readers follow it", tostring(v.seasonalEffects) .. " " .. math.floor(v.paymentThisSeason), "true 1000")
 end
 
 -- ══════════════════════════════════════════════════════════════════════════════

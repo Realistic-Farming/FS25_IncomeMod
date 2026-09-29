@@ -85,6 +85,9 @@ MUTATIONS = [
  ("V4-unknown-month-shown-as-a-figure", SCH,
   [("    if view.monthEstimate == nil or view.daysThisMonth == nil then\n", "    if view.paymentState == IncomeSchedule.STATE.UNAVAILABLE then\n", 1)],
   "a disabled schedule with an unknown month shows a month of nil days"),
+ ("V5-signature-misses-reader-fields", "src/IncomeManager.lua",
+  [("        tostring(v.enabled), tostring(v.difficulty), tostring(v.incomeMultiplier),\n        tostring(v.seasonalEffects), tostring(v.seasonFactor),\n", "", 1)],
+  "a host change that moves only a reader field never reaches the clients"),
  # ── T: the typed control ────────────────────────────────────────────────────
  ("T1-typed-No-applies", UI,
   [("            if not yes then\n                self:refreshUI()\n                return\n            end\n            mgr:requestIncomeSchedule(OP.APPLY, amountText,",
