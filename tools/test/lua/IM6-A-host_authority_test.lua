@@ -1,3 +1,4 @@
+--!text: modDesc.xml
 --!load: tools/test/lua/f282_environment_model.lua, src/ReleaseGate.lua, src/settings/SettingsManager.lua, src/settings/Settings.lua, src/IncomeSystem.lua, src/EmergencyLoan.lua, src/EmergencyLoanEvent.lua, src/IncomeSchedule.lua, src/settings/SettingsHubBridge.lua, src/settings/SettingsGUI.lua, src/settings/SettingsUI.lua, src/IncomeManager.lua
 -- IM6-A-host_authority_test.lua - R17 / IM-6 PR A: the income schedule's host authority.
 --
@@ -38,7 +39,9 @@
 --   I  display estimate: DISABLED keeps a hypothetical month; UNAVAILABLE carries none
 --   J  a legacy amount above the cap is kept on a mode-only change, refused as a new amount
 --   K  the wire: no tape faults; the host never takes a view from a connection; a
---      broadcast keeps each client's own capability; the throttled republish
+--      broadcast keeps each client's own capability; the throttled republish; a client
+--      whose first request was lost asks again while it waits
+--   L  the Reset preview lists exactly what the real Settings:resetToDefaults writes
 
 local HOUR, MINUTE = F282Env.HOUR, 60000
 local OP = IncomeSchedule.OP
@@ -729,4 +732,54 @@ do
     T.eq("K7 the client follows the new month length", viewOf(a).daysThisMonth .. " " .. viewOf(a).monthEstimate, "4 24000")
     T.eq("K8 every event crossed the tape without a fault", tapeFaults, 0)
     T.eq("K9 every request got exactly one reply, to its own connection", replyErrors, 0)
+end
+
+-- A client whose first VIEW request never reached the host asks again while it waits.
+do
+    newHost({ payMode = DAILY, customAmount = 5000 })
+    local c = newClient("late", true)
+    T.eq("K10 [world] the first request is lost on the way", #c.outbox, 1)
+    c.outbox = {}
+    asClient(c)
+    c.mgr:update(2999)
+    T.eq("K11 still WAITING, and not asked again before the retry interval", viewOf(c).paymentState .. " " .. #c.outbox, "WAITING 0")
+    asClient(c)
+    c.mgr:update(1)
+    T.eq("K12 at the interval the client asks again", #c.outbox, 1)
+    pump(c)
+    T.eq("K13 the answer arrives and the client holds the host's view", viewOf(c).unit .. " " .. viewOf(c).amount, "PER_DAY 5000")
+    asClient(c)
+    c.mgr:update(3000)
+    c.mgr:update(3000)
+    T.eq("K14 once it holds a view it asks no more", #c.outbox, 0)
+end
+
+-- ══════════════════════════════════════════════════════════════════════════════
+-- L. THE RESET PREVIEW LISTS WHAT RESET WRITES
+-- ══════════════════════════════════════════════════════════════════════════════
+do
+    -- The real Settings:resetToDefaults, every write it makes recorded.
+    local written, order = {}, {}
+    local probe = setmetatable({}, { __index = Settings, __newindex = function(_t, k, v)
+        if written[k] == nil then order[#order + 1] = k end
+        written[k] = v
+    end })
+    Settings.resetToDefaults(probe, false)
+    local listed = {}
+    local mismatch = {}
+    for _, d in ipairs(IncomeSchedule.RESET_DEFAULTS) do
+        listed[d.key] = true
+        if written[d.key] ~= d.value then mismatch[#mismatch + 1] = d.key .. "=" .. tostring(written[d.key]) end
+    end
+    local unlisted = {}
+    for _, k in ipairs(order) do if not listed[k] then unlisted[#unlisted + 1] = k end end
+    T.eq("L1 [reached] the real resetToDefaults writes ten settings", #order, 10)
+    T.eq("L2 every setting Reset writes is listed in the preview", table.concat(unlisted, ","), "")
+    T.eq("L3 every listed default is the value Reset writes", table.concat(mismatch, ","), "")
+    T.eq("L4 the preview lists no more than Reset writes", #IncomeSchedule.RESET_DEFAULTS, #order)
+    T.eq("L5 the console lists one line per setting Reset writes", #SettingsGUI.RESET_LINES, #order)
+    local en = T.text["modDesc.xml"]:match('<text name="im6_reset_list">%s*<en><!%[CDATA%[(.-)%]%]></en>')
+    local items = 0
+    for _ in ((en or ""):match(":%s*(.-)%.?$") or ""):gmatch("[^,]+") do items = items + 1 end
+    T.eq("L6 the Esc confirm lists one item per setting Reset writes", items, #order)
 end

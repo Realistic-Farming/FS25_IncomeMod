@@ -226,9 +226,11 @@ function IncomeManager:onMissionLoaded()
         self.incomeSystem:initialize()
     end
 
-    -- IM-6: a client shows WAITING until the host's accepted view arrives.
+    -- IM-6: a client shows WAITING until the host's accepted view arrives. It asks now,
+    -- and update() asks again while it is still waiting (see SCHEDULE_VIEW_RETRY_MS).
     if g_currentMission ~= nil and g_currentMission.getIsServer ~= nil and not g_currentMission:getIsServer() then
         self:requestIncomeSchedule(IncomeSchedule.OP.VIEW)
+        self._scheduleWaitTimer = 0
     end
 
     -- Restore HUD layout (position/scale) saved by the player
@@ -309,6 +311,16 @@ function IncomeManager:update(dt)
     if self._schedulePublishTimer >= IncomeManager.SCHEDULE_PUBLISH_INTERVAL_MS then
         self._schedulePublishTimer = 0
         self:publishIncomeScheduleView(false)
+    end
+    -- IM-6: a client that asked and is still WAITING asks again every few seconds. The
+    -- host broadcasts only when its view moves, so a lost first request would otherwise
+    -- leave this client waiting for the rest of the session.
+    if self._scheduleWaitTimer ~= nil and self.scheduleView == nil then
+        self._scheduleWaitTimer = self._scheduleWaitTimer + (dt or 0)
+        if self._scheduleWaitTimer >= IncomeManager.SCHEDULE_VIEW_RETRY_MS then
+            self._scheduleWaitTimer = 0
+            self:requestIncomeSchedule(IncomeSchedule.OP.VIEW)
+        end
     end
 end
 
@@ -980,6 +992,7 @@ end
 -- =========================================================
 
 IncomeManager.SCHEDULE_PUBLISH_INTERVAL_MS = 1000
+IncomeManager.SCHEDULE_VIEW_RETRY_MS = 3000
 
 local function isHost()
     return g_currentMission ~= nil and g_currentMission.getIsServer ~= nil and g_currentMission:getIsServer() == true
