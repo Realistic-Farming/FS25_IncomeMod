@@ -474,7 +474,12 @@ end
 
 function IncomeHUD:drawPanel()
     local sc  = self.scale
-    local s   = self.settings
+    -- IM-6 (brief 3.6): every schedule value is the host's accepted view. On a client
+    -- self.settings is this machine's own copy, not the host's schedule; a client with
+    -- no view yet reads as waiting.
+    local view = IncomeSchedule.readerView()
+    local s   = IncomeSchedule.readerSettings(view)
+    local waiting = s == nil
     local sys = self.incomeSystem
 
     -- Scaled layout values (width also carries the edge-drag multiplier)
@@ -484,12 +489,15 @@ function IncomeHUD:drawPanel()
     local lh  = self.LINE_H * sc
 
     local histCount  = math.min(#sys.paymentHistory, IncomeHUD.MAX_HISTORY_ROWS)
-    local showMult   = s:getMultiplierValue() > 1
-    local showSeason = s.seasonalEffects
+    local showMult   = not waiting and s:getMultiplierValue() > 1
+    local showSeason = not waiting and s.seasonalEffects
+    -- IM-6, LOCKED behind im6_income_schedule: the amount applies to every active farm.
+    local showFarms  = not waiting and IncomeSchedule.explanationReleased()
 
     local nRows = 6
         + (showMult   and 1 or 0)
         + (showSeason and 1 or 0)
+        + (showFarms  and 1 or 0)
         + math.max(histCount - 1, 0)
 
     local nDividers = 3
@@ -554,10 +562,11 @@ function IncomeHUD:drawPanel()
     setTextColor(self.COLORS.HEADER[1], self.COLORS.HEADER[2], self.COLORS.HEADER[3], self.COLORS.HEADER[4])
     renderText(x, cy - tsTitle, tsTitle, "INCOME MOD")
 
-    local statusColor = s.enabled and self.COLORS.ENABLED or self.COLORS.DISABLED
+    local statusColor = (not waiting and s.enabled) and self.COLORS.ENABLED or self.COLORS.DISABLED
+    local statusText = waiting and "[--]" or (s.enabled and "[ON]" or "[OFF]")
     setTextAlignment(RenderText.ALIGN_RIGHT)
     setTextColor(statusColor[1], statusColor[2], statusColor[3], statusColor[4])
-    renderText(x + w, cy - tsTitle, tsTitle, s.enabled and "[ON]" or "[OFF]")
+    renderText(x + w, cy - tsTitle, tsTitle, statusText)
     setTextBold(false)
     cy = cy - lh
 
@@ -565,19 +574,25 @@ function IncomeHUD:drawPanel()
     self:divider(bgX, cy, bgW, sc)
     cy = cy - 0.004 * sc
 
-    -- Mode | Difficulty | Amount
-    setTextAlignment(RenderText.ALIGN_LEFT)
-    setTextColor(self.COLORS.LABEL[1], self.COLORS.LABEL[2], self.COLORS.LABEL[3], self.COLORS.LABEL[4])
-    renderText(x, cy - tsNormal, tsNormal, s:getPayModeName())
+    -- Mode | Difficulty | Amount (waiting: one line saying so, no local figure)
+    if waiting then
+        setTextAlignment(RenderText.ALIGN_LEFT)
+        setTextColor(self.COLORS.DIM[1], self.COLORS.DIM[2], self.COLORS.DIM[3], self.COLORS.DIM[4])
+        renderText(x, cy - tsNormal, tsNormal, IncomeSchedule.text("im6_waiting_short", "Waiting for the host"))
+    else
+        setTextAlignment(RenderText.ALIGN_LEFT)
+        setTextColor(self.COLORS.LABEL[1], self.COLORS.LABEL[2], self.COLORS.LABEL[3], self.COLORS.LABEL[4])
+        renderText(x, cy - tsNormal, tsNormal, s:getPayModeName())
 
-    setTextAlignment(RenderText.ALIGN_CENTER)
-    setTextColor(self.COLORS.LABEL[1], self.COLORS.LABEL[2], self.COLORS.LABEL[3], self.COLORS.LABEL[4])
-    renderText(x + w * 0.5, cy - tsNormal, tsNormal, s:getDifficultyName())
+        setTextAlignment(RenderText.ALIGN_CENTER)
+        setTextColor(self.COLORS.LABEL[1], self.COLORS.LABEL[2], self.COLORS.LABEL[3], self.COLORS.LABEL[4])
+        renderText(x + w * 0.5, cy - tsNormal, tsNormal, s:getDifficultyName())
 
-    local amtFmt = g_i18n:formatMoney(s:getPaymentAmount(), 0, true, true)
-    setTextAlignment(RenderText.ALIGN_RIGHT)
-    setTextColor(self.COLORS.AMOUNT[1], self.COLORS.AMOUNT[2], self.COLORS.AMOUNT[3], self.COLORS.AMOUNT[4])
-    renderText(x + w, cy - tsNormal, tsNormal, amtFmt)
+        local amtFmt = g_i18n:formatMoney(s:getPaymentAmount(), 0, true, true)
+        setTextAlignment(RenderText.ALIGN_RIGHT)
+        setTextColor(self.COLORS.AMOUNT[1], self.COLORS.AMOUNT[2], self.COLORS.AMOUNT[3], self.COLORS.AMOUNT[4])
+        renderText(x + w, cy - tsNormal, tsNormal, amtFmt)
+    end
     cy = cy - lh
 
     -- Multiplier row (optional)
@@ -588,28 +603,28 @@ function IncomeHUD:drawPanel()
         cy = cy - lh
     end
 
-    -- Seasonal row (optional)
+    -- Seasonal row (optional): the host's factor, never a season named from the
+    -- ambiguous label path (IM-6 brief 3.6).
     if showSeason then
-        local seasonMult  = sys:getSeasonalMultiplier()
-        local seasonNames = { [0] = "Spring", [1] = "Summer", [2] = "Autumn", [3] = "Winter" }
-        local seasonIdx   = 0
-        if g_currentMission and g_currentMission.environment then
-            local ok, sv = pcall(function() return g_currentMission.environment.currentSeason end)
-            if ok and sv ~= nil then seasonIdx = sv % 4 end
-        end
         setTextAlignment(RenderText.ALIGN_LEFT)
         setTextColor(self.COLORS.SEASONAL[1], self.COLORS.SEASONAL[2], self.COLORS.SEASONAL[3], self.COLORS.SEASONAL[4])
-        renderText(x, cy - tsSmall, tsSmall,
-            string.format("Season: %s (%.1fx)", seasonNames[seasonIdx] or "?", seasonMult))
+        renderText(x, cy - tsSmall, tsSmall, IncomeSchedule.seasonAdjustText(view))
         cy = cy - lh
     end
 
     -- Next payment
-    local nextText = self:buildNextPaymentText()
+    local nextText = self:buildNextPaymentText(s)
     setTextAlignment(RenderText.ALIGN_LEFT)
     setTextColor(self.COLORS.DIM[1], self.COLORS.DIM[2], self.COLORS.DIM[3], self.COLORS.DIM[4])
     renderText(x, cy - tsSmall, tsSmall, "Next: " .. nextText)
     cy = cy - lh
+
+    if showFarms then
+        setTextAlignment(RenderText.ALIGN_LEFT)
+        setTextColor(self.COLORS.DIM[1], self.COLORS.DIM[2], self.COLORS.DIM[3], self.COLORS.DIM[4])
+        renderText(x, cy - tsSmall, tsSmall, IncomeSchedule.text("im6_hud_every_farm", "Paid to every active farm"))
+        cy = cy - lh
+    end
 
     -- Divider
     self:divider(bgX, cy, bgW, sc)
@@ -672,10 +687,12 @@ end
 -- Next Payment Text
 -- =========================================================
 
-function IncomeHUD:buildNextPaymentText()
+--- `s` is the reader copy of the host's accepted view (IncomeSchedule.readerSettings);
+--- nothing is due while it is waiting or income is off.
+function IncomeHUD:buildNextPaymentText(s)
+    if s == nil or s.enabled ~= true then return "--" end
     if not g_currentMission or not g_currentMission.environment then return "?" end
     local env = g_currentMission.environment
-    local s   = self.settings
 
     if s.payMode == Settings.PAY_MODE_HOURLY then
         local nextHour   = (env.currentHour + 1) % 24

@@ -141,15 +141,25 @@ function IncomeSchedule.buildView(settings, incomeSystem, revision, canEdit)
         monthEstimate         = nil,
         canEdit               = canEdit,
         legacyOverCap         = amount > IncomeSchedule.CAP,
+        -- The inputs the existing readers show beside the amount (IM-6 3.6: every reader
+        -- reads the accepted view, and a client's own settings are not the host's).
+        enabled               = settings.enabled == true,
+        difficulty            = settings.difficulty,
+        incomeMultiplier      = settings.incomeMultiplier,
+        seasonalEffects       = settings.seasonalEffects == true,
+        seasonFactor          = factor,
     }
     if days ~= nil then
         view.paymentsThisMonth = EmergencyLoan.payoutsPerPeriod(settings.payMode, days)
         view.monthEstimate     = EmergencyLoan.periodGross(payment, factor, settings.payMode, days)
     end
-    if days == nil then
-        view.paymentState = IncomeSchedule.STATE.UNAVAILABLE
-    elseif settings.enabled ~= true then
+    -- DISABLED first: it is a fact about the schedule a reader must show (on or off),
+    -- where UNAVAILABLE only says the month estimate cannot be made. A disabled schedule
+    -- with an unknown month length is DISABLED with no estimate (nil, never 0).
+    if settings.enabled ~= true then
         view.paymentState = IncomeSchedule.STATE.DISABLED   -- the estimate is hypothetical
+    elseif days == nil then
+        view.paymentState = IncomeSchedule.STATE.UNAVAILABLE
     else
         view.paymentState = IncomeSchedule.STATE.SCHEDULED
     end
@@ -279,6 +289,110 @@ function IncomeSchedule.commit(mgr)
 end
 
 -- =========================================================
+-- Readers (IM-6 3.6): the HUD, the report, the RfPda guest and the Esc page
+-- =========================================================
+-- Every reader shows the host's accepted view. On a client this machine's own settings
+-- are its local defaults, not the host's schedule, so no reader reads them.
+
+IncomeSchedule.GATE = "im6_income_schedule"
+
+--- The typed Esc amount control and the schedule explanation are LOCKED behind the
+--- gate (brief 3.7). Fail closed: an unreadable opt-in keeps them hidden. The host
+--- authority itself is never gated.
+function IncomeSchedule.explanationReleased()
+    if ReleaseGate == nil or ReleaseGate.isReleased == nil then return false end
+    local optIn = nil
+    if ReleaseGate.liveOptIn ~= nil then optIn = ReleaseGate.liveOptIn() end
+    return ReleaseGate.isReleased(IncomeSchedule.GATE, optIn) == true
+end
+
+--- The accepted view for a reader (of `mgr`, else g_IncomeManager); WAITING when there
+--- is none yet.
+function IncomeSchedule.readerView(mgr)
+    mgr = mgr or g_IncomeManager
+    local view = nil
+    if mgr ~= nil and mgr.getIncomeScheduleView ~= nil then view = mgr:getIncomeScheduleView() end
+    return view or { paymentState = IncomeSchedule.STATE.WAITING }
+end
+
+-- Settings' own getters over a view's values; the payment is the host's figure.
+local ReaderSettings = setmetatable({}, { __index = function(_, key) return Settings[key] end })
+function ReaderSettings:getPaymentAmount() return self.payment end
+
+--- A settings-shaped, read-only copy of an accepted view, so each reader keeps its own
+--- layout and getters while every value it shows is the host's. nil while WAITING.
+function IncomeSchedule.readerSettings(view)
+    if type(view) ~= "table" or view.paymentState == nil or view.paymentState == IncomeSchedule.STATE.WAITING then
+        return nil
+    end
+    return setmetatable({
+        enabled          = view.enabled == true,
+        payMode          = view.unit == "PER_DAY" and 2 or 1,
+        difficulty       = view.difficulty,
+        incomeMultiplier = view.incomeMultiplier,
+        seasonalEffects  = view.seasonalEffects == true,
+        customAmount     = view.amount,
+        payment          = view.payment,
+    }, { __index = ReaderSettings })
+end
+
+--- When the next payment falls, from the accepted mode and this machine's clock; nil
+--- when nothing is scheduled (WAITING or DISABLED).
+function IncomeSchedule.nextPaymentInfo(view)
+    local s = IncomeSchedule.readerSettings(view)
+    if s == nil or s.enabled ~= true or IncomeSystem == nil or IncomeSystem.getNextPaymentInfo == nil then
+        return nil
+    end
+    -- IncomeSystem:getNextPaymentInfo reads only self.settings.payMode and the clock.
+    return IncomeSystem.getNextPaymentInfo({ settings = s })
+end
+
+local function text(key, fallback)
+    if g_i18n ~= nil and g_i18n.hasText ~= nil and g_i18n:hasText(key) then
+        return g_i18n:getText(key)
+    end
+    return fallback or key
+end
+IncomeSchedule.text = text
+
+function IncomeSchedule.money(v)
+    if v == nil then return "--" end
+    if g_i18n ~= nil and g_i18n.formatMoney ~= nil then
+        return g_i18n:formatMoney(v, 0, true, true)
+    end
+    return string.format("$%d", math.floor(v))
+end
+
+--- "Current seasonal adjustment: 1.2x" (brief 3.6: never a season named from the
+--- ambiguous label path).
+function IncomeSchedule.seasonAdjustText(view)
+    local factor = type(view) == "table" and tonumber(view.seasonFactor) or nil
+    return string.format(text("im6_season_adjust", "Current seasonal adjustment: %s"),
+        factor ~= nil and string.format("%.1fx", factor) or "--")
+end
+
+--- The explanation a reader adds when the gate is released: the month at this rate
+--- (hypothetical when income is off, unavailable when the month length is unknown,
+--- never 0) and that the one amount applies to every active farm. {} while WAITING.
+function IncomeSchedule.explanationLines(view)
+    local lines = {}
+    if type(view) ~= "table" or view.paymentState == nil or view.paymentState == IncomeSchedule.STATE.WAITING then
+        return lines
+    end
+    if view.paymentState == IncomeSchedule.STATE.DISABLED then
+        lines[#lines + 1] = text("im6_line_disabled", "Income is off; the figures below are what it would pay if it were on.")
+    end
+    if view.monthEstimate == nil or view.daysThisMonth == nil then
+        lines[#lines + 1] = text("im6_line_month_unavailable", "Month estimate: not available (the month length is not known).")
+    else
+        lines[#lines + 1] = string.format(text("im6_line_month", "Month of %s days: %s payments, about %s gross before any loan repayment."),
+            tostring(view.daysThisMonth), tostring(view.paymentsThisMonth or 0), IncomeSchedule.money(view.monthEstimate))
+    end
+    lines[#lines + 1] = text("im6_line_every_farm", "The amount applies to every active farm. Nothing is paid at the moment of a change.")
+    return lines
+end
+
+-- =========================================================
 -- Wire: IncomeScheduleEvent
 -- =========================================================
 -- One class, three kinds: a REQUEST (client to server), a REPLY (server to the
@@ -355,6 +469,11 @@ function IncomeScheduleEvent.writeView(streamId, v)
     streamWriteString(streamId, C.encodeCode(v.paymentState))
     streamWriteUInt8(streamId, encodeTri(v.canEdit))
     streamWriteBool(streamId, v.legacyOverCap == true)
+    streamWriteBool(streamId, v.enabled == true)
+    streamWriteUInt8(streamId, clampInt(v.difficulty, 255))
+    streamWriteUInt8(streamId, clampInt(v.incomeMultiplier, 255))
+    streamWriteBool(streamId, v.seasonalEffects == true)
+    streamWriteString(streamId, C.encodeAmount(v.seasonFactor))
 end
 
 function IncomeScheduleEvent.readView(streamId)
@@ -374,6 +493,11 @@ function IncomeScheduleEvent.readView(streamId)
     v.paymentState          = C.decodeCode(streamReadString(streamId))
     v.canEdit               = decodeTri(streamReadUInt8(streamId))
     v.legacyOverCap         = streamReadBool(streamId)
+    v.enabled               = streamReadBool(streamId)
+    v.difficulty            = streamReadUInt8(streamId)
+    v.incomeMultiplier      = streamReadUInt8(streamId)
+    v.seasonalEffects       = streamReadBool(streamId)
+    v.seasonFactor          = C.parseAmount(streamReadString(streamId))
     return v
 end
 

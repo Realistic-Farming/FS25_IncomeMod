@@ -130,7 +130,7 @@ MUTATIONS = [
   "a preview changes the host"),
  # ── the view ────────────────────────────────────────────────────────────────
  ("V1-disabled-shown-as-scheduled", SCH,
-  [("    elseif settings.enabled ~= true then\n", "    elseif false then\n", 1)],
+  [("    if settings.enabled ~= true then\n        view.paymentState = IncomeSchedule.STATE.DISABLED", "    if false then\n        view.paymentState = IncomeSchedule.STATE.DISABLED", 1)],
   "income off is presented as scheduled"),
  ("V2-unavailable-sent-as-zero", SCH,
   [("    local days = IncomeSchedule.activeDaysPerPeriod()\n", "    local days = IncomeSchedule.activeDaysPerPeriod() or 0\n", 1)],

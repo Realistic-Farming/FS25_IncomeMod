@@ -423,10 +423,23 @@ function IncomeReportDialog:showLoanReason(reply)
     InfoDialog.show(loanText(key))
 end
 
---- Fill the three summary rows with live settings values.
+--- Fill the three summary rows from the host's accepted view (IM-6 brief 3.6: on a
+--- client this machine's own settings are not the host's schedule).
 function IncomeReportDialog:updateSummary()
-    local s = g_IncomeManager and g_IncomeManager.settings
-    if not s then return end
+    local view = IncomeSchedule.readerView()
+    self:updateScheduleEstimate(view)
+    local s = IncomeSchedule.readerSettings(view)
+    if not s then
+        -- WAITING: say so, and show no figure of this machine's own.
+        if self.statusText then
+            self.statusText:setText(IncomeSchedule.text("im6_waiting_short", "Waiting for the host"))
+            self.statusText:setTextColor(0.6, 0.6, 0.6, 1)
+        end
+        for _, el in ipairs({ self.modeText, self.difficultyText, self.amountText, self.multiplierText, self.seasonalText }) do
+            if el ~= nil then el:setText("--"); el:setTextColor(0.6, 0.6, 0.6, 1) end
+        end
+        return
+    end
 
     -- Row 1: Status / Mode / Difficulty
     if self.statusText then
@@ -501,12 +514,21 @@ function IncomeReportDialog:updateStats()
     end
 
     if self.nextPaymentText then
-        if sys.isInitialized and g_IncomeManager.settings.enabled then
-            self.nextPaymentText:setText(sys:getNextPaymentInfo())
-        else
-            self.nextPaymentText:setText("--")
-        end
+        self.nextPaymentText:setText(IncomeSchedule.nextPaymentInfo(IncomeSchedule.readerView()) or "--")
     end
+end
+
+--- IM-6, LOCKED behind im6_income_schedule: the month at this rate (hypothetical when
+--- income is off, unavailable when the month length is unknown, never 0) and that the
+--- amount applies to every active farm. It sits above the loan band, which keeps the
+--- loan's own gross and net figures.
+function IncomeReportDialog:updateScheduleEstimate(view)
+    local el = self.scheduleEstimateText
+    if el == nil then return end
+    local lines = {}
+    if IncomeSchedule.explanationReleased() then lines = IncomeSchedule.explanationLines(view) end
+    if el.setText ~= nil then el:setText(table.concat(lines, " ")) end
+    if el.setVisible ~= nil then el:setVisible(#lines > 0) end
 end
 
 --- Fill history rows (most recent first).

@@ -3968,6 +3968,315 @@
             <tr><![CDATA[Sunucu değişikliği reddetti (%s). Hiçbir şey değişmedi.]]></tr>
             <vi><![CDATA[Máy chủ đã từ chối thay đổi (%s). Không có gì thay đổi.]]></vi>
         </text>
+        <!-- IM-6 readers and the typed amount control (PR B) -->
+        <text name="im6_waiting_short">
+            <en><![CDATA[Waiting for the host]]></en>
+            <de><![CDATA[Warte auf den Host]]></de>
+            <fr><![CDATA[En attente de l'hôte]]></fr>
+            <pl><![CDATA[Oczekiwanie na hosta]]></pl>
+            <es><![CDATA[Esperando al anfitrión]]></es>
+            <it><![CDATA[In attesa dell'host]]></it>
+            <cz><![CDATA[Čeká se na hostitele]]></cz>
+            <br><![CDATA[Aguardando o anfitrião]]></br>
+            <uk><![CDATA[Очікування хоста]]></uk>
+            <ru><![CDATA[Ожидание хоста]]></ru>
+            <da><![CDATA[Venter på værten]]></da>
+            <ct><![CDATA[等待主機]]></ct>
+            <ea><![CDATA[Esperando al anfitrión]]></ea>
+            <fc><![CDATA[En attente de l'hôte]]></fc>
+            <fi><![CDATA[Odotetaan isäntää]]></fi>
+            <hu><![CDATA[Várakozás a gazdára]]></hu>
+            <id><![CDATA[Menunggu host]]></id>
+            <jp><![CDATA[ホストを待機中]]></jp>
+            <kr><![CDATA[호스트 대기 중]]></kr>
+            <nl><![CDATA[Wachten op de host]]></nl>
+            <no><![CDATA[Venter på verten]]></no>
+            <pt><![CDATA[A aguardar o anfitrião]]></pt>
+            <ro><![CDATA[Se așteaptă gazda]]></ro>
+            <sv><![CDATA[Väntar på värden]]></sv>
+            <tr><![CDATA[Sunucu bekleniyor]]></tr>
+            <vi><![CDATA[Đang chờ máy chủ]]></vi>
+        </text>
+        <text name="im6_season_adjust">
+            <en><![CDATA[Current seasonal adjustment: %s]]></en>
+            <de><![CDATA[Aktuelle saisonale Anpassung: %s]]></de>
+            <fr><![CDATA[Ajustement saisonnier actuel : %s]]></fr>
+            <pl><![CDATA[Bieżąca korekta sezonowa: %s]]></pl>
+            <es><![CDATA[Ajuste estacional actual: %s]]></es>
+            <it><![CDATA[Adeguamento stagionale attuale: %s]]></it>
+            <cz><![CDATA[Současná sezónní úprava: %s]]></cz>
+            <br><![CDATA[Ajuste sazonal atual: %s]]></br>
+            <uk><![CDATA[Поточне сезонне коригування: %s]]></uk>
+            <ru><![CDATA[Текущая сезонная поправка: %s]]></ru>
+            <da><![CDATA[Aktuel sæsonjustering: %s]]></da>
+            <ct><![CDATA[目前季節調整：%s]]></ct>
+            <ea><![CDATA[Ajuste estacional actual: %s]]></ea>
+            <fc><![CDATA[Ajustement saisonnier actuel : %s]]></fc>
+            <fi><![CDATA[Nykyinen kausikorjaus: %s]]></fi>
+            <hu><![CDATA[Jelenlegi szezonális kiigazítás: %s]]></hu>
+            <id><![CDATA[Penyesuaian musiman saat ini: %s]]></id>
+            <jp><![CDATA[現在の季節補正：%s]]></jp>
+            <kr><![CDATA[현재 계절 보정: %s]]></kr>
+            <nl><![CDATA[Huidige seizoenscorrectie: %s]]></nl>
+            <no><![CDATA[Gjeldende sesongjustering: %s]]></no>
+            <pt><![CDATA[Ajuste sazonal atual: %s]]></pt>
+            <ro><![CDATA[Ajustarea sezonieră curentă: %s]]></ro>
+            <sv><![CDATA[Nuvarande säsongsjustering: %s]]></sv>
+            <tr><![CDATA[Mevcut mevsimsel ayarlama: %s]]></tr>
+            <vi><![CDATA[Điều chỉnh theo mùa hiện tại: %s]]></vi>
+        </text>
+        <text name="im6_hud_every_farm">
+            <en><![CDATA[Paid to every active farm]]></en>
+            <de><![CDATA[An jeden aktiven Hof gezahlt]]></de>
+            <fr><![CDATA[Versé à chaque ferme active]]></fr>
+            <pl><![CDATA[Wypłacane każdemu aktywnemu gospodarstwu]]></pl>
+            <es><![CDATA[Se paga a cada granja activa]]></es>
+            <it><![CDATA[Pagato a ogni fattoria attiva]]></it>
+            <cz><![CDATA[Vyplácí se každé aktivní farmě]]></cz>
+            <br><![CDATA[Pago a toda fazenda ativa]]></br>
+            <uk><![CDATA[Виплачується кожній активній фермі]]></uk>
+            <ru><![CDATA[Выплачивается каждой активной ферме]]></ru>
+            <da><![CDATA[Udbetales til hver aktiv gård]]></da>
+            <ct><![CDATA[支付給每個活躍的農場]]></ct>
+            <ea><![CDATA[Se paga a cada granja activa]]></ea>
+            <fc><![CDATA[Versé à chaque ferme active]]></fc>
+            <fi><![CDATA[Maksetaan jokaiselle aktiiviselle tilalle]]></fi>
+            <hu><![CDATA[Minden aktív farm megkapja]]></hu>
+            <id><![CDATA[Dibayarkan ke setiap pertanian aktif]]></id>
+            <jp><![CDATA[稼働中のすべての農場に支払い]]></jp>
+            <kr><![CDATA[활성화된 모든 농장에 지급]]></kr>
+            <nl><![CDATA[Betaald aan elke actieve boerderij]]></nl>
+            <no><![CDATA[Utbetales til hver aktive gård]]></no>
+            <pt><![CDATA[Pago a todas as quintas ativas]]></pt>
+            <ro><![CDATA[Plătit fiecărei ferme active]]></ro>
+            <sv><![CDATA[Betalas till varje aktiv gård]]></sv>
+            <tr><![CDATA[Her aktif çiftliğe ödenir]]></tr>
+            <vi><![CDATA[Trả cho mọi trang trại đang hoạt động]]></vi>
+        </text>
+        <text name="im6_amount_short">
+            <en><![CDATA[Amount per payment]]></en>
+            <de><![CDATA[Betrag pro Zahlung]]></de>
+            <fr><![CDATA[Montant par paiement]]></fr>
+            <pl><![CDATA[Kwota za wypłatę]]></pl>
+            <es><![CDATA[Importe por pago]]></es>
+            <it><![CDATA[Importo per pagamento]]></it>
+            <cz><![CDATA[Částka za platbu]]></cz>
+            <br><![CDATA[Valor por pagamento]]></br>
+            <uk><![CDATA[Сума за виплату]]></uk>
+            <ru><![CDATA[Сумма за выплату]]></ru>
+            <da><![CDATA[Beløb pr. betaling]]></da>
+            <ct><![CDATA[每次支付金額]]></ct>
+            <ea><![CDATA[Monto por pago]]></ea>
+            <fc><![CDATA[Montant par paiement]]></fc>
+            <fi><![CDATA[Summa maksua kohden]]></fi>
+            <hu><![CDATA[Összeg kifizetésenként]]></hu>
+            <id><![CDATA[Jumlah per pembayaran]]></id>
+            <jp><![CDATA[1回あたりの支払額]]></jp>
+            <kr><![CDATA[1회 지급액]]></kr>
+            <nl><![CDATA[Bedrag per betaling]]></nl>
+            <no><![CDATA[Beløp per betaling]]></no>
+            <pt><![CDATA[Montante por pagamento]]></pt>
+            <ro><![CDATA[Suma per plată]]></ro>
+            <sv><![CDATA[Belopp per betalning]]></sv>
+            <tr><![CDATA[Ödeme başına tutar]]></tr>
+            <vi><![CDATA[Số tiền mỗi lần trả]]></vi>
+        </text>
+        <text name="im6_amount_long">
+            <en><![CDATA[Type the amount paid each in-game hour or day: a whole number from 0 to 999999, where 0 uses the difficulty default. The host shows the result before anything changes.]]></en>
+            <de><![CDATA[Gib den Betrag ein, der pro Spielstunde oder Spieltag gezahlt wird: eine ganze Zahl von 0 bis 999999, wobei 0 den Standard des Schwierigkeitsgrads verwendet. Der Host zeigt das Ergebnis, bevor sich etwas ändert.]]></de>
+            <fr><![CDATA[Saisissez le montant versé par heure ou par jour de jeu : un nombre entier de 0 à 999999, 0 utilisant la valeur par défaut de la difficulté. L'hôte affiche le résultat avant tout changement.]]></fr>
+            <pl><![CDATA[Wpisz kwotę wypłacaną co godzinę lub dzień gry: liczbę całkowitą od 0 do 999999, gdzie 0 oznacza wartość domyślną poziomu trudności. Host pokaże wynik, zanim cokolwiek się zmieni.]]></pl>
+            <es><![CDATA[Escribe el importe que se paga por cada hora o día de juego: un número entero de 0 a 999999, donde 0 usa el valor predeterminado de la dificultad. El anfitrión muestra el resultado antes de que cambie nada.]]></es>
+            <it><![CDATA[Inserisci l'importo pagato per ogni ora o giorno di gioco: un numero intero da 0 a 999999, dove 0 usa il valore predefinito della difficoltà. L'host mostra il risultato prima che cambi qualcosa.]]></it>
+            <cz><![CDATA[Zadejte částku vyplácenou za každou herní hodinu nebo den: celé číslo od 0 do 999999, kde 0 znamená výchozí hodnotu podle obtížnosti. Hostitel zobrazí výsledek dříve, než se cokoli změní.]]></cz>
+            <br><![CDATA[Digite o valor pago a cada hora ou dia do jogo: um número inteiro de 0 a 999999, em que 0 usa o padrão da dificuldade. O anfitrião mostra o resultado antes de qualquer mudança.]]></br>
+            <uk><![CDATA[Введіть суму, що виплачується щоігрової години або дня: ціле число від 0 до 999999, де 0 означає типове значення рівня складності. Хост покаже результат, перш ніж щось зміниться.]]></uk>
+            <ru><![CDATA[Введите сумму, выплачиваемую каждый игровой час или день: целое число от 0 до 999999, где 0 означает значение по умолчанию для уровня сложности. Хост покажет результат, прежде чем что-либо изменится.]]></ru>
+            <da><![CDATA[Indtast beløbet, der udbetales pr. spiltime eller spildag: et heltal fra 0 til 999999, hvor 0 bruger sværhedsgradens standard. Værten viser resultatet, før noget ændres.]]></da>
+            <ct><![CDATA[輸入每個遊戲小時或每日支付的金額：0 到 999999 的整數，0 表示使用難度預設值。主機會在任何變更前顯示結果。]]></ct>
+            <ea><![CDATA[Escribe el monto que se paga por cada hora o día de juego: un número entero de 0 a 999999, donde 0 usa el valor predeterminado de la dificultad. El anfitrión muestra el resultado antes de que cambie algo.]]></ea>
+            <fc><![CDATA[Saisissez le montant versé par heure ou par jour de jeu : un nombre entier de 0 à 999999, 0 utilisant la valeur par défaut de la difficulté. L'hôte affiche le résultat avant tout changement.]]></fc>
+            <fi><![CDATA[Kirjoita summa, joka maksetaan joka pelitunti tai pelipäivä: kokonaisluku 0 ja 999999 väliltä, jossa 0 käyttää vaikeustason oletusta. Isäntä näyttää tuloksen ennen kuin mikään muuttuu.]]></fi>
+            <hu><![CDATA[Írd be a játékóránként vagy játéknaponként fizetett összeget: egész szám 0 és 999999 között, a 0 a nehézségi szint alapértékét jelenti. A gazda megmutatja az eredményt, mielőtt bármi változna.]]></hu>
+            <id><![CDATA[Ketik jumlah yang dibayarkan setiap jam atau hari dalam game: bilangan bulat dari 0 sampai 999999, dengan 0 memakai bawaan tingkat kesulitan. Host menampilkan hasilnya sebelum ada yang berubah.]]></id>
+            <jp><![CDATA[ゲーム内の1時間または1日ごとに支払う金額を入力してください：0から999999までの整数で、0は難易度の既定値を使用します。変更前にホストが結果を表示します。]]></jp>
+            <kr><![CDATA[게임 내 1시간 또는 하루마다 지급할 금액을 입력하세요: 0부터 999999까지의 정수이며, 0은 난이도 기본값을 사용합니다. 변경되기 전에 호스트가 결과를 보여 줍니다.]]></kr>
+            <nl><![CDATA[Typ het bedrag dat per speluur of speldag wordt betaald: een geheel getal van 0 tot 999999, waarbij 0 de standaard van de moeilijkheidsgraad gebruikt. De host toont het resultaat voordat er iets verandert.]]></nl>
+            <no><![CDATA[Skriv inn beløpet som betales per spilltime eller spilldag: et heltall fra 0 til 999999, der 0 bruker vanskelighetsgradens standard. Verten viser resultatet før noe endres.]]></no>
+            <pt><![CDATA[Escreva o montante pago em cada hora ou dia de jogo: um número inteiro de 0 a 999999, em que 0 usa o valor predefinido da dificuldade. O anfitrião mostra o resultado antes de qualquer alteração.]]></pt>
+            <ro><![CDATA[Introduceți suma plătită la fiecare oră sau zi de joc: un număr întreg de la 0 la 999999, unde 0 folosește valoarea implicită a dificultății. Gazda arată rezultatul înainte să se schimbe ceva.]]></ro>
+            <sv><![CDATA[Skriv beloppet som betalas per speltimme eller speldag: ett heltal från 0 till 999999, där 0 använder svårighetsgradens standard. Värden visar resultatet innan något ändras.]]></sv>
+            <tr><![CDATA[Her oyun saati veya günü ödenen tutarı yazın: 0 ile 999999 arasında bir tam sayı; 0 zorluk seviyesinin varsayılanını kullanır. Sunucu, bir şey değişmeden önce sonucu gösterir.]]></tr>
+            <vi><![CDATA[Nhập số tiền trả cho mỗi giờ hoặc ngày trong game: số nguyên từ 0 đến 999999, trong đó 0 dùng mặc định theo độ khó. Máy chủ sẽ hiển thị kết quả trước khi có thay đổi.]]></vi>
+        </text>
+        <text name="im6_amount_value_default">
+            <en><![CDATA[%s (difficulty default)]]></en>
+            <de><![CDATA[%s (Standard des Schwierigkeitsgrads)]]></de>
+            <fr><![CDATA[%s (défaut de la difficulté)]]></fr>
+            <pl><![CDATA[%s (domyślna dla trudności)]]></pl>
+            <es><![CDATA[%s (predeterminado de la dificultad)]]></es>
+            <it><![CDATA[%s (predefinito della difficoltà)]]></it>
+            <cz><![CDATA[%s (výchozí podle obtížnosti)]]></cz>
+            <br><![CDATA[%s (padrão da dificuldade)]]></br>
+            <uk><![CDATA[%s (типова для складності)]]></uk>
+            <ru><![CDATA[%s (по умолчанию для сложности)]]></ru>
+            <da><![CDATA[%s (sværhedsgradens standard)]]></da>
+            <ct><![CDATA[%s（難度預設值）]]></ct>
+            <ea><![CDATA[%s (predeterminado de la dificultad)]]></ea>
+            <fc><![CDATA[%s (défaut de la difficulté)]]></fc>
+            <fi><![CDATA[%s (vaikeustason oletus)]]></fi>
+            <hu><![CDATA[%s (a nehézségi szint alapértéke)]]></hu>
+            <id><![CDATA[%s (bawaan tingkat kesulitan)]]></id>
+            <jp><![CDATA[%s（難易度の既定値）]]></jp>
+            <kr><![CDATA[%s (난이도 기본값)]]></kr>
+            <nl><![CDATA[%s (standaard van de moeilijkheidsgraad)]]></nl>
+            <no><![CDATA[%s (vanskelighetsgradens standard)]]></no>
+            <pt><![CDATA[%s (predefinido da dificuldade)]]></pt>
+            <ro><![CDATA[%s (implicit pentru dificultate)]]></ro>
+            <sv><![CDATA[%s (svårighetsgradens standard)]]></sv>
+            <tr><![CDATA[%s (zorluk varsayılanı)]]></tr>
+            <vi><![CDATA[%s (mặc định theo độ khó)]]></vi>
+        </text>
+        <text name="im6_amount_prompt">
+            <en><![CDATA[Amount per payment: a whole number from 0 to 999999 (0 uses the difficulty default).]]></en>
+            <de><![CDATA[Betrag pro Zahlung: eine ganze Zahl von 0 bis 999999 (0 verwendet den Standard des Schwierigkeitsgrads).]]></de>
+            <fr><![CDATA[Montant par paiement : un nombre entier de 0 à 999999 (0 utilise la valeur par défaut de la difficulté).]]></fr>
+            <pl><![CDATA[Kwota za wypłatę: liczba całkowita od 0 do 999999 (0 oznacza wartość domyślną poziomu trudności).]]></pl>
+            <es><![CDATA[Importe por pago: un número entero de 0 a 999999 (0 usa el valor predeterminado de la dificultad).]]></es>
+            <it><![CDATA[Importo per pagamento: un numero intero da 0 a 999999 (0 usa il valore predefinito della difficoltà).]]></it>
+            <cz><![CDATA[Částka za platbu: celé číslo od 0 do 999999 (0 znamená výchozí hodnotu podle obtížnosti).]]></cz>
+            <br><![CDATA[Valor por pagamento: um número inteiro de 0 a 999999 (0 usa o padrão da dificuldade).]]></br>
+            <uk><![CDATA[Сума за виплату: ціле число від 0 до 999999 (0 означає типове значення рівня складності).]]></uk>
+            <ru><![CDATA[Сумма за выплату: целое число от 0 до 999999 (0 означает значение по умолчанию для уровня сложности).]]></ru>
+            <da><![CDATA[Beløb pr. betaling: et heltal fra 0 til 999999 (0 bruger sværhedsgradens standard).]]></da>
+            <ct><![CDATA[每次支付金額：0 到 999999 的整數（0 表示使用難度預設值）。]]></ct>
+            <ea><![CDATA[Monto por pago: un número entero de 0 a 999999 (0 usa el valor predeterminado de la dificultad).]]></ea>
+            <fc><![CDATA[Montant par paiement : un nombre entier de 0 à 999999 (0 utilise la valeur par défaut de la difficulté).]]></fc>
+            <fi><![CDATA[Summa maksua kohden: kokonaisluku 0 ja 999999 väliltä (0 käyttää vaikeustason oletusta).]]></fi>
+            <hu><![CDATA[Összeg kifizetésenként: egész szám 0 és 999999 között (a 0 a nehézségi szint alapértékét jelenti).]]></hu>
+            <id><![CDATA[Jumlah per pembayaran: bilangan bulat dari 0 sampai 999999 (0 memakai bawaan tingkat kesulitan).]]></id>
+            <jp><![CDATA[1回あたりの支払額：0から999999までの整数（0は難易度の既定値を使用）。]]></jp>
+            <kr><![CDATA[1회 지급액: 0부터 999999까지의 정수 (0은 난이도 기본값 사용).]]></kr>
+            <nl><![CDATA[Bedrag per betaling: een geheel getal van 0 tot 999999 (0 gebruikt de standaard van de moeilijkheidsgraad).]]></nl>
+            <no><![CDATA[Beløp per betaling: et heltall fra 0 til 999999 (0 bruker vanskelighetsgradens standard).]]></no>
+            <pt><![CDATA[Montante por pagamento: um número inteiro de 0 a 999999 (0 usa o valor predefinido da dificuldade).]]></pt>
+            <ro><![CDATA[Suma per plată: un număr întreg de la 0 la 999999 (0 folosește valoarea implicită a dificultății).]]></ro>
+            <sv><![CDATA[Belopp per betalning: ett heltal från 0 till 999999 (0 använder svårighetsgradens standard).]]></sv>
+            <tr><![CDATA[Ödeme başına tutar: 0 ile 999999 arasında bir tam sayı (0 zorluk seviyesinin varsayılanını kullanır).]]></tr>
+            <vi><![CDATA[Số tiền mỗi lần trả: số nguyên từ 0 đến 999999 (0 dùng mặc định theo độ khó).]]></vi>
+        </text>
+        <text name="im6_amount_question">
+            <en><![CDATA[Set this amount per payment?]]></en>
+            <de><![CDATA[Diesen Betrag pro Zahlung festlegen?]]></de>
+            <fr><![CDATA[Définir ce montant par paiement ?]]></fr>
+            <pl><![CDATA[Ustawić tę kwotę za wypłatę?]]></pl>
+            <es><![CDATA[¿Establecer este importe por pago?]]></es>
+            <it><![CDATA[Impostare questo importo per pagamento?]]></it>
+            <cz><![CDATA[Nastavit tuto částku za platbu?]]></cz>
+            <br><![CDATA[Definir este valor por pagamento?]]></br>
+            <uk><![CDATA[Встановити цю суму за виплату?]]></uk>
+            <ru><![CDATA[Установить эту сумму за выплату?]]></ru>
+            <da><![CDATA[Angiv dette beløb pr. betaling?]]></da>
+            <ct><![CDATA[要設定此每次支付金額嗎？]]></ct>
+            <ea><![CDATA[¿Establecer este monto por pago?]]></ea>
+            <fc><![CDATA[Définir ce montant par paiement ?]]></fc>
+            <fi><![CDATA[Asetetaanko tämä summa maksua kohden?]]></fi>
+            <hu><![CDATA[Beállítod ezt az összeget kifizetésenként?]]></hu>
+            <id><![CDATA[Tetapkan jumlah per pembayaran ini?]]></id>
+            <jp><![CDATA[この1回あたりの支払額を設定しますか？]]></jp>
+            <kr><![CDATA[이 1회 지급액으로 설정하시겠습니까?]]></kr>
+            <nl><![CDATA[Dit bedrag per betaling instellen?]]></nl>
+            <no><![CDATA[Angi dette beløpet per betaling?]]></no>
+            <pt><![CDATA[Definir este montante por pagamento?]]></pt>
+            <ro><![CDATA[Setați această sumă per plată?]]></ro>
+            <sv><![CDATA[Ange detta belopp per betalning?]]></sv>
+            <tr><![CDATA[Ödeme başına bu tutar ayarlansın mı?]]></tr>
+            <vi><![CDATA[Đặt số tiền mỗi lần trả này?]]></vi>
+        </text>
+        <text name="im6_refused_not_whole">
+            <en><![CDATA[Not a whole number. Use digits only, for example 5000. Nothing changed.]]></en>
+            <de><![CDATA[Keine ganze Zahl. Verwende nur Ziffern, zum Beispiel 5000. Es wurde nichts geändert.]]></de>
+            <fr><![CDATA[Ce n'est pas un nombre entier. Utilisez uniquement des chiffres, par exemple 5000. Rien n'a changé.]]></fr>
+            <pl><![CDATA[To nie jest liczba całkowita. Użyj tylko cyfr, na przykład 5000. Nic nie zostało zmienione.]]></pl>
+            <es><![CDATA[No es un número entero. Usa solo dígitos, por ejemplo 5000. No se ha cambiado nada.]]></es>
+            <it><![CDATA[Non è un numero intero. Usa solo cifre, ad esempio 5000. Non è cambiato nulla.]]></it>
+            <cz><![CDATA[Nejde o celé číslo. Použijte jen číslice, například 5000. Nic se nezměnilo.]]></cz>
+            <br><![CDATA[Não é um número inteiro. Use apenas dígitos, por exemplo 5000. Nada foi alterado.]]></br>
+            <uk><![CDATA[Це не ціле число. Використовуйте лише цифри, наприклад 5000. Нічого не змінено.]]></uk>
+            <ru><![CDATA[Это не целое число. Используйте только цифры, например 5000. Ничего не изменено.]]></ru>
+            <da><![CDATA[Ikke et heltal. Brug kun cifre, for eksempel 5000. Intet blev ændret.]]></da>
+            <ct><![CDATA[不是整數。請只使用數字，例如 5000。未做任何變更。]]></ct>
+            <ea><![CDATA[No es un número entero. Usa solo dígitos, por ejemplo 5000. No se cambió nada.]]></ea>
+            <fc><![CDATA[Ce n'est pas un nombre entier. Utilisez uniquement des chiffres, par exemple 5000. Rien n'a changé.]]></fc>
+            <fi><![CDATA[Ei kokonaisluku. Käytä vain numeroita, esimerkiksi 5000. Mitään ei muutettu.]]></fi>
+            <hu><![CDATA[Nem egész szám. Csak számjegyeket használj, például 5000. Semmi sem változott.]]></hu>
+            <id><![CDATA[Bukan bilangan bulat. Gunakan angka saja, misalnya 5000. Tidak ada yang berubah.]]></id>
+            <jp><![CDATA[整数ではありません。5000 のように数字だけを使ってください。何も変更されていません。]]></jp>
+            <kr><![CDATA[정수가 아닙니다. 5000처럼 숫자만 사용하세요. 변경된 내용이 없습니다.]]></kr>
+            <nl><![CDATA[Geen geheel getal. Gebruik alleen cijfers, bijvoorbeeld 5000. Er is niets gewijzigd.]]></nl>
+            <no><![CDATA[Ikke et heltall. Bruk bare sifre, for eksempel 5000. Ingenting ble endret.]]></no>
+            <pt><![CDATA[Não é um número inteiro. Use apenas algarismos, por exemplo 5000. Nada foi alterado.]]></pt>
+            <ro><![CDATA[Nu este un număr întreg. Folosiți doar cifre, de exemplu 5000. Nu s-a schimbat nimic.]]></ro>
+            <sv><![CDATA[Inte ett heltal. Använd bara siffror, till exempel 5000. Ingenting ändrades.]]></sv>
+            <tr><![CDATA[Tam sayı değil. Yalnızca rakam kullanın, örneğin 5000. Hiçbir şey değişmedi.]]></tr>
+            <vi><![CDATA[Không phải số nguyên. Chỉ dùng chữ số, ví dụ 5000. Không có gì thay đổi.]]></vi>
+        </text>
+        <text name="im6_refused_out_of_range">
+            <en><![CDATA[Out of range. Use 0 to 999999; 0 uses the difficulty default. Nothing changed.]]></en>
+            <de><![CDATA[Außerhalb des Bereichs. Verwende 0 bis 999999; 0 verwendet den Standard des Schwierigkeitsgrads. Es wurde nichts geändert.]]></de>
+            <fr><![CDATA[Hors limites. Utilisez une valeur de 0 à 999999 ; 0 utilise la valeur par défaut de la difficulté. Rien n'a changé.]]></fr>
+            <pl><![CDATA[Poza zakresem. Użyj wartości od 0 do 999999; 0 oznacza wartość domyślną poziomu trudności. Nic nie zostało zmienione.]]></pl>
+            <es><![CDATA[Fuera de rango. Usa de 0 a 999999; 0 usa el valor predeterminado de la dificultad. No se ha cambiado nada.]]></es>
+            <it><![CDATA[Fuori intervallo. Usa da 0 a 999999; 0 usa il valore predefinito della difficoltà. Non è cambiato nulla.]]></it>
+            <cz><![CDATA[Mimo rozsah. Použijte 0 až 999999; 0 znamená výchozí hodnotu podle obtížnosti. Nic se nezměnilo.]]></cz>
+            <br><![CDATA[Fora do intervalo. Use de 0 a 999999; 0 usa o padrão da dificuldade. Nada foi alterado.]]></br>
+            <uk><![CDATA[Поза діапазоном. Використовуйте від 0 до 999999; 0 означає типове значення рівня складності. Нічого не змінено.]]></uk>
+            <ru><![CDATA[Вне диапазона. Используйте значение от 0 до 999999; 0 означает значение по умолчанию для уровня сложности. Ничего не изменено.]]></ru>
+            <da><![CDATA[Uden for intervallet. Brug 0 til 999999; 0 bruger sværhedsgradens standard. Intet blev ændret.]]></da>
+            <ct><![CDATA[超出範圍。請使用 0 到 999999；0 表示使用難度預設值。未做任何變更。]]></ct>
+            <ea><![CDATA[Fuera de rango. Usa de 0 a 999999; 0 usa el valor predeterminado de la dificultad. No se cambió nada.]]></ea>
+            <fc><![CDATA[Hors limites. Utilisez une valeur de 0 à 999999 ; 0 utilise la valeur par défaut de la difficulté. Rien n'a changé.]]></fc>
+            <fi><![CDATA[Alueen ulkopuolella. Käytä arvoa 0 ja 999999 väliltä; 0 käyttää vaikeustason oletusta. Mitään ei muutettu.]]></fi>
+            <hu><![CDATA[Tartományon kívül. 0 és 999999 közötti értéket használj; a 0 a nehézségi szint alapértékét jelenti. Semmi sem változott.]]></hu>
+            <id><![CDATA[Di luar rentang. Gunakan 0 sampai 999999; 0 memakai bawaan tingkat kesulitan. Tidak ada yang berubah.]]></id>
+            <jp><![CDATA[範囲外です。0から999999を使ってください。0は難易度の既定値を使用します。何も変更されていません。]]></jp>
+            <kr><![CDATA[범위를 벗어났습니다. 0부터 999999까지 사용하세요. 0은 난이도 기본값을 사용합니다. 변경된 내용이 없습니다.]]></kr>
+            <nl><![CDATA[Buiten bereik. Gebruik 0 tot 999999; 0 gebruikt de standaard van de moeilijkheidsgraad. Er is niets gewijzigd.]]></nl>
+            <no><![CDATA[Utenfor området. Bruk 0 til 999999; 0 bruker vanskelighetsgradens standard. Ingenting ble endret.]]></no>
+            <pt><![CDATA[Fora do intervalo. Use de 0 a 999999; 0 usa o valor predefinido da dificuldade. Nada foi alterado.]]></pt>
+            <ro><![CDATA[În afara intervalului. Folosiți de la 0 la 999999; 0 folosește valoarea implicită a dificultății. Nu s-a schimbat nimic.]]></ro>
+            <sv><![CDATA[Utanför intervallet. Använd 0 till 999999; 0 använder svårighetsgradens standard. Ingenting ändrades.]]></sv>
+            <tr><![CDATA[Aralık dışında. 0 ile 999999 arasını kullanın; 0 zorluk seviyesinin varsayılanını kullanır. Hiçbir şey değişmedi.]]></tr>
+            <vi><![CDATA[Ngoài phạm vi. Hãy dùng từ 0 đến 999999; 0 dùng mặc định theo độ khó. Không có gì thay đổi.]]></vi>
+        </text>
+        <text name="im6_legacy_permanent">
+            <en><![CDATA[The saved amount is above 999999. Once a new amount is set, it cannot be set back above 999999.]]></en>
+            <de><![CDATA[Der gespeicherte Betrag liegt über 999999. Sobald ein neuer Betrag festgelegt ist, kann er nicht wieder über 999999 gesetzt werden.]]></de>
+            <fr><![CDATA[Le montant enregistré dépasse 999999. Une fois un nouveau montant défini, il ne pourra plus être remis au-dessus de 999999.]]></fr>
+            <pl><![CDATA[Zapisana kwota przekracza 999999. Po ustawieniu nowej kwoty nie da się jej ponownie ustawić powyżej 999999.]]></pl>
+            <es><![CDATA[El importe guardado supera 999999. Una vez establecido un nuevo importe, no se podrá volver a poner por encima de 999999.]]></es>
+            <it><![CDATA[L'importo salvato supera 999999. Una volta impostato un nuovo importo, non potrà più tornare sopra 999999.]]></it>
+            <cz><![CDATA[Uložená částka přesahuje 999999. Jakmile nastavíte novou částku, nepůjde ji znovu nastavit nad 999999.]]></cz>
+            <br><![CDATA[O valor salvo está acima de 999999. Depois que um novo valor for definido, ele não poderá voltar a ficar acima de 999999.]]></br>
+            <uk><![CDATA[Збережена сума перевищує 999999. Після встановлення нової суми її не можна буде знову встановити вище 999999.]]></uk>
+            <ru><![CDATA[Сохранённая сумма превышает 999999. После установки новой суммы её нельзя будет снова задать выше 999999.]]></ru>
+            <da><![CDATA[Det gemte beløb er over 999999. Når et nyt beløb er angivet, kan det ikke sættes over 999999 igen.]]></da>
+            <ct><![CDATA[已儲存的金額超過 999999。設定新金額後，將無法再設回超過 999999。]]></ct>
+            <ea><![CDATA[El monto guardado supera 999999. Una vez establecido un nuevo monto, no se podrá volver a poner por encima de 999999.]]></ea>
+            <fc><![CDATA[Le montant enregistré dépasse 999999. Une fois un nouveau montant défini, il ne pourra plus être remis au-dessus de 999999.]]></fc>
+            <fi><![CDATA[Tallennettu summa ylittää 999999. Kun uusi summa on asetettu, sitä ei voi enää asettaa yli 999999:n.]]></fi>
+            <hu><![CDATA[A mentett összeg meghaladja a 999999-et. Új összeg beállítása után nem lehet újra 999999 fölé állítani.]]></hu>
+            <id><![CDATA[Jumlah yang tersimpan melebihi 999999. Setelah jumlah baru ditetapkan, jumlah tidak dapat diatur kembali di atas 999999.]]></id>
+            <jp><![CDATA[保存されている金額は999999を超えています。新しい金額を設定すると、999999を超える値には戻せません。]]></jp>
+            <kr><![CDATA[저장된 금액이 999999를 넘습니다. 새 금액을 설정하면 다시 999999보다 높게 설정할 수 없습니다.]]></kr>
+            <nl><![CDATA[Het opgeslagen bedrag ligt boven 999999. Zodra er een nieuw bedrag is ingesteld, kan het niet meer boven 999999 worden gezet.]]></nl>
+            <no><![CDATA[Det lagrede beløpet er over 999999. Når et nytt beløp er angitt, kan det ikke settes over 999999 igjen.]]></no>
+            <pt><![CDATA[O montante guardado é superior a 999999. Depois de definido um novo montante, não poderá voltar a ficar acima de 999999.]]></pt>
+            <ro><![CDATA[Suma salvată depășește 999999. După setarea unei sume noi, aceasta nu mai poate fi readusă peste 999999.]]></ro>
+            <sv><![CDATA[Det sparade beloppet är över 999999. När ett nytt belopp har angetts kan det inte sättas över 999999 igen.]]></sv>
+            <tr><![CDATA[Kayıtlı tutar 999999'un üzerinde. Yeni bir tutar ayarlandıktan sonra tekrar 999999'un üzerine çıkarılamaz.]]></tr>
+            <vi><![CDATA[Số tiền đã lưu vượt quá 999999. Khi đã đặt số tiền mới, không thể đặt lại cao hơn 999999.]]></vi>
+        </text>
     </l10n>
 
     <!--

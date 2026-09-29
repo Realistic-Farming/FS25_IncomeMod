@@ -10,12 +10,17 @@
 -- arguments, so a translation with a different count breaks or garbles the line). It
 -- does not judge translation quality.
 --
---!text: modDesc.xml, src/settings/SettingsUI.lua
+--!text: modDesc.xml, src/settings/SettingsUI.lua, src/IncomeSchedule.lua, src/ui/IncomeHUD.lua, src/ui/IncomeReportDialog.lua, src/gui/ImRfPdaGuest.lua
 
 local xml = T.text["modDesc.xml"]
-local ui = T.text["src/settings/SettingsUI.lua"]
+-- Every file that shows an im6 string (the Esc door, the shared reader lines, the HUD,
+-- the report and the RfPda guest).
+local ASKERS = { "src/settings/SettingsUI.lua", "src/IncomeSchedule.lua", "src/ui/IncomeHUD.lua",
+                 "src/ui/IncomeReportDialog.lua", "src/gui/ImRfPdaGuest.lua" }
 T.ok("modDesc.xml is readable by the bench", type(xml) == "string" and #xml > 1000)
-T.ok("SettingsUI.lua is readable by the bench", type(ui) == "string" and #ui > 1000)
+for _, f in ipairs(ASKERS) do
+    T.ok(f .. " is readable by the bench", type(T.text[f]) == "string" and #T.text[f] > 1000)
+end
 
 local function langsOf(body)
     local langs, order = {}, {}
@@ -35,12 +40,16 @@ end
 local refLangs, refOrder = langsOf(xml:match('<text name="rf_pda_side_info_income">(.-)</text>') or "")
 T.eq("reference key carries the mod's 26 codes", #refOrder, 26)
 
--- Every im6_* key the Esc door asks for.
+-- Every im6_* key those files ask for, and which file asks. The ReleaseGate id is the
+-- one im6_ string that is not a text key.
+local NOT_TEXT = { im6_income_schedule = true }
 local used, usedList = {}, {}
-for key in ui:gmatch('"(im6_[%w_]+)"') do
-    if not used[key] then used[key] = true; usedList[#usedList + 1] = key end
+for _, f in ipairs(ASKERS) do
+    for key in (T.text[f] or ""):gmatch('"(im6_[%w_]+)"') do
+        if not used[key] and not NOT_TEXT[key] then used[key] = f; usedList[#usedList + 1] = key end
+    end
 end
-T.ok("the Esc door asks for im6 keys", #usedList >= 19)
+T.ok("the readers and the Esc door ask for their 29 im6 keys", #usedList >= 29)
 
 local shipped = {}
 for name, body in xml:gmatch('<text name="(im6_[%w_]+)">(.-)</text>') do
@@ -66,6 +75,8 @@ for name, body in xml:gmatch('<text name="(im6_[%w_]+)">(.-)</text>') do
     T.eq(name .. " is complete in every code", table.concat(problems, " "), "")
 end
 
+-- UIHelper option rows name a text id and read <id>_short and <id>_long.
 for _, key in ipairs(usedList) do
-    T.ok(key .. " (asked for by SettingsUI.lua) ships in modDesc.xml", shipped[key] == true)
+    local ok = shipped[key] == true or (shipped[key .. "_short"] == true and shipped[key .. "_long"] == true)
+    T.ok(key .. " (asked for by " .. used[key] .. ") ships in modDesc.xml", ok)
 end

@@ -83,6 +83,20 @@ function SettingsUI:inject()
         payModeOpt:setDisabled(self:acceptedPayMode() == nil)
     end
 
+    -- IM-6 typed amount control, LOCKED behind im6_income_schedule (brief 3.4, 3.7). Any
+    -- arrow press opens the typed entry; the host previews, the player confirms.
+    local amountOpt = nil
+    if IncomeSchedule.explanationReleased() then
+        amountOpt = UIHelper.createMultiOption(
+            layout, "im6_amount", "im6_amount",
+            { self:acceptedAmountText() },
+            1,
+            function()
+                self:onAmountSelected()
+            end
+        )
+    end
+
     -- Difficulty: Easy / Normal / Hard
     local diffOpt = UIHelper.createMultiOption(
         layout, "im_diff", "im_difficulty",
@@ -147,6 +161,8 @@ function SettingsUI:inject()
     self.enabledOption       = enabledOpt
     self.debugOption         = debugOpt
     self.payModeOption       = payModeOpt
+    self.amountOption        = amountOpt
+    self:refreshAmountOption()
     self.difficultyOption    = diffOpt
     self.multiplierOption    = multOpt
     self.notificationsOption = notificationsOpt
@@ -191,6 +207,7 @@ function SettingsUI:refreshUI()
     if self.payModeOption ~= nil and self.payModeOption.setDisabled ~= nil then
         self.payModeOption:setDisabled(acceptedMode == nil)
     end
+    self:refreshAmountOption()
     setMulti(self.difficultyOption,    self.settings.difficulty)
     setMulti(self.multiplierOption,    self.settings.incomeMultiplier)
     setCheck(self.notificationsOption, self.settings.showNotifications)
@@ -267,9 +284,13 @@ function SettingsUI.describeSchedule(view)
     if view == nil or view.paymentState == "WAITING" then
         return text("im6_waiting", "Waiting for the host's income settings.")
     end
+    -- The disabled note, the month at this rate and the every-farm line are the same
+    -- lines the gated readers show (IncomeSchedule.explanationLines); the confirm always
+    -- shows them, since the Esc mode change and Reset are active in every build.
+    local explanation = IncomeSchedule.explanationLines(view)
     local lines = {}
     if view.paymentState == "DISABLED" then
-        lines[#lines + 1] = text("im6_line_disabled", "Income is off; the figures below are what it would pay if it were on.")
+        lines[#lines + 1] = table.remove(explanation, 1)
     end
     if view.unit == "PER_DAY" then
         lines[#lines + 1] = text("im6_line_daily", "Pay mode: Daily, one payment every in-game day.")
@@ -285,13 +306,7 @@ function SettingsUI.describeSchedule(view)
         lines[#lines + 1] = text("im6_line_legacy", "The saved amount is above 999999 and is kept exactly until a new amount is set.")
     end
     lines[#lines + 1] = string.format(text("im6_line_next", "Next payment with the current seasonal adjustment: %s."), money(view.paymentThisSeason))
-    if view.paymentState == "UNAVAILABLE" then
-        lines[#lines + 1] = text("im6_line_month_unavailable", "Month estimate: not available (the month length is not known).")
-    else
-        lines[#lines + 1] = string.format(text("im6_line_month", "Month of %s days: %s payments, about %s gross before any loan repayment."),
-            tostring(view.daysThisMonth or 0), tostring(view.paymentsThisMonth or 0), money(view.monthEstimate))
-    end
-    lines[#lines + 1] = text("im6_line_every_farm", "The amount applies to every active farm. Nothing is paid at the moment of a change.")
+    for _, line in ipairs(explanation) do lines[#lines + 1] = line end
     return table.concat(lines, "\n")
 end
 
@@ -303,6 +318,10 @@ function SettingsUI.showRefusal(reply)
         msg = text("im6_refused_not_admin", "Only a server administrator can change the income schedule. Nothing changed.")
     elseif status == "STALE_PREVIEW" then
         msg = text("im6_refused_stale", "The schedule changed on the host meanwhile. Nothing changed; please try again.")
+    elseif status == "NOT_WHOLE_NUMBER" then
+        msg = text("im6_refused_not_whole", "Not a whole number. Use digits only, for example 5000. Nothing changed.")
+    elseif status == "OUT_OF_RANGE" then
+        msg = text("im6_refused_out_of_range", "Out of range. Use 0 to 999999; 0 uses the difficulty default. Nothing changed.")
     else
         msg = string.format(text("im6_refused", "The host refused the change (%s). Nothing changed."), tostring(status))
     end
@@ -359,6 +378,81 @@ function SettingsUI:onResetSelected()
         text("im6_reset_list", "A full Reset returns every Income Mod setting to its default: income on, Normal difficulty, Hourly, 1x, the difficulty amount, seasonal effects off, notifications on, HUD on, debug off, experimental systems off.")
             .. "\n\n" .. text("im6_reset_after", "Afterwards:") .. "\n" .. SettingsUI.describeSchedule(preview.view)
             .. "\n\n" .. text("im6_reset_question", "Reset every setting now?"),
+        text("im6_title", "Income schedule"))
+    end)
+end
+
+-- =========================================================
+-- IM-6: the typed amount (LOCKED behind im6_income_schedule)
+-- =========================================================
+
+--- The saved amount exactly as the host holds it (a legacy value above the cap too),
+--- or the difficulty default's payment when the amount is 0.
+function SettingsUI:acceptedAmountText()
+    local view = IncomeSchedule.readerView()
+    if view.paymentState == IncomeSchedule.STATE.WAITING or view.amount == nil then return "--" end
+    if view.usesDifficultyDefault then
+        return string.format(text("im6_amount_value_default", "%s (difficulty default)"), money(view.payment))
+    end
+    return money(view.amount)
+end
+
+--- The amount row follows the host: its value, and usable only with a host view and
+--- when the host did not say this player may not edit (the host decides regardless).
+function SettingsUI:refreshAmountOption()
+    local opt = self.amountOption
+    if opt == nil then return end
+    if opt.setTexts ~= nil then opt:setTexts({ self:acceptedAmountText() }) end
+    local view = IncomeSchedule.readerView()
+    local usable = view.paymentState ~= IncomeSchedule.STATE.WAITING and view.canEdit ~= false
+    if opt.setDisabled ~= nil then opt:setDisabled(not usable) end
+end
+
+--- Type a whole number; the host previews it; the player confirms the consequence; the
+--- host applies it. The entry starts from the host's exact amount and holds any legacy
+--- value, so nothing is lowered unasked.
+function SettingsUI:onAmountSelected()
+    local mgr = g_IncomeManager
+    if mgr == nil or mgr.requestIncomeSchedule == nil or not IncomeSchedule.explanationReleased() then return end
+    local view = IncomeSchedule.readerView()
+    if view.paymentState == IncomeSchedule.STATE.WAITING or view.canEdit == false then
+        self:refreshUI()
+        return
+    end
+    if TextInputDialog == nil or TextInputDialog.show == nil then return end
+    local current = view.amount ~= nil and tostring(math.floor(view.amount)) or ""
+    local prompt = text("im6_amount_prompt", "Amount per payment: a whole number from 0 to 999999 (0 uses the difficulty default).")
+    TextInputDialog.show(function(entered, clickOk)
+        if clickOk ~= true then return end
+        self:previewAmount(tostring(entered or ""), view)
+    end, nil, current, prompt, prompt, IncomeSchedule.MAX_TEXT, text("button_ok", "OK"))
+end
+
+function SettingsUI:previewAmount(amountText, before)
+    local mgr = g_IncomeManager
+    local OP = IncomeSchedule.OP
+    mgr:requestIncomeSchedule(OP.PREVIEW, amountText, 0, 0, false, function(preview)
+        if preview.status ~= "OK" then
+            SettingsUI.showRefusal(preview)
+            self:refreshUI()
+            return
+        end
+        local body = SettingsUI.describeSchedule(preview.view)
+        if before ~= nil and before.legacyOverCap and preview.view ~= nil and preview.view.amount ~= before.amount then
+            body = text("im6_legacy_permanent", "The saved amount is above 999999. Once a new amount is set, it cannot be set back above 999999.")
+                .. "\n\n" .. body
+        end
+        YesNoDialog.show(function(yes)
+            if not yes then
+                self:refreshUI()
+                return
+            end
+            mgr:requestIncomeSchedule(OP.APPLY, amountText, 0, preview.revision, false, function(applied)
+                if applied.status ~= "OK" then SettingsUI.showRefusal(applied) end
+                self:refreshUI()
+            end)
+        end, nil,
+        body .. "\n\n" .. text("im6_amount_question", "Set this amount per payment?"),
         text("im6_title", "Income schedule"))
     end)
 end
