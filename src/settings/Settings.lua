@@ -80,20 +80,15 @@ end
 -- Pay Mode
 -- =========================================================
 
+--- Sets the mode field only. A player's schedule change goes through the host's
+--- IncomeSchedule path (validate, apply, rebase the LIVE income system, publish); this
+--- setter used to write the payout markers onto the IncomeSystem class table instead,
+--- which no poll reads (IM-6, brief 2).
 ---@param mode number
 function Settings:setPayMode(mode)
     if mode == Settings.PAY_MODE_HOURLY or mode == Settings.PAY_MODE_DAILY then
-        local changed = mode ~= self.payMode
         self.payMode = mode
         Logging.info("Income Mod: Pay mode changed to: %s", self:getPayModeName())
-        if changed and IncomeSystem then
-            local now = g_currentMission and g_currentMission.environment
-            if now then
-                IncomeSystem.lastHour         = now.currentHour
-                IncomeSystem.lastDay          = now.currentDay
-                IncomeSystem.lastMonotonicDay = now.currentMonotonicDay or -1
-            end
-        end
     end
 end
 

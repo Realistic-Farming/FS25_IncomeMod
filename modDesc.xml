@@ -3435,6 +3435,539 @@
             <tr><![CDATA[düzenli gelir devre dışı]]></tr>
             <vi><![CDATA[thu nhập định kỳ đã tắt]]></vi>
         </text>
+        <!-- IM-6 income schedule: the consequence, the confirm and the refusals -->
+        <text name="im6_title">
+            <en><![CDATA[Income schedule]]></en>
+            <de><![CDATA[Einkommensplan]]></de>
+            <fr><![CDATA[Calendrier des revenus]]></fr>
+            <pl><![CDATA[Harmonogram dochodu]]></pl>
+            <es><![CDATA[Calendario de ingresos]]></es>
+            <it><![CDATA[Programma delle entrate]]></it>
+            <cz><![CDATA[Plán příjmů]]></cz>
+            <br><![CDATA[Programação de renda]]></br>
+            <uk><![CDATA[Графік доходу]]></uk>
+            <ru><![CDATA[График дохода]]></ru>
+            <da><![CDATA[Indkomstplan]]></da>
+            <ct><![CDATA[收入排程]]></ct>
+            <ea><![CDATA[Calendario de ingresos]]></ea>
+            <fc><![CDATA[Calendrier des revenus]]></fc>
+            <fi><![CDATA[Tuloaikataulu]]></fi>
+            <hu><![CDATA[Jövedelemütemezés]]></hu>
+            <id><![CDATA[Jadwal pendapatan]]></id>
+            <jp><![CDATA[収入スケジュール]]></jp>
+            <kr><![CDATA[수입 일정]]></kr>
+            <nl><![CDATA[Inkomensschema]]></nl>
+            <no><![CDATA[Inntektsplan]]></no>
+            <pt><![CDATA[Calendário de rendimentos]]></pt>
+            <ro><![CDATA[Programul veniturilor]]></ro>
+            <sv><![CDATA[Inkomstschema]]></sv>
+            <tr><![CDATA[Gelir takvimi]]></tr>
+            <vi><![CDATA[Lịch thu nhập]]></vi>
+        </text>
+        <text name="im6_waiting">
+            <en><![CDATA[Waiting for the host's income settings.]]></en>
+            <de><![CDATA[Warte auf die Einkommenseinstellungen des Hosts.]]></de>
+            <fr><![CDATA[En attente des paramètres de revenus de l'hôte.]]></fr>
+            <pl><![CDATA[Oczekiwanie na ustawienia dochodu hosta.]]></pl>
+            <es><![CDATA[Esperando los ajustes de ingresos del anfitrión.]]></es>
+            <it><![CDATA[In attesa delle impostazioni delle entrate dell'host.]]></it>
+            <cz><![CDATA[Čeká se na nastavení příjmů hostitele.]]></cz>
+            <br><![CDATA[Aguardando as configurações de renda do anfitrião.]]></br>
+            <uk><![CDATA[Очікування налаштувань доходу від хоста.]]></uk>
+            <ru><![CDATA[Ожидание настроек дохода от хоста.]]></ru>
+            <da><![CDATA[Venter på værtens indkomstindstillinger.]]></da>
+            <ct><![CDATA[正在等待主機的收入設定。]]></ct>
+            <ea><![CDATA[Esperando la configuración de ingresos del anfitrión.]]></ea>
+            <fc><![CDATA[En attente des paramètres de revenus de l'hôte.]]></fc>
+            <fi><![CDATA[Odotetaan isännän tuloasetuksia.]]></fi>
+            <hu><![CDATA[Várakozás a gazda jövedelembeállításaira.]]></hu>
+            <id><![CDATA[Menunggu pengaturan pendapatan dari host.]]></id>
+            <jp><![CDATA[ホストの収入設定を待っています。]]></jp>
+            <kr><![CDATA[호스트의 수입 설정을 기다리는 중입니다.]]></kr>
+            <nl><![CDATA[Wachten op de inkomensinstellingen van de host.]]></nl>
+            <no><![CDATA[Venter på vertens inntektsinnstillinger.]]></no>
+            <pt><![CDATA[A aguardar as definições de rendimento do anfitrião.]]></pt>
+            <ro><![CDATA[Se așteaptă setările de venit ale gazdei.]]></ro>
+            <sv><![CDATA[Väntar på värdens inkomstinställningar.]]></sv>
+            <tr><![CDATA[Sunucunun gelir ayarları bekleniyor.]]></tr>
+            <vi><![CDATA[Đang chờ cài đặt thu nhập từ máy chủ.]]></vi>
+        </text>
+        <text name="im6_line_hourly">
+            <en><![CDATA[Pay mode: Hourly, one payment every in-game hour.]]></en>
+            <de><![CDATA[Zahlungsmodus: Stündlich, eine Zahlung pro Spielstunde.]]></de>
+            <fr><![CDATA[Mode de paiement : horaire, un paiement par heure de jeu.]]></fr>
+            <pl><![CDATA[Tryb wypłat: godzinowy, jedna wypłata co godzinę gry.]]></pl>
+            <es><![CDATA[Modo de pago: por hora, un pago cada hora de juego.]]></es>
+            <it><![CDATA[Modalità di pagamento: oraria, un pagamento per ogni ora di gioco.]]></it>
+            <cz><![CDATA[Režim výplaty: hodinový, jedna platba za každou herní hodinu.]]></cz>
+            <br><![CDATA[Modo de pagamento: por hora, um pagamento a cada hora do jogo.]]></br>
+            <uk><![CDATA[Режим виплат: щогодини, одна виплата кожну ігрову годину.]]></uk>
+            <ru><![CDATA[Режим выплат: ежечасно, одна выплата каждый игровой час.]]></ru>
+            <da><![CDATA[Betalingstilstand: Hver time, én betaling pr. spiltime.]]></da>
+            <ct><![CDATA[支付模式：每小時，每個遊戲小時支付一次。]]></ct>
+            <ea><![CDATA[Modo de pago: por hora, un pago cada hora de juego.]]></ea>
+            <fc><![CDATA[Mode de paiement : horaire, un paiement par heure de jeu.]]></fc>
+            <fi><![CDATA[Maksutapa: tunneittain, yksi maksu joka pelitunti.]]></fi>
+            <hu><![CDATA[Fizetési mód: óránként, játékóránként egy kifizetés.]]></hu>
+            <id><![CDATA[Mode pembayaran: per jam, satu pembayaran setiap jam dalam game.]]></id>
+            <jp><![CDATA[支払いモード：毎時、ゲーム内の1時間ごとに1回支払い。]]></jp>
+            <kr><![CDATA[지급 방식: 매시간, 게임 내 1시간마다 1회 지급.]]></kr>
+            <nl><![CDATA[Betaalmodus: per uur, één betaling per speluur.]]></nl>
+            <no><![CDATA[Betalingsmodus: Hver time, én betaling per spilltime.]]></no>
+            <pt><![CDATA[Modo de pagamento: por hora, um pagamento a cada hora de jogo.]]></pt>
+            <ro><![CDATA[Mod de plată: orar, o plată la fiecare oră de joc.]]></ro>
+            <sv><![CDATA[Betalningsläge: Varje timme, en betalning per speltimme.]]></sv>
+            <tr><![CDATA[Ödeme modu: Saatlik, her oyun saatinde bir ödeme.]]></tr>
+            <vi><![CDATA[Chế độ trả: Theo giờ, mỗi giờ trong game trả một lần.]]></vi>
+        </text>
+        <text name="im6_line_daily">
+            <en><![CDATA[Pay mode: Daily, one payment every in-game day.]]></en>
+            <de><![CDATA[Zahlungsmodus: Täglich, eine Zahlung pro Spieltag.]]></de>
+            <fr><![CDATA[Mode de paiement : quotidien, un paiement par jour de jeu.]]></fr>
+            <pl><![CDATA[Tryb wypłat: dzienny, jedna wypłata co dzień gry.]]></pl>
+            <es><![CDATA[Modo de pago: diario, un pago cada día de juego.]]></es>
+            <it><![CDATA[Modalità di pagamento: giornaliera, un pagamento per ogni giorno di gioco.]]></it>
+            <cz><![CDATA[Režim výplaty: denní, jedna platba za každý herní den.]]></cz>
+            <br><![CDATA[Modo de pagamento: diário, um pagamento a cada dia do jogo.]]></br>
+            <uk><![CDATA[Режим виплат: щодня, одна виплата кожен ігровий день.]]></uk>
+            <ru><![CDATA[Режим выплат: ежедневно, одна выплата каждый игровой день.]]></ru>
+            <da><![CDATA[Betalingstilstand: Dagligt, én betaling pr. spildag.]]></da>
+            <ct><![CDATA[支付模式：每日，每個遊戲日支付一次。]]></ct>
+            <ea><![CDATA[Modo de pago: diario, un pago cada día de juego.]]></ea>
+            <fc><![CDATA[Mode de paiement : quotidien, un paiement par jour de jeu.]]></fc>
+            <fi><![CDATA[Maksutapa: päivittäin, yksi maksu joka pelipäivä.]]></fi>
+            <hu><![CDATA[Fizetési mód: naponta, játéknaponként egy kifizetés.]]></hu>
+            <id><![CDATA[Mode pembayaran: harian, satu pembayaran setiap hari dalam game.]]></id>
+            <jp><![CDATA[支払いモード：毎日、ゲーム内の1日ごとに1回支払い。]]></jp>
+            <kr><![CDATA[지급 방식: 매일, 게임 내 하루마다 1회 지급.]]></kr>
+            <nl><![CDATA[Betaalmodus: per dag, één betaling per speldag.]]></nl>
+            <no><![CDATA[Betalingsmodus: Daglig, én betaling per spilldag.]]></no>
+            <pt><![CDATA[Modo de pagamento: diário, um pagamento a cada dia de jogo.]]></pt>
+            <ro><![CDATA[Mod de plată: zilnic, o plată în fiecare zi de joc.]]></ro>
+            <sv><![CDATA[Betalningsläge: Dagligen, en betalning per speldag.]]></sv>
+            <tr><![CDATA[Ödeme modu: Günlük, her oyun gününde bir ödeme.]]></tr>
+            <vi><![CDATA[Chế độ trả: Theo ngày, mỗi ngày trong game trả một lần.]]></vi>
+        </text>
+        <text name="im6_line_amount">
+            <en><![CDATA[Amount per payment: %s.]]></en>
+            <de><![CDATA[Betrag pro Zahlung: %s.]]></de>
+            <fr><![CDATA[Montant par paiement : %s.]]></fr>
+            <pl><![CDATA[Kwota za wypłatę: %s.]]></pl>
+            <es><![CDATA[Importe por pago: %s.]]></es>
+            <it><![CDATA[Importo per pagamento: %s.]]></it>
+            <cz><![CDATA[Částka za platbu: %s.]]></cz>
+            <br><![CDATA[Valor por pagamento: %s.]]></br>
+            <uk><![CDATA[Сума за виплату: %s.]]></uk>
+            <ru><![CDATA[Сумма за выплату: %s.]]></ru>
+            <da><![CDATA[Beløb pr. betaling: %s.]]></da>
+            <ct><![CDATA[每次支付金額：%s。]]></ct>
+            <ea><![CDATA[Monto por pago: %s.]]></ea>
+            <fc><![CDATA[Montant par paiement : %s.]]></fc>
+            <fi><![CDATA[Summa maksua kohden: %s.]]></fi>
+            <hu><![CDATA[Összeg kifizetésenként: %s.]]></hu>
+            <id><![CDATA[Jumlah per pembayaran: %s.]]></id>
+            <jp><![CDATA[1回あたりの支払額：%s。]]></jp>
+            <kr><![CDATA[1회 지급액: %s.]]></kr>
+            <nl><![CDATA[Bedrag per betaling: %s.]]></nl>
+            <no><![CDATA[Beløp per betaling: %s.]]></no>
+            <pt><![CDATA[Montante por pagamento: %s.]]></pt>
+            <ro><![CDATA[Suma per plată: %s.]]></ro>
+            <sv><![CDATA[Belopp per betalning: %s.]]></sv>
+            <tr><![CDATA[Ödeme başına tutar: %s.]]></tr>
+            <vi><![CDATA[Số tiền mỗi lần trả: %s.]]></vi>
+        </text>
+        <text name="im6_line_amount_default">
+            <en><![CDATA[Amount per payment: %s (the difficulty default).]]></en>
+            <de><![CDATA[Betrag pro Zahlung: %s (Standard des Schwierigkeitsgrads).]]></de>
+            <fr><![CDATA[Montant par paiement : %s (valeur par défaut de la difficulté).]]></fr>
+            <pl><![CDATA[Kwota za wypłatę: %s (domyślna dla poziomu trudności).]]></pl>
+            <es><![CDATA[Importe por pago: %s (el valor predeterminado de la dificultad).]]></es>
+            <it><![CDATA[Importo per pagamento: %s (il valore predefinito della difficoltà).]]></it>
+            <cz><![CDATA[Částka za platbu: %s (výchozí podle obtížnosti).]]></cz>
+            <br><![CDATA[Valor por pagamento: %s (o padrão da dificuldade).]]></br>
+            <uk><![CDATA[Сума за виплату: %s (типова для рівня складності).]]></uk>
+            <ru><![CDATA[Сумма за выплату: %s (по умолчанию для уровня сложности).]]></ru>
+            <da><![CDATA[Beløb pr. betaling: %s (sværhedsgradens standard).]]></da>
+            <ct><![CDATA[每次支付金額：%s（難度預設值）。]]></ct>
+            <ea><![CDATA[Monto por pago: %s (el valor predeterminado de la dificultad).]]></ea>
+            <fc><![CDATA[Montant par paiement : %s (valeur par défaut de la difficulté).]]></fc>
+            <fi><![CDATA[Summa maksua kohden: %s (vaikeustason oletus).]]></fi>
+            <hu><![CDATA[Összeg kifizetésenként: %s (a nehézségi szint alapértéke).]]></hu>
+            <id><![CDATA[Jumlah per pembayaran: %s (bawaan tingkat kesulitan).]]></id>
+            <jp><![CDATA[1回あたりの支払額：%s（難易度の既定値）。]]></jp>
+            <kr><![CDATA[1회 지급액: %s (난이도 기본값).]]></kr>
+            <nl><![CDATA[Bedrag per betaling: %s (de standaard van de moeilijkheidsgraad).]]></nl>
+            <no><![CDATA[Beløp per betaling: %s (vanskelighetsgradens standard).]]></no>
+            <pt><![CDATA[Montante por pagamento: %s (o valor predefinido da dificuldade).]]></pt>
+            <ro><![CDATA[Suma per plată: %s (valoarea implicită a dificultății).]]></ro>
+            <sv><![CDATA[Belopp per betalning: %s (svårighetsgradens standard).]]></sv>
+            <tr><![CDATA[Ödeme başına tutar: %s (zorluk seviyesinin varsayılanı).]]></tr>
+            <vi><![CDATA[Số tiền mỗi lần trả: %s (mặc định theo độ khó).]]></vi>
+        </text>
+        <text name="im6_line_legacy">
+            <en><![CDATA[The saved amount is above 999999 and is kept exactly until a new amount is set.]]></en>
+            <de><![CDATA[Der gespeicherte Betrag liegt über 999999 und bleibt unverändert, bis ein neuer Betrag festgelegt wird.]]></de>
+            <fr><![CDATA[Le montant enregistré dépasse 999999 et reste inchangé jusqu'à ce qu'un nouveau montant soit défini.]]></fr>
+            <pl><![CDATA[Zapisana kwota przekracza 999999 i pozostaje bez zmian, dopóki nie zostanie ustawiona nowa.]]></pl>
+            <es><![CDATA[El importe guardado supera 999999 y se conserva tal cual hasta que se establezca uno nuevo.]]></es>
+            <it><![CDATA[L'importo salvato supera 999999 e resta invariato finché non ne viene impostato uno nuovo.]]></it>
+            <cz><![CDATA[Uložená částka přesahuje 999999 a zůstává beze změny, dokud nenastavíte novou.]]></cz>
+            <br><![CDATA[O valor salvo está acima de 999999 e é mantido exatamente até que um novo valor seja definido.]]></br>
+            <uk><![CDATA[Збережена сума перевищує 999999 і залишається без змін, доки не буде встановлено нову.]]></uk>
+            <ru><![CDATA[Сохранённая сумма превышает 999999 и остаётся без изменений, пока не будет задана новая.]]></ru>
+            <da><![CDATA[Det gemte beløb er over 999999 og bevares uændret, indtil et nyt beløb angives.]]></da>
+            <ct><![CDATA[已儲存的金額超過 999999，在設定新金額之前會完整保留。]]></ct>
+            <ea><![CDATA[El monto guardado supera 999999 y se conserva tal cual hasta que se establezca uno nuevo.]]></ea>
+            <fc><![CDATA[Le montant enregistré dépasse 999999 et reste inchangé jusqu'à ce qu'un nouveau montant soit défini.]]></fc>
+            <fi><![CDATA[Tallennettu summa ylittää 999999 ja säilyy ennallaan, kunnes uusi summa asetetaan.]]></fi>
+            <hu><![CDATA[A mentett összeg meghaladja a 999999-et, és változatlan marad, amíg új összeget nem állítanak be.]]></hu>
+            <id><![CDATA[Jumlah yang tersimpan melebihi 999999 dan dipertahankan apa adanya sampai jumlah baru ditetapkan.]]></id>
+            <jp><![CDATA[保存されている金額は999999を超えており、新しい金額を設定するまでそのまま保持されます。]]></jp>
+            <kr><![CDATA[저장된 금액이 999999를 넘으며, 새 금액을 설정할 때까지 그대로 유지됩니다.]]></kr>
+            <nl><![CDATA[Het opgeslagen bedrag ligt boven 999999 en blijft ongewijzigd tot er een nieuw bedrag wordt ingesteld.]]></nl>
+            <no><![CDATA[Det lagrede beløpet er over 999999 og beholdes uendret til et nytt beløp angis.]]></no>
+            <pt><![CDATA[O montante guardado é superior a 999999 e mantém-se inalterado até ser definido um novo.]]></pt>
+            <ro><![CDATA[Suma salvată depășește 999999 și se păstrează neschimbată până când se setează o sumă nouă.]]></ro>
+            <sv><![CDATA[Det sparade beloppet är över 999999 och behålls oförändrat tills ett nytt belopp anges.]]></sv>
+            <tr><![CDATA[Kayıtlı tutar 999999'un üzerinde ve yeni bir tutar ayarlanana kadar aynen korunur.]]></tr>
+            <vi><![CDATA[Số tiền đã lưu vượt quá 999999 và được giữ nguyên cho đến khi đặt số tiền mới.]]></vi>
+        </text>
+        <text name="im6_line_next">
+            <en><![CDATA[Next payment with the current seasonal adjustment: %s.]]></en>
+            <de><![CDATA[Nächste Zahlung mit der aktuellen saisonalen Anpassung: %s.]]></de>
+            <fr><![CDATA[Prochain paiement avec l'ajustement saisonnier actuel : %s.]]></fr>
+            <pl><![CDATA[Następna wypłata z bieżącą korektą sezonową: %s.]]></pl>
+            <es><![CDATA[Próximo pago con el ajuste estacional actual: %s.]]></es>
+            <it><![CDATA[Prossimo pagamento con l'adeguamento stagionale attuale: %s.]]></it>
+            <cz><![CDATA[Příští platba se současnou sezónní úpravou: %s.]]></cz>
+            <br><![CDATA[Próximo pagamento com o ajuste sazonal atual: %s.]]></br>
+            <uk><![CDATA[Наступна виплата з поточним сезонним коригуванням: %s.]]></uk>
+            <ru><![CDATA[Следующая выплата с текущей сезонной поправкой: %s.]]></ru>
+            <da><![CDATA[Næste betaling med den aktuelle sæsonjustering: %s.]]></da>
+            <ct><![CDATA[套用目前季節調整後的下一筆支付：%s。]]></ct>
+            <ea><![CDATA[Próximo pago con el ajuste estacional actual: %s.]]></ea>
+            <fc><![CDATA[Prochain paiement avec l'ajustement saisonnier actuel : %s.]]></fc>
+            <fi><![CDATA[Seuraava maksu nykyisellä kausikorjauksella: %s.]]></fi>
+            <hu><![CDATA[Következő kifizetés a jelenlegi szezonális kiigazítással: %s.]]></hu>
+            <id><![CDATA[Pembayaran berikutnya dengan penyesuaian musiman saat ini: %s.]]></id>
+            <jp><![CDATA[現在の季節補正を適用した次回の支払額：%s。]]></jp>
+            <kr><![CDATA[현재 계절 보정을 적용한 다음 지급액: %s.]]></kr>
+            <nl><![CDATA[Volgende betaling met de huidige seizoenscorrectie: %s.]]></nl>
+            <no><![CDATA[Neste betaling med gjeldende sesongjustering: %s.]]></no>
+            <pt><![CDATA[Próximo pagamento com o ajuste sazonal atual: %s.]]></pt>
+            <ro><![CDATA[Următoarea plată cu ajustarea sezonieră curentă: %s.]]></ro>
+            <sv><![CDATA[Nästa betalning med nuvarande säsongsjustering: %s.]]></sv>
+            <tr><![CDATA[Mevcut mevsimsel ayarlamayla bir sonraki ödeme: %s.]]></tr>
+            <vi><![CDATA[Lần trả tiếp theo với điều chỉnh theo mùa hiện tại: %s.]]></vi>
+        </text>
+        <text name="im6_line_month">
+            <en><![CDATA[Month of %s days: %s payments, about %s gross before any loan repayment.]]></en>
+            <de><![CDATA[Monat mit %s Tagen: %s Zahlungen, etwa %s brutto vor Kreditrückzahlungen.]]></de>
+            <fr><![CDATA[Mois de %s jours : %s paiements, environ %s brut avant tout remboursement de prêt.]]></fr>
+            <pl><![CDATA[Miesiąc (%s dni): %s wypłat, około %s brutto przed spłatą pożyczki.]]></pl>
+            <es><![CDATA[Mes de %s días: %s pagos, unos %s brutos antes de cualquier pago del préstamo.]]></es>
+            <it><![CDATA[Mese di %s giorni: %s pagamenti, circa %s lordi prima di qualsiasi rimborso del prestito.]]></it>
+            <cz><![CDATA[Měsíc o %s dnech: %s plateb, zhruba %s hrubého před splátkou půjčky.]]></cz>
+            <br><![CDATA[Mês de %s dias: %s pagamentos, cerca de %s brutos antes de qualquer pagamento de empréstimo.]]></br>
+            <uk><![CDATA[Місяць на %s днів: %s виплат, близько %s брутто до сплати позики.]]></uk>
+            <ru><![CDATA[Месяц из %s дней: %s выплат, около %s брутто до погашения кредита.]]></ru>
+            <da><![CDATA[Måned på %s dage: %s betalinger, cirka %s brutto før tilbagebetaling af lån.]]></da>
+            <ct><![CDATA[一個月（%s 天）：支付 %s 次，償還貸款前總額約 %s。]]></ct>
+            <ea><![CDATA[Mes de %s días: %s pagos, unos %s brutos antes de cualquier pago del préstamo.]]></ea>
+            <fc><![CDATA[Mois de %s jours : %s paiements, environ %s brut avant tout remboursement de prêt.]]></fc>
+            <fi><![CDATA[%s päivän kuukausi: %s maksua, noin %s brutto ennen lainan takaisinmaksua.]]></fi>
+            <hu><![CDATA[%s napos hónap: %s kifizetés, bruttó kb. %s a kölcsön törlesztése előtt.]]></hu>
+            <id><![CDATA[Bulan %s hari: %s pembayaran, sekitar %s kotor sebelum pembayaran pinjaman.]]></id>
+            <jp><![CDATA[1か月（%s日）：%s回の支払い、ローン返済前の総額で約%s。]]></jp>
+            <kr><![CDATA[한 달(%s일): %s회 지급, 대출 상환 전 총액 약 %s.]]></kr>
+            <nl><![CDATA[Maand van %s dagen: %s betalingen, ongeveer %s bruto vóór aflossing van een lening.]]></nl>
+            <no><![CDATA[Måned på %s dager: %s betalinger, omtrent %s brutto før tilbakebetaling av lån.]]></no>
+            <pt><![CDATA[Mês de %s dias: %s pagamentos, cerca de %s brutos antes de qualquer reembolso de empréstimo.]]></pt>
+            <ro><![CDATA[Lună de %s zile: %s plăți, aproximativ %s brut înainte de rambursarea împrumutului.]]></ro>
+            <sv><![CDATA[Månad på %s dagar: %s betalningar, ungefär %s brutto före återbetalning av lån.]]></sv>
+            <tr><![CDATA[%s günlük ay: %s ödeme, kredi geri ödemesi öncesi brüt yaklaşık %s.]]></tr>
+            <vi><![CDATA[Tháng %s ngày: %s lần trả, tổng khoảng %s trước khi trả khoản vay.]]></vi>
+        </text>
+        <text name="im6_line_month_unavailable">
+            <en><![CDATA[Month estimate: not available (the month length is not known).]]></en>
+            <de><![CDATA[Monatsschätzung: nicht verfügbar (die Monatslänge ist nicht bekannt).]]></de>
+            <fr><![CDATA[Estimation mensuelle : indisponible (la durée du mois n'est pas connue).]]></fr>
+            <pl><![CDATA[Szacunek miesięczny: niedostępny (długość miesiąca nie jest znana).]]></pl>
+            <es><![CDATA[Estimación mensual: no disponible (no se conoce la duración del mes).]]></es>
+            <it><![CDATA[Stima mensile: non disponibile (la durata del mese non è nota).]]></it>
+            <cz><![CDATA[Měsíční odhad: není k dispozici (délka měsíce není známa).]]></cz>
+            <br><![CDATA[Estimativa mensal: indisponível (a duração do mês não é conhecida).]]></br>
+            <uk><![CDATA[Місячна оцінка: недоступна (тривалість місяця невідома).]]></uk>
+            <ru><![CDATA[Оценка за месяц: недоступна (длина месяца неизвестна).]]></ru>
+            <da><![CDATA[Månedsoverslag: ikke tilgængeligt (månedens længde er ukendt).]]></da>
+            <ct><![CDATA[每月估算：無法取得（月份長度未知）。]]></ct>
+            <ea><![CDATA[Estimación mensual: no disponible (no se conoce la duración del mes).]]></ea>
+            <fc><![CDATA[Estimation mensuelle : indisponible (la durée du mois n'est pas connue).]]></fc>
+            <fi><![CDATA[Kuukausiarvio: ei saatavilla (kuukauden pituutta ei tiedetä).]]></fi>
+            <hu><![CDATA[Havi becslés: nem érhető el (a hónap hossza nem ismert).]]></hu>
+            <id><![CDATA[Perkiraan bulanan: tidak tersedia (panjang bulan tidak diketahui).]]></id>
+            <jp><![CDATA[月間見積もり：利用できません（月の長さが不明です）。]]></jp>
+            <kr><![CDATA[월간 추정치: 사용할 수 없음 (달의 길이를 알 수 없음).]]></kr>
+            <nl><![CDATA[Maandschatting: niet beschikbaar (de lengte van de maand is onbekend).]]></nl>
+            <no><![CDATA[Månedsestimat: ikke tilgjengelig (månedens lengde er ukjent).]]></no>
+            <pt><![CDATA[Estimativa mensal: indisponível (a duração do mês não é conhecida).]]></pt>
+            <ro><![CDATA[Estimare lunară: indisponibilă (durata lunii nu este cunoscută).]]></ro>
+            <sv><![CDATA[Månadsuppskattning: inte tillgänglig (månadens längd är okänd).]]></sv>
+            <tr><![CDATA[Aylık tahmin: mevcut değil (ayın uzunluğu bilinmiyor).]]></tr>
+            <vi><![CDATA[Ước tính theo tháng: không có (chưa biết độ dài của tháng).]]></vi>
+        </text>
+        <text name="im6_line_disabled">
+            <en><![CDATA[Income is off; the figures below are what it would pay if it were on.]]></en>
+            <de><![CDATA[Das Einkommen ist ausgeschaltet; die folgenden Werte zeigen, was es eingeschaltet zahlen würde.]]></de>
+            <fr><![CDATA[Le revenu est désactivé ; les chiffres ci-dessous indiquent ce qu'il verserait s'il était activé.]]></fr>
+            <pl><![CDATA[Dochód jest wyłączony; poniższe wartości pokazują, ile wypłacałby po włączeniu.]]></pl>
+            <es><![CDATA[Los ingresos están desactivados; las cifras siguientes son lo que pagarían si estuvieran activados.]]></es>
+            <it><![CDATA[Le entrate sono disattivate; le cifre seguenti indicano quanto pagherebbero se fossero attive.]]></it>
+            <cz><![CDATA[Příjem je vypnutý; níže uvedené hodnoty ukazují, kolik by vyplácel po zapnutí.]]></cz>
+            <br><![CDATA[A renda está desligada; os valores abaixo mostram quanto pagaria se estivesse ligada.]]></br>
+            <uk><![CDATA[Дохід вимкнено; наведені нижче значення показують, скільки б він виплачував, якби був увімкнений.]]></uk>
+            <ru><![CDATA[Доход отключён; значения ниже показывают, сколько он выплачивал бы во включённом состоянии.]]></ru>
+            <da><![CDATA[Indkomsten er slået fra; tallene nedenfor viser, hvad den ville udbetale, hvis den var slået til.]]></da>
+            <ct><![CDATA[收入已關閉；以下數字是開啟時將支付的金額。]]></ct>
+            <ea><![CDATA[Los ingresos están desactivados; las cifras siguientes son lo que pagarían si estuvieran activados.]]></ea>
+            <fc><![CDATA[Le revenu est désactivé ; les chiffres ci-dessous indiquent ce qu'il verserait s'il était activé.]]></fc>
+            <fi><![CDATA[Tulot ovat pois päältä; alla olevat luvut kertovat, mitä ne maksaisivat päällä ollessaan.]]></fi>
+            <hu><![CDATA[A jövedelem ki van kapcsolva; az alábbi értékek azt mutatják, mennyit fizetne bekapcsolva.]]></hu>
+            <id><![CDATA[Pendapatan dimatikan; angka di bawah adalah jumlah yang akan dibayar jika dinyalakan.]]></id>
+            <jp><![CDATA[収入はオフです。以下の数値はオンにした場合の支払額です。]]></jp>
+            <kr><![CDATA[수입이 꺼져 있습니다. 아래 수치는 켰을 때 지급될 금액입니다.]]></kr>
+            <nl><![CDATA[Inkomen staat uit; de onderstaande bedragen zijn wat het zou uitbetalen als het aan stond.]]></nl>
+            <no><![CDATA[Inntekten er slått av; tallene nedenfor viser hva den ville betalt hvis den var på.]]></no>
+            <pt><![CDATA[O rendimento está desligado; os valores abaixo mostram quanto pagaria se estivesse ligado.]]></pt>
+            <ro><![CDATA[Venitul este dezactivat; cifrele de mai jos arată cât ar plăti dacă ar fi activat.]]></ro>
+            <sv><![CDATA[Inkomsten är avstängd; siffrorna nedan visar vad den skulle betala om den var påslagen.]]></sv>
+            <tr><![CDATA[Gelir kapalı; aşağıdaki rakamlar açık olsaydı ödenecek tutarlardır.]]></tr>
+            <vi><![CDATA[Thu nhập đang tắt; các số liệu dưới đây là số tiền sẽ trả nếu bật.]]></vi>
+        </text>
+        <text name="im6_line_every_farm">
+            <en><![CDATA[The amount applies to every active farm. Nothing is paid at the moment of a change.]]></en>
+            <de><![CDATA[Der Betrag gilt für jeden aktiven Hof. Zum Zeitpunkt einer Änderung wird nichts ausgezahlt.]]></de>
+            <fr><![CDATA[Le montant s'applique à chaque ferme active. Rien n'est versé au moment d'un changement.]]></fr>
+            <pl><![CDATA[Kwota dotyczy każdego aktywnego gospodarstwa. W chwili zmiany nic nie jest wypłacane.]]></pl>
+            <es><![CDATA[El importe se aplica a cada granja activa. No se paga nada en el momento de un cambio.]]></es>
+            <it><![CDATA[L'importo si applica a ogni fattoria attiva. Al momento di una modifica non viene pagato nulla.]]></it>
+            <cz><![CDATA[Částka platí pro každou aktivní farmu. V okamžiku změny se nic nevyplácí.]]></cz>
+            <br><![CDATA[O valor se aplica a toda fazenda ativa. Nada é pago no momento de uma mudança.]]></br>
+            <uk><![CDATA[Сума діє для кожної активної ферми. У момент зміни нічого не виплачується.]]></uk>
+            <ru><![CDATA[Сумма действует для каждой активной фермы. В момент изменения ничего не выплачивается.]]></ru>
+            <da><![CDATA[Beløbet gælder for hver aktiv gård. Der udbetales intet i det øjeblik, en ændring sker.]]></da>
+            <ct><![CDATA[此金額適用於每個活躍的農場。變更當下不會支付任何款項。]]></ct>
+            <ea><![CDATA[El monto se aplica a cada granja activa. No se paga nada en el momento de un cambio.]]></ea>
+            <fc><![CDATA[Le montant s'applique à chaque ferme active. Rien n'est versé au moment d'un changement.]]></fc>
+            <fi><![CDATA[Summa koskee jokaista aktiivista tilaa. Muutoksen hetkellä ei makseta mitään.]]></fi>
+            <hu><![CDATA[Az összeg minden aktív farmra vonatkozik. A módosítás pillanatában semmi sem kerül kifizetésre.]]></hu>
+            <id><![CDATA[Jumlah ini berlaku untuk setiap pertanian aktif. Tidak ada pembayaran saat terjadi perubahan.]]></id>
+            <jp><![CDATA[この金額は稼働中のすべての農場に適用されます。変更した時点では何も支払われません。]]></jp>
+            <kr><![CDATA[이 금액은 활성화된 모든 농장에 적용됩니다. 변경하는 시점에는 아무것도 지급되지 않습니다.]]></kr>
+            <nl><![CDATA[Het bedrag geldt voor elke actieve boerderij. Op het moment van een wijziging wordt niets uitbetaald.]]></nl>
+            <no><![CDATA[Beløpet gjelder for hver aktive gård. Ingenting betales ut i det øyeblikket en endring skjer.]]></no>
+            <pt><![CDATA[O montante aplica-se a todas as quintas ativas. Nada é pago no momento de uma alteração.]]></pt>
+            <ro><![CDATA[Suma se aplică fiecărei ferme active. Nu se plătește nimic în momentul unei modificări.]]></ro>
+            <sv><![CDATA[Beloppet gäller för varje aktiv gård. Ingenting betalas ut i samma stund som en ändring görs.]]></sv>
+            <tr><![CDATA[Tutar her aktif çiftliğe uygulanır. Değişiklik anında hiçbir ödeme yapılmaz.]]></tr>
+            <vi><![CDATA[Số tiền áp dụng cho mọi trang trại đang hoạt động. Không trả gì vào thời điểm thay đổi.]]></vi>
+        </text>
+        <text name="im6_mode_question">
+            <en><![CDATA[Change the pay mode?]]></en>
+            <de><![CDATA[Zahlungsmodus ändern?]]></de>
+            <fr><![CDATA[Changer le mode de paiement ?]]></fr>
+            <pl><![CDATA[Zmienić tryb wypłat?]]></pl>
+            <es><![CDATA[¿Cambiar el modo de pago?]]></es>
+            <it><![CDATA[Cambiare la modalità di pagamento?]]></it>
+            <cz><![CDATA[Změnit režim výplaty?]]></cz>
+            <br><![CDATA[Alterar o modo de pagamento?]]></br>
+            <uk><![CDATA[Змінити режим виплат?]]></uk>
+            <ru><![CDATA[Изменить режим выплат?]]></ru>
+            <da><![CDATA[Skift betalingstilstand?]]></da>
+            <ct><![CDATA[要變更支付模式嗎？]]></ct>
+            <ea><![CDATA[¿Cambiar el modo de pago?]]></ea>
+            <fc><![CDATA[Changer le mode de paiement ?]]></fc>
+            <fi><![CDATA[Vaihdetaanko maksutapa?]]></fi>
+            <hu><![CDATA[Módosítod a fizetési módot?]]></hu>
+            <id><![CDATA[Ubah mode pembayaran?]]></id>
+            <jp><![CDATA[支払いモードを変更しますか？]]></jp>
+            <kr><![CDATA[지급 방식을 변경하시겠습니까?]]></kr>
+            <nl><![CDATA[Betaalmodus wijzigen?]]></nl>
+            <no><![CDATA[Endre betalingsmodus?]]></no>
+            <pt><![CDATA[Alterar o modo de pagamento?]]></pt>
+            <ro><![CDATA[Schimbați modul de plată?]]></ro>
+            <sv><![CDATA[Byt betalningsläge?]]></sv>
+            <tr><![CDATA[Ödeme modu değiştirilsin mi?]]></tr>
+            <vi><![CDATA[Đổi chế độ trả?]]></vi>
+        </text>
+        <text name="im6_reset_list">
+            <en><![CDATA[A full Reset returns every Income Mod setting to its default: income on, Normal difficulty, Hourly, 1x, the difficulty amount, seasonal effects off, notifications on, HUD on, debug off, experimental systems off.]]></en>
+            <de><![CDATA[Ein vollständiges Zurücksetzen stellt jede Einstellung von Income Mod auf den Standard zurück: Einkommen an, Schwierigkeit Normal, Stündlich, 1x, Betrag des Schwierigkeitsgrads, saisonale Effekte aus, Benachrichtigungen an, HUD an, Debug aus, experimentelle Systeme aus.]]></de>
+            <fr><![CDATA[Une réinitialisation complète rétablit chaque paramètre d'Income Mod à sa valeur par défaut : revenu activé, difficulté Normale, horaire, 1x, montant de la difficulté, effets saisonniers désactivés, notifications activées, HUD activé, débogage désactivé, systèmes expérimentaux désactivés.]]></fr>
+            <pl><![CDATA[Pełny reset przywraca domyślne wartości wszystkich ustawień Income Mod: dochód włączony, trudność Normalna, godzinowy, 1x, kwota poziomu trudności, efekty sezonowe wyłączone, powiadomienia włączone, HUD włączony, debugowanie wyłączone, systemy eksperymentalne wyłączone.]]></pl>
+            <es><![CDATA[Un restablecimiento completo devuelve cada ajuste de Income Mod a su valor predeterminado: ingresos activados, dificultad Normal, por hora, 1x, importe de la dificultad, efectos estacionales desactivados, notificaciones activadas, HUD activado, depuración desactivada, sistemas experimentales desactivados.]]></es>
+            <it><![CDATA[Un ripristino completo riporta ogni impostazione di Income Mod al valore predefinito: entrate attive, difficoltà Normale, oraria, 1x, importo della difficoltà, effetti stagionali disattivati, notifiche attive, HUD attivo, debug disattivato, sistemi sperimentali disattivati.]]></it>
+            <cz><![CDATA[Úplné obnovení vrátí každé nastavení Income Mod na výchozí hodnotu: příjem zapnutý, obtížnost Normální, hodinový, 1x, částka podle obtížnosti, sezónní efekty vypnuté, oznámení zapnutá, HUD zapnutý, ladění vypnuté, experimentální systémy vypnuté.]]></cz>
+            <br><![CDATA[Uma redefinição completa retorna todas as configurações do Income Mod ao padrão: renda ligada, dificuldade Normal, por hora, 1x, valor da dificuldade, efeitos sazonais desligados, notificações ligadas, HUD ligado, depuração desligada, sistemas experimentais desligados.]]></br>
+            <uk><![CDATA[Повне скидання повертає кожне налаштування Income Mod до типового: дохід увімкнено, складність Нормальна, щогодини, 1x, сума рівня складності, сезонні ефекти вимкнено, сповіщення увімкнено, HUD увімкнено, налагодження вимкнено, експериментальні системи вимкнено.]]></uk>
+            <ru><![CDATA[Полный сброс возвращает каждую настройку Income Mod к значению по умолчанию: доход включён, сложность Нормальная, ежечасно, 1x, сумма уровня сложности, сезонные эффекты выключены, уведомления включены, HUD включён, отладка выключена, экспериментальные системы выключены.]]></ru>
+            <da><![CDATA[En fuld nulstilling sætter alle Income Mod-indstillinger tilbage til standard: indkomst til, sværhedsgrad Normal, hver time, 1x, sværhedsgradens beløb, sæsoneffekter fra, notifikationer til, HUD til, fejlfinding fra, eksperimentelle systemer fra.]]></da>
+            <ct><![CDATA[完整重設會將 Income Mod 的每項設定恢復為預設值：收入開啟、普通難度、每小時、1x、難度金額、季節效果關閉、通知開啟、HUD 開啟、除錯關閉、實驗性系統關閉。]]></ct>
+            <ea><![CDATA[Un restablecimiento completo devuelve cada ajuste de Income Mod a su valor predeterminado: ingresos activados, dificultad Normal, por hora, 1x, monto de la dificultad, efectos estacionales desactivados, notificaciones activadas, HUD activado, depuración desactivada, sistemas experimentales desactivados.]]></ea>
+            <fc><![CDATA[Une réinitialisation complète rétablit chaque paramètre d'Income Mod à sa valeur par défaut : revenu activé, difficulté Normale, horaire, 1x, montant de la difficulté, effets saisonniers désactivés, notifications activées, HUD activé, débogage désactivé, systèmes expérimentaux désactivés.]]></fc>
+            <fi><![CDATA[Täydellinen palautus palauttaa jokaisen Income Modin asetuksen oletukseen: tulot päällä, vaikeustaso Normaali, tunneittain, 1x, vaikeustason summa, kausivaikutukset pois, ilmoitukset päällä, HUD päällä, virheenjäljitys pois, kokeelliset järjestelmät pois.]]></fi>
+            <hu><![CDATA[A teljes visszaállítás az Income Mod minden beállítását alapértékre állítja: jövedelem be, Normál nehézség, óránként, 1x, a nehézségi szint összege, szezonális hatások ki, értesítések be, HUD be, hibakeresés ki, kísérleti rendszerek ki.]]></hu>
+            <id><![CDATA[Reset penuh mengembalikan setiap pengaturan Income Mod ke bawaannya: pendapatan aktif, kesulitan Normal, per jam, 1x, jumlah tingkat kesulitan, efek musiman mati, notifikasi aktif, HUD aktif, debug mati, sistem eksperimental mati.]]></id>
+            <jp><![CDATA[完全リセットでは Income Mod のすべての設定が既定値に戻ります：収入オン、難易度ノーマル、毎時、1x、難易度の金額、季節効果オフ、通知オン、HUD オン、デバッグオフ、実験的システムオフ。]]></jp>
+            <kr><![CDATA[전체 초기화는 Income Mod의 모든 설정을 기본값으로 되돌립니다: 수입 켜짐, 보통 난이도, 매시간, 1x, 난이도 금액, 계절 효과 꺼짐, 알림 켜짐, HUD 켜짐, 디버그 꺼짐, 실험적 시스템 꺼짐.]]></kr>
+            <nl><![CDATA[Een volledige reset zet elke instelling van Income Mod terug naar de standaard: inkomen aan, moeilijkheid Normaal, per uur, 1x, bedrag van de moeilijkheidsgraad, seizoenseffecten uit, meldingen aan, HUD aan, debug uit, experimentele systemen uit.]]></nl>
+            <no><![CDATA[En full tilbakestilling setter alle Income Mod-innstillinger tilbake til standard: inntekt på, vanskelighetsgrad Normal, hver time, 1x, vanskelighetsgradens beløp, sesongeffekter av, varsler på, HUD på, feilsøking av, eksperimentelle systemer av.]]></no>
+            <pt><![CDATA[Uma reposição completa devolve todas as definições do Income Mod ao valor predefinido: rendimento ligado, dificuldade Normal, por hora, 1x, montante da dificuldade, efeitos sazonais desligados, notificações ligadas, HUD ligado, depuração desligada, sistemas experimentais desligados.]]></pt>
+            <ro><![CDATA[O resetare completă readuce fiecare setare Income Mod la valoarea implicită: venit activat, dificultate Normală, orar, 1x, suma dificultății, efecte sezoniere dezactivate, notificări activate, HUD activat, depanare dezactivată, sisteme experimentale dezactivate.]]></ro>
+            <sv><![CDATA[En fullständig återställning sätter varje inställning i Income Mod till standard: inkomst på, svårighetsgrad Normal, varje timme, 1x, svårighetsgradens belopp, säsongseffekter av, aviseringar på, HUD på, felsökning av, experimentella system av.]]></sv>
+            <tr><![CDATA[Tam sıfırlama, Income Mod'un her ayarını varsayılana döndürür: gelir açık, Normal zorluk, saatlik, 1x, zorluk tutarı, mevsimsel etkiler kapalı, bildirimler açık, HUD açık, hata ayıklama kapalı, deneysel sistemler kapalı.]]></tr>
+            <vi><![CDATA[Đặt lại toàn bộ sẽ đưa mọi cài đặt của Income Mod về mặc định: bật thu nhập, độ khó Thường, theo giờ, 1x, số tiền theo độ khó, tắt hiệu ứng mùa, bật thông báo, bật HUD, tắt gỡ lỗi, tắt hệ thống thử nghiệm.]]></vi>
+        </text>
+        <text name="im6_reset_after">
+            <en><![CDATA[Afterwards:]]></en>
+            <de><![CDATA[Danach:]]></de>
+            <fr><![CDATA[Ensuite :]]></fr>
+            <pl><![CDATA[Potem:]]></pl>
+            <es><![CDATA[Después:]]></es>
+            <it><![CDATA[Dopo:]]></it>
+            <cz><![CDATA[Poté:]]></cz>
+            <br><![CDATA[Depois:]]></br>
+            <uk><![CDATA[Після цього:]]></uk>
+            <ru><![CDATA[После этого:]]></ru>
+            <da><![CDATA[Bagefter:]]></da>
+            <ct><![CDATA[重設後：]]></ct>
+            <ea><![CDATA[Después:]]></ea>
+            <fc><![CDATA[Ensuite :]]></fc>
+            <fi><![CDATA[Sen jälkeen:]]></fi>
+            <hu><![CDATA[Utána:]]></hu>
+            <id><![CDATA[Setelahnya:]]></id>
+            <jp><![CDATA[リセット後：]]></jp>
+            <kr><![CDATA[초기화 후:]]></kr>
+            <nl><![CDATA[Daarna:]]></nl>
+            <no><![CDATA[Etterpå:]]></no>
+            <pt><![CDATA[Depois:]]></pt>
+            <ro><![CDATA[După aceea:]]></ro>
+            <sv><![CDATA[Efteråt:]]></sv>
+            <tr><![CDATA[Sonrasında:]]></tr>
+            <vi><![CDATA[Sau đó:]]></vi>
+        </text>
+        <text name="im6_reset_question">
+            <en><![CDATA[Reset every setting now?]]></en>
+            <de><![CDATA[Jetzt alle Einstellungen zurücksetzen?]]></de>
+            <fr><![CDATA[Réinitialiser tous les paramètres maintenant ?]]></fr>
+            <pl><![CDATA[Zresetować teraz wszystkie ustawienia?]]></pl>
+            <es><![CDATA[¿Restablecer ahora todos los ajustes?]]></es>
+            <it><![CDATA[Ripristinare ora tutte le impostazioni?]]></it>
+            <cz><![CDATA[Obnovit nyní všechna nastavení?]]></cz>
+            <br><![CDATA[Redefinir todas as configurações agora?]]></br>
+            <uk><![CDATA[Скинути всі налаштування зараз?]]></uk>
+            <ru><![CDATA[Сбросить все настройки сейчас?]]></ru>
+            <da><![CDATA[Nulstil alle indstillinger nu?]]></da>
+            <ct><![CDATA[要立即重設所有設定嗎？]]></ct>
+            <ea><![CDATA[¿Restablecer ahora todos los ajustes?]]></ea>
+            <fc><![CDATA[Réinitialiser tous les paramètres maintenant ?]]></fc>
+            <fi><![CDATA[Palautetaanko kaikki asetukset nyt?]]></fi>
+            <hu><![CDATA[Most visszaállítod az összes beállítást?]]></hu>
+            <id><![CDATA[Reset semua pengaturan sekarang?]]></id>
+            <jp><![CDATA[すべての設定を今すぐリセットしますか？]]></jp>
+            <kr><![CDATA[지금 모든 설정을 초기화하시겠습니까?]]></kr>
+            <nl><![CDATA[Nu alle instellingen resetten?]]></nl>
+            <no><![CDATA[Tilbakestille alle innstillinger nå?]]></no>
+            <pt><![CDATA[Repor todas as definições agora?]]></pt>
+            <ro><![CDATA[Resetați acum toate setările?]]></ro>
+            <sv><![CDATA[Återställ alla inställningar nu?]]></sv>
+            <tr><![CDATA[Tüm ayarlar şimdi sıfırlansın mı?]]></tr>
+            <vi><![CDATA[Đặt lại tất cả cài đặt ngay bây giờ?]]></vi>
+        </text>
+        <text name="im6_refused_not_admin">
+            <en><![CDATA[Only a server administrator can change the income schedule. Nothing changed.]]></en>
+            <de><![CDATA[Nur ein Serveradministrator kann den Einkommensplan ändern. Es wurde nichts geändert.]]></de>
+            <fr><![CDATA[Seul un administrateur du serveur peut modifier le calendrier des revenus. Rien n'a changé.]]></fr>
+            <pl><![CDATA[Tylko administrator serwera może zmienić harmonogram dochodu. Nic nie zostało zmienione.]]></pl>
+            <es><![CDATA[Solo un administrador del servidor puede cambiar el calendario de ingresos. No se ha cambiado nada.]]></es>
+            <it><![CDATA[Solo un amministratore del server può modificare il programma delle entrate. Non è cambiato nulla.]]></it>
+            <cz><![CDATA[Plán příjmů může změnit pouze správce serveru. Nic se nezměnilo.]]></cz>
+            <br><![CDATA[Somente um administrador do servidor pode alterar a programação de renda. Nada foi alterado.]]></br>
+            <uk><![CDATA[Лише адміністратор сервера може змінити графік доходу. Нічого не змінено.]]></uk>
+            <ru><![CDATA[Только администратор сервера может изменить график дохода. Ничего не изменено.]]></ru>
+            <da><![CDATA[Kun en serveradministrator kan ændre indkomstplanen. Intet blev ændret.]]></da>
+            <ct><![CDATA[只有伺服器管理員可以變更收入排程。未做任何變更。]]></ct>
+            <ea><![CDATA[Solo un administrador del servidor puede cambiar el calendario de ingresos. No se cambió nada.]]></ea>
+            <fc><![CDATA[Seul un administrateur du serveur peut modifier le calendrier des revenus. Rien n'a changé.]]></fc>
+            <fi><![CDATA[Vain palvelimen ylläpitäjä voi muuttaa tuloaikataulua. Mitään ei muutettu.]]></fi>
+            <hu><![CDATA[Csak a szerver adminisztrátora módosíthatja a jövedelemütemezést. Semmi sem változott.]]></hu>
+            <id><![CDATA[Hanya administrator server yang dapat mengubah jadwal pendapatan. Tidak ada yang berubah.]]></id>
+            <jp><![CDATA[収入スケジュールを変更できるのはサーバー管理者のみです。何も変更されていません。]]></jp>
+            <kr><![CDATA[서버 관리자만 수입 일정을 변경할 수 있습니다. 변경된 내용이 없습니다.]]></kr>
+            <nl><![CDATA[Alleen een serverbeheerder kan het inkomensschema wijzigen. Er is niets gewijzigd.]]></nl>
+            <no><![CDATA[Bare en serveradministrator kan endre inntektsplanen. Ingenting ble endret.]]></no>
+            <pt><![CDATA[Apenas um administrador do servidor pode alterar o calendário de rendimentos. Nada foi alterado.]]></pt>
+            <ro><![CDATA[Doar un administrator al serverului poate modifica programul veniturilor. Nu s-a schimbat nimic.]]></ro>
+            <sv><![CDATA[Endast en serveradministratör kan ändra inkomstschemat. Ingenting ändrades.]]></sv>
+            <tr><![CDATA[Gelir takvimini yalnızca bir sunucu yöneticisi değiştirebilir. Hiçbir şey değişmedi.]]></tr>
+            <vi><![CDATA[Chỉ quản trị viên máy chủ mới có thể thay đổi lịch thu nhập. Không có gì thay đổi.]]></vi>
+        </text>
+        <text name="im6_refused_stale">
+            <en><![CDATA[The schedule changed on the host meanwhile. Nothing changed; please try again.]]></en>
+            <de><![CDATA[Der Plan wurde inzwischen auf dem Host geändert. Es wurde nichts geändert; bitte versuche es erneut.]]></de>
+            <fr><![CDATA[Le calendrier a été modifié sur l'hôte entre-temps. Rien n'a changé ; veuillez réessayer.]]></fr>
+            <pl><![CDATA[W międzyczasie harmonogram zmienił się na hoście. Nic nie zostało zmienione; spróbuj ponownie.]]></pl>
+            <es><![CDATA[El calendario cambió en el anfitrión mientras tanto. No se ha cambiado nada; inténtalo de nuevo.]]></es>
+            <it><![CDATA[Nel frattempo il programma è cambiato sull'host. Non è cambiato nulla; riprova.]]></it>
+            <cz><![CDATA[Plán se mezitím na hostiteli změnil. Nic se nezměnilo; zkuste to znovu.]]></cz>
+            <br><![CDATA[A programação mudou no anfitrião nesse meio tempo. Nada foi alterado; tente novamente.]]></br>
+            <uk><![CDATA[Тим часом графік на хості змінився. Нічого не змінено; спробуйте ще раз.]]></uk>
+            <ru><![CDATA[Тем временем график на хосте изменился. Ничего не изменено; попробуйте ещё раз.]]></ru>
+            <da><![CDATA[Planen er imens blevet ændret på værten. Intet blev ændret; prøv igen.]]></da>
+            <ct><![CDATA[主機上的排程已在此期間變更。未做任何變更，請再試一次。]]></ct>
+            <ea><![CDATA[El calendario cambió en el anfitrión mientras tanto. No se cambió nada; inténtalo de nuevo.]]></ea>
+            <fc><![CDATA[Le calendrier a été modifié sur l'hôte entre-temps. Rien n'a changé ; veuillez réessayer.]]></fc>
+            <fi><![CDATA[Aikataulu muuttui sillä välin isännällä. Mitään ei muutettu; yritä uudelleen.]]></fi>
+            <hu><![CDATA[Időközben a gazdán megváltozott az ütemezés. Semmi sem változott; próbáld újra.]]></hu>
+            <id><![CDATA[Jadwal di host berubah sementara itu. Tidak ada yang berubah; silakan coba lagi.]]></id>
+            <jp><![CDATA[その間にホスト側でスケジュールが変更されました。何も変更されていません。もう一度お試しください。]]></jp>
+            <kr><![CDATA[그사이 호스트에서 일정이 변경되었습니다. 변경된 내용이 없습니다. 다시 시도하세요.]]></kr>
+            <nl><![CDATA[Het schema is intussen op de host gewijzigd. Er is niets gewijzigd; probeer het opnieuw.]]></nl>
+            <no><![CDATA[Planen ble endret på verten i mellomtiden. Ingenting ble endret; prøv igjen.]]></no>
+            <pt><![CDATA[O calendário mudou no anfitrião entretanto. Nada foi alterado; tente novamente.]]></pt>
+            <ro><![CDATA[Între timp programul s-a schimbat pe gazdă. Nu s-a schimbat nimic; încercați din nou.]]></ro>
+            <sv><![CDATA[Schemat ändrades på värden under tiden. Ingenting ändrades; försök igen.]]></sv>
+            <tr><![CDATA[Bu arada sunucuda takvim değişti. Hiçbir şey değişmedi; lütfen tekrar deneyin.]]></tr>
+            <vi><![CDATA[Lịch trên máy chủ đã thay đổi trong lúc đó. Không có gì thay đổi; vui lòng thử lại.]]></vi>
+        </text>
+        <text name="im6_refused">
+            <en><![CDATA[The host refused the change (%s). Nothing changed.]]></en>
+            <de><![CDATA[Der Host hat die Änderung abgelehnt (%s). Es wurde nichts geändert.]]></de>
+            <fr><![CDATA[L'hôte a refusé la modification (%s). Rien n'a changé.]]></fr>
+            <pl><![CDATA[Host odrzucił zmianę (%s). Nic nie zostało zmienione.]]></pl>
+            <es><![CDATA[El anfitrión rechazó el cambio (%s). No se ha cambiado nada.]]></es>
+            <it><![CDATA[L'host ha rifiutato la modifica (%s). Non è cambiato nulla.]]></it>
+            <cz><![CDATA[Hostitel změnu odmítl (%s). Nic se nezměnilo.]]></cz>
+            <br><![CDATA[O anfitrião recusou a alteração (%s). Nada foi alterado.]]></br>
+            <uk><![CDATA[Хост відхилив зміну (%s). Нічого не змінено.]]></uk>
+            <ru><![CDATA[Хост отклонил изменение (%s). Ничего не изменено.]]></ru>
+            <da><![CDATA[Værten afviste ændringen (%s). Intet blev ændret.]]></da>
+            <ct><![CDATA[主機拒絕了此變更（%s）。未做任何變更。]]></ct>
+            <ea><![CDATA[El anfitrión rechazó el cambio (%s). No se cambió nada.]]></ea>
+            <fc><![CDATA[L'hôte a refusé la modification (%s). Rien n'a changé.]]></fc>
+            <fi><![CDATA[Isäntä hylkäsi muutoksen (%s). Mitään ei muutettu.]]></fi>
+            <hu><![CDATA[A gazda elutasította a módosítást (%s). Semmi sem változott.]]></hu>
+            <id><![CDATA[Host menolak perubahan (%s). Tidak ada yang berubah.]]></id>
+            <jp><![CDATA[ホストが変更を拒否しました（%s）。何も変更されていません。]]></jp>
+            <kr><![CDATA[호스트가 변경을 거부했습니다 (%s). 변경된 내용이 없습니다.]]></kr>
+            <nl><![CDATA[De host heeft de wijziging geweigerd (%s). Er is niets gewijzigd.]]></nl>
+            <no><![CDATA[Verten avviste endringen (%s). Ingenting ble endret.]]></no>
+            <pt><![CDATA[O anfitrião recusou a alteração (%s). Nada foi alterado.]]></pt>
+            <ro><![CDATA[Gazda a respins modificarea (%s). Nu s-a schimbat nimic.]]></ro>
+            <sv><![CDATA[Värden avvisade ändringen (%s). Ingenting ändrades.]]></sv>
+            <tr><![CDATA[Sunucu değişikliği reddetti (%s). Hiçbir şey değişmedi.]]></tr>
+            <vi><![CDATA[Máy chủ đã từ chối thay đổi (%s). Không có gì thay đổi.]]></vi>
+        </text>
     </l10n>
 
     <!--

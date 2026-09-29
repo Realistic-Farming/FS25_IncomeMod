@@ -21,13 +21,13 @@ function SettingsGUI:registerConsoleCommands()
     addConsoleCommand("IncomeSetDifficulty",    "Set difficulty (1=Easy, 2=Normal, 3=Hard)",          "consoleCommandSetDifficulty",    self)
     addConsoleCommand("IncomeEnable",            "Enable Income Mod",                                   "consoleCommandIncomeEnable",     self)
     addConsoleCommand("IncomeDisable",           "Disable Income Mod",                                  "consoleCommandIncomeDisable",    self)
-    addConsoleCommand("IncomeSetPayMode",        "Set pay mode (1=Hourly, 2=Daily)",                    "consoleCommandSetPayMode",       self)
+    addConsoleCommand("IncomeSetPayMode",        "Set pay mode (1=Hourly, 2=Daily); add 'confirm' to apply", "consoleCommandSetPayMode",  self)
     addConsoleCommand("IncomeSetNotifications",  "Enable/disable notifications (true/false)",           "consoleCommandSetNotifications", self)
-    addConsoleCommand("IncomeSetCustomAmount",   "Set custom payment amount (0 = use difficulty)",      "consoleCommandSetCustomAmount",  self)
+    addConsoleCommand("IncomeSetCustomAmount",   "Set the payment amount, 0 to 999999 (0 = use difficulty)", "consoleCommandSetCustomAmount", self)
     addConsoleCommand("IncomeSetDebug",          "Toggle debug mode (true/false)",                      "consoleCommandSetDebug",         self)
     addConsoleCommand("IncomeTestPayment",       "Test payment system",                                 "consoleCommandTestPayment",      self)
     addConsoleCommand("IncomeShowSettings",      "Show current settings",                               "consoleCommandShowSettings",     self)
-    addConsoleCommand("IncomeResetSettings",     "Reset all settings to defaults",                      "consoleCommandResetSettings",    self)
+    addConsoleCommand("IncomeResetSettings",     "Reset all settings to defaults; add 'confirm' to apply", "consoleCommandResetSettings", self)
     addConsoleCommand("IncomeHistory",           "Show last 10 payment records",                        "consoleCommandHistory",          self)
     addConsoleCommand("IncomeNext",              "Show when the next payment fires",                    "consoleCommandNext",             self)
     addConsoleCommand("IncomeToggleHUD",         "Show/hide the income HUD overlay (true/false)",       "consoleCommandToggleHUD",        self)
@@ -47,13 +47,13 @@ function SettingsGUI:consoleCommandHelp()
     print("IncomeToggleHUD true|false    - Show/hide the income HUD")
     print("IncomeEnable / IncomeDisable  - Toggle mod on/off")
     print("IncomeSetDifficulty 1|2|3     - Easy / Normal / Hard")
-    print("IncomeSetPayMode 1|2          - Hourly / Daily")
+    print("IncomeSetPayMode 1|2 [confirm] - Hourly / Daily; shows the result, applies only with 'confirm'")
     print("IncomeSetNotifications t|f    - Toggle notifications")
-    print("IncomeSetCustomAmount <n>     - Override amount (0 = difficulty)")
+    print("IncomeSetCustomAmount <n>     - Amount per payment, 0 to 999999 (0 = difficulty), digits only")
     print("IncomeSetDebug true|false     - Toggle debug logging")
     print("IncomeTestPayment             - Trigger $1 test payment")
     print("IncomeShowSettings            - Show all current settings")
-    print("IncomeResetSettings           - Reset to defaults")
+    print("IncomeResetSettings [confirm] - Lists every default; resets only with 'confirm'")
     print("IncomeHistory                 - Last 10 payment records")
     print("IncomeNext                    - Time until next payment")
     print("=========================================")
@@ -108,17 +108,97 @@ end
 -- Pay Mode
 -- =========================================================
 
-function SettingsGUI:consoleCommandSetPayMode(mode)
+-- IM-6: the pay mode, the amount and a full Reset go through the host's income
+-- schedule (IncomeSchedule): one validator, a preview before anything changes, and the
+-- live payout markers rebased on the host. On a dedicated server this console is the
+-- server actor; on a client the command asks the host and prints its answer when it
+-- arrives. Without the literal word `confirm`, a mode change or a Reset only shows what
+-- would happen.
+
+SettingsGUI.SCHEDULE_REFUSAL = {
+    NOT_ADMIN         = "Only a server administrator can change the income schedule.",
+    UNKNOWN_OPERATION = "Unknown request.",
+    UNKNOWN_PAY_MODE  = "Invalid pay mode. Use 1 (Hourly) or 2 (Daily).",
+    NOT_WHOLE_NUMBER  = "Not a whole number. Use digits only, for example 5000 (no sign, decimal point or exponent).",
+    OUT_OF_RANGE      = "Out of range. Use 0 to 999999 (0 uses the difficulty default).",
+    STALE_PREVIEW     = "The schedule changed on the host meanwhile. Run the command again.",
+    CONFIRM_REQUIRED  = "Not confirmed.",
+}
+
+local function money(v)
+    if v == nil then return "not available" end
+    return string.format("$%d", math.floor(v))
+end
+
+--- The consequence of a schedule view, in plain lines.
+function SettingsGUI.describeSchedule(view)
+    local lines = {}
+    if view == nil or view.paymentState == "WAITING" then
+        lines[#lines + 1] = "Waiting for the host's income settings."
+        return lines
+    end
+    local hourly = view.unit == "PER_HOUR"
+    lines[#lines + 1] = hourly and "Pay mode: Hourly, one payment every in-game hour"
+                                or "Pay mode: Daily, one payment every in-game day"
+    if view.usesDifficultyDefault then
+        lines[#lines + 1] = string.format("Amount: %s per payment (the difficulty default)", money(view.payment))
+    else
+        lines[#lines + 1] = string.format("Amount: %s per payment", money(view.payment))
+    end
+    if view.legacyOverCap then
+        lines[#lines + 1] = "The saved amount is above 999999 and is kept exactly until you set a new one."
+    end
+    lines[#lines + 1] = string.format("Next payment with the current seasonal adjustment: %s", money(view.paymentThisSeason))
+    if view.paymentState == "UNAVAILABLE" then
+        lines[#lines + 1] = "Month estimate: not available (the month length is not known)"
+    else
+        local prefix = view.paymentState == "DISABLED" and "If income were enabled, a" or "A"
+        lines[#lines + 1] = string.format("%s full %d-day month pays %d times, about %s gross before any Emergency Loan repayment",
+            prefix, view.daysThisMonth or 0, view.paymentsThisMonth or 0, money(view.monthEstimate))
+    end
+    lines[#lines + 1] = "The amount applies to every active farm. Nothing is paid at the moment of a change."
+    return lines
+end
+
+--- Run `ask(done)` against the host; `done(text)` collects the answer. On the host the
+--- answer is ready before this returns and becomes the command's result; on a client
+--- it prints when it arrives.
+local function answer(ask)
+    local text
+    local sync = true
+    ask(function(t)
+        if sync then text = t else print(t) end
+    end)
+    sync = false
+    if text ~= nil then return text end
+    return "Asked the host; the answer prints here when it arrives."
+end
+
+local function refusal(reply)
+    local reason = SettingsGUI.SCHEDULE_REFUSAL[reply and reply.status] or ("Refused: " .. tostring(reply and reply.status))
+    return reason .. " Nothing changed."
+end
+
+function SettingsGUI:consoleCommandSetPayMode(mode, confirmWord)
+    local mgr = g_IncomeManager
+    if not (mgr and mgr.requestIncomeSchedule) then return "Error: Income Mod not initialized" end
     local payMode = tonumber(mode)
-    if not payMode or (payMode ~= 1 and payMode ~= 2) then
-        return "Invalid pay mode. Use 1 (Hourly) or 2 (Daily)"
-    end
-    if g_IncomeManager and g_IncomeManager.settings then
-        g_IncomeManager.settings:setPayMode(payMode)
-        g_IncomeManager.settings:save()
-        return string.format("Pay mode set to: %s", g_IncomeManager.settings:getPayModeName())
-    end
-    return "Error: Income Mod not initialized"
+    if payMode == nil or payMode ~= math.floor(payMode) or payMode < 0 or payMode > 255 then payMode = 255 end
+    local OP = IncomeSchedule.OP
+    return answer(function(done)
+        mgr:requestIncomeSchedule(OP.PREVIEW, "", payMode, 0, false, function(preview)
+            if preview.status ~= "OK" then done(refusal(preview)) return end
+            local text = table.concat(SettingsGUI.describeSchedule(preview.view), "\n")
+            if confirmWord ~= "confirm" then
+                done(text .. string.format("\nNothing changed. To apply: IncomeSetPayMode %d confirm", payMode))
+                return
+            end
+            mgr:requestIncomeSchedule(OP.APPLY, "", payMode, preview.revision, false, function(applied)
+                if applied.status ~= "OK" then done(refusal(applied)) return end
+                done("Applied.\n" .. table.concat(SettingsGUI.describeSchedule(applied.view), "\n"))
+            end)
+        end)
+    end)
 end
 
 -- =========================================================
@@ -147,20 +227,21 @@ end
 -- =========================================================
 
 function SettingsGUI:consoleCommandSetCustomAmount(amount)
-    local customAmount = tonumber(amount)
-    if not customAmount or customAmount < 0 then
-        return "Invalid amount. Use a positive number or 0 to use difficulty setting"
+    local mgr = g_IncomeManager
+    if not (mgr and mgr.requestIncomeSchedule) then return "Error: Income Mod not initialized" end
+    if amount == nil or amount == "" then
+        return "Usage: IncomeSetCustomAmount <amount>, 0 to 999999 (0 uses the difficulty default)"
     end
-    if g_IncomeManager and g_IncomeManager.settings then
-        g_IncomeManager.settings.customAmount = math.floor(customAmount)
-        g_IncomeManager.settings:save()
-        if customAmount > 0 then
-            return string.format("Custom amount set to: $%d", math.floor(customAmount))
-        else
-            return "Custom amount disabled, using difficulty setting"
-        end
-    end
-    return "Error: Income Mod not initialized"
+    local OP = IncomeSchedule.OP
+    return answer(function(done)
+        mgr:requestIncomeSchedule(OP.PREVIEW, amount, 0, 0, false, function(preview)
+            if preview.status ~= "OK" then done(refusal(preview)) return end
+            mgr:requestIncomeSchedule(OP.APPLY, amount, 0, preview.revision, false, function(applied)
+                if applied.status ~= "OK" then done(refusal(applied)) return end
+                done("Applied.\n" .. table.concat(SettingsGUI.describeSchedule(applied.view), "\n"))
+            end)
+        end)
+    end)
 end
 
 -- =========================================================
@@ -288,21 +369,31 @@ end
 -- Reset Settings
 -- =========================================================
 
-function SettingsGUI:consoleCommandResetSettings()
-    if g_IncomeManager and g_IncomeManager.settings then
-        g_IncomeManager.settings:resetToDefaults()
+SettingsGUI.RESET_LINES = {
+    "Income on", "Difficulty: Normal", "Pay mode: Hourly", "Multiplier: 1x",
+    "Amount: the difficulty default", "Seasonal effects: off", "Notifications: on",
+    "HUD: on", "Debug: off", "Experimental systems: off",
+}
 
-        if g_IncomeManager.incomeSystem then
-            g_IncomeManager.incomeSystem:initialize()
-        end
-
-        if g_IncomeManager.settingsUI then
-            g_IncomeManager.settingsUI:refreshUI()
-        end
-
-        return "Income Mod settings reset to defaults!"
-    end
-    return "Error: Income Mod not initialized"
+function SettingsGUI:consoleCommandResetSettings(confirmWord)
+    local mgr = g_IncomeManager
+    if not (mgr and mgr.requestIncomeSchedule) then return "Error: Income Mod not initialized" end
+    local OP = IncomeSchedule.OP
+    return answer(function(done)
+        mgr:requestIncomeSchedule(OP.RESET_PREVIEW, "", 0, 0, false, function(preview)
+            if preview.status ~= "OK" then done(refusal(preview)) return end
+            local text = "A full Reset restores: " .. table.concat(SettingsGUI.RESET_LINES, ", ") .. ".\nAfterwards:\n"
+                .. table.concat(SettingsGUI.describeSchedule(preview.view), "\n")
+            if confirmWord ~= "confirm" then
+                done(text .. "\nNothing changed. To apply: IncomeResetSettings confirm")
+                return
+            end
+            mgr:requestIncomeSchedule(OP.RESET_APPLY, "", 0, preview.revision, true, function(applied)
+                if applied.status ~= "OK" then done(refusal(applied)) return end
+                done("Income Mod settings reset to defaults.\n" .. table.concat(SettingsGUI.describeSchedule(applied.view), "\n"))
+            end)
+        end)
+    end)
 end
 
 -- =========================================================
