@@ -149,7 +149,7 @@ function SettingsGUI.describeSchedule(view)
         lines[#lines + 1] = "The saved amount is above 999999 and is kept exactly until you set a new one."
     end
     lines[#lines + 1] = string.format("Next payment with the current seasonal adjustment: %s", money(view.paymentThisSeason))
-    if view.paymentState == "UNAVAILABLE" then
+    if view.monthEstimate == nil or view.daysThisMonth == nil then
         lines[#lines + 1] = "Month estimate: not available (the month length is not known)"
     else
         local prefix = view.paymentState == "DISABLED" and "If income were enabled, a" or "A"
