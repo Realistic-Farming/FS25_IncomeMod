@@ -39,6 +39,7 @@ source(modDirectory .. "src/ui/IncomeReportDialog.lua")
 source(modDirectory .. "src/EmergencyLoan.lua")
 source(modDirectory .. "src/EmergencyLoanDebtStorage.lua")  -- [C3/F130] own debt XML (standalone persistence)
 source(modDirectory .. "src/EmergencyLoanEvent.lua")        -- [C3/F130] owner request/reply Event + controller
+source(modDirectory .. "src/IncomeSchedule.lua")            -- IM-6 income schedule: host authority + Event
 source(modDirectory .. "src/IncomeSystem.lua")
 source(modDirectory .. "src/IncomeManager.lua")
 

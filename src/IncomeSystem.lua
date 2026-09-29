@@ -272,6 +272,19 @@ function IncomeSystem:rebaselineAfterRewind(env, mode)
     self.lastMonotonicDay = env.currentMonotonicDay
 end
 
+--- IM-6: an accepted pay-mode change or full Reset. Every marker moves to now on THIS
+--- live instance, so the next poll counts from the change: the switch pays nothing and
+--- nothing is caught up under the new unit. Kept apart from rebaselineAfterRewind
+--- (RSF-F282), which is a clock correction with its own log line.
+function IncomeSystem:rebaseForScheduleChange(env)
+    self:log("Pay schedule changed (%s): markers moved from Day %d[%d] Hour %d to Day %d[%d] Hour %d, nothing paid for the switch",
+        self.settings:getPayModeName(), self.lastDay, self.lastMonotonicDay, self.lastHour,
+        env.currentDay, env.currentMonotonicDay or -1, env.currentHour)
+    self.lastHour         = env.currentHour
+    self.lastDay          = env.currentDay
+    self.lastMonotonicDay = env.currentMonotonicDay or -1
+end
+
 ---@return number  elapsed hour transitions since the last check (>= 1, clamped)
 function IncomeSystem:countElapsedHours(env)
     -- A change was already detected, so at least one transition happened

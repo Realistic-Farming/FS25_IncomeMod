@@ -29,15 +29,20 @@
 
 IncomeSettingsHubBridge = IncomeSettingsHubBridge or {}
 
+-- IM-6: the pay amount and the pay mode are the host's, changed only through the
+-- IncomeSchedule path (validate, confirm, rebase, publish). SettingsHub neither lists
+-- them nor writes them: a stale mirror or a ledger restore that still carries either
+-- key finds no definition here and changes nothing.
+IncomeSettingsHubBridge.RETIRED_KEYS = { payMode = true, customAmount = true }
+
 local function applyChange(key, value)
+    if IncomeSettingsHubBridge.RETIRED_KEYS[key] then return end
     local im = g_IncomeManager
     if im == nil or im.settings == nil then return end
     local s = im.settings
 
     if key == "difficulty" then
         s:setDifficulty(value)
-    elseif key == "payMode" then
-        s:setPayMode(value)
     elseif key == "showHUD" then
         s.showHUD = value
         if im.incomeHUD then im.incomeHUD.visible = value end
@@ -60,10 +65,8 @@ function IncomeSettingsHubBridge.register(im)
 
     local defs = {
         { id = "enabled",           type = "bool", default = s.enabled,           adminOnly = true,  label = "Income Mod Enabled" },
-        { id = "payMode",           type = "enum", default = s.payMode,           adminOnly = true,  values = { 1, 2 },       label = "Pay Mode (1=Hourly, 2=Daily)" },
         { id = "difficulty",        type = "enum", default = s.difficulty,        adminOnly = true,  values = { 1, 2, 3 },    label = "Difficulty (1=Easy, 2=Normal, 3=Hard)" },
         { id = "incomeMultiplier",  type = "enum", default = s.incomeMultiplier,  adminOnly = true,  values = { 1, 2, 3, 4 }, label = "Income Multiplier Index (1x/2x/5x/10x)" },
-        { id = "customAmount",      type = "int",  default = s.customAmount,      adminOnly = true,  min = 0, max = 999999, label = "Custom Payment Amount" },
         { id = "seasonalEffects",   type = "bool", default = s.seasonalEffects,   adminOnly = true,  label = "Seasonal Effects" },
         { id = "showNotifications", type = "bool", default = s.showNotifications, adminOnly = false, label = "Show Notifications" },
         { id = "showHUD",           type = "bool", default = s.showHUD,           adminOnly = false, label = "Show HUD" },

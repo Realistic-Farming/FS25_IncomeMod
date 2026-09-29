@@ -46,6 +46,15 @@ function IncomeManager.new(mission, modDirectory, modName)
     -- RSF-F309 item 6: owner sessions die with their connection.
     IncomeManager.installLoanSessionTeardown()
 
+    -- IM-6: the host's runtime settings revision, and on a client the host's last
+    -- accepted view (nil until it arrives: readers show WAITING, never local values).
+    self.scheduleRevision = 1
+    self.scheduleView = nil
+    self._scheduleSequence = 0
+    self._schedulePending = {}
+    self._schedulePublished = nil
+    self._schedulePublishTimer = 0
+
     -- UI injection and HUD: client-side only
     if mission:getIsClient() and g_gui then
         self.settingsUI = SettingsUI.new(self.settings)
@@ -217,6 +226,11 @@ function IncomeManager:onMissionLoaded()
         self.incomeSystem:initialize()
     end
 
+    -- IM-6: a client shows WAITING until the host's accepted view arrives.
+    if g_currentMission ~= nil and g_currentMission.getIsServer ~= nil and not g_currentMission:getIsServer() then
+        self:requestIncomeSchedule(IncomeSchedule.OP.VIEW)
+    end
+
     -- Restore HUD layout (position/scale) saved by the player
     if self.incomeHUD then
         self.incomeHUD:loadLayout()
@@ -287,6 +301,14 @@ function IncomeManager:update(dt)
     end
     if self.incomeHUD then
         self.incomeHUD:update(dt)
+    end
+    -- IM-6: the host republishes its view when it moves (a month-length change at the
+    -- season boundary, a new season's factor, or a setting changed on another path).
+    -- Checked at most once a second; a view that did not move sends nothing.
+    self._schedulePublishTimer = (self._schedulePublishTimer or 0) + (dt or 0)
+    if self._schedulePublishTimer >= IncomeManager.SCHEDULE_PUBLISH_INTERVAL_MS then
+        self._schedulePublishTimer = 0
+        self:publishIncomeScheduleView(false)
     end
 end
 
@@ -954,6 +976,130 @@ function IncomeManager:handleEmergencyLoanRequest(event, connection)
 end
 
 -- =========================================================
+-- IM-6: income schedule host authority
+-- =========================================================
+
+IncomeManager.SCHEDULE_PUBLISH_INTERVAL_MS = 1000
+
+local function isHost()
+    return g_currentMission ~= nil and g_currentMission.getIsServer ~= nil and g_currentMission:getIsServer() == true
+end
+
+local function copyView(v)
+    if type(v) ~= "table" then return nil end
+    local c = {}
+    for k, val in pairs(v) do c[k] = val end
+    return c
+end
+
+--- The accepted view for readers. The host computes it from its own settings; a client
+--- returns a copy of the host's last published view, or before the first one a view that
+--- is WAITING and carries nothing else (no amount, default or estimate of its own).
+function IncomeManager:getIncomeScheduleView()
+    if isHost() then
+        return IncomeSchedule.buildView(self.settings, self.incomeSystem, self.scheduleRevision, true)
+    end
+    return copyView(self.scheduleView) or { paymentState = IncomeSchedule.STATE.WAITING }
+end
+
+--- Server: one request from a remote connection. Returns the reply payload.
+function IncomeManager:handleIncomeScheduleRequest(event, connection)
+    local req = {
+        sequence   = event.sequence,
+        operation  = event.operation,
+        amountText = event.amountText,
+        mode       = event.mode,
+        revision   = event.revision,
+        confirm    = event.confirm,
+    }
+    return IncomeSchedule.serve(self, IncomeSchedule.isAdmin(connection), req)
+end
+
+--- Ask the host. On the host itself (single player, a listen host's own UI, a
+--- dedicated server's console) the request is served at once as the local server
+--- actor and `onReply` runs before this returns; on a client it is sent, and
+--- `onReply` runs when the reply arrives. Returns true when served or sent.
+function IncomeManager:requestIncomeSchedule(operation, amountText, mode, revision, confirm, onReply)
+    if isHost() then
+        local reply = IncomeSchedule.serve(self, IncomeSchedule.isAdmin(nil), {
+            sequence = 0, operation = operation, amountText = amountText or "",
+            mode = mode or 0, revision = revision or 0, confirm = confirm == true,
+        })
+        if onReply ~= nil then onReply(reply) end
+        return true
+    end
+    if g_client == nil or g_client.getServerConnection == nil or IncomeScheduleEvent == nil then
+        return false
+    end
+    self._scheduleSequence = (self._scheduleSequence or 0) % IncomeSchedule.MAX_SEQUENCE + 1
+    local sequence = self._scheduleSequence
+    if onReply ~= nil then self._schedulePending[sequence] = onReply end
+    local ok = pcall(function()
+        g_client:getServerConnection():sendEvent(IncomeScheduleEvent.newRequest(
+            sequence, operation, amountText, mode, revision, confirm))
+    end)
+    if not ok then self._schedulePending[sequence] = nil end
+    return ok
+end
+
+--- Client: keep the host's view. A view that does not state canEdit (a broadcast)
+--- keeps this client's last stated capability.
+function IncomeManager:_keepScheduleView(view)
+    if type(view) ~= "table" then return end
+    if view.canEdit == nil and self.scheduleView ~= nil then
+        view.canEdit = self.scheduleView.canEdit
+    end
+    self.scheduleView = view
+end
+
+--- Client: the reply to one of this client's requests. An accepted preview carries the
+--- hypothetical result, not the host's accepted view, so only the other replies (and
+--- every refusal, which carries the current view) replace this client's copy.
+function IncomeManager:onIncomeScheduleReply(payload)
+    if type(payload) ~= "table" then return end
+    local OP = IncomeSchedule.OP
+    local isPreview = payload.operation == OP.PREVIEW or payload.operation == OP.RESET_PREVIEW
+    if payload.status ~= "OK" or not isPreview then
+        self:_keepScheduleView(payload.view)
+    end
+    local callback = self._schedulePending[payload.sequence]
+    self._schedulePending[payload.sequence] = nil
+    if callback ~= nil then
+        local ok, err = pcall(callback, payload)
+        if not ok then Logging.warning("Income Mod: schedule reply handler failed: %s", tostring(err)) end
+    end
+    if self.settingsUI ~= nil and self.settingsUI.refreshUI ~= nil then pcall(self.settingsUI.refreshUI, self.settingsUI) end
+end
+
+--- Client: the host published its view to everyone.
+function IncomeManager:onIncomeScheduleView(view)
+    self:_keepScheduleView(view)
+    if self.settingsUI ~= nil and self.settingsUI.refreshUI ~= nil then pcall(self.settingsUI.refreshUI, self.settingsUI) end
+end
+
+local function viewSignature(v)
+    if v == nil then return "" end
+    return table.concat({
+        tostring(v.revision), tostring(v.unit), tostring(v.amount), tostring(v.defaultAmount),
+        tostring(v.payment), tostring(v.paymentThisSeason), tostring(v.daysThisMonth),
+        tostring(v.paymentsThisMonth), tostring(v.monthEstimate), tostring(v.paymentState),
+        tostring(v.legacyOverCap),
+    }, "|")
+end
+
+--- Server: send the view to every client. `force` sends even when it did not move
+--- (an accepted change); otherwise only a view that moved is sent.
+function IncomeManager:publishIncomeScheduleView(force)
+    if not isHost() or g_server == nil or g_server.broadcastEvent == nil then return false end
+    local view = IncomeSchedule.buildView(self.settings, self.incomeSystem, self.scheduleRevision, nil)
+    local signature = viewSignature(view)
+    if not force and signature == self._schedulePublished then return false end
+    self._schedulePublished = signature
+    g_server:broadcastEvent(IncomeScheduleEvent.newView(view), false)
+    return true
+end
+
+-- =========================================================
 -- Cleanup
 -- =========================================================
 
@@ -967,6 +1113,8 @@ function IncomeManager:delete()
     -- and end with the mission; the debt revision persists in the save, so a token from
     -- before a reload can never be accepted after it.
     self._loanSessions = nil
+    -- IM-6: pending schedule callbacks belong to this mission.
+    self._schedulePending = {}
 
     -- Remove action events for I key (HUD) and U key (Report)
     if self.toggleHUDEventId and g_inputBinding then
