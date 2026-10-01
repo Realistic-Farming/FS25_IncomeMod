@@ -110,7 +110,10 @@ function IncomeManager.new(mission, modDirectory, modName)
 
                     -- HUD toggle: I key
                     local hudOk, hudId = false, nil
-                    if not __rfMhOwnsHudKeys() then
+                    -- MasterHUD owns the key: skipping it is deliberate, not a failure
+                    -- (MAINTENANCE row 193), so the line below says so at info.
+                    local mhOwnsHudKeys = __rfMhOwnsHudKeys()
+                    if not mhOwnsHudKeys then
                         hudOk, hudId = g_inputBinding:registerActionEvent(
                             InputAction.IM_TOGGLE_HUD,
                             g_IncomeManager,
@@ -124,6 +127,8 @@ function IncomeManager.new(mission, modDirectory, modName)
                     if hudOk and hudId then
                         g_IncomeManager.toggleHUDEventId = hudId
                         Logging.info("Income Mod: HUD toggle registered")
+                    elseif mhOwnsHudKeys then
+                        Logging.info("Income Mod: HUD toggle left to MasterHUD")
                     else
                         Logging.warning("Income Mod: HUD toggle registration failed")
                     end
