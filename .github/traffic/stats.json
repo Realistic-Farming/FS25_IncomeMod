@@ -33949,55 +33949,55 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-10-04T00:10:04Z",
+    "timestamp": "2026-10-04T06:28:05Z",
     "date": "2026-10-04",
     "views": {
-      "count": 115,
-      "uniques": 42
+      "count": 113,
+      "uniques": 43
     },
     "clones": {
-      "count": 665,
-      "uniques": 258
+      "count": 590,
+      "uniques": 240
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 43,
+        "count": 41,
         "uniques": 24
       },
       {
         "referrer": "Google",
-        "count": 9,
-        "uniques": 6
-      },
-      {
-        "referrer": "kingmods.net",
-        "count": 2,
-        "uniques": 2
+        "count": 14,
+        "uniques": 8
       },
       {
         "referrer": "realisticfarming.com",
         "count": 2,
         "uniques": 2
+      },
+      {
+        "referrer": "kingmods.net",
+        "count": 1,
+        "uniques": 1
       }
     ],
     "popular_paths": [
       {
         "path": "/Realistic-Farming/FS25_IncomeMod",
         "title": "Overview",
-        "count": 60,
-        "uniques": 36
+        "count": 61,
+        "uniques": 37
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.2.0.0",
         "title": "/releases/tag/v2.2.0.0",
         "count": 18,
-        "uniques": 14
+        "uniques": 15
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases",
         "title": "/releases",
-        "count": 16,
+        "count": 14,
         "uniques": 5
       },
       {
