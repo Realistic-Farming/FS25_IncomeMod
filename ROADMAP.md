@@ -37,3 +37,8 @@
 
 ## Deferred / parked
 - Activity-gated pay (a wage rather than a baseline income): parked; wages are WorkerCosts/ProStaff territory.
+
+## 2026-10-04 (Fred): the shared RF Esc door at the suite's STOCK page set (Wizard, #95)
+
+- [x] The four shared Esc door files (`xml/gui/RfPdaMenuPage.xml`, `src/gui/RfPdaMenuPage.lua`, `src/gui/RfEscModules.lua`, `xml/gui/rfEscProfiles.xml`) are at the set every door mod carries, byte-same in all ten (Wizard's STOCK page chain build, #95, merged at 1751e5d4): wider sheet cells, the explanation band at up to four lines, the ids and callbacks StockGuard's STOCK page uses (inert without StockGuard), the hidden ids and profiles of DairyCore's herd-advisory panel, ProStaff in the closed-module list, and Soil Fertilizer's AUTO target card kept.
+- The door's in-game check is TESTING row 414. Docs by Fred's catch-up, on Tyson's word of 2026-10-04.

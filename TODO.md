@@ -31,3 +31,8 @@
 
 ## Blocked / waiting on
 - [~] Bedrock 3/4 done (StateLedger + MasterHUD + SettingsHub, delegate-when-present); NetworkSync remaining.
+
+## 2026-10-04 (Fred): the shared RF Esc door (Wizard, #95)
+
+- [x] The four shared door files at the suite's STOCK page set, byte-same in all ten door mods; StockGuard's STOCK page chrome inert without StockGuard; the herd-advisory panel hidden.
+- [~] In game (owed): TESTING row 414.
