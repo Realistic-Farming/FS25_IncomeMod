@@ -47,3 +47,8 @@
 
 - [x] The shared Esc door file `xml/gui/RfPdaMenuPage.xml`, byte-same in all ten door mods (Wizard, #97, merged at b31d20c3): the side info boxes (`rfSideInfoShell`, `wcSideInfoShell`, `mdSideInfoShell`, `csSideInfoShell`) take an explicit position and size, 16 px further right and 16 px narrower (384 to 368 px), so the dark box starts clear of the selected tab's lime edge and its right edge stays where it was. The side text bodies narrow by the same 16 px, to 352 px (the main side text, from 368) and 348 px (the Worker Costs and Market Dynamics side help, from 364), so the text starts 16 px further right and each line ends where it did.
 - The change's in-game check is TESTING row 451. Docs by Fred's catch-up, on Tyson's word of 2026-10-05.
+
+## 2026-10-08 (Fred): the SettingsHub bridge saves on the server only (MAINTENANCE row 253)
+
+- [x] The bridge's `applyChange` ended in `s:save()` on every peer, so a client reached through its own SettingsHub would write its own unsynced settings file (a joined client's savegame directory is set). It now applies the value on every peer and saves only on the server. SettingsHub #24 already calls a selfPersisted module's onChange on the server only; this keeps the bridge safe on its own. Design origin none.
+- The in-game check is TESTING row 513.

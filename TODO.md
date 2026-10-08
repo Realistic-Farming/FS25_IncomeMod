@@ -41,3 +41,8 @@
 
 - [x] The side info boxes start clear of the selected tab; text bodies 352 and 348 px wide, so line length and the right edge are unchanged; byte-same in all ten door mods.
 - [~] In game (owed): TESTING row 451.
+
+## 2026-10-08 (Fred): SettingsHub bridge server guard (MAINTENANCE row 253)
+
+- [x] `src/settings/SettingsHubBridge.lua` `applyChange`: save behind `g_server ~= nil`. Bar `IM6-A-host_authority_test.lua` group M; battery `tools/test/mutate_maint253.py`, 1 of 1.
+- [~] In game (owed): TESTING row 513.

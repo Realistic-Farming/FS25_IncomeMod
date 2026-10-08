@@ -50,7 +50,13 @@ local function applyChange(key, value)
         s[key] = value
     end
 
-    s:save()
+    -- [MAINTENANCE row 253] Save only where the game saves: on the server. A joined client's
+    -- savegameDirectory is set (<profile>/savegame0), so a save here would write the client's own
+    -- unsynced settings file. SettingsHub calls a selfPersisted module's onChange on the server only
+    -- (SettingsHub #24); this guard keeps the bridge safe on its own.
+    if g_server ~= nil then
+        s:save()
+    end
     if im.settingsUI then im.settingsUI:refreshUI() end
 end
 
