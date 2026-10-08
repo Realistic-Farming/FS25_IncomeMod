@@ -42,6 +42,9 @@
 --      broadcast keeps each client's own capability; the throttled republish; a client
 --      whose first request was lost asks again while it waits
 --   L  the Reset preview lists exactly what the real Settings:resetToDefaults writes
+--   M  MAINTENANCE row 253: a client registered with its own SettingsHub through the real
+--      onMissionLoaded applies a change through the registered callback and saves nothing; the
+--      host still saves through the same callback
 
 local HOUR, MINUTE = F282Env.HOUR, 60000
 local OP = IncomeSchedule.OP
@@ -176,7 +179,7 @@ local function newHost(file, opts)
     return host
 end
 
-local function newClient(name, master)
+local function newClient(name, master, hubOut)
     local c = { name = name, outbox = {}, console = {} }
     c.conn = { sent = {} }            -- the host's connection object for this client
     function c.conn:sendEvent(ev) self.sent[#self.sent + 1] = ev end
@@ -190,6 +193,8 @@ local function newClient(name, master)
         getFarmId = function() return 1 end,
         addMoney = function() c.moneyWritten = true end,
         addIngameNotification = function() end,
+        -- MAINTENANCE row 253: a client's own SettingsHub, when the group asks for one.
+        settingsHub = hubOut and { registerModule = function(_self, name, spec) hubOut[name] = spec end } or nil,
     }
     c.client = { getServerConnection = function()
         return { sendEvent = function(_self, ev) c.outbox[#c.outbox + 1] = ev end }
@@ -782,4 +787,29 @@ do
     local items = 0
     for _ in ((en or ""):match(":%s*(.-)%.?$") or ""):gmatch("[^,]+") do items = items + 1 end
     T.eq("L6 the Esc confirm lists one item per setting Reset writes", items, #order)
+end
+
+-- ═════════════════════════════════════════════════════════════════
+-- M. MAINTENANCE row 253: SETTINGSHUB ON A CLIENT APPLIES AND WRITES NOTHING
+-- ═════════════════════════════════════════════════════════════════
+do
+    newHost({ payMode = DAILY, customAmount = 5000 })
+    local clientHub = {}
+    local a = newClient("a", true, clientHub); pump(a)
+    -- A joined client's savegameDirectory is set (JoinGameScreen.lua:630, FSCareerMissionInfo.lua:13, :451-452).
+    a.mission.missionInfo.savegameDirectory = "profile/savegame0"
+    asClient(a)
+    local mod = clientHub.IncomeMod
+    T.ok("M1 [reached] the client registered with its own SettingsHub through the real onMissionLoaded",
+        mod ~= nil and type(mod.onChange) == "function")
+    local was = a.mgr.settings.seasonalEffects
+    local before = saves
+    mod.onChange("seasonalEffects", not was, 3)
+    T.eq("M2 the client applies the value through the registered callback", a.mgr.settings.seasonalEffects, not was)
+    T.eq("M3 and writes no settings file", saves - before, 0)
+    asHost()
+    local hostWas = host.mgr.settings.seasonalEffects
+    local hostBefore = saves
+    hubModules.IncomeMod.onChange("seasonalEffects", not hostWas, 3)
+    T.eq("M4 the host still saves through the same callback", saves - hostBefore, 1)
 end
