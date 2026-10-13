@@ -26,6 +26,13 @@ ReleaseGate.EXPERIMENTAL = {
         name = "Emergency loan cost elaboration",
         status = "the loan itself stays available; its escalation and compounding interest are locked",
     },
+    -- IM-6: the typed Esc amount control and the schedule's explanatory presentation.
+    -- The host authority itself (the event, console, Esc mode and Reset, the SettingsHub
+    -- retirement) is active in every build; scheduled income stays available.
+    im6_income_schedule = {
+        name = "Configurable roleplay income (typed amount and schedule explanation)",
+        status = "awaiting live multiplayer, player-surface and balance observations",
+    },
 }
 
 -- Console command -> systemId, so command refusals route through the same registry.

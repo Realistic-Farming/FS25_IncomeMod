@@ -124,7 +124,10 @@ do
     T.near("payoff includes the undisplayed fraction", payoff, 100.375, 1e-9)
     loan2:applyManualPayment(1, payoff)
     T.eq("fractional payoff leaves no residue", loan2:getOutstanding(1), 0)
-    T.ok("the paid line is retired", loan2.debts[1] == nil)
+    -- RSF-F309 item 2: retirement KEEPS the record (inactive, zeroed, revision advanced)
+    -- so the next draw inherits the history; before F309 this row asserted deletion.
+    T.ok("the paid line is retired but its record is kept", loan2.debts[1] ~= nil and loan2.debts[1].active == false)
+    T.eq("the retired record carries no principal", loan2.debts[1].principal, 0)
 
     -- Automatic repayment floors the 25% share.
     local loan3 = newLoan(NORMAL)

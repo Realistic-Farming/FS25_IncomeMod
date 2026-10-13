@@ -272,9 +272,13 @@ function EmergencyLoanEvent:writeStream(streamId, connection)
         streamWriteString(streamId, tostring(p.status or "UNAVAILABLE"))
         streamWriteUIntN(streamId, math.max(0, math.min(tonumber(p.sequence) or 0, EmergencyLoanController.MAX_SEQUENCE)), 31)
         -- Essential money fields as validated decimal text (coercion-proof on the wire).
-        streamWriteString(streamId, string.format("%.6f", tonumber(p.cash) or 0))
-        streamWriteString(streamId, string.format("%.6f", tonumber(p.outstanding) or 0))
-        streamWriteString(streamId, string.format("%.6f", tonumber(p.offer) or 0))
+        -- RSF-F309 item 1: an UNKNOWN amount encodes as "" (encodeAmount), never as a
+        -- confident 0. The old `tonumber(x) or 0` made "unknown" arrive as "nothing
+        -- owed" on a pure client mid-load. Wire-compatible: still one string per
+        -- field, and an old peer's tonumber("") is nil, which then hits its own `or 0`.
+        streamWriteString(streamId, EmergencyLoanController.encodeAmount(p.cash))
+        streamWriteString(streamId, EmergencyLoanController.encodeAmount(p.outstanding))
+        streamWriteString(streamId, EmergencyLoanController.encodeAmount(p.offer))
         streamWriteBool(streamId, p.canBorrow == true)
         streamWriteBool(streamId, p.canRepay == true)
         streamWriteString(streamId, tostring(p.token or ""):sub(1, EmergencyLoanController.MAX_TOKEN_LEN))
@@ -395,9 +399,10 @@ function EmergencyLoanEvent:readStream(streamId, connection)
         self.payload = {
             status      = streamReadString(streamId),
             sequence    = streamReadUIntN(streamId, 31),
-            cash        = tonumber(streamReadString(streamId)),
-            outstanding = tonumber(streamReadString(streamId)),
-            offer       = tonumber(streamReadString(streamId)),
+            -- RSF-F309 item 1: parseAmount keeps "" as nil (unknown) and a real "0" as 0.
+            cash        = EmergencyLoanController.parseAmount(streamReadString(streamId)),
+            outstanding = EmergencyLoanController.parseAmount(streamReadString(streamId)),
+            offer       = EmergencyLoanController.parseAmount(streamReadString(streamId)),
             canBorrow   = streamReadBool(streamId),
             canRepay    = streamReadBool(streamId),
             token       = streamReadString(streamId),

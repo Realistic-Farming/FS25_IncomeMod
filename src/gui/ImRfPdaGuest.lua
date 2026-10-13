@@ -497,11 +497,17 @@ function ImRfPdaGuest._paintShow(container, lightOnly)
     local emptyEl = findDescendant(container, "rfFwEmptyHint")
 
     local mgr = getMgr()
-    local s = mgr and mgr.settings
+    -- IM-6 (brief 3.6): the host's accepted view, never this machine's own settings.
+    local view = IncomeSchedule.readerView(mgr)
+    local s = mgr and IncomeSchedule.readerSettings(view)
     local sys = mgr and mgr.incomeSystem
     if mgr == nil or s == nil then
         setVis(titleEl, true)
-        setText(titleEl, tr("im_rf_pda_waiting", "Income manager not ready"))
+        if mgr == nil then
+            setText(titleEl, tr("im_rf_pda_waiting", "Income manager not ready"))
+        else
+            setText(titleEl, tr("im6_waiting", "Waiting for the host's income settings."))
+        end
         clearRows(container)
         setVis(emptyEl, false)
         setText(emptyEl, "")
@@ -522,10 +528,10 @@ function ImRfPdaGuest._paintShow(container, lightOnly)
     setText(titleEl, summary)
 
     local nextPay = "--"
-    if sys ~= nil and sys.isInitialized and type(sys.getNextPaymentInfo) == "function" then
-        nextPay = sys:getNextPaymentInfo() or "--"
-    elseif sys == nil or not sys.isInitialized then
+    if sys == nil or not sys.isInitialized then
         nextPay = tr("im_rf_pda_waiting_init", "waiting")
+    else
+        nextPay = IncomeSchedule.nextPaymentInfo(view) or "--"
     end
 
     local history = (sys and sys.paymentHistory) or {}
@@ -543,6 +549,10 @@ function ImRfPdaGuest._paintShow(container, lightOnly)
             tr("im_rf_pda_lbl_recent", "Recent ring"), formatMoney(total), formatMoney(avg), n, HISTORY_CAP)
     end
     moreParts[#moreParts + 1] = tr("im_rf_pda_cap_note", "System keeps last 10 payments only (true data cap).")
+    -- IM-6, LOCKED behind im6_income_schedule: the month at this rate and every active farm.
+    if IncomeSchedule.explanationReleased() then
+        for _, line in ipairs(IncomeSchedule.explanationLines(view)) do moreParts[#moreParts + 1] = line end
+    end
     setText(moreEl, table.concat(moreParts, "  ·  "))
     setText(hintEl, optionalHint(s))
 

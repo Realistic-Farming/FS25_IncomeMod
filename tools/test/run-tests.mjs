@@ -38,9 +38,13 @@ function parseTexts(src) {
 
 // Embed a file's bytes as a Lua long string, picking a bracket level the content
 // cannot close early. A leading newline is added because Lua drops the first one.
+// MAINTENANCE row 113 (row 87's defect, FertilizerDepot #80's line): the level is chosen
+// from the text WITH the closer's "]" appended, so a file whose last characters meet the
+// closing bracket (ending in "]" at level 0, or "]=" at level 1) cannot close the string
+// early. The bar is MAINT-113-long_string_boundary_test.lua.
 function luaLongString(text) {
   let eq = "";
-  while (text.includes("]" + eq + "]")) eq += "=";
+  while ((text + "]").includes("]" + eq + "]")) eq += "=";
   return `[${eq}[\n${text}]${eq}]`;
 }
 
@@ -104,7 +108,21 @@ for (const tf of testFiles) {
 
   if (rc !== 0) {
     hadError = true;
-    console.log(c.red(`✗ ${c.bold(tf)} - Lua error while loading/running:`));
+    // Report what the file DID produce before it died, then the error.
+    //
+    // This branch used to `continue` immediately, discarding every ##TEST_PASS and
+    // ##TEST_FAIL the file had already emitted. A test that failed an assertion and
+    // then crashed reported only "Lua error", so the diagnosis it had already
+    // printed was thrown away by the reporter rather than never existing. That is
+    // the worst case to lose evidence in: a crash is exactly when you need to know
+    // which assertion went red first.
+    const crashPasses = [...out.matchAll(/^##TEST_PASS (.+)$/gm)].map((m) => m[1]);
+    const crashFails = [...out.matchAll(/^##TEST_FAIL (.+)$/gm)].map((m) => m[1]);
+    totalPass += crashPasses.length;
+    totalFail += crashFails.length;
+    console.log(c.red(`✗ ${c.bold(tf)} - Lua error while loading/running`) +
+      c.dim(` (${crashPasses.length} passed, ${crashFails.length} failed before the error)`));
+    for (const f of crashFails) console.log(`    ${c.red("FAIL")} ${f}`);
     console.log(`  ${c.red(errMsg || "(no message)")}`);
     continue;
   }

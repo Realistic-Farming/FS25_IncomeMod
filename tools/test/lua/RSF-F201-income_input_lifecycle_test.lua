@@ -4,6 +4,8 @@
 -- the edit label, the report handle, no failure log; a second callback trips the
 -- existing guard; delete removes all three and restores nothing; a second manager
 -- re-arms the same wrapper. Model binding, not the native InputBinding.
+-- MAINTENANCE row 193 (group E, F): with MasterHUD the skipped toggle is said at info,
+-- not as a failure; a genuine standalone failure still warns.
 
 local noop = function() end
 getfenv = getfenv or function() return _G end
@@ -23,8 +25,10 @@ IncomeHUD = { new = function() return { saveLayout = noop, delete = noop } end }
 IncomeReportDialog = { getInstance = function() return {} end }
 SettingsGUI = { new = function() return { registerConsoleCommands = noop } end }
 
-local warnings = 0
-Logging.warning = function() warnings = warnings + 1 end
+local warnings, warned, informed = 0, {}, {}
+Logging.warning = function(fmt, ...) warnings = warnings + 1 warned[#warned + 1] = string.format(fmt, ...) end
+Logging.info = function(fmt, ...) informed[#informed + 1] = string.format(fmt, ...) end
+local function has(list, text) for _, l in ipairs(list) do if l == text then return true end end return false end
 
 local b = F201Model.installEngine({ "IM_TOGGLE_HUD", "IM_HUD_EDIT", "IM_INCOME_REPORT" })
 local nativeCalls = 0
@@ -93,4 +97,20 @@ w(ic)
 T.eq("F201 Income E1 only the report registers under MasterHUD", b:totalIn("PLAYER"), 1)
 T.ok("F201 Income E2 report handle stored", im3.incomeReportEventId ~= nil)
 T.eq("F201 Income E3 toggle skipped", im3.toggleHUDEventId, nil)
-T.eq("F201 Income E4 the pre-existing gated failure line still prints (unchanged by F201)", warnings, 1)
+-- MAINTENANCE row 193: the deliberate skip is no failure. It printed one before.
+T.eq("F201 Income E4 no failure warning for the toggle MasterHUD owns", warnings, 0)
+T.ok("F201 Income E5 the skip is said at info", has(informed, "Income Mod: HUD toggle left to MasterHUD"))
+
+-- GROUP F: standalone, a registration that genuinely fails still warns
+im3.save = noop
+im3:delete()
+g_masterHUD = nil
+local im4 = IncomeManager.new(mission, "./", "FS25_IncomeMod")
+g_IncomeManager = im4
+warnings, warned, informed = 0, {}, {}
+b.refuseAll = true
+w(ic)
+b.refuseAll = false
+T.ok("F201 Income F1 [reached] the binding refused the toggle", b.refused > 0 and im4.toggleHUDEventId == nil)
+T.ok("F201 Income F2 a genuine failure still warns", has(warned, "Income Mod: HUD toggle registration failed"))
+T.ok("F201 Income F3 and does not claim MasterHUD has it", not has(informed, "Income Mod: HUD toggle left to MasterHUD"))

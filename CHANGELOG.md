@@ -13,6 +13,24 @@ the repo's git history and README.
 
 ## [Unreleased]
 
+## [2.3.0.0] - 2026-10-12
+
+> **This is not a final release.** It gives everyone, testers and players, new or returning, everything we have built so far, so nobody has to wait on an old version any longer. The Realistic Farming suite is far from done: we are still building and expanding every mod, and completing it could take months, possibly a year. Expect changes and rough edges along the way, and please report anything that looks wrong.
+
+### Changed
+- Income schedule (multiplayer): the pay amount and pay mode now change only on the host, after a preview you confirm. Switching mode or pressing Reset pays nothing at the moment of the switch, a non-administrator is refused, and Settings Hub no longer lists or writes the pay mode or amount.
+- The HUD, the income report and the Esc Realistic Farming page show the host's income schedule in multiplayer (not the joining player's own settings), say they are waiting until it arrives, and name the current seasonal adjustment. With Experimental Systems on, they also explain the month at this rate and that the amount applies to every active farm.
+
+### Fixed
+- Emergency loans: an amount the game does not know yet shows as Unavailable instead of 0, and the buttons only act on known amounts. Paying a loan off keeps its history, so the next loan's rate and quote are worked out correctly, and accepting a Borrow quote checks that it still fits your current cash instead of refusing over small cash changes.
+- Setting the clock backwards within a day no longer pays out the "missed" hours; the next real hour pays normally.
+- Multiplayer: a settings change made through Settings Hub is saved only by the host.
+- With Master HUD installed, Income Mod no longer logs a false "HUD toggle registration failed" warning at load.
+- Translations: the settings labels, help pages, pay-mode options, title and description no longer show garbled characters in eleven languages, and the mod manager shows Income Mod's own name in nine languages that had carried another mod's name. The Esc page legend shows a plain dot between page names.
+
+### Fixed
+- RSF-F282 follow-up: the code and test comments now say that the console setter holding the day is the design brief's reading of an engine branch that decompiles empty. No change to payments. (MAINTENANCE row 102.)
+
 ## [2.2.0.0] - 2026-09-18
 
 ### Added

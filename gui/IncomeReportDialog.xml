@@ -3,10 +3,11 @@
     <GuiElement profile="newLayer" />
     <Bitmap profile="dialogFullscreenBg" id="dialogBg" />
 
-    <!-- 640px tall: the content container is (height - 79px) and the button box sits
-         68px up from the bottom, so the loan band (top -434px, 120px tall, ends -554px)
-         stays inside the container (ends -565px) and clear of the buttons (-572px). -->
-    <GuiElement profile="dialogBg" id="dialogElement" size="760px 640px">
+    <!-- 680px tall: the content container is (height - 79px) and the button box sits
+         68px up from the bottom, so the loan band (top -474px, 120px tall, ends -594px)
+         stays inside the container (ends -601px) and clear of the buttons (-612px).
+         IM-6 added 40px above the band for the schedule estimate line (-434px, 36px). -->
+    <GuiElement profile="dialogBg" id="dialogElement" size="760px 680px">
         <ThreePartBitmap profile="fs25_dialogBgMiddle" />
         <ThreePartBitmap profile="fs25_dialogBgTop" />
         <ThreePartBitmap profile="fs25_dialogBgBottom" />
@@ -169,7 +170,11 @@
                    balance  -52px + 20px = -72px
                    missing  -74px + 36px = -110px (two wrapped lines)
                  Panels do not clip, so the band height must cover the last child. -->
-            <GuiElement profile="irLoanContainer" position="0px -434px">
+            <!-- IM-6, LOCKED behind im6_income_schedule: the month at this rate and every
+                 active farm. Empty and hidden while the gate is locked. -->
+            <Text profile="irLoanLineWrap" id="scheduleEstimateText" position="0px -434px" text="" visible="false"/>
+
+            <GuiElement profile="irLoanContainer" position="0px -474px">
                 <Bitmap profile="irLoanBg" position="0px 0px"/>
                 <Text profile="irLoanText" id="loanStatusText" position="0px -6px" text="$l10n_im_loan_none"/>
                 <Text profile="irLoanLine" id="loanForecastIncomeText" position="0px -30px" text=""/>

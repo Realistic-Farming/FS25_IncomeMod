@@ -218,6 +218,10 @@ function EmergencyLoan:onInterestSettle(farmId, ctx)
     if rate <= 0 then return end
     local grown = outstanding * ((1.0 + rate) ^ n - 1.0)
     debt.accruedInterest = (debt.accruedInterest or 0) + grown
+    -- RSF-F309 item 4: a settle that grew the debt is a revision. A quote bound to
+    -- the pre-settle revision is stale afterwards, so an acceptance cannot pay a
+    -- sum computed before the interest landed.
+    if grown > 0 then debt.revision = (debt.revision or 0) + 1 end
 
     Logging.info("Income Mod: Emergency loan farm %s interest +%.2f (rate %.3f, x%d)",
         tostring(farmId), grown, rate, n)
@@ -617,12 +621,19 @@ end
 
 --- Grant a fresh loan (server-authoritative). A per-farm guard prevents stacking a
 --- second fresh loan; a re-draw grows the ONE line via redraw().
-function EmergencyLoan:grant(farmId)
+--- RSF-F309 items 3 and 5. `boundAmount` is the sum the accepted quote bound; when
+--- given it is paid as is, never recomputed here (the handler has already verified
+--- the recomputation matches). A retired record's draw history is INHERITED: the
+--- new draw is drawCount + 1 and revision + 1 over the retained values, never 1, so
+--- the escalation reads the farm's real history.
+---@param farmId number
+---@param boundAmount number|nil
+function EmergencyLoan:grant(farmId, boundAmount)
     if g_server == nil then return false, 0 end
     if self.readiness == EmergencyLoan.READINESS.UNAVAILABLE then return false, 0 end
     if self.debts[farmId] and self.debts[farmId].active then return false, 0 end
 
-    local amount = self:computeOffer(farmId)
+    local amount = boundAmount or self:computeOffer(farmId)
     if not amount or amount <= 0 then return false, 0 end
 
     if g_currentMission and g_currentMission.addMoney then
@@ -631,12 +642,13 @@ function EmergencyLoan:grant(farmId)
         return false, 0
     end
 
+    local prior = self.debts[farmId]
     local drawMonth = self:currentMonthCounter()
     self.debts[farmId] = {
         principal       = amount,
         accruedInterest = 0,
-        drawCount       = 1,
-        revision        = 1,
+        drawCount       = ((prior and prior.drawCount) or 0) + 1,
+        revision        = ((prior and prior.revision) or 0) + 1,
         active          = true,
         lastSettledMonth = drawMonth,
         interestEligibleFromMonth = drawMonth and (drawMonth + 2) or nil,
@@ -648,12 +660,14 @@ function EmergencyLoan:grant(farmId)
 end
 
 --- Re-draw: grow the existing line (steps amount + cost). Falls back to grant if none.
-function EmergencyLoan:redraw(farmId)
+---@param farmId number
+---@param boundAmount number|nil the sum the accepted quote bound (RSF-F309 item 5)
+function EmergencyLoan:redraw(farmId, boundAmount)
     if g_server == nil then return false, 0 end
     local debt = self.debts[farmId]
-    if not debt or not debt.active then return self:grant(farmId) end
+    if not debt or not debt.active then return self:grant(farmId, boundAmount) end
 
-    local amount = self:computeOffer(farmId)
+    local amount = boundAmount or self:computeOffer(farmId)
     if not amount or amount <= 0 then return false, 0 end
 
     if g_currentMission and g_currentMission.addMoney then
@@ -742,14 +756,48 @@ function EmergencyLoan:applyRepayment(farmId, incomeAmount)
         g_currentMission:addMoney(-deduct, farmId, MoneyType.OTHER, true)
     end
     if not d.active then
-        self.debts[farmId] = nil
-        self:unregisterInterestAccrual(farmId)
+        self:retireDebt(farmId, d)
     end
     Logging.info("Income Mod: Emergency loan repayment -%.0f for farm %s", deduct, tostring(farmId))
     return deduct
 end
 
 --- The exact remaining payoff amount (principal + all accrued interest), full precision.
+--- RSF-F309 item 2: retirement KEEPS the record. A paid-off debt used to be deleted
+--- (`self.debts[farmId] = nil`), which erased the draw history the escalation reads
+--- (effectiveRate counts re-draws from drawCount) and the revision every quote binds
+--- to. Now the record stays with active=false, principal and interest at 0, drawCount
+--- kept, revision advanced, and only the accrual subscription is dropped. deserialize
+--- already loads an inactive record as inactive (active only when the total is
+--- positive) and the load re-registers accrual only for active positive debt, so a
+--- retained record cannot resurrect.
+function EmergencyLoan:retireDebt(farmId, d)
+    if d == nil then return end
+    d.active = false
+    d.principal = 0
+    d.accruedInterest = 0
+    d.revision = (d.revision or 0) + 1
+    self:unregisterInterestAccrual(farmId)
+end
+
+--- RSF-F309 item 5: the terms a borrow quote is bound to, beside amount, revision,
+--- readiness and cash. These are the inputs computeOffer depends on that can change
+--- between the quote and its acceptance without the debt revision moving: the period
+--- length, the difficulty (rates and the repayment share) and the income settings the
+--- basis is sized from. Opaque text: equal means the terms have not moved.
+---@return string
+function EmergencyLoan:quoteTerms()
+    local env = g_currentMission and g_currentMission.environment
+    local settings = self.incomeSystem and self.incomeSystem.settings
+    return table.concat({
+        tostring(env and env.daysPerPeriod),
+        tostring(self.settings and self.settings.difficulty),
+        tostring(settings and settings.enabled),
+        tostring(settings and settings.payMode),
+        tostring(EmergencyLoan.REPAYMENT_SHARE),
+    }, "|")
+end
+
 function EmergencyLoan:payoffAmount(farmId)
     return self:getOutstanding(farmId)
 end
@@ -768,8 +816,7 @@ function EmergencyLoan:applyManualPayment(farmId, amount)
         g_currentMission:addMoney(-applied, farmId, MoneyType.OTHER, true)
     end
     if not d.active then
-        self.debts[farmId] = nil
-        self:unregisterInterestAccrual(farmId)
+        self:retireDebt(farmId, d)
     end
     Logging.info("Income Mod: Emergency loan manual payment -%.2f for farm %s", applied, tostring(farmId))
     return applied
@@ -824,8 +871,10 @@ function EmergencyLoan:getView(farmId, actorContext)
         principal = principal,
         accruedInterest = accrued,
         outstanding = outstanding,
-        drawCount = debt and debt.drawCount or 0,
-        effectiveMonthlyRate = self:isCostReady() and (debt and self:effectiveRate(debt) or 0) or 0,
+        -- RSF-F309 item 2: a retained but retired record publishes a NEUTRAL view (no
+        -- draws, no rate); its history is read by the next grant, not shown as live.
+        drawCount = (debt and debt.active) and debt.drawCount or 0,
+        effectiveMonthlyRate = self:isCostReady() and ((debt and debt.active) and self:effectiveRate(debt) or 0) or 0,
         costLockReason = self:costLockReason(),
         automaticRepaymentShare = EmergencyLoan.REPAYMENT_SHARE,
         forecastStatus = f.forecastStatus,
