@@ -22,7 +22,6 @@ IncomeModModName = IncomeModModName or g_currentModName or "FS25_IncomeMod"
 local modDirectory = IncomeModModDirectory
 local modName = IncomeModModName
 
--- Load order matters: Settings before UI, UI before Core
 source(modDirectory .. "src/integrations/OptionScalingResolver.lua")
 source(modDirectory .. "src/settings/SettingsManager.lua")
 source(modDirectory .. "src/settings/Settings.lua")
