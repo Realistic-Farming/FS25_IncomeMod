@@ -52,3 +52,8 @@
 
 - [x] The bridge's `applyChange` ended in `s:save()` on every peer, so a client reached through its own SettingsHub would write its own unsynced settings file (a joined client's savegame directory is set). It now applies the value on every peer and saves only on the server. SettingsHub #24 already calls a selfPersisted module's onChange on the server only; this keeps the bridge safe on its own. Design origin none.
 - The in-game check is TESTING row 513.
+
+## 2026-10-14 (Fred (via Desk)): keyboard defaults (Wizard, #99)
+
+- [x] Income Report is bound to Right Shift + R (it was unbound). Three rf_live_key_* strings are added with no reader in this mod, and one load-order comment line is removed from `src/main.lua`. (Wizard's #99, merged at e95423fd on 2026-10-13, one PR of his keyboard-defaults wave.)
+- The in-game check is TESTING row 535. Docs by Fred's catch-up (R-51), on Tyson's word of 2026-10-14.

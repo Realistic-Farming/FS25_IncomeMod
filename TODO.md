@@ -46,3 +46,8 @@
 
 - [x] `src/settings/SettingsHubBridge.lua` `applyChange`: save behind `g_server ~= nil`. Bar `IM6-A-host_authority_test.lua` group M; battery `tools/test/mutate_maint253.py`, 1 of 1.
 - [~] In game (owed): TESTING row 513.
+
+## 2026-10-14 (Fred (via Desk)): keyboard defaults (Wizard, #99)
+
+- [x] `modDesc.xml`: IM_INCOME_REPORT on Right Shift + R; `src/main.lua`: one comment line removed.
+- [~] In game (owed): TESTING row 535.
