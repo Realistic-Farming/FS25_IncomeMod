@@ -3582,5 +3582,22 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-10-15": [
+    {
+      "referrer": "github.com",
+      "count": 33,
+      "uniques": 20
+    },
+    {
+      "referrer": "Google",
+      "count": 14,
+      "uniques": 9
+    },
+    {
+      "referrer": "yandex.ru",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
