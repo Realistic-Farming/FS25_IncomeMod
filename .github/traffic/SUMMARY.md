@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-10-17T18:55:17Z
-**Days tracked:** 175 | **Download snapshots:** 567 (hourly)
+**Last updated:** 2026-10-18T06:42:55Z
+**Days tracked:** 176 | **Download snapshots:** 570 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 94 | 51 |
-| Git Clones | 483 | 200 |
+| Page Views | 87 | 50 |
+| Git Clones | 502 | 200 |
 
-> **Engagement:** 1.8 pages per visitor (14-day avg)
+> **Engagement:** 1.7 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 546 of 51 visitors cloned or downloaded (**1070.5%**)
+> **14-day conversion:** 548 of 50 visitors cloned or downloaded (**1096.0%**)
 >
-> Unique cloners: 200 | Release downloads: 346
+> Unique cloners: 200 | Release downloads: 348
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 346 |
-| Git Clones (14-day) | 483 |
-| **Total Acquisitions** | **829** |
+| Zip Downloads | 348 |
+| Git Clones (14-day) | 502 |
+| **Total Acquisitions** | **850** |
 
 ---
 
@@ -54,9 +54,9 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 30 | 20 |
-| Google | 15 | 11 |
-| realisticfarming.com | 2 | 2 |
+| github.com | 27 | 18 |
+| Google | 12 | 11 |
+| realisticfarming.com | 3 | 3 |
 | yandex.ru | 1 | 1 |
 
 ---
@@ -77,11 +77,12 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 56 | 39 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.3.0.0` | 15 | 14 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.2.0.0` | 12 | 12 |
+| `/Realistic-Farming/FS25_IncomeMod` | 50 | 37 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.3.0.0` | 16 | 15 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.2.0.0` | 9 | 9 |
 | `/Realistic-Farming/FS25_IncomeMod/releases` | 9 | 8 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/99` | 2 | 1 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.8.0` | 1 | 1 |
 
 ---
 
