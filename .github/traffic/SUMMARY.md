@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-10-21T00:20:36Z
-**Days tracked:** 178 | **Download snapshots:** 576 (hourly)
+**Last updated:** 2026-10-22T06:44:00Z
+**Days tracked:** 179 | **Download snapshots:** 580 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 91 | 53 |
-| Git Clones | 427 | 155 |
+| Page Views | 82 | 52 |
+| Git Clones | 421 | 152 |
 
-> **Engagement:** 1.7 pages per visitor (14-day avg)
+> **Engagement:** 1.5 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 508 of 53 visitors cloned or downloaded (**958.4%**)
+> **14-day conversion:** 510 of 52 visitors cloned or downloaded (**980.7%**)
 >
-> Unique cloners: 155 | Release downloads: 353
+> Unique cloners: 152 | Release downloads: 358
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 353 |
-| Git Clones (14-day) | 427 |
-| **Total Acquisitions** | **780** |
+| Zip Downloads | 358 |
+| Git Clones (14-day) | 421 |
+| **Total Acquisitions** | **779** |
 
 ---
 
@@ -54,7 +54,7 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 29 | 22 |
+| github.com | 22 | 19 |
 | Google | 11 | 10 |
 | realisticfarming.com | 4 | 4 |
 | yandex.ru | 1 | 1 |
@@ -77,10 +77,10 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 50 | 39 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.3.0.0` | 18 | 17 |
-| `/Realistic-Farming/FS25_IncomeMod/releases` | 13 | 11 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.2.0.0` | 7 | 7 |
+| `/Realistic-Farming/FS25_IncomeMod` | 44 | 38 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.3.0.0` | 19 | 18 |
+| `/Realistic-Farming/FS25_IncomeMod/releases` | 10 | 9 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.2.0.0` | 6 | 6 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/99` | 2 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.8.0` | 1 | 1 |
 
