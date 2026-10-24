@@ -179,7 +179,7 @@ local function newHost(file, opts)
     return host
 end
 
-local function newClient(name, master, hubOut)
+local function newClient(name, master, hubOut, deferEventId)
     local c = { name = name, outbox = {}, console = {} }
     c.conn = { sent = {} }            -- the host's connection object for this client
     function c.conn:sendEvent(ev) self.sent[#self.sent + 1] = ev end
@@ -201,6 +201,13 @@ local function newClient(name, master, hubOut)
     end }
     clients[#clients + 1] = c
     asClient(c)
+    -- In the ordinary connected world the host's EVENT_IDS message has landed.
+    -- The deferred case below exercises the real pre-mapping join window.
+    if deferEventId then
+        IncomeScheduleEvent.eventId = nil
+    else
+        IncomeScheduleEvent.eventId = 1
+    end
     console, settingsFile = c.console, {}      -- a client's own file holds the defaults
     local savesBefore = saves
     c.mgr = IncomeManager.new(c.mission, "./", "FS25_IncomeMod")
@@ -757,6 +764,24 @@ do
     c.mgr:update(3000)
     c.mgr:update(3000)
     T.eq("K14 once it holds a view it asks no more", #c.outbox, 0)
+end
+
+-- The event-id mapping can arrive after onMissionLoaded. The initial request must
+-- not claim a successful send; the existing timer must still deliver the view.
+do
+    newHost({ payMode = DAILY, customAmount = 5000 })
+    local c = newClient("pre-mapping", true, nil, true)
+    T.eq("K15 no event is sent before the host assigns its id", #c.outbox, 0)
+    local sent = c.mgr:requestIncomeSchedule(OP.PREVIEW, "5000", 0, 0, false, function() end)
+    T.eq("K16 a pre-mapping user request reports not sent", sent, false)
+    T.eq("K17 a pre-mapping request leaves no pending callback", next(c.mgr._schedulePending), nil)
+    T.eq("K18 no sequence is allocated for the refused send", c.mgr._scheduleSequence or 0, 0)
+    asClient(c)
+    IncomeScheduleEvent.eventId = 1
+    c.mgr:update(IncomeManager.SCHEDULE_VIEW_RETRY_MS)
+    T.eq("K19 the waiting client retries after id assignment", #c.outbox, 1)
+    pump(c)
+    T.eq("K20 the retried view reaches the client", viewOf(c).unit .. " " .. viewOf(c).amount, "PER_DAY 5000")
 end
 
 -- ══════════════════════════════════════════════════════════════════════════════

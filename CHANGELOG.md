@@ -13,6 +13,9 @@ the repo's git history and README.
 
 ## [Unreleased]
 
+### Fixed
+- On multiplayer join, wait for the host-assigned Income schedule event ID before sending the initial view request; the existing retry obtains the view once event registration completes.
+
 ## [2.3.0.0] - 2026-10-12
 
 > **This is not a final release.** It gives everyone, testers and players, new or returning, everything we have built so far, so nobody has to wait on an old version any longer. The Realistic Farming suite is far from done: we are still building and expanding every mod, and completing it could take months, possibly a year. Expect changes and rough edges along the way, and please report anything that looks wrong.
