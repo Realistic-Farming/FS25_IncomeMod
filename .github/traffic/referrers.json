@@ -3760,5 +3760,22 @@
       "count": 4,
       "uniques": 4
     }
+  ],
+  "2026-10-26": [
+    {
+      "referrer": "github.com",
+      "count": 22,
+      "uniques": 20
+    },
+    {
+      "referrer": "Google",
+      "count": 9,
+      "uniques": 8
+    },
+    {
+      "referrer": "realisticfarming.com",
+      "count": 6,
+      "uniques": 6
+    }
   ]
 }

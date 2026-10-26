@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-10-25T00:37:57Z
-**Days tracked:** 181 | **Download snapshots:** 591 (hourly)
+**Last updated:** 2026-10-26T00:48:16Z
+**Days tracked:** 182 | **Download snapshots:** 595 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 79 | 51 |
-| Git Clones | 423 | 150 |
+| Page Views | 78 | 50 |
+| Git Clones | 468 | 163 |
 
 > **Engagement:** 1.5 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 517 of 51 visitors cloned or downloaded (**1013.7%**)
+> **14-day conversion:** 534 of 50 visitors cloned or downloaded (**1068.0%**)
 >
-> Unique cloners: 150 | Release downloads: 367
+> Unique cloners: 163 | Release downloads: 371
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 367 |
-| Git Clones (14-day) | 423 |
-| **Total Acquisitions** | **790** |
+| Zip Downloads | 371 |
+| Git Clones (14-day) | 468 |
+| **Total Acquisitions** | **839** |
 
 ---
 
@@ -55,8 +55,8 @@
 | Source | Views | Unique |
 |--------|-------|--------|
 | github.com | 22 | 20 |
-| Google | 10 | 9 |
-| realisticfarming.com | 4 | 4 |
+| Google | 9 | 8 |
+| realisticfarming.com | 6 | 6 |
 
 ---
 
@@ -76,12 +76,14 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 42 | 37 |
+| `/Realistic-Farming/FS25_IncomeMod` | 38 | 33 |
 | `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.3.0.0` | 19 | 18 |
-| `/Realistic-Farming/FS25_IncomeMod/releases` | 10 | 9 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.2.0.0` | 5 | 5 |
+| `/Realistic-Farming/FS25_IncomeMod/releases` | 12 | 11 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.2.0.0` | 4 | 4 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/99` | 2 | 1 |
+| `/Realistic-Farming/FS25_IncomeMod/commits` | 1 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.8.0` | 1 | 1 |
+| `/realistic-farming/fs25_incomemod/commit/1c699e59a41dee7a03a67ff670533a03e2ecb63b` | 1 | 1 |
 
 ---
 
