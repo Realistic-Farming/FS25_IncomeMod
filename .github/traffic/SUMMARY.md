@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-10-27T12:49:08Z
-**Days tracked:** 183 | **Download snapshots:** 597 (hourly)
+**Last updated:** 2026-10-27T18:26:23Z
+**Days tracked:** 183 | **Download snapshots:** 598 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 76 | 49 |
-| Git Clones | 478 | 167 |
+| Page Views | 73 | 49 |
+| Git Clones | 495 | 170 |
 
-> **Engagement:** 1.5 pages per visitor (14-day avg)
+> **Engagement:** 1.4 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 538 of 49 visitors cloned or downloaded (**1097.9%**)
+> **14-day conversion:** 542 of 49 visitors cloned or downloaded (**1106.1%**)
 >
-> Unique cloners: 167 | Release downloads: 371
+> Unique cloners: 170 | Release downloads: 372
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 371 |
-| Git Clones (14-day) | 478 |
-| **Total Acquisitions** | **849** |
+| Zip Downloads | 372 |
+| Git Clones (14-day) | 495 |
+| **Total Acquisitions** | **867** |
 
 ---
 
@@ -54,7 +54,7 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 21 | 19 |
+| github.com | 18 | 16 |
 | Google | 7 | 7 |
 | realisticfarming.com | 7 | 7 |
 | Bing | 1 | 1 |
@@ -77,12 +77,11 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 34 | 30 |
+| `/Realistic-Farming/FS25_IncomeMod` | 32 | 28 |
 | `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.3.0.0` | 20 | 19 |
 | `/Realistic-Farming/FS25_IncomeMod/releases` | 14 | 13 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.2.0.0` | 2 | 2 |
+| `/Realistic-Farming/FS25_IncomeMod/commits` | 2 | 2 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/99` | 2 | 1 |
-| `/Realistic-Farming/FS25_IncomeMod/commits` | 1 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/issues/58` | 1 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.8.0` | 1 | 1 |
 | `/realistic-farming/fs25_incomemod/commit/1c699e59a41dee7a03a67ff670533a03e2ecb63b` | 1 | 1 |

@@ -37508,21 +37508,21 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-10-27T12:48:49Z",
+    "timestamp": "2026-10-27T18:26:02Z",
     "date": "2026-10-27",
     "views": {
-      "count": 76,
+      "count": 73,
       "uniques": 49
     },
     "clones": {
-      "count": 478,
-      "uniques": 167
+      "count": 495,
+      "uniques": 170
     },
     "referrers": [
       {
         "referrer": "github.com",
-        "count": 21,
-        "uniques": 19
+        "count": 18,
+        "uniques": 16
       },
       {
         "referrer": "Google",
@@ -37544,8 +37544,8 @@
       {
         "path": "/Realistic-Farming/FS25_IncomeMod",
         "title": "Overview",
-        "count": 34,
-        "uniques": 30
+        "count": 32,
+        "uniques": 28
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.3.0.0",
@@ -37560,8 +37560,8 @@
         "uniques": 13
       },
       {
-        "path": "/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.2.0.0",
-        "title": "/releases/tag/v2.2.0.0",
+        "path": "/Realistic-Farming/FS25_IncomeMod/commits",
+        "title": "/commits",
         "count": 2,
         "uniques": 2
       },
@@ -37569,12 +37569,6 @@
         "path": "/Realistic-Farming/FS25_IncomeMod/pull/99",
         "title": "/pull/99",
         "count": 2,
-        "uniques": 1
-      },
-      {
-        "path": "/Realistic-Farming/FS25_IncomeMod/commits",
-        "title": "/commits",
-        "count": 1,
         "uniques": 1
       },
       {
@@ -37600,7 +37594,7 @@
       {
         "assets": [
           {
-            "downloads": 52,
+            "downloads": 53,
             "name": "FS25_IncomeMod.zip"
           }
         ],
