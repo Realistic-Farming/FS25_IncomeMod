@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-10-27T18:26:23Z
-**Days tracked:** 183 | **Download snapshots:** 598 (hourly)
+**Last updated:** 2026-10-31T18:04:32Z
+**Days tracked:** 184 | **Download snapshots:** 607 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 73 | 49 |
-| Git Clones | 495 | 170 |
+| Page Views | 75 | 63 |
+| Git Clones | 342 | 119 |
 
-> **Engagement:** 1.4 pages per visitor (14-day avg)
+> **Engagement:** 1.1 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 542 of 49 visitors cloned or downloaded (**1106.1%**)
+> **14-day conversion:** 500 of 63 visitors cloned or downloaded (**793.6%**)
 >
-> Unique cloners: 170 | Release downloads: 372
+> Unique cloners: 119 | Release downloads: 381
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 372 |
-| Git Clones (14-day) | 495 |
-| **Total Acquisitions** | **867** |
+| Zip Downloads | 381 |
+| Git Clones (14-day) | 342 |
+| **Total Acquisitions** | **723** |
 
 ---
 
@@ -54,9 +54,10 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 18 | 16 |
-| Google | 7 | 7 |
-| realisticfarming.com | 7 | 7 |
+| aocr.org | 19 | 19 |
+| github.com | 19 | 17 |
+| Google | 6 | 6 |
+| realisticfarming.com | 6 | 6 |
 | Bing | 1 | 1 |
 
 ---
@@ -68,7 +69,7 @@
 | Metric | Current |
 |--------|---------|
 | Stars | 5 |
-| Forks | 2 |
+| Forks | 3 |
 | Watchers | 0 |
 
 ---
@@ -77,14 +78,16 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 32 | 28 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.3.0.0` | 20 | 19 |
-| `/Realistic-Farming/FS25_IncomeMod/releases` | 14 | 13 |
+| `/Realistic-Farming/FS25_IncomeMod` | 34 | 32 |
+| `/Realistic-Farming/FS25_IncomeMod/releases` | 14 | 14 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.3.0.0` | 7 | 7 |
+| `/Realistic-Farming/FS25_IncomeMod/pull/13` | 4 | 4 |
+| `/Realistic-Farming/FS25_IncomeMod/pull/26/files` | 4 | 4 |
 | `/Realistic-Farming/FS25_IncomeMod/commits` | 2 | 2 |
-| `/Realistic-Farming/FS25_IncomeMod/pull/99` | 2 | 1 |
+| `/Realistic-Farming/FS25_IncomeMod/pull/14` | 2 | 2 |
+| `/Realistic-Farming/FS25_IncomeMod/blob/main/CONTRIBUTING.md` | 1 | 1 |
+| `/Realistic-Farming/FS25_IncomeMod/issues/25` | 1 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/issues/58` | 1 | 1 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.1.8.0` | 1 | 1 |
-| `/realistic-farming/fs25_incomemod/commit/1c699e59a41dee7a03a67ff670533a03e2ecb63b` | 1 | 1 |
 
 ---
 
