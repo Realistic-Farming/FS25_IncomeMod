@@ -3829,18 +3829,18 @@
   ],
   "2026-11-01": [
     {
+      "referrer": "github.com",
+      "count": 22,
+      "uniques": 18
+    },
+    {
       "referrer": "aocr.org",
       "count": 19,
       "uniques": 19
     },
     {
-      "referrer": "github.com",
-      "count": 19,
-      "uniques": 17
-    },
-    {
       "referrer": "Google",
-      "count": 6,
+      "count": 7,
       "uniques": 6
     },
     {

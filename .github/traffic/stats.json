@@ -38025,30 +38025,30 @@
     "watchers": 0
   },
   {
-    "timestamp": "2026-11-01T06:56:49Z",
+    "timestamp": "2026-11-01T18:40:20Z",
     "date": "2026-11-01",
     "views": {
-      "count": 75,
-      "uniques": 63
+      "count": 85,
+      "uniques": 68
     },
     "clones": {
-      "count": 342,
-      "uniques": 119
+      "count": 303,
+      "uniques": 102
     },
     "referrers": [
+      {
+        "referrer": "github.com",
+        "count": 22,
+        "uniques": 18
+      },
       {
         "referrer": "aocr.org",
         "count": 19,
         "uniques": 19
       },
       {
-        "referrer": "github.com",
-        "count": 19,
-        "uniques": 17
-      },
-      {
         "referrer": "Google",
-        "count": 6,
+        "count": 7,
         "uniques": 6
       },
       {
@@ -38066,14 +38066,14 @@
       {
         "path": "/Realistic-Farming/FS25_IncomeMod",
         "title": "Overview",
-        "count": 34,
-        "uniques": 32
+        "count": 41,
+        "uniques": 35
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases",
         "title": "/releases",
-        "count": 14,
-        "uniques": 14
+        "count": 16,
+        "uniques": 16
       },
       {
         "path": "/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.3.0.0",
@@ -38112,14 +38112,14 @@
         "uniques": 1
       },
       {
-        "path": "/Realistic-Farming/FS25_IncomeMod/issues/25",
-        "title": "/issues/25",
+        "path": "/Realistic-Farming/FS25_IncomeMod/blob/main/icon.dds",
+        "title": "/blob/main/icon.dds",
         "count": 1,
         "uniques": 1
       },
       {
-        "path": "/Realistic-Farming/FS25_IncomeMod/issues/58",
-        "title": "/issues/58",
+        "path": "/Realistic-Farming/FS25_IncomeMod/fork",
+        "title": "/fork",
         "count": 1,
         "uniques": 1
       }
@@ -38128,7 +38128,7 @@
       {
         "assets": [
           {
-            "downloads": 62,
+            "downloads": 64,
             "name": "FS25_IncomeMod.zip"
           }
         ],
