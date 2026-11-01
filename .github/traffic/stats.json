@@ -38023,5 +38023,272 @@
     "stars": 5,
     "forks": 3,
     "watchers": 0
+  },
+  {
+    "timestamp": "2026-11-01T00:40:15Z",
+    "date": "2026-11-01",
+    "views": {
+      "count": 75,
+      "uniques": 63
+    },
+    "clones": {
+      "count": 342,
+      "uniques": 119
+    },
+    "referrers": [
+      {
+        "referrer": "aocr.org",
+        "count": 19,
+        "uniques": 19
+      },
+      {
+        "referrer": "github.com",
+        "count": 19,
+        "uniques": 17
+      },
+      {
+        "referrer": "Google",
+        "count": 6,
+        "uniques": 6
+      },
+      {
+        "referrer": "realisticfarming.com",
+        "count": 6,
+        "uniques": 6
+      },
+      {
+        "referrer": "Bing",
+        "count": 1,
+        "uniques": 1
+      }
+    ],
+    "popular_paths": [
+      {
+        "path": "/Realistic-Farming/FS25_IncomeMod",
+        "title": "Overview",
+        "count": 34,
+        "uniques": 32
+      },
+      {
+        "path": "/Realistic-Farming/FS25_IncomeMod/releases",
+        "title": "/releases",
+        "count": 14,
+        "uniques": 14
+      },
+      {
+        "path": "/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.3.0.0",
+        "title": "/releases/tag/v2.3.0.0",
+        "count": 7,
+        "uniques": 7
+      },
+      {
+        "path": "/Realistic-Farming/FS25_IncomeMod/pull/13",
+        "title": "/pull/13",
+        "count": 4,
+        "uniques": 4
+      },
+      {
+        "path": "/Realistic-Farming/FS25_IncomeMod/pull/26/files",
+        "title": "/pull/26/files",
+        "count": 4,
+        "uniques": 4
+      },
+      {
+        "path": "/Realistic-Farming/FS25_IncomeMod/commits",
+        "title": "/commits",
+        "count": 2,
+        "uniques": 2
+      },
+      {
+        "path": "/Realistic-Farming/FS25_IncomeMod/pull/14",
+        "title": "/pull/14",
+        "count": 2,
+        "uniques": 2
+      },
+      {
+        "path": "/Realistic-Farming/FS25_IncomeMod/blob/main/CONTRIBUTING.md",
+        "title": "/blob/main/CONTRIBUTING.md",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/Realistic-Farming/FS25_IncomeMod/issues/25",
+        "title": "/issues/25",
+        "count": 1,
+        "uniques": 1
+      },
+      {
+        "path": "/Realistic-Farming/FS25_IncomeMod/issues/58",
+        "title": "/issues/58",
+        "count": 1,
+        "uniques": 1
+      }
+    ],
+    "releases": [
+      {
+        "assets": [
+          {
+            "downloads": 62,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.3.0.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 42,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.2.0.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 48,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.8.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 6,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.7.34-pre"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 37,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.7.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 5,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.6.1"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 115,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.6.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 1,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.5.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 14,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.4.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 4,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.3.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 13,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.2.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 2,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.1.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 11,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.1.0.0"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 5,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.0.0.4"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 3,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.0.0.3"
+      },
+      {
+        "assets": [],
+        "tag": "v2.0.0.2"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 9,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.0.0.1"
+      },
+      {
+        "assets": [
+          {
+            "downloads": 4,
+            "name": "FS25_IncomeMod.zip"
+          }
+        ],
+        "tag": "v2.0.0.0"
+      },
+      {
+        "assets": [],
+        "tag": "v1.1.0.0"
+      }
+    ],
+    "stars": 5,
+    "forks": 3,
+    "watchers": 0
   }
 ]
