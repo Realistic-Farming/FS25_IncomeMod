@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-11-01T18:40:35Z
-**Days tracked:** 185 | **Download snapshots:** 610 (hourly)
+**Last updated:** 2026-11-02T18:56:05Z
+**Days tracked:** 186 | **Download snapshots:** 611 (hourly)
 
 ---
 
@@ -11,10 +11,10 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 85 | 68 |
-| Git Clones | 303 | 102 |
+| Page Views | 95 | 73 |
+| Git Clones | 326 | 112 |
 
-> **Engagement:** 1.2 pages per visitor (14-day avg)
+> **Engagement:** 1.3 pages per visitor (14-day avg)
 
 ---
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 485 of 68 visitors cloned or downloaded (**713.2%**)
+> **14-day conversion:** 495 of 73 visitors cloned or downloaded (**678.0%**)
 >
-> Unique cloners: 102 | Release downloads: 383
+> Unique cloners: 112 | Release downloads: 383
 
 ---
 
@@ -43,8 +43,8 @@
 | Channel | Count |
 |---------|-------|
 | Zip Downloads | 383 |
-| Git Clones (14-day) | 303 |
-| **Total Acquisitions** | **686** |
+| Git Clones (14-day) | 326 |
+| **Total Acquisitions** | **709** |
 
 ---
 
@@ -54,9 +54,9 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 22 | 18 |
+| github.com | 29 | 23 |
 | aocr.org | 19 | 19 |
-| Google | 7 | 6 |
+| Google | 8 | 7 |
 | realisticfarming.com | 6 | 6 |
 | Bing | 1 | 1 |
 
@@ -78,7 +78,7 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 41 | 35 |
+| `/Realistic-Farming/FS25_IncomeMod` | 49 | 40 |
 | `/Realistic-Farming/FS25_IncomeMod/releases` | 16 | 16 |
 | `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.3.0.0` | 7 | 7 |
 | `/Realistic-Farming/FS25_IncomeMod/pull/13` | 4 | 4 |
@@ -87,7 +87,7 @@
 | `/Realistic-Farming/FS25_IncomeMod/pull/14` | 2 | 2 |
 | `/Realistic-Farming/FS25_IncomeMod/blob/main/CONTRIBUTING.md` | 1 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/blob/main/icon.dds` | 1 | 1 |
-| `/Realistic-Farming/FS25_IncomeMod/fork` | 1 | 1 |
+| `/Realistic-Farming/FS25_IncomeMod/branches` | 1 | 1 |
 
 ---
 
