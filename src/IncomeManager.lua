@@ -1049,6 +1049,12 @@ function IncomeManager:requestIncomeSchedule(operation, amountText, mode, revisi
     if g_client == nil or g_client.getServerConnection == nil or IncomeScheduleEvent == nil then
         return false
     end
+    -- The host assigns event ids during client join. A request before this class has
+    -- its id would be dropped by Connection:sendEvent while appearing successful here;
+    -- the waiting VIEW path retries after the mapping arrives.
+    if IncomeScheduleEvent.eventId == nil then
+        return false
+    end
     self._scheduleSequence = (self._scheduleSequence or 0) % IncomeSchedule.MAX_SEQUENCE + 1
     local sequence = self._scheduleSequence
     if onReply ~= nil then self._schedulePending[sequence] = onReply end

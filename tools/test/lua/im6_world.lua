@@ -198,6 +198,8 @@ function W.newClient(name, master, ownFile)
     end }
     W.clients[#W.clients + 1] = c
     W.asClient(c)
+    -- This fixture models a client after the host's EVENT_IDS mapping arrived.
+    IncomeScheduleEvent.eventId = 1
     console, settingsFile = c.console, ownFile or {}
     local before = W.saves
     c.mgr = IncomeManager.new(c.mission, "./", "FS25_IncomeMod")
