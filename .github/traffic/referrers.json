@@ -4020,5 +4020,37 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-11-17": [
+    {
+      "referrer": "github.com",
+      "count": 30,
+      "uniques": 26
+    },
+    {
+      "referrer": "Google",
+      "count": 28,
+      "uniques": 22
+    },
+    {
+      "referrer": "aocr.org",
+      "count": 18,
+      "uniques": 18
+    },
+    {
+      "referrer": "realisticfarming.com",
+      "count": 2,
+      "uniques": 2
+    },
+    {
+      "referrer": "Bing",
+      "count": 1,
+      "uniques": 1
+    },
+    {
+      "referrer": "yandex.ru",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }
