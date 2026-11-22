@@ -4128,5 +4128,27 @@
       "count": 1,
       "uniques": 1
     }
+  ],
+  "2026-11-22": [
+    {
+      "referrer": "github.com",
+      "count": 31,
+      "uniques": 24
+    },
+    {
+      "referrer": "Google",
+      "count": 21,
+      "uniques": 16
+    },
+    {
+      "referrer": "realisticfarming.com",
+      "count": 2,
+      "uniques": 2
+    },
+    {
+      "referrer": "yandex.ru",
+      "count": 1,
+      "uniques": 1
+    }
   ]
 }

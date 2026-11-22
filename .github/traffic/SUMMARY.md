@@ -1,7 +1,7 @@
 # Repository Traffic Dashboard
 
-**Last updated:** 2026-11-21T18:20:52Z
-**Days tracked:** 195 | **Download snapshots:** 646 (hourly)
+**Last updated:** 2026-11-22T12:03:43Z
+**Days tracked:** 196 | **Download snapshots:** 648 (hourly)
 
 ---
 
@@ -11,8 +11,8 @@
 
 | Metric | 14-Day Total | Unique |
 |--------|-------------|--------|
-| Page Views | 105 | 67 |
-| Git Clones | 271 | 113 |
+| Page Views | 92 | 60 |
+| Git Clones | 260 | 108 |
 
 > **Engagement:** 1.5 pages per visitor (14-day avg)
 
@@ -30,9 +30,9 @@
 
 ![Conversion](charts/conversion.png)
 
-> **14-day conversion:** 529 of 67 visitors cloned or downloaded (**789.5%**)
+> **14-day conversion:** 525 of 60 visitors cloned or downloaded (**875.0%**)
 >
-> Unique cloners: 113 | Release downloads: 416
+> Unique cloners: 108 | Release downloads: 417
 
 ---
 
@@ -42,9 +42,9 @@
 
 | Channel | Count |
 |---------|-------|
-| Zip Downloads | 416 |
-| Git Clones (14-day) | 271 |
-| **Total Acquisitions** | **687** |
+| Zip Downloads | 417 |
+| Git Clones (14-day) | 260 |
+| **Total Acquisitions** | **677** |
 
 ---
 
@@ -54,8 +54,8 @@
 
 | Source | Views | Unique |
 |--------|-------|--------|
-| github.com | 35 | 27 |
-| Google | 23 | 18 |
+| github.com | 31 | 24 |
+| Google | 21 | 16 |
 | realisticfarming.com | 2 | 2 |
 | yandex.ru | 1 | 1 |
 
@@ -77,10 +77,10 @@
 
 | Page | Views | Unique |
 |------|-------|--------|
-| `/Realistic-Farming/FS25_IncomeMod` | 72 | 56 |
-| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.3.0.0` | 18 | 13 |
-| `/Realistic-Farming/FS25_IncomeMod/releases` | 5 | 4 |
-| `/Realistic-Farming/FS25_IncomeMod/issues` | 3 | 3 |
+| `/Realistic-Farming/FS25_IncomeMod` | 62 | 49 |
+| `/Realistic-Farming/FS25_IncomeMod/releases/tag/v2.3.0.0` | 17 | 12 |
+| `/Realistic-Farming/FS25_IncomeMod/releases` | 4 | 4 |
+| `/Realistic-Farming/FS25_IncomeMod/issues` | 2 | 2 |
 | `/Realistic-Farming/FS25_IncomeMod/issues/58` | 2 | 2 |
 | `/Realistic-Farming/FS25_IncomeMod/blob/main/LICENSE` | 1 | 1 |
 | `/Realistic-Farming/FS25_IncomeMod/blob/main/icon.dds` | 1 | 1 |
